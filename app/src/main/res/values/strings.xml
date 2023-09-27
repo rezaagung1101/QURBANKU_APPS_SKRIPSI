@@ -1,6 +1,14 @@
 <resources>
     <string name="app_name">Qurbanku</string>
-
+    <string name="welcome_quote">Permudah Manajemen Pembelian dan Patungan Kurban Anda dengan fitur di aplikasi QurbanKu</string>
+    <string name="welcome_quote_question">Apa peran Anda dalam ibadah kurban kali ini?</string>
+    <string name="next">Berikutnya</string>
+    <string name="panitia">Panitia</string>
+    <string name="jemaah">Jemaah</string>
+    <string name="login">Masuk</string>
+    <string name="login_panitia_quote">Anda akan masuk sebagai Panitia Kurban</string>
+    <string name="login_jemaah_quote">Anda akan masuk sebagai Jemaah</string>
+    <string name="signup">Daftar</string>
     <!--    Spinner-->
     <string-array name="spinner_true_false">
         <item>Ya</item>
