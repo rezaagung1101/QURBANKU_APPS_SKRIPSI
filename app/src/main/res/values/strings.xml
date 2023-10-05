@@ -5,10 +5,37 @@
     <string name="next">Berikutnya</string>
     <string name="panitia">Panitia</string>
     <string name="jemaah">Jemaah</string>
+    <!--    Login & SignUp-->
     <string name="login">Masuk</string>
     <string name="login_panitia_quote">Anda akan masuk sebagai Panitia Kurban</string>
     <string name="login_jemaah_quote">Anda akan masuk sebagai Jemaah</string>
+    <string name="login_failed">Login gagal</string>
+    <string name="login_success">belum ada nich</string>
+    <string name="login_question">Sudah punya akun?</string>
     <string name="signup">Daftar</string>
+    <string name="signup_panitia_quote">Masukkan data masjid Anda untuk mendaftar akun\n</string>
+    <string name="signup_jemaah_quote">Masukkan data Anda untuk mendaftar akun</string>
+    <string name="signup_success_message">Akun anda berhasil dibuat, silahkan login!</string>
+    <string name="signup_failed_message">Akun anda gagal dibuat, silahkan mengikuti ketentuan!</string>
+    <string name="signup_success_title">Sign up berhasil</string>
+    <string name="signup_failed_title">Sign up gagal</string>
+    <string name="signUp_question">Belum punya akun?</string>
+    <string name="column_isEmpty_message">Kolom tidak boleh kosong!</string>
+    <string name="name_minimum">Minimum 2 karakter</string>
+    <string name="email">Email</string>
+    <string name="email_masjid">Email masjid</string>
+    <string name="email_invalid">Email tidak valid</string>
+    <string name="email_password_invalid">Email atau password tidak sesuai</string>
+    <string name="name_masjid">Nama masjid</string>
+    <string name="name_head_takmir">Nama ketua takmir</string>
+    <string name="password">Password</string>
+    <string name="password_minimum">Password minimal 8 karakter</string>
+    <string name="add_address">Tambah alamat</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="signup_bank_quote">Masukkan data Rekening</string>
+    <string name="account_number">No. Rekening</string>
+    <string name="bank_name">Nama bank</string>
+    <string name="account_name">Nama nasabah</string>
     <!--    Spinner-->
     <string-array name="spinner_true_false">
         <item>Ya</item>
@@ -26,4 +53,37 @@
         <item>Unta</item>
     </string-array>
     <string name="underlined_nextButton"><u>Lihat Selengkapnya</u></string>
+    <string name="goat">Kambing</string>
+    <string name="breed">Jenis</string>
+    <string name="weight">Berat</string>
+    <string name="weight_value">%d kg</string>
+    <string name="joint_venture">Patungan</string>
+    <string name="price">Rp %d</string>
+    <string name="availability_number"><u>Tersedia %d orang</u></string>
+    <string name="animal_availability"><u>%d Hewan Kurban</u></string>
+    <string name="years_value">2023</string>
+    <string name="chairman_event">Ketua Panitia</string>
+    <string name="total_animal">Jumlah hewan</string>
+    <string name="temp_id_transaction">idTransaksi1234567</string>
+    <string name="name">Nama</string>
+    <string name="phone_number">No. HP</string>
+    <string name="complete_address">Alamat lengkap</string>
+    <string name="head_of_family">Nama kepala keluarga</string>
+    <string name="note">Catatan
+    </string>
+    <string name="temp_date">23 April 2024 19.57</string>
+    <string name="transaction_date">Tanggal transaksi</string>
+    <string name="animal_name">Hewan</string>
+    <string name="total_transfer">Total transfer</string>
+    <string name="rejected"><b><strike>DITOLAK</strike></b></string>
+    <string name="accepted"><b>DITERIMA</b></string>
+    <string name="waiting_confirmation"><b>MENUNGGU KONFIRMASI</b></string>
+    <string name="detail_instruction">Klik untuk melihat detail!</string>
+    <string-array name="note_jemaah_signUp">
+        <item>⦾ Nama kepala keluarga akan dicantumkan ketika Anda berkurban</item>
+        <item>⦾ Pastikan data yang Anda masukkan sudah benar</item>
+    </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+
+
 </resources>

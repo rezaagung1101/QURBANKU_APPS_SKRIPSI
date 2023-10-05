@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card_transaction_jemaah"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:elevation="10dp"
+    app:cardCornerRadius="10dp"
+    app:strokeColor="@color/danger"
+    app:strokeWidth="2dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:backgroundTint="@color/white"
+        android:padding="8dp">
+
+        <TextView
+            android:id="@+id/tv_id_transaction"
+            style="@style/TextSpec.Value.SmallDark"
+            android:text="@string/temp_id_transaction"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_transaction_status"
+            style="@style/TextSpec.Value.SmallBold"
+            android:text="@string/rejected"
+            android:textColor="@color/danger"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/tv_transaction_date_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_id_transaction" />
+
+        <TextView
+            android:id="@+id/tv_transaction_date_title"
+            style="@style/TextSpec.Value.SmallDark"
+            android:text="@string/transaction_date"
+            android:textColor="@color/text_color_light"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_id_transaction" />
+
+        <TextView
+            android:id="@+id/tv_transaction_date_value"
+            style="@style/TextSpec.Value.SmallDark"
+            android:text="@string/temp_date"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_transaction_date_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_id_transaction" />
+
+        <TextView
+            android:id="@+id/tv_animal_name_title"
+            style="@style/TextSpec.Value.SmallDark"
+            android:text="@string/animal_name"
+            android:textColor="@color/text_color_light"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_transaction_date_title" />
+
+        <TextView
+            android:id="@+id/tv_animal_name_value"
+            style="@style/TextSpec.Value.SmallDark"
+            android:text="@string/goat"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_animal_name_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_transaction_date_title" />
+
+        <TextView
+            android:id="@+id/tv_transfer_total_title"
+            style="@style/TextSpec.Value.SmallDark"
+            android:text="@string/total_transfer"
+            android:textColor="@color/text_color_light"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_animal_name_title" />
+
+        <TextView
+            android:id="@+id/tv_transfer_total_value"
+            style="@style/TextSpec.Value.SmallDark"
+            android:text="@string/price"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_transfer_total_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_transfer_total_title" />
+
+        <TextView
+            android:id="@+id/tv_detail_instruction"
+            android:textStyle="italic"
+            style="@style/TextSpec.Value.SmallDark"
+            android:text="@string/detail_instruction"
+            android:textColor="@color/text_color_light"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_transfer_total_value" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

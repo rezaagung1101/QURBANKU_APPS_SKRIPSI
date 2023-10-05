@@ -2,6 +2,7 @@ package com.androidexpert.qurbanku_apps_skripsi.ui.welcome
 
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
+import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -11,10 +12,12 @@ import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
 import com.androidexpert.qurbanku_apps_skripsi.R
 import com.androidexpert.qurbanku_apps_skripsi.databinding.ActivityWelcomeBinding
+import com.androidexpert.qurbanku_apps_skripsi.ui.login.LoginActivity
 
 class WelcomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityWelcomeBinding
     private var isPanitia: Boolean = true
+    private var isActorSelected: Boolean = false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityWelcomeBinding.inflate(layoutInflater)
@@ -25,14 +28,23 @@ class WelcomeActivity : AppCompatActivity() {
 
     private fun onAction() {
         binding.btnNext.setOnClickListener {
-            binding.apply {
-                Handler(Looper.getMainLooper()).postDelayed({
-                    menu1.setImageDrawable(resources.getDrawable(R.drawable.ic_circle_24))
-                    menu2.setImageDrawable(resources.getDrawable(R.drawable.ic_circle_full_24))
-                }, 300)
+            if (isActorSelected != true) {
+                binding.apply {
+                    Handler(Looper.getMainLooper()).postDelayed({
+                        menu1.setImageDrawable(resources.getDrawable(R.drawable.ic_circle_24))
+                        menu2.setImageDrawable(resources.getDrawable(R.drawable.ic_circle_full_24))
+                    }, 300)
+                }
+                this.startAnimation()
+                isActorSelected = true
             }
-            this.startAnimation()
+            else{
+                val intent = Intent(this, LoginActivity::class.java)
+                intent.putExtra("IS_PANITIA", isPanitia)
+                startActivity(intent)
+            }
         }
+
         ArrayAdapter.createFromResource(
             this,
             R.array.spinner_actor, R.layout.spinner_actor_item
@@ -50,15 +62,12 @@ class WelcomeActivity : AppCompatActivity() {
                     position: Int,
                     id: Long,
                 ) {
-                    //set action
                     if (position != 0) isPanitia = false
                 }
-
                 override fun onNothingSelected(parent: AdapterView<*>?) {
                     isPanitia = true
                 }
             }
-
     }
 
     private fun startAnimation() {

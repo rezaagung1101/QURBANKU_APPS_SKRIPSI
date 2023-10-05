@@ -2,7 +2,15 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.QURBANKU_APPS_SKRIPSI" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">@color/green_main</item>
+        <item name="colorPrimaryVariant">@color/green_light_1</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/green_dark_label</item>
+        <item name="colorSecondaryVariant">@color/green_dark_label</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">@color/green_main</item>
     </style>
 
     <style name="Theme.QURBANKU_APPS_SKRIPSI" parent="Base.Theme.QURBANKU_APPS_SKRIPSI" />
@@ -29,6 +37,7 @@
         <item name="textAllCaps">false</item>
         <item name="android:textColor">@color/text_color</item>
     </style>
+
     <style name="TextSpec.Field.SmallLight">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -37,15 +46,17 @@
         <item name="textAllCaps">false</item>
         <item name="android:textColor">@color/text_color_light</item>
     </style>
+
     <style name="TextSpec.Field.Button">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_height">55dp</item>
         <item name="android:textSize">14sp</item>
         <item name="fontFamily">@font/semi_bold_poppins</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:backgroundTint">@color/green_main</item>
         <item name="cornerRadius">10dp</item>
     </style>
+
     <style name="TextSpec.Field.Button.SmallTransparent">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -54,35 +65,51 @@
         <item name="android:textColor">@color/green_dark_label</item>
         <item name="android:background">?android:selectableItemBackground</item>
     </style>
+
     <style name="TextSpec.Value">
-        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_weight">2</item>
+        <item name="android:textSize">14sp</item>
+        <item name="fontFamily">@font/regular_poppins</item>
+        <item name="android:textColor">@color/text_color</item>
+    </style>
+
+    <style name="TextSpec.Value.Light">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">14sp</item>
         <item name="fontFamily">@font/regular_poppins</item>
         <item name="android:textColor">@color/text_color_light</item>
     </style>
 
     <style name="TextSpec.Value.SmallDark">
-        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_weight">2</item>
         <item name="android:textSize">12sp</item>
         <item name="fontFamily">@font/regular_poppins</item>
-        <item name="android:textColor">@color/black</item>
+        <item name="android:textColor">@color/text_color</item>
+    </style>
+
+    <style name="TextSpec.Value.SmallBold">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">2</item>
+        <item name="android:textSize">12sp</item>
+        <item name="fontFamily">@font/popping_bold</item>
     </style>
 
     <style name="TextSpec.Heading1">
-        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_weight">4</item>
         <item name="android:textSize">20sp</item>
-        <item name="fontFamily">@font/popping_bold</item>
+        <item name="fontFamily">@font/semi_bold_poppins</item>
+        <item name="textAllCaps">false</item>
         <item name="android:textColor">@color/text_color</item>
     </style>
 
     <style name="TextSpec.Heading2">
-        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_weight">4</item>
         <item name="android:textSize">16sp</item>
@@ -91,7 +118,7 @@
     </style>
 
     <style name="TextSpec.Heading3">
-        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_weight">4</item>
         <item name="android:textSize">14sp</item>
@@ -99,38 +126,66 @@
         <item name="android:textColor">@color/text_color</item>
     </style>
 
-<!--    <style name="TextSpec.TextDetail">-->
-<!--        <item name="android:layout_width">wrap_content</item>-->
-<!--        <item name="android:layout_height">wrap_content</item>-->
-<!--        <item name="android:textSize">14sp</item>-->
-<!--        <item name="fontFamily">@font/regular_poppins</item>-->
-<!--        <item name="android:textColor">@color/text_color</item>-->
-<!--    </style>-->
+    <!--    <style name="TextSpec.TextDetail">-->
+    <!--        <item name="android:layout_width">wrap_content</item>-->
+    <!--        <item name="android:layout_height">wrap_content</item>-->
+    <!--        <item name="android:textSize">14sp</item>-->
+    <!--        <item name="fontFamily">@font/regular_poppins</item>-->
+    <!--        <item name="android:textColor">@color/text_color</item>-->
+    <!--    </style>-->
 
     <style name="TextSpec.LabelBig">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">16sp</item>
         <item name="fontFamily">@font/semi_bold_poppins</item>
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textColor">@color/text_color</item>
     </style>
+
     <style name="TextSpec.LabelMedium">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">14sp</item>
         <item name="fontFamily">@font/semi_bold_poppins</item>
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textColor">@color/text_color</item>
     </style>
+
     <style name="TextSpec.LabelSmall">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">12sp</item>
         <item name="fontFamily">@font/semi_bold_poppins</item>
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textColor">@color/text_color</item>
     </style>
 
 
     <style name="FloatingButtonStyle" parent="">
         <item name="backgroundTint">@color/green_main</item>
+    </style>
+
+    <style name="CustomCardViewStyle" parent="@style/Widget.MaterialComponents.CardView">
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearanceOverlay_card_custom_corners</item>
+    </style>
+
+    <style name="ShapeAppearanceOverlay_card_custom_corners" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopRight">0dp</item>
+        <item name="cornerSizeTopLeft">20dp</item>
+        <item name="cornerSizeBottomRight">20dp</item>
+        <item name="cornerSizeBottomLeft">0dp</item>
+    </style>
+
+    <style name="LabelBackground">
+        <item name="android:paddingTop">2dp</item>
+        <item name="android:paddingBottom">2dp</item>
+        <item name="android:paddingLeft">12dp</item>
+        <item name="android:paddingRight">12dp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <!--        <item name="android:minWidth">180dp</item>-->
+        <!--        <item name="android:minHeight">10dp</item>-->
+        <item name="android:background">@color/green_dark_label</item>
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopRight">20dp</item>
     </style>
 </resources>
