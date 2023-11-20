@@ -5,16 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.signup.SignUpActivity"
-    android:padding="16dp">
+    >
 
     <include
         android:id="@+id/include"
-        layout="@layout/application_bar_logo"
+        layout="@layout/app_bar_logo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <FrameLayout
+        android:padding="16dp"
         android:id="@+id/frame_container"
         android:layout_width="match_parent"
         android:layout_height="0dp"

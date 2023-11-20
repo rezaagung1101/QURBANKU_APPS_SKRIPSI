@@ -5,36 +5,37 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.androidexpert.qurbanku_apps_skripsi.R
 import com.androidexpert.qurbanku_apps_skripsi.databinding.ActivityLoginBinding
-import com.androidexpert.qurbanku_apps_skripsi.ui.login.jemaah.LoginJemaahFragment
-import com.androidexpert.qurbanku_apps_skripsi.ui.login.panitia.LoginPanitiaFragment
+import com.androidexpert.qurbanku_apps_skripsi.ui.signup.SignUpActivity
 import com.androidexpert.qurbanku_apps_skripsi.ui.welcome.WelcomeActivity
 
 class LoginActivity : AppCompatActivity() {
-    private lateinit var binding : ActivityLoginBinding
+    private lateinit var binding: ActivityLoginBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        val isPanitia : Boolean = intent.getBooleanExtra("IS_PANITIA", true)
-        val fragmentManager = supportFragmentManager
-        val panitiaFragment = LoginPanitiaFragment()
-        val jemaahFragment = LoginJemaahFragment()
-        if (isPanitia==true) {
-            fragmentManager
-                .beginTransaction()
-                .add(R.id.frame_container, panitiaFragment, LoginPanitiaFragment::class.java.simpleName)
-                .commit()
+        val isPanitia: Boolean = intent.getBooleanExtra(isPanitia, true)
+        if (isPanitia != true) {
+            binding.ivBanner.setImageDrawable(resources.getDrawable(R.drawable.banner_jemaah))
+            binding.tvLoginQuote.text = resources.getString(R.string.login_jemaah_quote)
+            binding.tvSignUpQuestion.text = resources.getString(R.string.signUp_question_jemaah)
+            binding.etEmailLayout.hint = resources.getString(R.string.email)
+            binding.tvActor.text = resources.getString(R.string.jemaah_allcaps)
+            binding.tvSignUpQuestion.text = resources.getString(R.string.signUp_question_jemaah)
         }
-        else{
-            fragmentManager
-                .beginTransaction()
-                .add(R.id.frame_container, jemaahFragment, LoginJemaahFragment::class.java.simpleName)
-                .commit()
+        binding.btnSignup.setOnClickListener {
+            val intent = Intent(this, SignUpActivity::class.java)
+            intent.putExtra(SignUpActivity.isPanitia, isPanitia)
+            startActivity(intent)
         }
     }
 
     override fun onBackPressed() {
         startActivity(Intent(this, WelcomeActivity::class.java))
         finish()
+    }
+
+    companion object {
+        val isPanitia: String = "IS_PANITIA"
     }
 }

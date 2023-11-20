@@ -40,17 +40,17 @@ class WelcomeActivity : AppCompatActivity() {
             }
             else{
                 val intent = Intent(this, LoginActivity::class.java)
-                intent.putExtra("IS_PANITIA", isPanitia)
+                intent.putExtra(LoginActivity.isPanitia, isPanitia)
                 startActivity(intent)
             }
         }
 
         ArrayAdapter.createFromResource(
             this,
-            R.array.spinner_actor, R.layout.spinner_actor_item
+            R.array.spinner_actor, R.layout.spinner_item
         ).also { adapter ->
             // Specify the layout to use when the list of choices appears
-            adapter.setDropDownViewResource(R.layout.spinner_actor_item)
+            adapter.setDropDownViewResource(R.layout.spinner_item)
             // Apply the adapter to the spinner
             binding.btnSpinner.adapter = adapter
         }

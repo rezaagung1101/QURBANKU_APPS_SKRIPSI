@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card_qurbani_history_item"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:backgroundTint="@color/white"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="6dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:backgroundTint="@color/white">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/card_shape"
+            android:backgroundTint="@color/green_navbar"
+            android:paddingLeft="16dp"
+            android:paddingTop="4dp"
+            android:paddingRight="16dp"
+            android:paddingBottom="4dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/tv_animal_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/popping_bold"
+                android:text="@string/species"
+                android:textAllCaps="true"
+                android:textColor="@color/text_color_light"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TableLayout
+            android:id="@+id/tableLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:stretchColumns="1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout3">
+
+            <TableRow>
+
+                <TextView
+                    style="@style/TextSpec.Value"
+                    android:layout_column="1"
+                    android:text="@string/qurbani_location" />
+
+                <TextView
+                    android:id="@+id/tv_qurbani_location"
+                    style="@style/TextSpec.LabelMedium"
+                    android:gravity="right"
+                    android:text="@string/qurbani_location" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    style="@style/TextSpec.Value"
+                    android:layout_column="1"
+                    android:text="@string/qurbani_date" />
+
+                <TextView
+                    android:id="@+id/tv_qurbani_date"
+                    style="@style/TextSpec.LabelMedium"
+                    android:gravity="right"
+                    android:text="@string/temp_date" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    style="@style/TextSpec.Value"
+                    android:layout_column="1"
+                    android:text="@string/category" />
+
+                <TextView
+                    android:id="@+id/tv_category"
+                    style="@style/TextSpec.LabelMedium"
+                    android:gravity="right"
+                    android:text="@string/category" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    style="@style/TextSpec.Value"
+                    android:layout_column="1"
+                    android:text="@string/variety_animal" />
+
+                <TextView
+                    android:id="@+id/tv_variety_animal"
+                    style="@style/TextSpec.LabelMedium"
+                    android:gravity="right"
+                    android:text="@string/variety" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    style="@style/TextSpec.Value"
+                    android:layout_column="1"
+                    android:text="@string/weight" />
+
+                <TextView
+                    android:id="@+id/tv_weight_animal"
+                    style="@style/TextSpec.LabelMedium"
+                    android:gravity="right"
+                    android:text="@string/weight_value" />
+            </TableRow>
+        </TableLayout>
+
+        <TextView
+            android:id="@+id/tv_detail_instruction"
+            style="@style/TextSpec.Value.SmallDark"
+            android:layout_marginLeft="16dp"
+            android:text="@string/detail_instruction"
+            android:textColor="@color/text_color_light"
+            android:textStyle="italic"
+            app:layout_constraintBottom_toBottomOf="@+id/constraintLayout4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/constraintLayout4" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/card_shape"
+            android:backgroundTint="@color/green_navbar"
+            android:paddingLeft="16dp"
+            android:paddingTop="4dp"
+            android:paddingRight="16dp"
+            android:paddingBottom="4dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tableLayout">
+
+            <TextView
+                android:id="@+id/tv_price"
+                style="@style/TextSpec.Field.Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/price"
+                android:textColor="@color/text_color_light"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.cardview.widget.CardView>

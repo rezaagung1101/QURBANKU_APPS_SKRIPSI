@@ -5,9 +5,6 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.androidexpert.qurbanku_apps_skripsi.R
 import com.androidexpert.qurbanku_apps_skripsi.databinding.ActivitySignUpBinding
-import com.androidexpert.qurbanku_apps_skripsi.ui.login.LoginActivity
-import com.androidexpert.qurbanku_apps_skripsi.ui.login.jemaah.LoginJemaahFragment
-import com.androidexpert.qurbanku_apps_skripsi.ui.login.panitia.LoginPanitiaFragment
 import com.androidexpert.qurbanku_apps_skripsi.ui.signup.jemaah.SignUpJemaahFragment
 import com.androidexpert.qurbanku_apps_skripsi.ui.signup.panitia.SignUpPanitiaFragment
 import com.androidexpert.qurbanku_apps_skripsi.ui.welcome.WelcomeActivity

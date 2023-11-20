@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.animal.panitia.AddAnimalFragment">
+
+    <TextView
+        android:id="@+id/tv_quote"
+        style="@style/TextSpec.Heading1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/add_animal_quote"
+        android:textColor="@color/green_dark_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout_add_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/tv_quote">
+
+        <ImageButton
+            android:id="@+id/btn_add_date"
+            style="@style/Base.Widget.AppCompat.ImageButton"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/rounded_corner"
+            android:backgroundTint="@color/green_navbar"
+            android:contentDescription="@string/pick_eid_alAdha_date"
+            android:src="@drawable/ic_date" />
+
+        <TextView
+            android:id="@+id/tv_eid_alAdha_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:fontFamily="@font/regular_poppins"
+            android:text="@string/pick_eid_alAdha_date"
+            android:textColor="@color/text_color_light"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_add_detail_animal"
+        style="@style/TextSpec.Field.Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/add_detail_animal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout_add_date" />
+
+    <TextView
+        android:id="@+id/tv_guide"
+        style="@style/TextSpec.Heading1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/guide"
+        android:textColor="@color/text_color"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_add_detail_animal" />
+
+    <TextView
+        android:id="@+id/tv_note_value"
+        style="@style/TextSpec.Value"
+        android:justificationMode="inter_word"
+        android:text="@string/note"
+        android:textColor="@color/text_color"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_guide" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

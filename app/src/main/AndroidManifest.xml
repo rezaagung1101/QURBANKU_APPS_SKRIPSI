@@ -16,6 +16,19 @@
         android:theme="@style/Theme.QURBANKU_APPS_SKRIPSI"
         tools:targetApi="31">
         <activity
+            android:name=".ui.animal.panitia.DetailPanitiaAnimalActivity"
+            android:exported="false"
+            android:theme="@style/Theme.MaterialComponents.DayNight.Title"
+            android:parentActivityName=".ui.animal.panitia.AddAnimalDataActivity"
+            /><!--PARENT harusnya home-->
+
+        <activity
+            android:name=".ui.animal.panitia.AddAnimalDataActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.maps.MapsPickLocationActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.signup.SignUpActivity"
             android:exported="false" />
         <activity

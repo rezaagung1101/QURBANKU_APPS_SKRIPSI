@@ -5,6 +5,8 @@
     <string name="next">Berikutnya</string>
     <string name="panitia">Panitia</string>
     <string name="jemaah">Jemaah</string>
+    <string name="panitia_allcaps">PANITIA</string>
+    <string name="jemaah_allcaps">JEMAAH</string>
     <!--    Login & SignUp-->
     <string name="login">Masuk</string>
     <string name="login_panitia_quote">Anda akan masuk sebagai Panitia Kurban</string>
@@ -13,13 +15,14 @@
     <string name="login_success">belum ada nich</string>
     <string name="login_question">Sudah punya akun?</string>
     <string name="signup">Daftar</string>
-    <string name="signup_panitia_quote">Masukkan data masjid Anda untuk mendaftar akun\n</string>
-    <string name="signup_jemaah_quote">Masukkan data Anda untuk mendaftar akun</string>
+    <string name="signup_panitia_quote">Masukkan data masjid Anda</string>
+    <string name="signup_jemaah_quote">Masukkan data diri Anda untuk mendaftar akun</string>
     <string name="signup_success_message">Akun anda berhasil dibuat, silahkan login!</string>
     <string name="signup_failed_message">Akun anda gagal dibuat, silahkan mengikuti ketentuan!</string>
     <string name="signup_success_title">Sign up berhasil</string>
     <string name="signup_failed_title">Sign up gagal</string>
-    <string name="signUp_question">Belum punya akun?</string>
+    <string name="signUp_question_panitia">Masjid Anda belum memiliki akun?</string>
+    <string name="signUp_question_jemaah">Anda belum memiliki akun?</string>
     <string name="column_isEmpty_message">Kolom tidak boleh kosong!</string>
     <string name="name_minimum">Minimum 2 karakter</string>
     <string name="email">Email</string>
@@ -36,6 +39,10 @@
     <string name="account_number">No. Rekening</string>
     <string name="bank_name">Nama bank</string>
     <string name="account_name">Nama nasabah</string>
+    <string-array name="note_jemaah_signUp">
+        <item>⦾ Nama kepala keluarga akan dicantumkan ketika Anda berkurban</item>
+        <item>⦾ Pastikan data yang Anda masukkan sudah benar</item>
+    </string-array>
     <!--    Spinner-->
     <string-array name="spinner_true_false">
         <item>Ya</item>
@@ -52,9 +59,22 @@
         <item>Kerbau</item>
         <item>Unta</item>
     </string-array>
+    <string-array name="spinner_joint_venture">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+    </string-array>
+    <string-array name="spinner_joint_venture_disabled">
+        <item>1</item>
+    </string-array>
     <string name="underlined_nextButton"><u>Lihat Selengkapnya</u></string>
-    <string name="goat">Kambing</string>
-    <string name="breed">Jenis</string>
+    <string name="species">Kambing</string>
+    <string name="variety">Jenis</string>
+    <string name="variety_animal">Jenis Hewan</string>
     <string name="weight">Berat</string>
     <string name="weight_value">%d kg</string>
     <string name="joint_venture">Patungan</string>
@@ -69,8 +89,7 @@
     <string name="phone_number">No. HP</string>
     <string name="complete_address">Alamat lengkap</string>
     <string name="head_of_family">Nama kepala keluarga</string>
-    <string name="note">Catatan
-    </string>
+    <string name="note">Catatan</string>
     <string name="temp_date">23 April 2024 19.57</string>
     <string name="transaction_date">Tanggal transaksi</string>
     <string name="animal_name">Hewan</string>
@@ -79,9 +98,54 @@
     <string name="accepted"><b>DITERIMA</b></string>
     <string name="waiting_confirmation"><b>MENUNGGU KONFIRMASI</b></string>
     <string name="detail_instruction">Klik untuk melihat detail!</string>
-    <string-array name="note_jemaah_signUp">
-        <item>⦾ Nama kepala keluarga akan dicantumkan ketika Anda berkurban</item>
-        <item>⦾ Pastikan data yang Anda masukkan sudah benar</item>
+    <string name="qurbani_location">Lokasi Kurban</string>
+    <string name="qurbani_date">Tanggal Kurban</string>
+    <string name="category">Kategori</string>
+    <!--    HOME -->
+    <string name="home_panitia_quote">Daftar Hewan Kurban Masjid Anda</string>
+    <string name="home_jemaah_quote">Permudah pembelian dan patungan hewan kurban Anda di masjid terdekat</string>
+    <string name="masjid_list">Daftar Masjid</string>
+    <string name="find_masjid_location_quote">Lihat Lokasi Masjid di Sekitar</string>
+    <string name="qurbanku_copyright">qurbanku.</string>
+    <!--    ADD + ANIMAL -->
+    <string name="add_animal_quote">Tambah Hewan Kurban</string>
+    <string name="pick_eid_alAdha_date">Pilih Tanggal Hari Raya Idul Adha</string>
+    <string name="guide">Petunjuk</string>
+    <string name="add_detail_animal">Lengkapi Data Hewan Kurban</string>
+    <string name="add_date_advice">Anda belum memilih tanggal hari raya</string>
+    <string name="take_picture">Ambil Gambar</string>
+    <string name="choose_from_gallery">Pilih dari Galeri</string>
+    <string name="add_animal_photo">Tambah Foto Hewan</string>
+    <string name="add_animal_description">Tambah Deskripsi Hewan</string>
+    <string name="color">Warna</string>
+    <string name="operational_cost">Biaya operasional (Rp)</string>
+    <string name="add_note_here_quote">Tambahkan catatan di sini.</string>
+    <string name="joint_venture_amount">Jumlah patungan</string>
+    <string name="save">Simpan</string>
+    <string name="description_animal_name">Deskripsi %s</string>
+    <string name="animal_price">Harga hewan</string>
+    <string name="operational_cost_default">Biaya operasional</string>
+    <string name="total_price">Total harga</string>
+    <string name="total_cost_required">Ketentuan Biaya Pembelian</string>
+    <string name="qurbani_information">Informasi Kurban</string>
+    <string name="animal_status">Status hewan</string>
+    <string name="holiday_date">Tanggal Hari Raya</string>
+    <string name="shohibul_qurban">Shohibul Qurban</string>
+    <string name="animal_confirm_status">Konfirmasi Status Penyembelihan</string>
+    <string name="animal_confirm_status_message">Anda akan merubah status hewan menjadi telah disembelih. Lanjutkan?</string>
+    <string name="detail_animal">Detail Hewan</string>
+    <string name="delete_animal">Hapus hewan</string>
+    <string name="delete_animal_data">Hapus Data Hewan</string>
+    <string name="delete_animal_success">Data hewan telah dihapus</string>
+    <string name="next2"><b>LANJUT</b></string>
+    <string name="cancel"><b>BATAL</b></string>
+    <string name="animal_delete_message">Anda yakin ingin <b>MENGHAPUS</b> data hewan?</string>
+    <string name="animal_confirm_status_success">Status hewan telah disembelih</string>
+    <string name="animal_delete_failed">Tidak dapat dihapus karena hewan telah dibeli</string>
+    <string name="animal_confirm_status_failed">Status tidak dapat dirubah karena kuota tersisa %d</string>
+    <string-array name="add_animal_guide">
+        <item>⦾ Pilih tanggal pelaksanaan hari raya</item>
+        <item>⦾ Lengkapi data hewan kurban dengan menekan tombol</item>
     </string-array>
     <!-- TODO: Remove or change this placeholder text -->
 
