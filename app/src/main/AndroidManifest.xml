@@ -16,12 +16,24 @@
         android:theme="@style/Theme.QURBANKU_APPS_SKRIPSI"
         tools:targetApi="31">
         <activity
+            android:name=".ui.profile.panitia.UpdateProfilePanitiaActivity"
+            android:exported="false"
+            android:theme="@style/Theme.MaterialComponents.DayNight.Title"/>
+        <activity
+            android:name=".ui.transaction.jemaah.DetailTransactionJemaahActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.transaction.panitia.DetailTransactionPanitiaActivity"
+            android:exported="false"
+            android:theme="@style/Theme.MaterialComponents.DayNight.Title" />
+        <activity
+            android:name=".ui.profile.panitia.DetailProfileJemaahActivity"
+            android:exported="false"
+            android:theme="@style/Theme.MaterialComponents.DayNight.Title" />
+        <activity
             android:name=".ui.animal.panitia.DetailPanitiaAnimalActivity"
             android:exported="false"
-            android:theme="@style/Theme.MaterialComponents.DayNight.Title"
-            android:parentActivityName=".ui.animal.panitia.AddAnimalDataActivity"
-            /><!--PARENT harusnya home-->
-
+            android:theme="@style/Theme.MaterialComponents.DayNight.Title" />
         <activity
             android:name=".ui.animal.panitia.AddAnimalDataActivity"
             android:exported="false" />
@@ -30,15 +42,19 @@
             android:exported="false" />
         <activity
             android:name=".ui.signup.SignUpActivity"
-            android:exported="false" />
+            android:exported="false"/>
         <activity
             android:name=".ui.login.LoginActivity"
             android:exported="false" />
         <activity
             android:name=".ui.welcome.WelcomeActivity"
-            android:exported="false" />
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
         <activity
-            android:name=".ui.MainActivity"
+            android:name=".ui.MainPanitiaActivity"
             android:exported="false" />
         <activity
             android:name=".ui.welcome.SplashScreenActivity"

@@ -4,119 +4,128 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
     tools:context=".ui.welcome.WelcomeActivity">
 
     <include
         android:id="@+id/app_bar"
         layout="@layout/app_bar_logo" />
 
-    <ImageView
-        android:id="@+id/iv_banner"
-        android:layout_width="0dp"
-        android:layout_height="300dp"
-        android:layout_marginLeft="-16dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginRight="-16dp"
-        android:src="@drawable/banner_panitia"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/app_bar" />
-
-    <TextView
-        android:id="@+id/tv_welcomeQuote_1"
-        style="@style/TextSpec.Field"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:alpha="1"
-        android:text="@string/welcome_quote"
-        android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_banner" />
-
-    <TextView
-        android:id="@+id/tv_welcomeQuote_2"
-        style="@style/TextSpec.Field"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:alpha="0"
-        android:text="@string/welcome_quote_question"
-        android:textAlignment="center"
-        app:layout_constraintBottom_toTopOf="@+id/menu2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_banner" />
-
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/layout_spinner"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:alpha="0"
-        android:background="@drawable/rounded_corner"
+        android:layout_height="0dp"
+        android:padding="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/menu1">
+        app:layout_constraintTop_toBottomOf="@+id/app_bar">
 
-        <Spinner
-            android:id="@+id/btn_spinner"
-            style="@style/TextSpec.Field.Button"
-            android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:textAlignment="center"
-            android:textAllCaps="false"
-            android:textColor="@color/green_dark_label"
-            app:layout_constraintBottom_toBottomOf="parent"
+        <ImageView
+            android:id="@+id/iv_banner"
+            android:layout_width="0dp"
+            android:layout_height="300dp"
+            android:layout_marginTop="100dp"
+            android:layout_marginLeft="-16dp"
+            android:layout_marginRight="-16dp"
+            android:src="@drawable/banner_panitia"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_welcomeQuote_1"
+            style="@style/TextSpec.Field"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:alpha="1"
+            android:text="@string/welcome_quote"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_banner" />
+
+        <TextView
+            android:id="@+id/tv_welcomeQuote_2"
+            style="@style/TextSpec.Field"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:alpha="0"
+            android:text="@string/welcome_quote_question"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toTopOf="@+id/menu2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_banner" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:alpha="0"
+            android:background="@drawable/rounded_corner"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/menu1">
+
+            <Spinner
+                android:id="@+id/btn_spinner"
+                style="@style/TextSpec.Field.Button"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="@color/green_dark_label"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:id="@+id/line"
+            android:layout_width="370dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="24dp"
+            android:background="@color/text_color_light"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/layout_spinner" />
+
+        <Button
+            android:id="@+id/btn_next"
+            style="@style/TextSpec.Field.Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/next"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/line" />
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/menu1"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginRight="40dp"
+            app:altSrc="@drawable/ic_circle_full_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_welcomeQuote_1"
+            app:srcCompat="@drawable/ic_circle_24" />
+
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/menu2"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="24dp"
+            app:altSrc="@drawable/ic_circle_full_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_welcomeQuote_1"
+            app:srcCompat="@drawable/ic_circle_24" />
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <View
-        android:id="@+id/line"
-        android:layout_width="370dp"
-        android:layout_height="1dp"
-        android:layout_marginTop="24dp"
-        android:background="@color/text_color_light"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layout_spinner" />
-
-    <Button
-        android:id="@+id/btn_next"
-        style="@style/TextSpec.Field.Button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="@string/next"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/line" />
-
-    <androidx.constraintlayout.utils.widget.ImageFilterView
-        android:id="@+id/menu1"
-        android:layout_width="15dp"
-        android:layout_height="15dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginRight="40dp"
-        app:altSrc="@drawable/ic_circle_full_24"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_welcomeQuote_1"
-        app:srcCompat="@drawable/ic_circle_24" />
-
-
-    <androidx.constraintlayout.utils.widget.ImageFilterView
-        android:id="@+id/menu2"
-        android:layout_width="15dp"
-        android:layout_height="15dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="24dp"
-        app:altSrc="@drawable/ic_circle_full_24"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_welcomeQuote_1"
-        app:srcCompat="@drawable/ic_circle_24" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

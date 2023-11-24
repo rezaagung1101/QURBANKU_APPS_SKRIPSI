@@ -11,36 +11,27 @@
         android:layout_height="match_parent">
 
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:elevation="8dp"
-            app:cardCornerRadius="20dp"
+        <ImageView
+            android:id="@+id/iv_animal"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:background="@drawable/rounded_corner"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_launcher_background"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <ImageView
-                android:id="@+id/iv_animal"
-                android:layout_width="250dp"
-                android:layout_height="150dp"
-                android:background="@drawable/rounded_corner"
-                android:scaleType="centerCrop"
-                android:src="@drawable/kambing" />
-        </androidx.cardview.widget.CardView>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/tv_description_animal_name"
+            android:layout_marginTop="-16dp"
             style="@style/TextSpec.LabelWhite"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
             android:background="@drawable/label_background"
             android:text="@string/description_animal_name"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cardView" />
+            app:layout_constraintTop_toBottomOf="@+id/iv_animal" />
 
         <TextView
             android:id="@+id/tv_animal_status"

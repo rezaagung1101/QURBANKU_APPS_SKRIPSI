@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import com.androidexpert.qurbanku_apps_skripsi.databinding.ActivitySplashScreenBinding
-import com.androidexpert.qurbanku_apps_skripsi.ui.MainActivity
 
 class SplashScreenActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySplashScreenBinding

@@ -1,28 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="50dp"
+    android:layout_height="wrap_content"
     app:cardElevation="8dp"
-    android:layout_marginBottom="4dp">
+    android:layout_marginBottom="2dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:backgroundTint="@color/white"
-        android:padding="16dp">
+        android:layout_height="wrap_content"
+        android:background="?android:selectableItemBackground"
+        android:padding="8dp">
 
         <TextView
             android:id="@+id/tv_id_transaction"
-            style="@style/TextSpec.Value"
+            style="@style/TextSpec.Field"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/temp_id_transaction"
             android:textColor="@color/text_color"
             android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_animal_species"
+            style="@style/TextSpec.LabelSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/species_variety"
+            android:textColor="@color/text_color"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_id_transaction" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

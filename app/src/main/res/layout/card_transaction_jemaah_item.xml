@@ -6,7 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:elevation="4dp"
-    android:backgroundTint="@color/white"
     app:cardCornerRadius="10dp"
     app:strokeColor="@color/disabled_background"
     app:strokeWidth="3dp">
@@ -14,6 +13,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="?android:selectableItemBackground"
         android:padding="8dp">
 
         <TextView
@@ -45,50 +45,51 @@
             app:layout_constraintTop_toBottomOf="@+id/tv_id_transaction">
 
             <TableRow>
+
                 <TextView
-                    android:layout_column="1"
                     style="@style/TextSpec.Value.SmallDark"
+                    android:layout_column="1"
                     android:text="@string/transaction_date"
                     android:textColor="@color/text_color_light" />
 
                 <TextView
                     android:id="@+id/tv_transaction_date"
                     style="@style/TextSpec.Value.SmallDark"
-                    android:textStyle="bold"
                     android:gravity="right"
-                    android:text="@string/temp_date" />
+                    android:text="@string/temp_date"
+                    android:textStyle="bold" />
             </TableRow>
 
             <TableRow>
 
                 <TextView
-                    android:layout_column="1"
                     style="@style/TextSpec.Value.SmallDark"
+                    android:layout_column="1"
                     android:text="@string/animal_name"
                     android:textColor="@color/text_color_light" />
 
                 <TextView
                     android:id="@+id/tv_species_name"
                     style="@style/TextSpec.Value.SmallDark"
+                    android:gravity="right"
                     android:text="@string/species"
-                    android:textStyle="bold"
-                    android:gravity="right"/>
+                    android:textStyle="bold" />
             </TableRow>
 
             <TableRow>
 
                 <TextView
-                    android:layout_column="1"
                     style="@style/TextSpec.Value.SmallDark"
+                    android:layout_column="1"
                     android:text="@string/total_transfer"
-                    android:textColor="@color/text_color_light"/>
+                    android:textColor="@color/text_color_light" />
 
                 <TextView
                     android:id="@+id/tv_total_transfer"
                     style="@style/TextSpec.Value.SmallDark"
+                    android:gravity="right"
                     android:text="@string/price"
-                    android:textStyle="bold"
-                    android:gravity="right"/>
+                    android:textStyle="bold" />
             </TableRow>
         </TableLayout>
 

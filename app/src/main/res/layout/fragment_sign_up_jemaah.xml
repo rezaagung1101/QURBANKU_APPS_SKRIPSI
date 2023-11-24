@@ -12,6 +12,7 @@
         style="@style/TextSpec.Heading1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
         android:text="@string/signup"
         android:textColor="@color/green_dark_label" />
 
@@ -174,13 +175,28 @@
             tools:ignore="SpeakableTextPresentCheck" />
     </com.google.android.material.textfield.TextInputLayout>
 
+    <TextView
+        android:id="@+id/tv_note_title"
+        style="@style/TextSpec.Value"
+        android:layout_height="20dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/note"
+        android:textColor="@color/text_color"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_note_value"
+        style="@style/TextSpec.Value"
+        android:justificationMode="inter_word"
+        android:text="@string/note"
+        android:textColor="@color/text_color" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_signUp"
-        android:elevation="4dp"
         style="@style/TextSpec.Field.Button"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="4dp"
         android:backgroundTint="@color/green_main"
+        android:elevation="4dp"
         android:text="@string/signup"
         android:textAllCaps="false" />
 
@@ -209,27 +225,6 @@
             app:layout_constraintBottom_toBottomOf="@+id/tv_login_question"
             app:layout_constraintStart_toEndOf="@+id/tv_login_question"
             app:layout_constraintTop_toTopOf="@+id/tv_login_question" />
-
-        <TextView
-            android:id="@+id/tv_note_title"
-            style="@style/TextSpec.Value"
-            android:layout_height="20dp"
-            android:text="@string/note"
-            android:textColor="@color/text_color"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_login" />
-
-        <TextView
-            android:id="@+id/tv_note_value"
-            style="@style/TextSpec.Value"
-            android:justificationMode="inter_word"
-            android:text="@string/note"
-            android:textColor="@color/text_color"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_note_title" />
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

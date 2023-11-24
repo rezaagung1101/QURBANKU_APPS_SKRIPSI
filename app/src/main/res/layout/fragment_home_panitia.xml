@@ -4,7 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.home.panitia.HomePanitiaFragment">
+    tools:context=".ui.home.panitia.HomePanitiaFragment"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingBottom="16dp">
 
     <TextView
         android:id="@+id/tv_quote"
@@ -30,16 +33,18 @@
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swipe_Refresh"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_quote"
-        android:layout_marginTop="16dp">
+        tools:layout_editor_absoluteX="16dp">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_animal_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:itemCount="3"
             android:nestedScrollingEnabled="false"
+            tools:itemCount="3"
             tools:listitem="@layout/card_animal_panitia_item" />
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 

@@ -20,10 +20,10 @@ class SignUpJemaahFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        this.setupView()
+        this.setupInformation()
     }
 
-    fun setupView(){
+    fun setupInformation(){
         val stringArray = resources.getStringArray(R.array.note_jemaah_signUp)
         val text = stringArray.joinToString("\n")
         binding.tvNoteValue.text = text

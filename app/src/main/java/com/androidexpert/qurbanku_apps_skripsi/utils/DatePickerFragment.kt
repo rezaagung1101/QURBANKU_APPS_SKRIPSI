@@ -7,11 +7,12 @@ import android.content.Context
 import android.os.Bundle
 import android.widget.DatePicker
 import androidx.fragment.app.DialogFragment
-import java.util.*
+import java.util.Calendar
 
 class DatePickerFragment : DialogFragment(), DatePickerDialog.OnDateSetListener {
 
     private var mListener: DialogDateListener? = null
+    private var fragmentListener: FragmentDateListener? = null
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val calendar = Calendar.getInstance()
@@ -22,7 +23,10 @@ class DatePickerFragment : DialogFragment(), DatePickerDialog.OnDateSetListener 
     }
 
     override fun onDateSet(view: DatePicker, year: Int, month: Int, dayOfMonth: Int) {
+        val calendar = Calendar.getInstance()
+        calendar.set(year, month, dayOfMonth)
         mListener?.onDialogDateSet(tag, year, month, dayOfMonth)
+        fragmentListener?.onFragmentDateSet(year, month, dayOfMonth)
     }
 
     override fun onAttach(context: Context) {
@@ -36,7 +40,20 @@ class DatePickerFragment : DialogFragment(), DatePickerDialog.OnDateSetListener 
             mListener = null
         }
     }
+    fun setListener(listener: DialogDateListener) {
+        mListener = listener
+    }
+    fun setFragmentListener(listener: FragmentDateListener) {
+        fragmentListener = listener
+    }
 
+    fun resetFragmentListener() {
+        fragmentListener = null
+    }
+
+    interface FragmentDateListener {
+        fun onFragmentDateSet(year: Int, month: Int, dayOfMonth: Int)
+    }
     interface DialogDateListener {
         fun onDialogDateSet(tag: String?, year: Int, month: Int, dayOfMonth: Int)
     }

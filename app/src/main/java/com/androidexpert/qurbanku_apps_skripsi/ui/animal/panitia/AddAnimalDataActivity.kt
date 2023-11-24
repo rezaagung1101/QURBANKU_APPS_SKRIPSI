@@ -5,23 +5,40 @@ import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.androidexpert.qurbanku_apps_skripsi.R
 import com.androidexpert.qurbanku_apps_skripsi.databinding.ActivityAddAnimalDataBinding
+import com.androidexpert.qurbanku_apps_skripsi.utils.DialogUtils
+import com.androidexpert.qurbanku_apps_skripsi.utils.Helper
 
 class AddAnimalDataActivity : AppCompatActivity() {
     private lateinit var binding: ActivityAddAnimalDataBinding
     private var jointVentureValue: Int = 1
     private var animalSpecies: String = ""
+    private var dueDateMillis: Long = System.currentTimeMillis()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityAddAnimalDataBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        dueDateMillis = intent.getLongExtra(DATE_DATA, System.currentTimeMillis())
+        Toast.makeText(
+            this,
+            Helper.convertMillisToString(dueDateMillis),
+            Toast.LENGTH_LONG
+        ).show()
         setupSpinner()
         setupSpinnerJointVenture(resources.getStringArray(R.array.spinner_joint_venture))
         binding.btnSave.setOnClickListener {
-            startActivity(Intent(this, DetailPanitiaAnimalActivity::class.java))
+            val title = resources.getString(R.string.save_data_animal)
+            val message = resources.getString(R.string.save_data_animal_message)
+            DialogUtils.showConfirmationDialog(this,title, message,::addAnimal)
         }
+    }
+
+    private fun addAnimal(){
+        //set the algorithm for viewmodel
+        startActivity(Intent(this, DetailPanitiaAnimalActivity::class.java))
     }
 
     private fun setupSpinner() {
@@ -72,5 +89,8 @@ class AddAnimalDataActivity : AppCompatActivity() {
                     jointVentureValue = array[0].toInt()
                 }
             }
+    }
+    companion object{
+        const val DATE_DATA = "DATE"
     }
 }

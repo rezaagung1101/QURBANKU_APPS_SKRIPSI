@@ -12,8 +12,7 @@
     <string name="login_panitia_quote">Anda akan masuk sebagai Panitia Kurban</string>
     <string name="login_jemaah_quote">Anda akan masuk sebagai Jemaah</string>
     <string name="login_failed">Login gagal</string>
-    <string name="login_success">belum ada nich</string>
-    <string name="login_question">Sudah punya akun?</string>
+    <string name="login_question">Sudah memiliki akun?</string>
     <string name="signup">Daftar</string>
     <string name="signup_panitia_quote">Masukkan data masjid Anda</string>
     <string name="signup_jemaah_quote">Masukkan data diri Anda untuk mendaftar akun</string>
@@ -30,6 +29,9 @@
     <string name="email_invalid">Email tidak valid</string>
     <string name="email_password_invalid">Email atau password tidak sesuai</string>
     <string name="name_masjid">Nama masjid</string>
+    <string name="name_masjid_value">Masjid %s</string>
+    <string name="contact_person_number">No. HP narahubung</string>
+    <string name="head_takmir">Ketua takmir</string>
     <string name="name_head_takmir">Nama ketua takmir</string>
     <string name="password">Password</string>
     <string name="password_minimum">Password minimal 8 karakter</string>
@@ -42,6 +44,9 @@
     <string-array name="note_jemaah_signUp">
         <item>⦾ Nama kepala keluarga akan dicantumkan ketika Anda berkurban</item>
         <item>⦾ Pastikan data yang Anda masukkan sudah benar</item>
+    </string-array><string-array name="note_panitia_signUp">
+        <item>⦾ Pilih alamat dengan melakukan konfigurasi pada peta</item>
+        <item>⦾ Pastikan data sudah benar sebelum menyimpan</item>
     </string-array>
     <!--    Spinner-->
     <string-array name="spinner_true_false">
@@ -139,15 +144,50 @@
     <string name="delete_animal_success">Data hewan telah dihapus</string>
     <string name="next2"><b>LANJUT</b></string>
     <string name="cancel"><b>BATAL</b></string>
-    <string name="animal_delete_message">Anda yakin ingin <b>MENGHAPUS</b> data hewan?</string>
+    <string name="animal_delete_message">Anda yakin ingin menghapus data hewan?</string>
     <string name="animal_confirm_status_success">Status hewan telah disembelih</string>
     <string name="animal_delete_failed">Tidak dapat dihapus karena hewan telah dibeli</string>
     <string name="animal_confirm_status_failed">Status tidak dapat dirubah karena kuota tersisa %d</string>
+    <string name="save_data_animal">Simpan data hewan</string>
+    <string name="save_data_animal_message">Anda yakin ingin menyimpan data?</string>
+    <string name="transaction">Transaksi</string>
+    <string name="add">Tambah</string>
+    <string name="home">Beranda</string>
+    <string name="profile">Profil</string>
     <string-array name="add_animal_guide">
-        <item>⦾ Pilih tanggal pelaksanaan hari raya</item>
-        <item>⦾ Lengkapi data hewan kurban dengan menekan tombol</item>
+        <item>1. Pilih tanggal hari raya Idul Adha</item>
+        <item>2. Lengkapi data hewan kurban dengan menekan tombol</item>
     </string-array>
-    <!-- TODO: Remove or change this placeholder text -->
+
+    <!--    TRANSACTION-->
+    <string name="jemaah_transaction_list_title">Daftar Transaksi Jemaah</string>
+    <string name="transaction_explanation">Keterangan Transaksi</string>
+    <string-array name="transaction_explanation_value">
+        <item>⦾ Putih = Belum dilakukan konfirmasi/cek</item>
+        <item>⦾ Merah = Transaksi ditolak</item>
+        <item>⦾ Hijau = Transaksi diterima</item>
+    </string-array>
+    <string name="species_variety">%s, %s</string>
+    <string name="address">Alamat</string>
+    <string name="animal_availability_number_title">Jumlah hewan kurban tersedia</string>
+    <string name="update_profile">Ubah Data Profil</string>
+    <string name="logout">Keluar</string>
+    <string name="transaction_data">Data Transaksi</string>
+    <string name="transaction_destination_data">Data Tujuan Transfer</string>
+    <string name="nominal">Nominal</string>
+    <string name="see_next"><u>Lihat Selengkapnya</u></string>
+    <string name="animal_data">Data Hewan</string>
+    <string name="panitia_note">Catatan Panitia</string>
+    <string name="detail_transaction">Detail Transaksi</string>
+    <string name="jemaah_data">Data Jemaah</string>
+    <string name="accept">TERIMA</string>
+    <string name="reject">TOLAK</string>
+    <string name="transaction_confirmation">Konfirmasi Transaksi</string>
+    <string name="history_qurbani_amount">Jumlah Riwayat Kurban</string>
+    <string name="detail_jemaah_profile">Detail Profil Jemaah</string>
+    <string name="logout_message">Anda yakin ingin keluar aplikasi?</string>
+    <string name="enter_data_changes">Masukkan Perubahan Data</string>
+    <string name="update_profile_message">Anda yakin ingin menyimpan perubahan?</string>
 
 
 </resources>

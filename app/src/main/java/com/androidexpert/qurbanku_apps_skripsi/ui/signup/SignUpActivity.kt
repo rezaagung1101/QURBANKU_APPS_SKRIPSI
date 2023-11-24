@@ -15,6 +15,7 @@ class SignUpActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivitySignUpBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        supportActionBar?.hide()
         val isPanitia: Boolean = intent.getBooleanExtra(isPanitia, true)
         val fragmentManager = supportFragmentManager
         val panitiaFragment = SignUpPanitiaFragment()

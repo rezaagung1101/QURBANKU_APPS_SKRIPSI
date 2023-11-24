@@ -4,6 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingBottom="16dp"
     tools:context=".ui.animal.panitia.AddAnimalFragment">
 
     <TextView
@@ -17,36 +20,50 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout_add_date"
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card_add_date"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@+id/tv_quote">
+        android:elevation="4dp"
+        app:cardCornerRadius="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_quote"
+        app:strokeColor="@color/disabled_background"
+        app:strokeWidth="2dp">
 
-        <ImageButton
-            android:id="@+id/btn_add_date"
-            style="@style/Base.Widget.AppCompat.ImageButton"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:background="@drawable/rounded_corner"
-            android:backgroundTint="@color/green_navbar"
-            android:contentDescription="@string/pick_eid_alAdha_date"
-            android:src="@drawable/ic_date" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/tv_eid_alAdha_date"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
-            android:fontFamily="@font/regular_poppins"
-            android:text="@string/pick_eid_alAdha_date"
-            android:textColor="@color/text_color_light"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-    </LinearLayout>
+            <ImageView
+                android:id="@+id/btn_add_date"
+                style="@style/Base.Widget.AppCompat.ImageButton"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/rounded_corner"
+                android:backgroundTint="@color/green_navbar"
+                android:contentDescription="@string/pick_eid_alAdha_date"
+                android:src="@drawable/ic_date"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_eid_alAdha_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:fontFamily="@font/regular_poppins"
+                android:text="@string/pick_eid_alAdha_date"
+                android:textColor="@color/text_color_light"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/btn_add_date"
+                app:layout_constraintStart_toEndOf="@+id/btn_add_date"
+                app:layout_constraintTop_toTopOf="@+id/btn_add_date" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
 
     <Button
         android:id="@+id/btn_add_detail_animal"
@@ -57,7 +74,7 @@
         android:text="@string/add_detail_animal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout_add_date" />
+        app:layout_constraintTop_toBottomOf="@+id/card_add_date" />
 
     <TextView
         android:id="@+id/tv_guide"
@@ -71,7 +88,7 @@
         app:layout_constraintTop_toBottomOf="@+id/btn_add_detail_animal" />
 
     <TextView
-        android:id="@+id/tv_note_value"
+        android:id="@+id/tv_guide_value"
         style="@style/TextSpec.Value"
         android:justificationMode="inter_word"
         android:text="@string/note"
