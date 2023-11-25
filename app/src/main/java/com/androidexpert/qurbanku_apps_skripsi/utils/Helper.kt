@@ -2,6 +2,8 @@ package com.androidexpert.qurbanku_apps_skripsi.utils
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.location.Address
+import android.location.Geocoder
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
 import com.androidexpert.qurbanku_apps_skripsi.R
@@ -34,6 +36,37 @@ object Helper {
         val sdf = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
         return sdf.format(calendar.time)
     }
+
+        fun parseAddress(context: Context, latitude: Double, longitude: Double): String {
+        val geocoder = Geocoder(context, Locale.getDefault())
+        val addresses = geocoder.getFromLocation(latitude, longitude, 1)
+        val address: String = if (addresses?.isNotEmpty() == true) {
+            val fetchedAddress: Address = addresses[0]
+            // Extract the address details you need, e.g.
+//            fetchedAddress.getAddressLine(0)
+            "${fetchedAddress.subLocality}, ${fetchedAddress.locality}"
+        } else {
+            "Address not found"
+        }
+        return address
+    }
+//    fun parseAddress(context: Context, latitude: Double, longitude: Double): String {
+//        val geocoder = Geocoder(context, Locale.getDefault())
+//        val addresses = geocoder.getFromLocation(latitude, longitude, 1)
+//        val address: String = if (addresses?.isNotEmpty() == true) {
+//            val fetchedAddress: Address = addresses[0]
+//            // Extract the address details you need, e.g.
+//            fetchedAddress.getAddressLine(0)
+////            val cityTemp = "${fetchedAddress.subAdminArea}"
+//            val cityTemp = fetchedAddress.getAddressLine(3)
+////            val city = cityTemp.split("\\s".toRegex()).toTypedArray()
+////            return city[1]
+//            return cityTemp
+//        } else {
+//            "Address not found"
+//        }
+//        return address
+//    }
 }
 
 object DialogUtils {
@@ -62,7 +95,11 @@ object DialogUtils {
     }
 }
 
-
+object Constanta{
+    const val latitude = "LATITUDE"
+    const val longitude = "LONGITUDE"
+    const val usingLocation = "USINGLOCATION"
+}
 enum class ACTOR {
     PANITIA, JEMAAH
 }
