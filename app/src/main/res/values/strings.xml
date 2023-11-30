@@ -19,6 +19,7 @@
     <string name="login_failed_message">Email atau password tidak valid!</string>
     <string name="login_question">Sudah memiliki akun?</string>
     <string name="signup">Daftar</string>
+    <string name="signup_message">Anda yakin ingin mendaftar akun?</string>
     <string name="signup_panitia_quote">Masukkan data masjid Anda</string>
     <string name="signup_jemaah_quote">Masukkan data diri Anda untuk mendaftar akun</string>
     <string name="signup_success_message">Akun anda berhasil dibuat, silahkan login!</string>
@@ -39,7 +40,7 @@
     <string name="head_takmir">Ketua takmir</string>
     <string name="name_head_takmir">Nama ketua takmir</string>
     <string name="password">Password</string>
-    <string name="password_minimum">Password minimal 8 karakter</string>
+    <string name="password_minimum">Password minimal 6 karakter</string>
     <string name="add_address">Tambah alamat</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="signup_bank_quote">Masukkan data Rekening</string>
@@ -208,6 +209,9 @@
     <string name="choose_masjid_by_location">Pilih Masjid Berdasarkan Lokasi</string>
     <string name="qurbani_animal">Hewan Kurban</string>
     <string name="detail_information_instruction">Klik untuk melihat detail informasi lainnya!</string>
+    <string name="transaction_accepted">Transaksi jemaah telah diterima</string>
+    <string name="transaction_rejected">Transaksi jemaah telah ditolak</string>
+    <string name="confirmation_transaction_error_message">Terdapat kesalahan, konfirmasi transaksi gagal</string>
 
     <string-array name="transaction_photo_requirement_value">
         <item>1. Rekening Tujuan</item>
@@ -232,14 +236,11 @@
     <string name="current_location">Lokasi Anda sekarang</string>
     <string name="click_address_instruction">Klik untuk menggunakan lokasi</string>
     <string name="choose_masjid_location">Pilih Lokasi Masjid</string>
-    <string name="masjid_location_not_selected">Anda belum memilih lokasi</string>
+    <string name="masjid_location_not_selected">Anda belum memilih lokasi masjid</string>
     <string name="profile_masjid">Profil Masjid</string>
     <string name="your_qurbani_list_title">Riwayat Kurban Anda</string>
     <string name="history">Riwayat</string>
-    <string name="signup_message">Anda yakin ingin mendaftar akun?</string>
-    <string name="transaction_accepted">Transaksi jemaah telah diterima</string>
-    <string name="transaction_rejected">Transaksi jemaah telah ditolak</string>
-    <string name="confirmation_transaction_error_message">Terdapat kesalahan, konfirmasi transaksi gagal</string>
+
 
 
 </resources>
