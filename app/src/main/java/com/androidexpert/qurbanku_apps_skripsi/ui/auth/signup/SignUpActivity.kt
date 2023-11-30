@@ -1,22 +1,25 @@
-package com.androidexpert.qurbanku_apps_skripsi.ui.signup
+package com.androidexpert.qurbanku_apps_skripsi.ui.auth.signup
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.androidexpert.qurbanku_apps_skripsi.R
 import com.androidexpert.qurbanku_apps_skripsi.databinding.ActivitySignUpBinding
-import com.androidexpert.qurbanku_apps_skripsi.ui.signup.jemaah.SignUpJemaahFragment
-import com.androidexpert.qurbanku_apps_skripsi.ui.signup.panitia.SignUpPanitiaFragment
+import com.androidexpert.qurbanku_apps_skripsi.ui.auth.login.LoginActivity
+import com.androidexpert.qurbanku_apps_skripsi.ui.auth.signup.jemaah.SignUpJemaahFragment
+import com.androidexpert.qurbanku_apps_skripsi.ui.auth.signup.panitia.SignUpPanitiaFragment
 import com.androidexpert.qurbanku_apps_skripsi.ui.welcome.WelcomeActivity
+import com.androidexpert.qurbanku_apps_skripsi.utils.Constanta
 
 class SignUpActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySignUpBinding
+    private var isPanitia: Boolean = true
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySignUpBinding.inflate(layoutInflater)
         setContentView(binding.root)
         supportActionBar?.hide()
-        val isPanitia: Boolean = intent.getBooleanExtra(isPanitia, true)
+        isPanitia = intent.getBooleanExtra(Constanta.isPanitia, true)
         val fragmentManager = supportFragmentManager
         val panitiaFragment = SignUpPanitiaFragment()
         val jemaahFragment = SignUpJemaahFragment()
@@ -40,14 +43,11 @@ class SignUpActivity : AppCompatActivity() {
                 .commit()
         }
     }
-
     override fun onBackPressed() {
-        startActivity(Intent(this, WelcomeActivity::class.java))
+        val intent = Intent(this, LoginActivity::class.java)
+        intent.putExtra(Constanta.isPanitia, isPanitia)
+        startActivity(intent)
         finish()
-    }
-
-    companion object{
-        val isPanitia: String = "IS_PANITIA"
     }
 
 }

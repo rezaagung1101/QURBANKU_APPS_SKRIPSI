@@ -5,10 +5,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.androidexpert.qurbanku_apps_skripsi.R
 import com.androidexpert.qurbanku_apps_skripsi.databinding.FragmentAddAnimalBinding
+import com.androidexpert.qurbanku_apps_skripsi.utils.Constanta
 import com.androidexpert.qurbanku_apps_skripsi.utils.DatePickerFragment
 import com.androidexpert.qurbanku_apps_skripsi.utils.Helper
 import java.util.Calendar
@@ -60,7 +60,7 @@ class AddAnimalFragment : Fragment(), DatePickerFragment.DialogDateListener,
                     //move to detail
                     //send dueDateMillis
                     val intent = Intent(requireContext(), AddAnimalDataActivity::class.java)
-                    intent.putExtra(AddAnimalDataActivity.DATE_DATA, dueDateMillis)
+                    intent.putExtra(Constanta.DATE_DATA, dueDateMillis)
                     startActivity(intent)
                 }
             }

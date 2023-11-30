@@ -3,8 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/card_display_animal"
     android:layout_width="match_parent"
-    android:layout_height="150dp"
+    android:layout_height="135dp"
     android:layout_gravity="center"
+    android:layout_marginBottom="4dp"
+    android:elevation="4dp"
     app:cardCornerRadius="20dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -117,16 +119,32 @@
             app:layout_constraintStart_toEndOf="@+id/constraintLayout"
             app:layout_constraintTop_toBottomOf="@+id/tv_joint_venture_title" />
 
-        <TextView
-            android:id="@+id/tv_availability"
-            style="@style/TextSpec.Value"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="16dp"
-            android:text="@string/availability_number"
-            android:textColor="@color/green_dark_label"
+            android:background="@drawable/card_shape2"
+            android:backgroundTint="@color/green_navbar"
+            android:paddingLeft="8dp"
+            android:paddingTop="4dp"
+            android:paddingRight="8dp"
+            android:paddingBottom="4dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/tv_variety_title" />
+            app:layout_constraintTop_toTopOf="@+id/tv_variety_title">
+
+            <TextView
+                android:id="@+id/tv_availability"
+                style="@style/TextSpec.LabelMedium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="8dp"
+                android:text="@string/availability_number"
+                android:textColor="@color/green_dark_label"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="wrap_content"
@@ -141,11 +159,13 @@
             app:layout_constraintEnd_toEndOf="parent">
 
             <TextView
+                android:id="@+id/tv_price"
                 style="@style/TextSpec.LabelMedium"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="8dp"
                 android:text="@string/price"
+                android:textColor="@color/green_dark_label"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

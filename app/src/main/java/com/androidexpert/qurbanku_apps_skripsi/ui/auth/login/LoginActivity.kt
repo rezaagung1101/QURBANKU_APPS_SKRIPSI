@@ -1,4 +1,4 @@
-package com.androidexpert.qurbanku_apps_skripsi.ui.login
+package com.androidexpert.qurbanku_apps_skripsi.ui.auth.login
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,9 +6,12 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.androidexpert.qurbanku_apps_skripsi.R
 import com.androidexpert.qurbanku_apps_skripsi.databinding.ActivityLoginBinding
+import com.androidexpert.qurbanku_apps_skripsi.ui.MainJemaahActivity
 import com.androidexpert.qurbanku_apps_skripsi.ui.MainPanitiaActivity
-import com.androidexpert.qurbanku_apps_skripsi.ui.signup.SignUpActivity
+import com.androidexpert.qurbanku_apps_skripsi.ui.auth.signup.SignUpActivity
 import com.androidexpert.qurbanku_apps_skripsi.ui.welcome.WelcomeActivity
+import com.androidexpert.qurbanku_apps_skripsi.utils.Constanta
+import com.androidexpert.qurbanku_apps_skripsi.utils.DialogUtils
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
@@ -16,7 +19,7 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        val isPanitia: Boolean = intent.getBooleanExtra(isPanitia, true)
+        val isPanitia: Boolean = intent.getBooleanExtra(Constanta.isPanitia, true)
         if (isPanitia != true) {
             binding.ivBanner.setImageDrawable(resources.getDrawable(R.drawable.banner_jemaah))
             binding.tvLoginQuote.text = resources.getString(R.string.login_jemaah_quote)
@@ -26,6 +29,7 @@ class LoginActivity : AppCompatActivity() {
             binding.tvSignUpQuestion.text = resources.getString(R.string.signUp_question_jemaah)
             binding.btnLogin.setOnClickListener {
                 //login jemaah
+                loginJemaah()
             }
         } else {
             binding.btnLogin.setOnClickListener {
@@ -36,13 +40,27 @@ class LoginActivity : AppCompatActivity() {
         }
         binding.btnSignup.setOnClickListener {
             val intent = Intent(this, SignUpActivity::class.java)
-            intent.putExtra(SignUpActivity.isPanitia, isPanitia)
+            intent.putExtra(Constanta.isPanitia, isPanitia)
             startActivity(intent)
         }
     }
 
-    private fun loginPanitia() {
-        startActivity(Intent(this, MainPanitiaActivity::class.java))
+    fun loginJemaah() {
+        //if success
+        val title = resources.getString(R.string.login_success_title, "temp name")
+        val message = resources.getString(R.string.login_success_jemaah_message)
+        DialogUtils.showNotificationDialog(this, title, message, {
+            startActivity(Intent(this, MainJemaahActivity::class.java)) }
+        )
+    }
+
+    fun loginPanitia() {
+        //if success
+        val title = resources.getString(R.string.login_success_title, "temp name")
+        val message = resources.getString(R.string.login_success_panitia_message)
+        DialogUtils.showNotificationDialog(this, title, message, {
+            startActivity(Intent(this, MainPanitiaActivity::class.java)) }
+        )
     }
 
     override fun onBackPressed() {
@@ -50,7 +68,4 @@ class LoginActivity : AppCompatActivity() {
         finish()
     }
 
-    companion object {
-        val isPanitia: String = "IS_PANITIA"
-    }
 }

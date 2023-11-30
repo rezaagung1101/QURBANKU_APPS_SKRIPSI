@@ -1,7 +1,6 @@
 package com.androidexpert.qurbanku_apps_skripsi.ui.profile.panitia
 
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.androidexpert.qurbanku_apps_skripsi.R
 import com.androidexpert.qurbanku_apps_skripsi.databinding.ActivityUpdateProfilePanitiaBinding
@@ -19,17 +18,11 @@ class UpdateProfilePanitiaActivity : AppCompatActivity() {
         binding.btnSaveUpdate.setOnClickListener {
             val title= resources.getString(R.string.update_profile)
             val message= resources.getString(R.string.update_profile_message)
-            DialogUtils.showConfirmationDialog(this, title, message, ::updatePanitiaProfile)
+            DialogUtils.showConfirmationDialog(this, title, message, ::updateProfile)
         }
     }
-    fun updatePanitiaProfile(){
-        Toast.makeText(
-            this,
-            resources.getString(
-                R.string.update_profile
-            ),
-            Toast.LENGTH_SHORT
-        ).show()
+    fun updateProfile(){
+        onBackPressed()
     }
 
     fun setupInformation() {

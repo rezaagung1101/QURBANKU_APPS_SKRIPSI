@@ -1,17 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+
     <uses-feature android:name="android.hardware.camera" />
 
     <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
     <uses-permission
         android:name="android.permission.WRITE_EXTERNAL_STORAGE"
-        android:maxSdkVersion="18" />
+        android:maxSdkVersion="28" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
+
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+
+            <category android:name="android.intent.category.BROWSABLE" />
+
+            <data android:scheme="https" />
+        </intent>
+    </queries>
 
     <application
         android:allowBackup="true"
@@ -22,25 +35,56 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.QURBANKU_APPS_SKRIPSI"
-        tools:targetApi="31"
-        android:screenOrientation="portrait"
-        >
+        tools:targetApi="31">
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyD3WpXHNnWRNK1BWtlaXAQIy7f5Qi9Oqdo" />
+
+        <activity
+            android:name=".ui.maps.MapsListMasjidActivity"
+            android:exported="false"
+            android:theme="@style/Theme.MaterialComponents.DayNight.Title" />
+        <activity
+            android:name=".ui.transaction.jemaah.AddTransactionActivity"
+            android:exported="false"
+            android:theme="@style/Theme.MaterialComponents.DayNight.Title" />
+        <activity
+            android:name=".ui.animal.jemaah.DetailJemaahAnimalActivity"
+            android:exported="false"
+            android:theme="@style/Theme.MaterialComponents.DayNight.Title" />
+        <activity
+            android:name=".ui.profile.jemaah.UpdateProfileJemaahActivity"
+            android:exported="false"
+            android:theme="@style/Theme.MaterialComponents.DayNight.Title" />
+        <activity
+            android:name=".ui.MainJemaahActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.CameraActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
         <activity
             android:name=".ui.profile.panitia.UpdateProfilePanitiaActivity"
             android:exported="false"
-            android:theme="@style/Theme.MaterialComponents.DayNight.Title"/>
+            android:theme="@style/Theme.MaterialComponents.DayNight.Title" />
         <activity
             android:name=".ui.transaction.jemaah.DetailTransactionJemaahActivity"
-            android:exported="false"/>
+            android:exported="false"
+            android:theme="@style/Theme.MaterialComponents.DayNight.Title" />
         <activity
             android:name=".ui.transaction.panitia.DetailTransactionPanitiaActivity"
             android:exported="false"
             android:theme="@style/Theme.MaterialComponents.DayNight.Title" />
         <activity
             android:name=".ui.profile.panitia.DetailProfileJemaahActivity"
+            android:exported="false"
+            android:theme="@style/Theme.MaterialComponents.DayNight.Title" />
+        <activity
+            android:name=".ui.profile.jemaah.DetailProfileMasjidActivity"
             android:exported="false"
             android:theme="@style/Theme.MaterialComponents.DayNight.Title" />
         <activity
@@ -53,13 +97,13 @@
         <activity
             android:name=".ui.maps.MapsPickLocationActivity"
             android:exported="false"
-            android:parentActivityName=".ui.signup.SignUpActivity"
-            android:theme="@style/Theme.MaterialComponents.DayNight.Title"/>
+            android:parentActivityName=".ui.auth.signup.SignUpActivity"
+            android:theme="@style/Theme.MaterialComponents.DayNight.Title" />
         <activity
-            android:name=".ui.signup.SignUpActivity"
-            android:exported="false"/>
+            android:name=".ui.auth.signup.SignUpActivity"
+            android:exported="false" />
         <activity
-            android:name=".ui.login.LoginActivity"
+            android:name=".ui.auth.login.LoginActivity"
             android:exported="false" />
         <activity
             android:name=".ui.welcome.WelcomeActivity"
@@ -80,6 +124,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.androidexpert.qurbanku_apps_skripsi"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
     </application>
 
 </manifest>

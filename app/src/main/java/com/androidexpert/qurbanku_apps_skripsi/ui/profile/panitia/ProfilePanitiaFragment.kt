@@ -5,12 +5,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.androidexpert.qurbanku_apps_skripsi.R
 import com.androidexpert.qurbanku_apps_skripsi.databinding.FragmentProfilePanitiaBinding
+import com.androidexpert.qurbanku_apps_skripsi.ui.auth.login.LoginActivity
+import com.androidexpert.qurbanku_apps_skripsi.ui.welcome.WelcomeActivity
+import com.androidexpert.qurbanku_apps_skripsi.utils.Constanta.isPanitia
 import com.androidexpert.qurbanku_apps_skripsi.utils.DialogUtils
-import com.androidexpert.qurbanku_apps_skripsi.utils.Helper
 
 class ProfilePanitiaFragment : Fragment() {
     private lateinit var binding: FragmentProfilePanitiaBinding
@@ -35,13 +36,11 @@ class ProfilePanitiaFragment : Fragment() {
 
     }
     fun logout(){
-        Toast.makeText(
-            requireContext(),
-            resources.getString(
-                R.string.logout
-            ),
-            Toast.LENGTH_SHORT
-        ).show()
+        //hapus preference
+        val intent = Intent(requireContext(), LoginActivity::class.java)
+        intent.putExtra(isPanitia, true)
+        startActivity(intent)
+        requireActivity().finish()
     }
     fun setupInformation(){
 

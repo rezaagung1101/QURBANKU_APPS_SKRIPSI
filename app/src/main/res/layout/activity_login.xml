@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.login.LoginActivity">
+    tools:context=".ui.auth.login.LoginActivity">
 
     <include
         android:id="@+id/include"
@@ -64,7 +64,7 @@
             app:boxCornerRadiusTopEnd="10dp"
             app:boxCornerRadiusTopStart="10dp"
             app:boxStrokeColor="@color/green_dark_label"
-            app:boxStrokeWidth="2dp">
+            app:boxStrokeWidth="1dp">
 
             <EditText
                 android:id="@+id/et_email"
@@ -84,13 +84,13 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="8dp"
             app:boxCornerRadiusBottomEnd="10dp"
             app:boxCornerRadiusBottomStart="10dp"
             app:boxCornerRadiusTopEnd="10dp"
             app:boxCornerRadiusTopStart="10dp"
             app:boxStrokeColor="@color/green_dark_label"
-            app:boxStrokeWidth="2dp"
+            app:boxStrokeWidth="1dp"
             app:counterEnabled="true"
             app:counterMaxLength="20"
             app:passwordToggleEnabled="true">

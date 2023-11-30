@@ -17,7 +17,7 @@
         <ImageView
             android:id="@+id/iv_banner_home"
             android:layout_width="match_parent"
-            android:layout_height="220dp"
+            android:layout_height="180dp"
             android:scaleType="centerCrop"
             android:src="@drawable/banner_home_jemaah"
             app:layout_constraintTop_toTopOf="parent"
@@ -42,9 +42,9 @@
             style="@style/TextSpec.Value"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginRight="8dp"
             android:justificationMode="none"
             android:text="@string/qurbanku_copyright"
-            android:layout_marginRight="8dp"
             android:textColor="@color/white"
             android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -52,36 +52,33 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <TextView
-        android:id="@+id/tv_masjid_list"
-        style="@style/TextSpec.Heading1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="@string/masjid_list"
-        android:textColor="@color/green_dark_label"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraint_banner_frame" />
-
-    <View
-        android:id="@+id/line"
-        android:layout_marginTop="8dp"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_masjid_list"
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/text_color_light"
+        android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_masjid_list" />
+        app:layout_constraintTop_toBottomOf="@+id/constraint_banner_frame">
+
+        <TextView
+            style="@style/TextSpec.Heading1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="@string/masjid_list"
+            android:textAlignment="center"
+            android:textColor="@color/green_dark_label" />
+    </androidx.cardview.widget.CardView>
+
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swipe_Refresh"
         android:layout_width="match_parent"
         android:layout_height="400dp"
-        app:layout_constraintTop_toBottomOf="@+id/line"
         android:layout_marginTop="4dp"
         android:paddingLeft="8dp"
-        android:paddingRight="8dp">
+        android:paddingRight="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/card_masjid_list">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_masjid_list"
@@ -98,9 +95,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
+        android:drawableLeft="@drawable/baseline_map_24"
+        android:elevation="8dp"
         android:paddingRight="16dp"
         android:text="@string/find_masjid_location_quote"
-        android:drawableLeft="@drawable/baseline_map_24"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

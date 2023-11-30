@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".ui.animal.jemaah.DetailJemaahAnimalActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <ImageView
+            android:id="@+id/iv_animal"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:background="@drawable/rounded_corner"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_launcher_background"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_description_animal_name"
+            android:layout_marginTop="-16dp"
+            style="@style/TextSpec.LabelWhite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/label_background"
+            android:text="@string/description_animal_name"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_animal" />
+
+        <TextView
+            android:id="@+id/tv_animal_status"
+            style="@style/TextSpec.LabelSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/label_background_2"
+            android:text="@string/animal_status"
+            android:textColor="@color/green_dark_label"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_description_animal_name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_description_animal_name" />
+
+        <View
+            android:id="@+id/line1"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@color/text_color_light"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_description_animal_name"
+            app:layout_constraintEnd_toStartOf="@+id/tv_animal_status"
+            app:layout_constraintStart_toEndOf="@+id/tv_description_animal_name"
+            app:layout_constraintTop_toTopOf="@+id/tv_description_animal_name" />
+
+        <TableLayout
+            android:id="@+id/tableLayout_animal_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:stretchColumns="1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_description_animal_name">
+
+            <TableRow>
+
+                <TextView
+                    style="@style/TextSpec.Value"
+                    android:layout_column="1"
+                    android:text="@string/variety" />
+
+                <TextView
+                    android:id="@+id/tv_variety_name"
+                    style="@style/TextSpec.LabelMedium"
+                    android:gravity="right"
+                    android:text="@string/variety" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    style="@style/TextSpec.Value"
+                    android:layout_column="1"
+                    android:text="@string/weight" />
+
+                <TextView
+                    android:id="@+id/tv_weight"
+                    style="@style/TextSpec.LabelMedium"
+                    android:gravity="right"
+                    android:text="@string/weight_value" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    style="@style/TextSpec.Value"
+                    android:layout_column="1"
+                    android:text="@string/color" />
+
+                <TextView
+                    android:id="@+id/tv_color"
+                    style="@style/TextSpec.LabelMedium"
+                    android:gravity="right"
+                    android:text="@string/color" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    style="@style/TextSpec.Value"
+                    android:layout_column="1"
+                    android:text="@string/animal_price" />
+
+                <TextView
+                    android:id="@+id/tv_price"
+                    style="@style/TextSpec.LabelMedium"
+                    android:gravity="right"
+                    android:text="@string/price" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    style="@style/TextSpec.Value"
+                    android:layout_column="1"
+                    android:text="@string/operational_cost_default" />
+
+                <TextView
+                    android:id="@+id/tv_operational_cost"
+                    style="@style/TextSpec.LabelMedium"
+                    android:gravity="right"
+                    android:text="@string/price" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    style="@style/TextSpec.Value"
+                    android:layout_column="1"
+                    android:text="@string/total_price" />
+
+                <TextView
+                    android:id="@+id/tv_total_price"
+                    style="@style/TextSpec.LabelMedium"
+                    android:gravity="right"
+                    android:text="@string/price" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    style="@style/TextSpec.Value"
+                    android:layout_column="1"
+                    android:text="@string/joint_venture_amount" />
+
+                <TextView
+                    android:id="@+id/tv_joint_venture_amount"
+                    style="@style/TextSpec.LabelMedium"
+                    android:gravity="right"
+                    android:text="@string/joint_venture" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_column="1"
+                    android:fontFamily="@font/popping_bold"
+                    android:textColor="@color/text_color"
+                    android:text="@string/total_cost_required"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_total_cost_required"
+                    android:fontFamily="@font/popping_bold"
+                    android:textColor="@color/text_color"
+                    android:gravity="right"
+                    android:text="@string/price"
+                    android:textSize="14sp" />
+            </TableRow>
+        </TableLayout>
+
+        <TextView
+            android:id="@+id/tv_qurbani_information"
+            style="@style/TextSpec.LabelWhite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/label_background"
+            android:text="@string/qurbani_information"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tableLayout_animal_description" />
+
+        <View
+            android:id="@+id/line2"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@color/text_color_light"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_qurbani_information"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tv_qurbani_information"
+            app:layout_constraintTop_toTopOf="@+id/tv_qurbani_information" />
+
+        <TextView
+            android:id="@+id/tv_holiday_date_title"
+            style="@style/TextSpec.Field"
+            android:textSize="14sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:text="@string/holiday_date"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_qurbani_information" />
+
+        <TextView
+            android:id="@+id/tv_holiday_date_value"
+            style="@style/TextSpec.Value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="-4dp"
+            android:text="@string/temp_date"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_holiday_date_title" />
+
+        <TextView
+            android:textSize="14sp"
+            android:id="@+id/tv_note_title"
+            style="@style/TextSpec.Field"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:text="@string/note"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_holiday_date_value" />
+
+        <TextView
+            android:id="@+id/tv_note_value"
+            style="@style/TextSpec.Value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="-4dp"
+            android:text="@string/note"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_note_title" />
+
+        <TextView
+            android:id="@+id/tv_shohibul_qurban"
+            style="@style/TextSpec.LabelWhite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/label_background"
+            android:text="@string/shohibul_qurban"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_note_value" />
+
+        <TextView
+            android:id="@+id/tv_availability"
+            style="@style/TextSpec.LabelSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/label_background_2"
+            android:text="@string/availability_number"
+            android:textColor="@color/green_dark_label"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_shohibul_qurban"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_shohibul_qurban" />
+
+        <View
+            android:id="@+id/line3"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@color/text_color_light"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_shohibul_qurban"
+            app:layout_constraintEnd_toStartOf="@+id/tv_availability"
+            app:layout_constraintStart_toEndOf="@+id/tv_shohibul_qurban"
+            app:layout_constraintTop_toTopOf="@+id/tv_shohibul_qurban" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_shohibul_qurban">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_shohibul_qurban_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:itemCount="4"
+                tools:listitem="@layout/card_shohibul_qurbani_item" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_buy_animal"
+            style="@style/TextSpec.Field.Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:drawableLeft="@drawable/baseline_shopping_cart_24"
+            android:paddingRight="16dp"
+            android:text="@string/buy_animal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout2" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

@@ -16,7 +16,8 @@
             layout="@layout/app_bar_logo"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:elevation="4dp"/>
 
         <TextView
             android:id="@+id/tv_add_animal_caption"
@@ -129,13 +130,14 @@
             app:layout_constraintStart_toEndOf="@+id/tv_add_animal_description"
             app:layout_constraintTop_toTopOf="@+id/tv_add_animal_description" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingLeft="16dp"
             android:paddingTop="4dp"
             android:paddingRight="16dp"
             android:paddingBottom="4dp"
+            android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_add_animal_description">
@@ -144,10 +146,7 @@
                 android:id="@+id/layout_spinner_animal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/rounded_corner"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                android:background="@drawable/rounded_corner">
 
                 <Spinner
                     android:id="@+id/btn_spinner_animal"
@@ -174,9 +173,7 @@
                 app:boxCornerRadiusTopEnd="10dp"
                 app:boxCornerRadiusTopStart="10dp"
                 app:boxStrokeColor="@color/green_dark_label"
-                app:boxStrokeWidth="2dp"
-                app:layout_constraintTop_toBottomOf="@+id/layout_spinner_animal"
-                tools:layout_editor_absoluteX="16dp">
+                app:boxStrokeWidth="1dp">
 
                 <EditText
                     android:id="@+id/et_variety"
@@ -201,9 +198,7 @@
                 app:boxCornerRadiusTopEnd="10dp"
                 app:boxCornerRadiusTopStart="10dp"
                 app:boxStrokeColor="@color/green_dark_label"
-                app:boxStrokeWidth="2dp"
-                app:layout_constraintTop_toBottomOf="@+id/et_variety_layout"
-                tools:layout_editor_absoluteX="16dp">
+                app:boxStrokeWidth="1dp">
 
                 <EditText
                     android:id="@+id/et_weight"
@@ -211,7 +206,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:hint="@string/weight"
+                    android:hint="@string/weight_et_hint"
                     android:inputType="numberDecimal"
                     android:textColor="@color/text_color"
                     tools:ignore="SpeakableTextPresentCheck" />
@@ -228,9 +223,7 @@
                 app:boxCornerRadiusTopEnd="10dp"
                 app:boxCornerRadiusTopStart="10dp"
                 app:boxStrokeColor="@color/green_dark_label"
-                app:boxStrokeWidth="2dp"
-                app:layout_constraintTop_toBottomOf="@+id/et_weight_layout"
-                tools:layout_editor_absoluteX="16dp">
+                app:boxStrokeWidth="1dp">
 
                 <EditText
                     android:id="@+id/et_color"
@@ -255,9 +248,7 @@
                 app:boxCornerRadiusTopEnd="10dp"
                 app:boxCornerRadiusTopStart="10dp"
                 app:boxStrokeColor="@color/green_dark_label"
-                app:boxStrokeWidth="2dp"
-                app:layout_constraintTop_toBottomOf="@+id/et_color_layout"
-                tools:layout_editor_absoluteX="16dp">
+                app:boxStrokeWidth="1dp">
 
                 <EditText
                     android:id="@+id/et_operational_cost"
@@ -266,6 +257,30 @@
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:hint="@string/operational_cost"
+                    android:inputType="number"
+                    android:textColor="@color/text_color"
+                    tools:ignore="SpeakableTextPresentCheck" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/et_price_layout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                app:boxCornerRadiusBottomEnd="10dp"
+                app:boxCornerRadiusBottomStart="10dp"
+                app:boxCornerRadiusTopEnd="10dp"
+                app:boxCornerRadiusTopStart="10dp"
+                app:boxStrokeColor="@color/green_dark_label"
+                app:boxStrokeWidth="1dp">
+
+                <EditText
+                    android:id="@+id/et_price"
+                    style="@style/TextSpec.Value"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="@string/animal_price_et_hint"
                     android:inputType="number"
                     android:textColor="@color/text_color"
                     tools:ignore="SpeakableTextPresentCheck" />
@@ -282,9 +297,7 @@
                 app:boxCornerRadiusBottomStart="10dp"
                 app:boxCornerRadiusTopEnd="10dp"
                 app:boxCornerRadiusTopStart="10dp"
-                app:boxStrokeColor="@color/green_dark_label"
-                app:boxStrokeWidth="2dp"
-                app:layout_constraintTop_toBottomOf="@+id/et_operational_cost_layout">
+                app:boxStrokeColor="@color/green_dark_label">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_note"
@@ -303,18 +316,13 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="@string/joint_venture_amount"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/et_note_layout" />
+                android:textStyle="bold" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/layout_spinner_joint_venture"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/rounded_corner"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_joint_venture_title">
+                android:background="@drawable/rounded_corner">
 
                 <Spinner
                     android:id="@+id/btn_spinner_joint_venture"
@@ -336,10 +344,7 @@
                 android:layout_marginTop="16dp"
                 android:backgroundTint="@color/green_main"
                 android:text="@string/save"
-                android:textAllCaps="false"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/layout_spinner_joint_venture" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                android:textAllCaps="false"/>
+        </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

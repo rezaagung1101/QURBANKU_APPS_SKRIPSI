@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="4dp"
+    android:paddingBottom="16dp"
+    tools:context=".ui.transaction.jemaah.AddTransactionActivity">
+
+    <TextView
+        android:id="@+id/tv_add_photo_caption"
+        style="@style/TextSpec.LabelWhite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/label_background"
+        android:text="@string/add_transaction_photo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/app_logo" />
+
+    <View
+        android:id="@+id/line1"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@color/text_color_light"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_add_photo_caption"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tv_add_photo_caption"
+        app:layout_constraintTop_toTopOf="@+id/tv_add_photo_caption" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/constraintLayout"
+        android:layout_width="250dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="12dp"
+
+        app:cardCornerRadius="20dp"
+        app:cardElevation="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_add_photo_caption">
+
+        <ImageView
+            android:id="@+id/iv_transaction_photo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_baseline_image_24" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/button_frame"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="16dp"
+        android:paddingTop="8dp"
+        android:paddingRight="16dp"
+        android:paddingBottom="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_camera"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:backgroundTint="@color/white"
+            android:drawableLeft="@drawable/ic_baseline_camera_24"
+            android:fontFamily="@font/semi_bold_poppins"
+            android:paddingLeft="16dp"
+            android:text="@string/take_picture"
+            android:textAlignment="textStart"
+            android:textAllCaps="false"
+            android:textColor="@color/green_dark_label"
+            app:cornerRadius="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/green_dark_label"
+            app:strokeWidth="2dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_gallery"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:backgroundTint="@color/white"
+            android:drawableLeft="@drawable/ic_baseline_image_search_24"
+            android:fontFamily="@font/semi_bold_poppins"
+            android:paddingLeft="16dp"
+            android:text="@string/choose_from_gallery"
+            android:textAlignment="textStart"
+            android:textAllCaps="false"
+            android:textColor="@color/green_dark_label"
+            app:cornerRadius="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_camera"
+            app:strokeColor="@color/green_dark_label"
+            app:strokeWidth="2dp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/tv_add_animal_description"
+        style="@style/TextSpec.LabelWhite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/label_background"
+        android:text="@string/transfer_terms"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_frame" />
+
+    <View
+        android:id="@+id/line2"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@color/text_color_light"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_add_animal_description"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tv_add_animal_description"
+        app:layout_constraintTop_toTopOf="@+id/tv_add_animal_description" />
+
+    <TableLayout
+        android:id="@+id/tableLayout_transfer_requirement"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:stretchColumns="1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_add_animal_description">
+
+        <TableRow>
+
+            <TextView
+                style="@style/TextSpec.Value"
+                android:layout_column="1"
+                android:text="@string/bank_name" />
+
+            <TextView
+                android:id="@+id/tv_bank_name"
+                style="@style/TextSpec.LabelMedium"
+                android:gravity="right"
+                android:text="@string/bank_name" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                style="@style/TextSpec.Value"
+                android:layout_column="1"
+                android:text="@string/account_number" />
+
+            <TextView
+                android:id="@+id/tv_account_number"
+                style="@style/TextSpec.LabelMedium"
+                android:gravity="right"
+                android:text="@string/account_number" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                style="@style/TextSpec.Value"
+                android:layout_column="1"
+                android:text="@string/receiver_name" />
+
+            <TextView
+                android:id="@+id/tv_account_name"
+                style="@style/TextSpec.LabelMedium"
+                android:gravity="right"
+                android:text="@string/receiver_name" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                style="@style/TextSpec.Value"
+                android:layout_column="1"
+                android:text="@string/nominal" />
+
+            <TextView
+                android:id="@+id/tv_transfer_nominal"
+                style="@style/TextSpec.LabelMedium"
+                android:gravity="right"
+                android:text="@string/nominal" />
+        </TableRow>
+    </TableLayout>
+
+    <TextView
+        android:id="@+id/tv_photo_description"
+        style="@style/TextSpec.LabelWhite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/label_background"
+        android:text="@string/photo_requirements"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tableLayout_transfer_requirement" />
+
+    <View
+        android:id="@+id/line3"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@color/text_color_light"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_photo_description"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tv_photo_description"
+        app:layout_constraintTop_toTopOf="@+id/tv_photo_description" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_photo_description">
+
+        <TextView
+            android:id="@+id/tv_photo_requirement_title"
+            style="@style/TextSpec.Value"
+            android:layout_height="wrap_content"
+            android:justificationMode="inter_word"
+            android:text="@string/transaction_photo_requirement_title"
+            android:textColor="@color/text_color"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_photo_requirement_value"
+            style="@style/TextSpec.Value"
+            android:text="@string/note"
+            android:textColor="@color/text_color"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_photo_requirement_title" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_send"
+            style="@style/TextSpec.Field.Button"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="@color/green_main"
+            android:text="@string/send"
+            android:textAllCaps="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_photo_requirement_value" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
+

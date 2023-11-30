@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.signup.jemaah.SignUpJemaahFragment">
+    tools:context=".ui.auth.signup.jemaah.SignUpJemaahFragment">
 
     <TextView
         android:id="@+id/tv_signUp_heading"
@@ -34,7 +34,7 @@
         app:boxCornerRadiusTopEnd="10dp"
         app:boxCornerRadiusTopStart="10dp"
         app:boxStrokeColor="@color/green_dark_label"
-        app:boxStrokeWidth="2dp">
+        app:boxStrokeWidth="1dp">
 
         <EditText
             android:id="@+id/et_email"
@@ -60,7 +60,7 @@
         app:boxCornerRadiusTopEnd="10dp"
         app:boxCornerRadiusTopStart="10dp"
         app:boxStrokeColor="@color/green_dark_label"
-        app:boxStrokeWidth="2dp">
+        app:boxStrokeWidth="1dp">
 
         <EditText
             android:id="@+id/et_phone_number"
@@ -85,7 +85,7 @@
         app:boxCornerRadiusTopEnd="10dp"
         app:boxCornerRadiusTopStart="10dp"
         app:boxStrokeColor="@color/green_dark_label"
-        app:boxStrokeWidth="2dp">
+        app:boxStrokeWidth="1dp">
 
         <EditText
             android:id="@+id/et_name"
@@ -110,7 +110,7 @@
         app:boxCornerRadiusTopEnd="10dp"
         app:boxCornerRadiusTopStart="10dp"
         app:boxStrokeColor="@color/green_dark_label"
-        app:boxStrokeWidth="2dp">
+        app:boxStrokeWidth="1dp">
 
         <EditText
             android:id="@+id/et_address"
@@ -135,7 +135,7 @@
         app:boxCornerRadiusTopEnd="10dp"
         app:boxCornerRadiusTopStart="10dp"
         app:boxStrokeColor="@color/green_dark_label"
-        app:boxStrokeWidth="2dp">
+        app:boxStrokeWidth="1dp">
 
         <EditText
             android:id="@+id/et_head_family_name"
@@ -160,7 +160,7 @@
         app:boxCornerRadiusTopEnd="10dp"
         app:boxCornerRadiusTopStart="10dp"
         app:boxStrokeColor="@color/green_dark_label"
-        app:boxStrokeWidth="2dp"
+        app:boxStrokeWidth="1dp"
         app:passwordToggleEnabled="true">
 
         <EditText

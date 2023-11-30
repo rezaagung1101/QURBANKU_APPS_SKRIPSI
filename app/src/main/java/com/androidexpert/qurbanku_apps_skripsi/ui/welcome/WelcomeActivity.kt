@@ -12,7 +12,8 @@ import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
 import com.androidexpert.qurbanku_apps_skripsi.R
 import com.androidexpert.qurbanku_apps_skripsi.databinding.ActivityWelcomeBinding
-import com.androidexpert.qurbanku_apps_skripsi.ui.login.LoginActivity
+import com.androidexpert.qurbanku_apps_skripsi.ui.auth.login.LoginActivity
+import com.androidexpert.qurbanku_apps_skripsi.utils.Constanta
 
 class WelcomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityWelcomeBinding
@@ -40,7 +41,7 @@ class WelcomeActivity : AppCompatActivity() {
             }
             else{
                 val intent = Intent(this, LoginActivity::class.java)
-                intent.putExtra(LoginActivity.isPanitia, isPanitia)
+                intent.putExtra(Constanta.isPanitia, isPanitia)
                 startActivity(intent)
             }
         }

@@ -1,4 +1,4 @@
-package com.androidexpert.qurbanku_apps_skripsi.ui.signup.panitia
+package com.androidexpert.qurbanku_apps_skripsi.ui.auth.signup.panitia
 
 import android.app.Activity
 import android.content.Intent
@@ -12,8 +12,10 @@ import androidx.fragment.app.viewModels
 import com.androidexpert.qurbanku_apps_skripsi.R
 import com.androidexpert.qurbanku_apps_skripsi.databinding.FragmentSignUpPanitiaBinding
 import com.androidexpert.qurbanku_apps_skripsi.ui.auth.AuthViewModel
+import com.androidexpert.qurbanku_apps_skripsi.ui.auth.login.LoginActivity
 import com.androidexpert.qurbanku_apps_skripsi.ui.maps.MapsPickLocationActivity
 import com.androidexpert.qurbanku_apps_skripsi.utils.Constanta
+import com.androidexpert.qurbanku_apps_skripsi.utils.DialogUtils
 import com.androidexpert.qurbanku_apps_skripsi.utils.Helper
 
 class SignUpPanitiaFragment : Fragment() {
@@ -59,9 +61,27 @@ class SignUpPanitiaFragment : Fragment() {
             pickLocation()
         }
         binding.btnSignUp.setOnClickListener {
-
+            val title = resources.getString(R.string.signup)
+            val message = resources.getString(R.string.signup_message)
+            DialogUtils.showConfirmationDialog(requireContext(), title, message, ::signUp)
+        }
+        binding.btnLogin.setOnClickListener {
+            login()
         }
 
+    }
+
+    fun signUp(){
+        //if success
+        val title = resources.getString(R.string.signup_success_title)
+        val message = resources.getString(R.string.signup_success_message)
+        DialogUtils.showNotificationDialog(requireContext(), title, message, ::login)
+    }
+    fun login(){
+        val intent = Intent(requireContext(), LoginActivity::class.java)
+        intent.putExtra(Constanta.isPanitia, true)
+        startActivity(intent)
+        requireActivity().finish()
     }
 
     fun pickLocation() {
@@ -78,5 +98,7 @@ class SignUpPanitiaFragment : Fragment() {
             })
         }
     }
+
+
 
 }

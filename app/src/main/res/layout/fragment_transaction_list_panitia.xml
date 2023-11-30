@@ -14,6 +14,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/label_background"
         android:text="@string/jemaah_transaction_list_title"
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -54,6 +55,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/label_background"
         android:text="@string/transaction_explanation"
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/swipe_Refresh" />
 
@@ -72,9 +74,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingLeft="16dp"
+        android:paddingTop="4dp"
         android:paddingRight="16dp"
         android:paddingBottom="16dp"
-        android:paddingTop="4dp"
         app:layout_constraintTop_toBottomOf="@+id/tv_transaction_explanation_title">
 
         <TextView

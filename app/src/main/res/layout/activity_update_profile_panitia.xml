@@ -58,7 +58,7 @@
                 app:boxCornerRadiusTopEnd="10dp"
                 app:boxCornerRadiusTopStart="10dp"
                 app:boxStrokeColor="@color/green_dark_label"
-                app:boxStrokeWidth="2dp">
+                app:boxStrokeWidth="1dp">
 
                 <EditText
                     android:id="@+id/et_email"
@@ -84,7 +84,7 @@
                 app:boxCornerRadiusTopEnd="10dp"
                 app:boxCornerRadiusTopStart="10dp"
                 app:boxStrokeColor="@color/green_dark_label"
-                app:boxStrokeWidth="2dp">
+                app:boxStrokeWidth="1dp">
 
                 <EditText
                     android:id="@+id/et_name"
@@ -109,7 +109,7 @@
                 app:boxCornerRadiusTopEnd="10dp"
                 app:boxCornerRadiusTopStart="10dp"
                 app:boxStrokeColor="@color/green_dark_label"
-                app:boxStrokeWidth="2dp">
+                app:boxStrokeWidth="1dp">
 
                 <EditText
                     android:id="@+id/et_name_headTakmir"
@@ -134,7 +134,7 @@
                 app:boxCornerRadiusTopEnd="10dp"
                 app:boxCornerRadiusTopStart="10dp"
                 app:boxStrokeColor="@color/green_dark_label"
-                app:boxStrokeWidth="2dp">
+                app:boxStrokeWidth="1dp">
 
                 <EditText
                     android:id="@+id/et_contact_person_number"
@@ -159,7 +159,7 @@
                 app:boxCornerRadiusTopEnd="10dp"
                 app:boxCornerRadiusTopStart="10dp"
                 app:boxStrokeColor="@color/green_dark_label"
-                app:boxStrokeWidth="2dp"
+                app:boxStrokeWidth="1dp"
                 app:passwordToggleEnabled="true">
 
                 <EditText
@@ -211,7 +211,7 @@
                 app:boxCornerRadiusTopEnd="10dp"
                 app:boxCornerRadiusTopStart="10dp"
                 app:boxStrokeColor="@color/green_dark_label"
-                app:boxStrokeWidth="2dp">
+                app:boxStrokeWidth="1dp">
 
                 <EditText
                     android:id="@+id/et_account_number"
@@ -236,7 +236,7 @@
                 app:boxCornerRadiusTopEnd="10dp"
                 app:boxCornerRadiusTopStart="10dp"
                 app:boxStrokeColor="@color/green_dark_label"
-                app:boxStrokeWidth="2dp">
+                app:boxStrokeWidth="1dp">
 
                 <EditText
                     android:id="@+id/et_bank_name"
@@ -261,7 +261,7 @@
                 app:boxCornerRadiusTopEnd="10dp"
                 app:boxCornerRadiusTopStart="10dp"
                 app:boxStrokeColor="@color/green_dark_label"
-                app:boxStrokeWidth="2dp">
+                app:boxStrokeWidth="1dp">
 
                 <EditText
                     android:id="@+id/et_account_name"
