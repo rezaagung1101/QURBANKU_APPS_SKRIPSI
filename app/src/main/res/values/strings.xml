@@ -8,7 +8,7 @@
     <string name="panitia_allcaps">PANITIA</string>
     <string name="jemaah_allcaps">JEMAAH</string>
     <!--    Login & SignUp-->
-    <string name="notification">Pemberitahuan</string>
+    <string name="announcement">Pemberitahuan</string>
     <string name="login">Masuk</string>
     <string name="login_panitia_quote">Anda akan masuk sebagai Panitia Kurban</string>
     <string name="login_jemaah_quote">Anda akan masuk sebagai Jemaah</string>
@@ -240,7 +240,7 @@
     <string name="profile_masjid">Profil Masjid</string>
     <string name="your_qurbani_list_title">Riwayat Kurban Anda</string>
     <string name="history">Riwayat</string>
-
+    <string name="update_profile_success">Berhasil memperbarui data profil</string>
 
 
 </resources>

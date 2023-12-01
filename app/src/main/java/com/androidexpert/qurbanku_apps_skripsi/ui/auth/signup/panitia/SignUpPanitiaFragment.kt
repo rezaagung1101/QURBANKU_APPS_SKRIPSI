@@ -59,7 +59,7 @@ class SignUpPanitiaFragment : Fragment() {
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        setupInfromation(null, null)
+        this.setupInfromation(null, null)
         super.onViewCreated(view, savedInstanceState)
         binding.btnAddAddress.setOnClickListener {
             pickLocation()
