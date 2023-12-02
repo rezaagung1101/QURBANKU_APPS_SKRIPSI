@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "559503211437",
+    "project_id": "qurbanku-apps-406108",
+    "storage_bucket": "qurbanku-apps-406108.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:559503211437:android:822c888965f16790b93f24",
+        "android_client_info": {
+          "package_name": "com.androidexpert.qurbanku_apps_skripsi"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD3WpXHNnWRNK1BWtlaXAQIy7f5Qi9Oqdo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,231 +1,252 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".ui.auth.signup.jemaah.SignUpJemaahFragment">
 
-    <TextView
-        android:id="@+id/tv_signUp_heading"
-        style="@style/TextSpec.Heading1"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:text="@string/signup"
-        android:textColor="@color/green_dark_label" />
-
-    <TextView
-        android:id="@+id/tv_signUp_quote"
-        style="@style/TextSpec.Field"
-        android:layout_width="match_parent"
-        android:layout_height="20dp"
-        android:text="@string/signup_jemaah_quote" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/et_email_layout"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        app:boxCornerRadiusBottomEnd="10dp"
-        app:boxCornerRadiusBottomStart="10dp"
-        app:boxCornerRadiusTopEnd="10dp"
-        app:boxCornerRadiusTopStart="10dp"
-        app:boxStrokeColor="@color/green_dark_label"
-        app:boxStrokeWidth="1dp">
-
-        <EditText
-            android:id="@+id/et_email"
-            style="@style/TextSpec.Value"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/email"
-            android:inputType="textEmailAddress"
-            android:textColor="@color/text_color"
-            tools:ignore="SpeakableTextPresentCheck" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/et_phone_number_layout"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        app:boxCornerRadiusBottomEnd="10dp"
-        app:boxCornerRadiusBottomStart="10dp"
-        app:boxCornerRadiusTopEnd="10dp"
-        app:boxCornerRadiusTopStart="10dp"
-        app:boxStrokeColor="@color/green_dark_label"
-        app:boxStrokeWidth="1dp">
-
-        <EditText
-            android:id="@+id/et_phone_number"
-            style="@style/TextSpec.Value"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/phone_number"
-            android:inputType="number"
-            android:textColor="@color/text_color"
-            tools:ignore="SpeakableTextPresentCheck" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/et_name_layout"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        app:boxCornerRadiusBottomEnd="10dp"
-        app:boxCornerRadiusBottomStart="10dp"
-        app:boxCornerRadiusTopEnd="10dp"
-        app:boxCornerRadiusTopStart="10dp"
-        app:boxStrokeColor="@color/green_dark_label"
-        app:boxStrokeWidth="1dp">
-
-        <EditText
-            android:id="@+id/et_name"
-            style="@style/TextSpec.Value"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/name"
-            android:inputType="text"
-            android:textColor="@color/text_color"
-            tools:ignore="SpeakableTextPresentCheck" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/et_address_layout"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        app:boxCornerRadiusBottomEnd="10dp"
-        app:boxCornerRadiusBottomStart="10dp"
-        app:boxCornerRadiusTopEnd="10dp"
-        app:boxCornerRadiusTopStart="10dp"
-        app:boxStrokeColor="@color/green_dark_label"
-        app:boxStrokeWidth="1dp">
-
-        <EditText
-            android:id="@+id/et_address"
-            style="@style/TextSpec.Value"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/complete_address"
-            android:inputType="text"
-            android:textColor="@color/text_color"
-            tools:ignore="SpeakableTextPresentCheck" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/et_head_family_name_layout"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        app:boxCornerRadiusBottomEnd="10dp"
-        app:boxCornerRadiusBottomStart="10dp"
-        app:boxCornerRadiusTopEnd="10dp"
-        app:boxCornerRadiusTopStart="10dp"
-        app:boxStrokeColor="@color/green_dark_label"
-        app:boxStrokeWidth="1dp">
-
-        <EditText
-            android:id="@+id/et_head_family_name"
-            style="@style/TextSpec.Value"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/head_of_family"
-            android:inputType="text"
-            android:textColor="@color/text_color"
-            tools:ignore="SpeakableTextPresentCheck" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/et_password_layout"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        app:boxCornerRadiusBottomEnd="10dp"
-        app:boxCornerRadiusBottomStart="10dp"
-        app:boxCornerRadiusTopEnd="10dp"
-        app:boxCornerRadiusTopStart="10dp"
-        app:boxStrokeColor="@color/green_dark_label"
-        app:boxStrokeWidth="1dp"
-        app:passwordToggleEnabled="true">
-
-        <EditText
-            android:id="@+id/et_password"
-            style="@style/TextSpec.Value"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/password"
-            android:inputType="textPassword"
-            android:textColor="@color/text_color"
-            tools:ignore="SpeakableTextPresentCheck" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <TextView
-        android:id="@+id/tv_note_title"
-        style="@style/TextSpec.Value"
-        android:layout_height="20dp"
-        android:layout_marginTop="16dp"
-        android:text="@string/note"
-        android:textColor="@color/text_color"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/tv_note_value"
-        style="@style/TextSpec.Value"
-        android:justificationMode="inter_word"
-        android:text="@string/note"
-        android:textColor="@color/text_color" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_signUp"
-        style="@style/TextSpec.Field.Button"
-        android:layout_marginTop="4dp"
-        android:backgroundTint="@color/green_main"
-        android:elevation="4dp"
-        android:text="@string/signup"
-        android:textAllCaps="false" />
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/tv_login_question"
+            android:id="@+id/tv_signUp_heading"
+            style="@style/TextSpec.Heading1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@string/signup"
+            android:textColor="@color/green_dark_label" />
+
+        <TextView
+            android:id="@+id/tv_signUp_quote"
+            style="@style/TextSpec.Field"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:text="@string/signup_jemaah_quote" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/et_email_layout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:boxCornerRadiusBottomEnd="10dp"
+            app:boxCornerRadiusBottomStart="10dp"
+            app:boxCornerRadiusTopEnd="10dp"
+            app:boxCornerRadiusTopStart="10dp"
+            app:boxStrokeColor="@color/green_dark_label"
+            app:boxStrokeWidth="1dp">
+
+            <EditText
+                android:id="@+id/et_email"
+                style="@style/TextSpec.Value"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/email"
+                android:inputType="textEmailAddress"
+                android:textColor="@color/text_color"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/et_name_layout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            app:boxCornerRadiusBottomEnd="10dp"
+            app:boxCornerRadiusBottomStart="10dp"
+            app:boxCornerRadiusTopEnd="10dp"
+            app:boxCornerRadiusTopStart="10dp"
+            app:boxStrokeColor="@color/green_dark_label"
+            app:boxStrokeWidth="1dp">
+
+            <EditText
+                android:id="@+id/et_name"
+                style="@style/TextSpec.Value"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/name"
+                android:inputType="text"
+                android:textColor="@color/text_color"
+                tools:ignore="SpeakableTextPresentCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/et_phone_number_layout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            app:boxCornerRadiusBottomEnd="10dp"
+            app:boxCornerRadiusBottomStart="10dp"
+            app:boxCornerRadiusTopEnd="10dp"
+            app:boxCornerRadiusTopStart="10dp"
+            app:boxStrokeColor="@color/green_dark_label"
+            app:boxStrokeWidth="1dp">
+
+            <EditText
+                android:id="@+id/et_phone_number"
+                style="@style/TextSpec.Value"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/phone_number"
+                android:inputType="number"
+                android:textColor="@color/text_color"
+                tools:ignore="SpeakableTextPresentCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/et_address_layout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            app:boxCornerRadiusBottomEnd="10dp"
+            app:boxCornerRadiusBottomStart="10dp"
+            app:boxCornerRadiusTopEnd="10dp"
+            app:boxCornerRadiusTopStart="10dp"
+            app:boxStrokeColor="@color/green_dark_label"
+            app:boxStrokeWidth="1dp">
+
+            <EditText
+                android:id="@+id/et_address"
+                style="@style/TextSpec.Value"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/complete_address"
+                android:inputType="text"
+                android:textColor="@color/text_color"
+                tools:ignore="SpeakableTextPresentCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/et_head_family_name_layout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            app:boxCornerRadiusBottomEnd="10dp"
+            app:boxCornerRadiusBottomStart="10dp"
+            app:boxCornerRadiusTopEnd="10dp"
+            app:boxCornerRadiusTopStart="10dp"
+            app:boxStrokeColor="@color/green_dark_label"
+            app:boxStrokeWidth="1dp">
+
+            <EditText
+                android:id="@+id/et_head_family_name"
+                style="@style/TextSpec.Value"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/head_of_family"
+                android:inputType="text"
+                android:textColor="@color/text_color"
+                tools:ignore="SpeakableTextPresentCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/et_password_layout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            app:boxCornerRadiusBottomEnd="10dp"
+            app:boxCornerRadiusBottomStart="10dp"
+            app:boxCornerRadiusTopEnd="10dp"
+            app:boxCornerRadiusTopStart="10dp"
+            app:boxStrokeColor="@color/green_dark_label"
+            app:boxStrokeWidth="1dp"
+            app:passwordToggleEnabled="true">
+
+            <EditText
+                android:id="@+id/et_password"
+                style="@style/TextSpec.Value"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/password"
+                android:inputType="textPassword"
+                android:textColor="@color/text_color"
+                tools:ignore="SpeakableTextPresentCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/tv_note_title"
             style="@style/TextSpec.Value"
-            android:layout_marginLeft="-55dp"
+            android:layout_height="20dp"
             android:layout_marginTop="16dp"
-            android:text="@string/login_question"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:text="@string/note"
+            android:textColor="@color/text_color"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_note_value"
+            style="@style/TextSpec.Value"
+            android:justificationMode="inter_word"
+            android:text="@string/note"
+            android:textColor="@color/text_color" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_login"
-            style="@style/TextSpec.Value"
-            android:layout_marginLeft="-16dp"
-            android:background="?android:attr/selectableItemBackground"
-            android:text="@string/login"
-            android:textAllCaps="false"
-            android:textColor="@color/purple_700"
-            app:layout_constraintBottom_toBottomOf="@+id/tv_login_question"
-            app:layout_constraintStart_toEndOf="@+id/tv_login_question"
-            app:layout_constraintTop_toTopOf="@+id/tv_login_question" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            android:id="@+id/btn_signUp"
+            style="@style/TextSpec.Field.Button"
+            android:layout_marginTop="4dp"
+            android:backgroundTint="@color/green_main"
+            android:elevation="4dp"
+            android:text="@string/signup"
+            android:textAllCaps="false" />
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-</LinearLayout>
+            <TextView
+                android:id="@+id/tv_login_question"
+                style="@style/TextSpec.Value"
+                android:layout_marginLeft="-55dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/login_question"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_login"
+                style="@style/TextSpec.Value"
+                android:layout_marginLeft="-16dp"
+                android:background="?android:attr/selectableItemBackground"
+                android:text="@string/login"
+                android:textAllCaps="false"
+                android:textColor="@color/purple_700"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_login_question"
+                app:layout_constraintStart_toEndOf="@+id/tv_login_question"
+                app:layout_constraintTop_toTopOf="@+id/tv_login_question" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible" />
+</androidx.constraintlayout.widget.ConstraintLayout>

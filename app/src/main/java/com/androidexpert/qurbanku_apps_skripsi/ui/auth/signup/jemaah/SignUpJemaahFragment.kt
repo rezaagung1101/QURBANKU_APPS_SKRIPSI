@@ -2,21 +2,31 @@ package com.androidexpert.qurbanku_apps_skripsi.ui.auth.signup.jemaah
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import com.androidexpert.qurbanku_apps_skripsi.R
+import com.androidexpert.qurbanku_apps_skripsi.data.remote.AuthRepository
+import com.androidexpert.qurbanku_apps_skripsi.data.remote.lib.user.User
 import com.androidexpert.qurbanku_apps_skripsi.databinding.FragmentSignUpJemaahBinding
+import com.androidexpert.qurbanku_apps_skripsi.ui.AuthViewModelFactory
+import com.androidexpert.qurbanku_apps_skripsi.ui.auth.AuthViewModel
 import com.androidexpert.qurbanku_apps_skripsi.ui.auth.login.LoginActivity
-import com.androidexpert.qurbanku_apps_skripsi.ui.welcome.WelcomeActivity
 import com.androidexpert.qurbanku_apps_skripsi.utils.Constanta
 import com.androidexpert.qurbanku_apps_skripsi.utils.DialogUtils
 import com.androidexpert.qurbanku_apps_skripsi.utils.Helper
 
 class SignUpJemaahFragment : Fragment() {
     private lateinit var binding: FragmentSignUpJemaahBinding
+
+    //    private val authViewModel: AuthViewModel by viewModels()
+    private val authRepository = AuthRepository()
+    private lateinit var authViewModel: AuthViewModel
     override fun onCreateView(
+
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View? {
@@ -26,6 +36,7 @@ class SignUpJemaahFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        authViewModel = ViewModelProvider(this,AuthViewModelFactory(authRepository))[AuthViewModel::class.java]
         this.setupInformation()
         binding.apply {
 
@@ -39,30 +50,50 @@ class SignUpJemaahFragment : Fragment() {
                 val phoneNumber = etPhoneNumber.text.toString()
                 val password = etPassword.text.toString()
                 val address = etAddress.text.toString()
+                val user = User(
+                    uid = null,
+                    email = email,
+                    headName = headName,
+                    name = name,
+                    phoneNumber = phoneNumber,
+                    isAdmin = false,
+                    address = address,
+                    bankAccountName = null,
+                    latitude = null,
+                    longitude = null,
+                    bankName = null,
+                    bankAccountNumber = null
+                )
                 val title = resources.getString(R.string.signup)
                 val message = resources.getString(R.string.signup_message)
                 if (validation(email, phoneNumber, name, address, headName, password))
                     DialogUtils.showConfirmationDialog(requireContext(), title, message, {
-                        signUp(email, phoneNumber, name, address, headName, password)
+                        signUp(user, password)
                     })
             }
         }
     }
 
-    fun signUp(
-        email: String,
-        phoneNumber: String,
-        name: String,
-        address: String,
-        headName: String,
-        password: String,
-    ) {
-        //call viewModels
+    fun signUp(user: User, password: String) {
 
-        //if success
-        val title = resources.getString(R.string.signup_success_title)
-        val message = resources.getString(R.string.signup_success_message)
-        DialogUtils.showNotificationDialog(requireContext(), title, message, ::login)
+        //call viewModels
+        authViewModel.signUpUser(user, password)
+
+        // Observe the registration result in the ViewModel and handle UI accordingly
+        authViewModel.registrationResult.observe(viewLifecycleOwner, { isSuccess ->
+            var title = ""
+            var message = ""
+            if (isSuccess==true) {
+                title = resources.getString(R.string.signup_success_title)
+                message = resources.getString(R.string.signup_success_message)
+                DialogUtils.showNotificationDialog(requireContext(), title, message, ::login)
+            } else {
+                title = resources.getString(R.string.signup_failed_title)
+                message = resources.getString(R.string.signup_failed_message)
+                DialogUtils.showNotificationDialog(requireContext(), title, message, {})
+            }
+        })
+
     }
 
     fun validation(
@@ -125,12 +156,17 @@ class SignUpJemaahFragment : Fragment() {
     }
 
     fun setupInformation() {
+        authViewModel.isLoading.observe(viewLifecycleOwner,{
+            showLoading(it)
+        })
         val stringArray = resources.getStringArray(R.array.note_jemaah_signUp)
         val text = stringArray.joinToString("\n")
         binding.tvNoteValue.text = text
 
     }
-
+    private fun showLoading(state: Boolean) {
+        binding.progressBar.visibility = if (state) View.VISIBLE else View.GONE
+    }
 
 
 }
