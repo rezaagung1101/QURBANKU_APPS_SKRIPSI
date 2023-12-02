@@ -49,7 +49,7 @@ class LoginActivity : AppCompatActivity() {
         if (isPanitia) {
             //call viewModel
             //if success
-            val title = resources.getString(R.string.login_success_title, email)
+            val title = resources.getString(R.string.login_success_panitia_title, email)
             val message = resources.getString(R.string.login_success_panitia_message)
             DialogUtils.showNotificationDialog(this, title, message, {
                 startActivity(Intent(this, MainPanitiaActivity::class.java))
@@ -57,7 +57,7 @@ class LoginActivity : AppCompatActivity() {
         } else {
             //call viewModel
             //if success
-            val title = resources.getString(R.string.login_success_title, email)
+            val title = resources.getString(R.string.login_success_jemaah_title, email)
             val message = resources.getString(R.string.login_success_jemaah_message)
             DialogUtils.showNotificationDialog(this, title, message, {
                 startActivity(Intent(this, MainJemaahActivity::class.java))

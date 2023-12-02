@@ -91,8 +91,4 @@ class DetailPanitiaAnimalActivity : AppCompatActivity() {
         return super.onSupportNavigateUp()
     }
 
-    companion object {
-        val delete: String = "DELETE"
-        val confirm: String = "CONFIRM"
-    }
 }

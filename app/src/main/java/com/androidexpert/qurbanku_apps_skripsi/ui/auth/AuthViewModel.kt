@@ -13,6 +13,7 @@ import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import com.androidexpert.qurbanku_apps_skripsi.data.remote.AuthRepository
 import com.androidexpert.qurbanku_apps_skripsi.data.remote.lib.user.User
+import com.androidexpert.qurbanku_apps_skripsi.utils.SingleLiveEvent
 
 class AuthViewModel(
     private val authRepository: AuthRepository
@@ -25,7 +26,7 @@ class AuthViewModel(
     val isUsingLocation = MutableLiveData(false)
     val latitude = MutableLiveData(0.0)
     val longitude = MutableLiveData(0.0)
-    private val _registrationResult = MutableLiveData<Boolean>()
+    private val _registrationResult = SingleLiveEvent<Boolean>()
     val registrationResult: LiveData<Boolean> get() = _registrationResult
 
     fun signUpUser(user: User, password: String) {

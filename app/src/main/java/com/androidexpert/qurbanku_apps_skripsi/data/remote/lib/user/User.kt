@@ -1,7 +1,7 @@
 package com.androidexpert.qurbanku_apps_skripsi.data.remote.lib.user
 
 data class User(
-    val uid: String?,
+    val uid: String,
     val email: String,
     val name: String,
     val headName: String,

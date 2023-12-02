@@ -5,14 +5,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.androidexpert.qurbanku_apps_skripsi.R
 import com.androidexpert.qurbanku_apps_skripsi.data.remote.AuthRepository
 import com.androidexpert.qurbanku_apps_skripsi.data.remote.lib.user.User
 import com.androidexpert.qurbanku_apps_skripsi.databinding.FragmentSignUpJemaahBinding
-import com.androidexpert.qurbanku_apps_skripsi.ui.AuthViewModelFactory
+import com.androidexpert.qurbanku_apps_skripsi.ui.ViewModelFactory
 import com.androidexpert.qurbanku_apps_skripsi.ui.auth.AuthViewModel
 import com.androidexpert.qurbanku_apps_skripsi.ui.auth.login.LoginActivity
 import com.androidexpert.qurbanku_apps_skripsi.utils.Constanta
@@ -36,7 +35,9 @@ class SignUpJemaahFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        authViewModel = ViewModelProvider(this,AuthViewModelFactory(authRepository))[AuthViewModel::class.java]
+        authViewModel = ViewModelProvider(this,
+            ViewModelFactory.AuthViewModelFactory(authRepository)
+        )[AuthViewModel::class.java]
         this.setupInformation()
         binding.apply {
 
@@ -51,7 +52,7 @@ class SignUpJemaahFragment : Fragment() {
                 val password = etPassword.text.toString()
                 val address = etAddress.text.toString()
                 val user = User(
-                    uid = null,
+                    uid = "",
                     email = email,
                     headName = headName,
                     name = name,
@@ -90,7 +91,9 @@ class SignUpJemaahFragment : Fragment() {
             } else {
                 title = resources.getString(R.string.signup_failed_title)
                 message = resources.getString(R.string.signup_failed_message)
-                DialogUtils.showNotificationDialog(requireContext(), title, message, {})
+                DialogUtils.showNotificationDialog(requireContext(), title, message,{
+
+                })
             }
         })
 
@@ -168,5 +171,10 @@ class SignUpJemaahFragment : Fragment() {
         binding.progressBar.visibility = if (state) View.VISIBLE else View.GONE
     }
 
+    override fun onDestroyView() {
+        authViewModel.registrationResult.removeObservers(viewLifecycleOwner)
+        authViewModel.isLoading.removeObservers(viewLifecycleOwner)
+        super.onDestroyView()
+    }
 
 }
