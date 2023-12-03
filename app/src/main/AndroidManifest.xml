@@ -98,7 +98,6 @@
         <activity
             android:name=".ui.maps.MapsPickLocationActivity"
             android:exported="false"
-            android:parentActivityName=".ui.auth.signup.SignUpActivity"
             android:theme="@style/Theme.MaterialComponents.DayNight.Title" />
         <activity
             android:name=".ui.auth.signup.SignUpActivity"

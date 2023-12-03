@@ -19,6 +19,7 @@ class WelcomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityWelcomeBinding
     private var isPanitia: Boolean = true
     private var isActorSelected: Boolean = false
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityWelcomeBinding.inflate(layoutInflater)
@@ -43,6 +44,7 @@ class WelcomeActivity : AppCompatActivity() {
                 val intent = Intent(this, LoginActivity::class.java)
                 intent.putExtra(Constanta.isPanitia, isPanitia)
                 startActivity(intent)
+                finish()
             }
         }
 

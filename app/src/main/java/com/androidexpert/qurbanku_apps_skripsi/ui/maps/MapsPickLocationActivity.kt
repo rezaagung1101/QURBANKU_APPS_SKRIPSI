@@ -4,17 +4,19 @@ import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.Location
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.ViewModelProvider
 import com.androidexpert.qurbanku_apps_skripsi.R
+import com.androidexpert.qurbanku_apps_skripsi.data.remote.AuthRepository
 import com.androidexpert.qurbanku_apps_skripsi.databinding.ActivityMapsPickLocationBinding
 import com.androidexpert.qurbanku_apps_skripsi.databinding.CustomLocationPopUpBinding
+import com.androidexpert.qurbanku_apps_skripsi.ui.ViewModelFactory
 import com.androidexpert.qurbanku_apps_skripsi.ui.auth.AuthViewModel
 import com.androidexpert.qurbanku_apps_skripsi.utils.Constanta
 import com.androidexpert.qurbanku_apps_skripsi.utils.Helper
@@ -28,16 +30,23 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 
-class MapsPickLocationActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.InfoWindowAdapter  {
+class MapsPickLocationActivity : AppCompatActivity(), OnMapReadyCallback,
+    GoogleMap.InfoWindowAdapter {
     private lateinit var binding: ActivityMapsPickLocationBinding
     private lateinit var mMap: GoogleMap
     private lateinit var fusedLocationClient: FusedLocationProviderClient
-    private val authViewModel: AuthViewModel by viewModels()
+    private lateinit var authViewModel: AuthViewModel
+    private val authRepository = AuthRepository()
     override fun onCreate(savedInstanceState: Bundle?) {
+        authViewModel = ViewModelProvider(
+            this,
+            ViewModelFactory.AuthViewModelFactory(authRepository)
+        )[AuthViewModel::class.java]
         super.onCreate(savedInstanceState)
         binding = ActivityMapsPickLocationBinding.inflate(layoutInflater)
         setContentView(binding.root)
         supportActionBar?.title = resources.getString(R.string.choose_masjid_location)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
@@ -98,6 +107,7 @@ class MapsPickLocationActivity : AppCompatActivity(), OnMapReadyCallback, Google
         }
         getMyLastLocation()
     }
+
     private fun setLocation(latitude: Double, longitude: Double) {
         authViewModel.isUsingLocation.postValue(true)
         authViewModel.latitude.postValue(latitude)
@@ -113,10 +123,12 @@ class MapsPickLocationActivity : AppCompatActivity(), OnMapReadyCallback, Google
                     // Precise location access granted.
                     getMyLastLocation()
                 }
+
                 permissions[Manifest.permission.ACCESS_COARSE_LOCATION] ?: false -> {
                     // Only approximate location access granted.
                     getMyLastLocation()
                 }
+
                 else -> {
                     // No location access granted.
                 }
@@ -180,5 +192,9 @@ class MapsPickLocationActivity : AppCompatActivity(), OnMapReadyCallback, Google
             marker.position.latitude, marker.position.longitude
         )
         return addressLayout.root
+    }
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return super.onSupportNavigateUp()
     }
 }

@@ -105,6 +105,19 @@ object Helper {
         }
         return address
     }
+    fun parseCompleteAddress(context: Context, latitude: Double, longitude: Double): String {
+        val geocoder = Geocoder(context, Locale.getDefault())
+        val addresses = geocoder.getFromLocation(latitude, longitude, 1)
+        val address: String = if (addresses?.isNotEmpty() == true) {
+            val fetchedAddress: Address = addresses[0]
+            // Extract the address details you need, e.g.
+            fetchedAddress.getAddressLine(0)
+//            "${fetchedAddress.subLocality}, ${fetchedAddress.locality}"
+        } else {
+            "Address not found"
+        }
+        return address
+    }
 
     fun parseAddressCity(context: Context, latitude: Double, longitude: Double): String {
         val geocoder = Geocoder(context, Locale.getDefault())

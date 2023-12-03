@@ -53,7 +53,7 @@ class DetailTransactionPanitiaActivity : AppCompatActivity() {
         }
         finish()
         overridePendingTransition(0, 0)
-        startActivity(getIntent());
+        startActivity(getIntent())
         overridePendingTransition(0, 0)
     }
 

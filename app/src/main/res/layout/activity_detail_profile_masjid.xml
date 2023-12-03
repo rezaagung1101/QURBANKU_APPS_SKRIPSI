@@ -37,7 +37,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="320dp"
+        android:layout_height="wrap_content"
         android:background="@drawable/profile_masjid_image_transparent"
         android:orientation="vertical"
         android:paddingLeft="16dp"
@@ -47,7 +47,6 @@
             android:id="@+id/tv_email_title"
             style="@style/TextSpec.Value"
             android:layout_height="20dp"
-            android:layout_marginTop="8dp"
             android:text="@string/email"
             android:textColor="@color/text_color"
             android:textSize="14sp"
@@ -153,7 +152,7 @@
             android:id="@+id/tv_address_value"
             style="@style/TextSpec.Value"
             android:text="@string/address"
-            android:textColor="@color/text_color_light"
+            android:textColor="@color/green_dark_label"
             android:textSize="14sp" />
     </LinearLayout>
 

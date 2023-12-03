@@ -1,8 +1,9 @@
 package com.androidexpert.qurbanku_apps_skripsi.data.remote
 
-import com.androidexpert.qurbanku_apps_skripsi.data.remote.lib.user.User
+import com.androidexpert.qurbanku_apps_skripsi.data.lib.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.toObject
 
 class AuthRepository() {
     private val firebaseAuth = FirebaseAuth.getInstance()
@@ -32,6 +33,36 @@ class AuthRepository() {
                     onResult(false)
                 }
             }
+    }
+    fun login(email: String, password: String, onResult: (Boolean, User?) -> Unit){
+        firebaseAuth.signInWithEmailAndPassword(email,password)
+            .addOnCompleteListener { task ->
+                if(task.isSuccessful){
+                    val user = firebaseAuth.currentUser
+                    // Get user data from Firestore and set it in _user LiveData
+                    getUserData(user?.uid) { userData ->
+                        onResult(true, userData)
+                    }
+                }else{
+                    onResult(false, null)
+                }
+            }
+    }
+
+    fun getUserData(uid: String?, setUser: (User?) -> Unit){
+        if (uid != null) {
+            firestore.collection("user").document(uid)
+                .get()
+                .addOnSuccessListener { documentSnapshot ->
+                    val user = documentSnapshot.toObject<User>()
+                    setUser(user)
+                }
+                .addOnFailureListener {
+                    setUser(null)
+                }
+        } else {
+            setUser(null)
+        }
     }
 }
 

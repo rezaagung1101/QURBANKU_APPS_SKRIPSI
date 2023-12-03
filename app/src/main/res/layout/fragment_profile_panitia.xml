@@ -1,238 +1,243 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
     tools:context=".ui.profile.panitia.ProfilePanitiaFragment">
-
-    <ImageView
-        android:id="@+id/iv_masjid_profile"
-        android:layout_width="0dp"
-        android:layout_height="150dp"
-        android:src="@drawable/profile_masjid_image"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_masjid_profile">
-
-        <TextView
-            android:id="@+id/tv_masjid_name"
-            style="@style/TextSpec.LabelWhite"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/iv_masjid_profile"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="-16dp"
-            android:background="@drawable/label_background_profile"
-            android:elevation="4dp"
-            android:text="@string/name_masjid_value"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toTopOf="@+id/cardView"
-            app:layout_constraintEnd_toEndOf="@+id/cardView"
-            app:layout_constraintStart_toStartOf="@+id/cardView" />
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardView"
+            android:layout_height="150dp"
+            android:src="@drawable/profile_masjid_image"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:elevation="10dp"
-            app:cardCornerRadius="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toBottomOf="@+id/iv_masjid_profile">
 
-            <LinearLayout
+            <TextView
+                android:id="@+id/tv_masjid_name"
+                style="@style/TextSpec.LabelWhite"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="-20dp"
+                android:background="@drawable/label_background_profile"
+                android:elevation="4dp"
+                android:text="@string/name_masjid_value"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toTopOf="@+id/cardView"
+                app:layout_constraintEnd_toEndOf="@+id/cardView"
+                app:layout_constraintStart_toStartOf="@+id/cardView" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:paddingTop="16dp"
-                android:paddingLeft="16dp"
-                android:paddingRight="16dp"
-                android:paddingBottom="8dp">
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:elevation="10dp"
+                app:cardCornerRadius="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-                <TextView
-                    android:id="@+id/tv_email_title"
-                    style="@style/TextSpec.Value"
-                    android:layout_height="20dp"
-                    android:layout_marginTop="8dp"
-                    android:text="@string/email"
-                    android:textColor="@color/text_color"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/tv_email_value"
-                    style="@style/TextSpec.Value"
-                    android:text="@string/email"
-                    android:textColor="@color/text_color_light"
-                    android:textSize="16sp" />
-
-                <TextView
-                    android:id="@+id/tv_head_title"
-                    style="@style/TextSpec.Value"
-                    android:layout_height="20dp"
-                    android:text="@string/head_takmir"
-                    android:textColor="@color/text_color"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/tv_head_value"
-                    style="@style/TextSpec.Value"
-                    android:text="@string/name"
-                    android:textColor="@color/text_color_light"
-                    android:textSize="16sp" />
-
-                <TextView
-                    android:id="@+id/tv_contact_person_title"
-                    style="@style/TextSpec.Value"
-                    android:layout_height="20dp"
-                    android:text="@string/contact_person_number"
-                    android:textColor="@color/text_color"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/tv_contact_person_value"
-                    style="@style/TextSpec.Value"
-                    android:text="@string/phone_number"
-                    android:textColor="@color/text_color_light"
-                    android:textSize="16sp" />
-
-                <TextView
-                    android:id="@+id/tv_account_number_title"
-                    style="@style/TextSpec.Value"
-                    android:layout_height="20dp"
-                    android:text="@string/account_number"
-                    android:textColor="@color/text_color"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/tv_account_number_value"
-                    style="@style/TextSpec.Value"
-                    android:text="@string/account_number"
-                    android:textColor="@color/text_color_light"
-                    android:textSize="16sp" />
-
-                <TextView
-                    android:id="@+id/tv_bank_title"
-                    style="@style/TextSpec.Value"
-                    android:layout_height="20dp"
-                    android:text="@string/bank_name"
-                    android:textColor="@color/text_color"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/tv_bank_value"
-                    style="@style/TextSpec.Value"
-                    android:text="@string/bank_name"
-                    android:textColor="@color/text_color_light"
-                    android:textSize="16sp" />
-
-                <TextView
-                    android:id="@+id/tv_account_name_title"
-                    style="@style/TextSpec.Value"
-                    android:layout_height="20dp"
-                    android:text="@string/account_name"
-                    android:textColor="@color/text_color"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/tv_account_name_value"
-                    style="@style/TextSpec.Value"
-                    android:text="@string/account_name"
-                    android:textColor="@color/text_color_light"
-                    android:textSize="16sp" />
-
-                <TextView
-                    android:id="@+id/tv_address_title"
-                    style="@style/TextSpec.Value"
-                    android:layout_height="20dp"
-                    android:text="@string/address"
-                    android:textColor="@color/text_color"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/tv_address_value"
-                    style="@style/TextSpec.Value"
-                    android:text="@string/address"
-                    android:textColor="@color/text_color_light"
-                    android:textSize="16sp" />
-
-                <TextView
-                    android:id="@+id/tv_animal_availability_title"
-                    style="@style/TextSpec.Value"
-                    android:layout_height="20dp"
-                    android:text="@string/animal_availability_number_title"
-                    android:textColor="@color/text_color"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/tv_animal_availability_value"
-                    style="@style/TextSpec.Value"
-                    android:text="1"
-                    android:textColor="@color/text_color_light"
-                    android:textSize="16sp" />
-
-                <View
-                    android:id="@+id/line"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="4dp"
-                    android:background="@color/text_color_light" />
-
-                <Button
-                    android:id="@+id/btn_update_profile"
-                    style="@style/TextSpec.Field"
-                    android:layout_width="347dp"
                     android:layout_height="wrap_content"
-                    android:background="?android:selectableItemBackground"
-                    android:drawableLeft="@drawable/baseline_mode_edit_24"
-                    android:drawableRight="@drawable/baseline_arrow_forward_ios_24"
-                    android:gravity="center|start"
-                    android:paddingLeft="5dp"
-                    android:paddingTop="5dp"
+                    android:orientation="vertical"
+                    android:paddingLeft="16dp"
+                    android:paddingTop="16dp"
                     android:paddingRight="16dp"
-                    android:paddingBottom="5dp"
-                    android:text="@string/update_profile"
-                    android:textAllCaps="false"
-                    android:textSize="16sp" />
+                    android:paddingBottom="8dp">
 
-                <Button
-                    android:id="@+id/btn_logout"
-                    style="@style/TextSpec.Field"
-                    android:layout_width="347dp"
-                    android:layout_height="wrap_content"
-                    android:background="?android:selectableItemBackground"
-                    android:drawableLeft="@drawable/baseline_logout_24"
-                    android:drawableRight="@drawable/baseline_arrow_forward_ios_24"
-                    android:gravity="center|start"
-                    android:paddingLeft="5dp"
-                    android:paddingTop="5dp"
-                    android:paddingRight="16dp"
-                    android:paddingBottom="5dp"
-                    android:text="@string/logout"
-                    android:textAllCaps="false"
-                    android:textSize="16sp" />
-            </LinearLayout>
+                    <TextView
+                        android:id="@+id/tv_email_title"
+                        style="@style/TextSpec.Value"
+                        android:layout_height="20dp"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/email"
+                        android:textColor="@color/text_color"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tv_email_value"
+                        style="@style/TextSpec.Value"
+                        android:text="@string/email"
+                        android:textColor="@color/text_color_light"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/tv_head_title"
+                        style="@style/TextSpec.Value"
+                        android:layout_height="20dp"
+                        android:text="@string/head_takmir"
+                        android:textColor="@color/text_color"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tv_head_value"
+                        style="@style/TextSpec.Value"
+                        android:text="@string/name"
+                        android:textColor="@color/text_color_light"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/tv_contact_person_title"
+                        style="@style/TextSpec.Value"
+                        android:layout_height="20dp"
+                        android:text="@string/contact_person_number"
+                        android:textColor="@color/text_color"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tv_contact_person_value"
+                        style="@style/TextSpec.Value"
+                        android:text="@string/phone_number"
+                        android:textColor="@color/text_color_light"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/tv_account_number_title"
+                        style="@style/TextSpec.Value"
+                        android:layout_height="20dp"
+                        android:text="@string/account_number"
+                        android:textColor="@color/text_color"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tv_account_number_value"
+                        style="@style/TextSpec.Value"
+                        android:text="@string/account_number"
+                        android:textColor="@color/text_color_light"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/tv_bank_title"
+                        style="@style/TextSpec.Value"
+                        android:layout_height="20dp"
+                        android:text="@string/bank_name"
+                        android:textColor="@color/text_color"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tv_bank_value"
+                        style="@style/TextSpec.Value"
+                        android:text="@string/bank_name"
+                        android:textColor="@color/text_color_light"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/tv_account_name_title"
+                        style="@style/TextSpec.Value"
+                        android:layout_height="20dp"
+                        android:text="@string/account_name"
+                        android:textColor="@color/text_color"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tv_account_name_value"
+                        style="@style/TextSpec.Value"
+                        android:text="@string/account_name"
+                        android:textColor="@color/text_color_light"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/tv_address_title"
+                        style="@style/TextSpec.Value"
+                        android:layout_height="20dp"
+                        android:text="@string/address"
+                        android:textColor="@color/text_color"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tv_address_value"
+                        style="@style/TextSpec.Value"
+                        android:text="@string/address"
+                        android:textColor="@color/text_color_light"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/tv_animal_availability_title"
+                        style="@style/TextSpec.Value"
+                        android:layout_height="20dp"
+                        android:text="@string/animal_availability_number_title"
+                        android:textColor="@color/text_color"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tv_animal_availability_value"
+                        style="@style/TextSpec.Value"
+                        android:text="1"
+                        android:textColor="@color/text_color_light"
+                        android:textSize="16sp" />
+
+                    <View
+                        android:id="@+id/line"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="4dp"
+                        android:background="@color/text_color_light" />
+
+                    <Button
+                        android:id="@+id/btn_update_profile"
+                        style="@style/TextSpec.Field"
+                        android:layout_width="347dp"
+                        android:layout_height="wrap_content"
+                        android:background="?android:selectableItemBackground"
+                        android:drawableLeft="@drawable/baseline_mode_edit_24"
+                        android:drawableRight="@drawable/baseline_arrow_forward_ios_24"
+                        android:gravity="center|start"
+                        android:paddingLeft="5dp"
+                        android:paddingTop="5dp"
+                        android:paddingRight="16dp"
+                        android:paddingBottom="5dp"
+                        android:text="@string/update_profile"
+                        android:textAllCaps="false"
+                        android:textSize="16sp" />
+
+                    <Button
+                        android:id="@+id/btn_logout"
+                        style="@style/TextSpec.Field"
+                        android:layout_width="347dp"
+                        android:layout_height="wrap_content"
+                        android:background="?android:selectableItemBackground"
+                        android:drawableLeft="@drawable/baseline_logout_24"
+                        android:drawableRight="@drawable/baseline_arrow_forward_ios_24"
+                        android:gravity="center|start"
+                        android:paddingLeft="5dp"
+                        android:paddingTop="5dp"
+                        android:paddingRight="16dp"
+                        android:paddingBottom="5dp"
+                        android:text="@string/logout"
+                        android:textAllCaps="false"
+                        android:textSize="16sp" />
+                </LinearLayout>
 
 
-        </androidx.cardview.widget.CardView>
+            </androidx.cardview.widget.CardView>
 
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
