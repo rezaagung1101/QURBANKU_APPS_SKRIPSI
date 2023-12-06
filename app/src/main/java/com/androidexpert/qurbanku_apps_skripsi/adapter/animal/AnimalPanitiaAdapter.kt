@@ -76,7 +76,18 @@ class AnimalPanitiaAdapter(private val listData: ArrayList<Animal>) :
             }
 
         }
-        bind(listData[position])
+
+        val falseAvailableList = listData.filter { !it.status && (it.jointVentureAmount - (it.idShohibulQurbaniList?.size ?: 0) > 0) }
+        val falseList = listData.filter { !it.status && (it.jointVentureAmount - (it.idShohibulQurbaniList?.size ?: 0) == 0)}
+        val trueList = listData.filter { it.status == true}
+
+        val sortedList = ArrayList<Animal>().apply {
+            addAll(falseAvailableList)
+            addAll(falseList)
+            addAll(trueList)
+        }
+
+        bind(sortedList[position])
     }
 
 
