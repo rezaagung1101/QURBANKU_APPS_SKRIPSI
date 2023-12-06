@@ -28,6 +28,7 @@ class AuthViewModel(
         authRepository.signUpUser(user, password) { isSuccess ->
             _registrationResult.value = isSuccess
             _isLoading.value = false
+            _registrationResult.callHandled()
         }
     }
     fun login(email: String, password: String) {
@@ -36,6 +37,7 @@ class AuthViewModel(
             _loginResult.value = isSuccess
             _user.value = userData
             _isLoading.value = false
+            _loginResult.callHandled()
         }
     }
 

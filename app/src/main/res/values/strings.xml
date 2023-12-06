@@ -235,7 +235,7 @@
     <string name="logout_message">Anda yakin ingin keluar aplikasi?</string>
     <string name="enter_data_changes">Masukkan Perubahan Data</string>
     <string name="update_profile_message">Anda yakin ingin menyimpan perubahan?</string>
-    <string name="add_location">Tambahkan Lokasi</string>
+    <string name="use_location">Gunakan Lokasi</string>
     <string name="current_location">Lokasi Anda sekarang</string>
     <string name="click_address_instruction">Klik untuk menggunakan lokasi</string>
     <string name="choose_masjid_location">Pilih Lokasi Masjid</string>

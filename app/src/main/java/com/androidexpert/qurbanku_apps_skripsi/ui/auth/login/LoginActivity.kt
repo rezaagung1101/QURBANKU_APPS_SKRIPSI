@@ -63,10 +63,10 @@ class LoginActivity : AppCompatActivity() {
 
     fun login(isAdmin: Boolean, email: String, password: String) {
         authViewModel.login(email, password)
-        authViewModel.loginResult.observe(this, { isSuccess ->
+        authViewModel.loginResult.observe(this) { isSuccess ->
             if (isSuccess) {
-                authViewModel.user.observe(this, { user ->
-                    if (user != null && user.admin.equals(isAdmin)) {
+                authViewModel.user.observe(this) { user ->
+                    if (user != null && user.admin == isAdmin) {
                         if (user.admin == true) {
                             userPreference.savePanitiaPreference(user)
                             showSuccessDialog(user.admin, user.name)
@@ -74,10 +74,12 @@ class LoginActivity : AppCompatActivity() {
                             userPreference.saveJemaahPreference(user)
                             showSuccessDialog(user.admin, user.name)
                         }
-                    } else showErrorDialog()
-                })
-            } else showErrorDialog()
-        })
+                    } else if (user != null && user.admin != isAdmin) showErrorDialog()
+                }
+            } else {
+                showErrorDialog()
+            }
+        }
 
     }
     fun showSuccessDialog(isAdmin: Boolean, name: String) {
@@ -95,6 +97,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     fun showErrorDialog() {
+        authViewModel.loginResult.removeObservers(this)
         val title = resources.getString(R.string.login_failed_title)
         val message = resources.getString(R.string.login_failed_message)
         DialogUtils.showNotificationDialog(this, title, message, {})
