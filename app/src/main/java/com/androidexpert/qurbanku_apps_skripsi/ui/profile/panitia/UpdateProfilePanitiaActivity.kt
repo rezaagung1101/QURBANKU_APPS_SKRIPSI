@@ -8,17 +8,26 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
 import com.androidexpert.qurbanku_apps_skripsi.R
+import com.androidexpert.qurbanku_apps_skripsi.data.remote.AuthRepository
+import com.androidexpert.qurbanku_apps_skripsi.data.remote.UserRepository
 import com.androidexpert.qurbanku_apps_skripsi.databinding.ActivityUpdateProfilePanitiaBinding
+import com.androidexpert.qurbanku_apps_skripsi.ui.ViewModelFactory
 import com.androidexpert.qurbanku_apps_skripsi.ui.auth.AuthViewModel
 import com.androidexpert.qurbanku_apps_skripsi.ui.maps.MapsPickLocationActivity
+import com.androidexpert.qurbanku_apps_skripsi.ui.profile.UserViewModel
 import com.androidexpert.qurbanku_apps_skripsi.utils.Constanta
 import com.androidexpert.qurbanku_apps_skripsi.utils.DialogUtils
 import com.androidexpert.qurbanku_apps_skripsi.utils.Helper
 
+/**
+ * Kayanya perlu bikin satu activity update maps deh
+ */
 class UpdateProfilePanitiaActivity : AppCompatActivity() {
     private lateinit var binding: ActivityUpdateProfilePanitiaBinding
-    private val authViewModel: AuthViewModel by viewModels()
+    private lateinit var authViewModel: AuthViewModel
+    private val authRepository = AuthRepository()
     private var latitude: Double = 0.0
     private var longitude: Double = 0.0
     private var usingLocation: Boolean? = false
@@ -28,8 +37,6 @@ class UpdateProfilePanitiaActivity : AppCompatActivity() {
         if (it.resultCode == Activity.RESULT_OK) {
             it.data?.let { result ->
                 usingLocation = result.getBooleanExtra(Constanta.usingLocation, false)
-//                latitude = result.getDoubleExtra(Constanta.latitude, 0.0)
-//                longitude = result.getDoubleExtra(Constanta.longitude, 0.0)
                 authViewModel.apply {
                     isUsingLocation.postValue(usingLocation)
                     val tempLatitude = result.getDoubleExtra(Constanta.latitude, 0.0)
@@ -45,6 +52,7 @@ class UpdateProfilePanitiaActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityUpdateProfilePanitiaBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        authViewModel = ViewModelProvider(this, ViewModelFactory.AuthViewModelFactory(authRepository))[AuthViewModel::class.java]
         supportActionBar?.title = getString(R.string.update_profile)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         this.setupInformation(null, null)

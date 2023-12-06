@@ -11,6 +11,7 @@
     android:layout_marginBottom="8dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/card_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="?android:selectableItemBackground">
@@ -32,7 +33,9 @@
                 android:id="@+id/tv_animal_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:minWidth="80dp"
                 android:fontFamily="@font/popping_bold"
+                android:textAlignment="center"
                 android:text="@string/species"
                 android:textAllCaps="true"
                 android:textColor="@color/text_color_light"

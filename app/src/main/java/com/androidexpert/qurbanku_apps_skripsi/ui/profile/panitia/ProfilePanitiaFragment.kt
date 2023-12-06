@@ -14,7 +14,6 @@ import com.androidexpert.qurbanku_apps_skripsi.databinding.FragmentProfilePaniti
 import com.androidexpert.qurbanku_apps_skripsi.ui.ViewModelFactory
 import com.androidexpert.qurbanku_apps_skripsi.ui.auth.login.LoginActivity
 import com.androidexpert.qurbanku_apps_skripsi.ui.profile.UserViewModel
-import com.androidexpert.qurbanku_apps_skripsi.ui.welcome.WelcomeActivity
 import com.androidexpert.qurbanku_apps_skripsi.utils.Constanta.isPanitia
 import com.androidexpert.qurbanku_apps_skripsi.utils.DialogUtils
 import com.androidexpert.qurbanku_apps_skripsi.utils.Helper

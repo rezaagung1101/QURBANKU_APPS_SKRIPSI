@@ -24,10 +24,10 @@
 
         <TextView
             android:id="@+id/tv_description_animal_name"
-            android:layout_marginTop="-16dp"
             style="@style/TextSpec.LabelWhite"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="-16dp"
             android:background="@drawable/label_background"
             android:text="@string/description_animal_name"
             app:layout_constraintStart_toStartOf="parent"
@@ -170,17 +170,17 @@
                 <TextView
                     android:layout_column="1"
                     android:fontFamily="@font/popping_bold"
-                    android:textColor="@color/text_color"
                     android:text="@string/total_cost_required"
+                    android:textColor="@color/text_color"
                     android:textSize="14sp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tv_total_cost_required"
                     android:fontFamily="@font/popping_bold"
-                    android:textColor="@color/text_color"
                     android:gravity="right"
                     android:text="@string/price"
+                    android:textColor="@color/text_color"
                     android:textSize="14sp" />
             </TableRow>
         </TableLayout>
@@ -209,11 +209,11 @@
         <TextView
             android:id="@+id/tv_holiday_date_title"
             style="@style/TextSpec.Field"
-            android:textSize="14sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
             android:text="@string/holiday_date"
+            android:textSize="14sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_qurbani_information" />
@@ -230,13 +230,13 @@
             app:layout_constraintTop_toBottomOf="@+id/tv_holiday_date_title" />
 
         <TextView
-            android:textSize="14sp"
             android:id="@+id/tv_note_title"
             style="@style/TextSpec.Field"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
             android:text="@string/note"
+            android:textSize="14sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_holiday_date_value" />
@@ -310,19 +310,42 @@
                 tools:listitem="@layout/card_shohibul_qurbani_item" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
+        <ImageButton
+            android:id="@+id/btn_add_shohibul_qurban"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginRight="16dp"
+            android:src="@drawable/baseline_add_box_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout2" />
+
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_confirm_status"
             style="@style/TextSpec.Field.Button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="16dp"
             android:drawableLeft="@drawable/baseline_check_circle_outline_24"
             android:paddingRight="16dp"
             android:text="@string/animal_confirm_status"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/constraintLayout2" />
+            app:layout_constraintTop_toBottomOf="@+id/btn_add_shohibul_qurban" />
 
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminate="true"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="visible" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

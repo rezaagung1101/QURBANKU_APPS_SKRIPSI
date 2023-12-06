@@ -21,6 +21,8 @@ import java.io.File
 import java.io.FileOutputStream
 import java.io.InputStream
 import java.io.OutputStream
+import java.text.DecimalFormat
+import java.text.NumberFormat
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Date
@@ -194,6 +196,17 @@ object Helper {
         inputStream.close()
 
         return myFile
+    }
+
+    fun parseNumberFormat(value: Int): String{
+        // Using NumberFormat
+        val numberFormat = NumberFormat.getNumberInstance(Locale.getDefault())
+        val formattedNumber = numberFormat.format(value)
+        return formattedNumber
+        // Using DecimalFormat
+//        val decimalFormat = DecimalFormat("#,###")
+//        val formattedDecimal = decimalFormat.format(value)
+//        println("Using DecimalFormat: $formattedDecimal")
     }
 }
 

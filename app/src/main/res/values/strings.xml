@@ -91,9 +91,10 @@
     <string name="variety_animal">Jenis Hewan</string>
     <string name="weight">Berat</string>
     <string name="weight_et_hint">Berat (kg)</string>
-    <string name="weight_value">%d kg</string>
+    <string name="weight_value">%s</string>
     <string name="joint_venture">Patungan</string>
     <string name="price">Rp %d</string>
+    <string name="price_2">Rp %s</string>
     <string name="availability_number"><u>Tersedia %d orang</u></string>
     <string name="animal_availability"><u>%d Hewan Kurban</u></string>
     <string name="years_value">2023</string>
@@ -156,9 +157,9 @@
     <string name="next2"><b>LANJUT</b></string>
     <string name="cancel"><b>BATAL</b></string>
     <string name="animal_delete_message">Anda yakin ingin menghapus data hewan?</string>
-    <string name="animal_confirm_status_success">Status hewan telah disembelih</string>
+    <string name="animal_confirm_status_success">Status hewan berhasil diubah menjadi disembelih</string>
     <string name="animal_delete_failed">Tidak dapat dihapus karena hewan telah dibeli</string>
-    <string name="animal_confirm_status_failed">Status tidak dapat dirubah karena kuota tersisa %d</string>
+    <string name="animal_confirm_status_failed">Terdapat kesalahan, status hewan gagal diubah</string>
     <string name="save_data_animal">Simpan data hewan</string>
     <string name="save_data_animal_message">Anda yakin ingin menyimpan data?</string>
     <string name="transaction">Transaksi</string>
@@ -207,6 +208,7 @@
     <string name="send_transaction_proof">Kirim Bukti Transaksi</string>
     <string name="send_transaction_message">Anda yakin ingin mengirimkan foto bukti transfer?</string>
     <string name="photo_not_selected">Anda belum memilih foto bukti transfer!</string>
+    <string name="animal_photo_not_selected">Anda belum memilih foto hewan!</string>
     <string name="choose_masjid_by_location">Pilih Masjid Berdasarkan Lokasi</string>
     <string name="qurbani_animal">Hewan Kurban</string>
     <string name="detail_information_instruction">Klik untuk melihat detail informasi lainnya!</string>
@@ -242,6 +244,14 @@
     <string name="your_qurbani_list_title">Riwayat Kurban Anda</string>
     <string name="history">Riwayat</string>
     <string name="update_profile_success">Berhasil memperbarui data profil</string>
+    <string name="add_animal_success">Anda berhasil menambahkan data hewan</string>
+    <string name="add_animal_failed">Terdapat kesalahan, data hewan gagal ditambahkan</string>
+    <string name="animal_status_executed">Telah Disembelih</string>
+    <string name="animal_status_sold">Telah Terjual</string>
+    <string name="animal_status_not_executed">Belum disembelih</string>
+    <string name="null_note"><i>Tidak ada catatan</i></string>
+    <string name="delete_animal_failed">Terdapat kesalahan, data hewan gagal dihapus</string>
+    <string name="sold">Terjual</string>
 
 
 </resources>

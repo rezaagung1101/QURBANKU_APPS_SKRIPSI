@@ -15,6 +15,9 @@ class UserViewModel(private val userRepository: UserRepository) : ViewModel() {
     private var _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = _isLoading
     val coordinateLocation = MutableLiveData(LatLng(-2.548926, 118.0148634))
+    val isUsingLocation = MutableLiveData(false)
+    val latitude = MutableLiveData(0.0)
+    val longitude = MutableLiveData(0.0)
 
     fun logout() {
         userRepository.logout()
@@ -34,6 +37,22 @@ class UserViewModel(private val userRepository: UserRepository) : ViewModel() {
             _listUser.value = listUser
             _isLoading.value = false
         }
+    }
+
+    fun getJemaahList(idJemaahList: List<String>){
+        _isLoading.value = true
+        userRepository.getJemaahList(idJemaahList){ listUser ->
+            _listUser.value = listUser
+            _isLoading.value = false
+        }
+    }
+
+    fun updatePanitiaProfile(user: User){
+
+    }
+
+    fun updateJemaahProfile(user: User){
+
     }
 
 }
