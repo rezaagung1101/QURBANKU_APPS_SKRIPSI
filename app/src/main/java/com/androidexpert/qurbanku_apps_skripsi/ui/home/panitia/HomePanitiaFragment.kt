@@ -81,8 +81,10 @@ class HomePanitiaFragment : Fragment() {
     }
 
     override fun onDestroyView() {
-        animalViewModel.listAnimal.removeObservers(viewLifecycleOwner)
-        animalViewModel.isLoading.removeObservers(viewLifecycleOwner)
+        animalViewModel.apply {
+            listAnimal.removeObservers(viewLifecycleOwner)
+            isLoading.removeObservers(viewLifecycleOwner)
+        }
         super.onDestroyView()
     }
 }

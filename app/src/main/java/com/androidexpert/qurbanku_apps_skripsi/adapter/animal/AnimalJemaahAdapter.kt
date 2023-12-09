@@ -7,20 +7,22 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.androidexpert.qurbanku_apps_skripsi.R
 import com.androidexpert.qurbanku_apps_skripsi.data.lib.Animal
-import com.androidexpert.qurbanku_apps_skripsi.databinding.CardAnimalPanitiaItemBinding
+import com.androidexpert.qurbanku_apps_skripsi.data.lib.User
+import com.androidexpert.qurbanku_apps_skripsi.databinding.CardDisplayAnimalItemBinding
+import com.androidexpert.qurbanku_apps_skripsi.ui.animal.jemaah.DetailJemaahAnimalActivity
 import com.androidexpert.qurbanku_apps_skripsi.ui.animal.panitia.DetailPanitiaAnimalActivity
 import com.androidexpert.qurbanku_apps_skripsi.utils.Constanta
 import com.androidexpert.qurbanku_apps_skripsi.utils.Helper
+import com.bumptech.glide.Glide
 
-
-class AnimalPanitiaAdapter(private val listData: ArrayList<Animal>) :
-    RecyclerView.Adapter<AnimalPanitiaAdapter.ViewHolder>() {
-    class ViewHolder(var binding: CardAnimalPanitiaItemBinding) :
+class AnimalJemaahAdapter(private val masjidData: User, private val listData: ArrayList<Animal>) :
+    RecyclerView.Adapter<AnimalJemaahAdapter.ViewHolder>() {
+    class ViewHolder(var binding: CardDisplayAnimalItemBinding) :
         RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
         ViewHolder(
-            CardAnimalPanitiaItemBinding.inflate(
+            CardDisplayAnimalItemBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
                 false
@@ -32,12 +34,15 @@ class AnimalPanitiaAdapter(private val listData: ArrayList<Animal>) :
             with(holder.itemView) {
                 holder.binding.apply {
                     with(data) {
+                        Glide.with(context)
+                            .load(photoUrl)
+                            .into(ivBanner)
                         val totalPrice = price + operationalCosts
                         val costRequired = totalPrice / jointVentureAmount
                         val availability = jointVentureAmount - (idShohibulQurbaniList?.size ?: 0)
-                        tvAnimalName.text = speciesName
-                        tvVarietyName.text = varietyName
-                        tvWeight.text =
+                        tvSpeciesName.text = speciesName
+                        tvVarietyValue.text = varietyName
+                        tvWeightValue.text =
                             if (weight % 1 == 0.0) resources.getString(
                                 R.string.weight_value,
                                 String.format("%.0f kg", weight)
@@ -46,7 +51,7 @@ class AnimalPanitiaAdapter(private val listData: ArrayList<Animal>) :
                                 R.string.weight_value,
                                 String.format("%.1f kg", weight)
                             )
-                        tvJointVenture.text = jointVentureAmount.toString()
+                        tvJointVentureValue.text = jointVentureAmount.toString()
                         tvPrice.text = resources.getString(
                             R.string.price_2,
                             Helper.parseNumberFormat(costRequired)
@@ -67,8 +72,9 @@ class AnimalPanitiaAdapter(private val listData: ArrayList<Animal>) :
                     }
                 }
                 this.setOnClickListener {
-                    val intent = Intent(context, DetailPanitiaAnimalActivity::class.java)
+                    val intent = Intent(context, DetailJemaahAnimalActivity::class.java)
                     intent.putExtra(Constanta.ANIMAL_DATA, data)
+                    intent.putExtra(Constanta.USER_DATA, masjidData)
                     context.startActivity(intent)
                 }
             }

@@ -169,7 +169,7 @@ class AddAnimalDataActivity : AppCompatActivity() {
         var isValid = false
         binding.apply {
             val isVarietyValid = animal.varietyName.isNotEmpty()
-            val isWeightValid = animal.weight.toString() != "0"
+            val isWeightValid = animal.weight.toString() != "0.0"
             val isColorValid = animal.color.isNotEmpty()
             val isOperationalCostsValid = animal.operationalCosts.toString() != "0"
             val isPriceValid = animal.price.toString() != "0"

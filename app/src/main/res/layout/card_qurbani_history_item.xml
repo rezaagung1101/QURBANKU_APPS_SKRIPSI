@@ -5,10 +5,12 @@
     android:id="@+id/card_qurbani_history_item"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginLeft="8dp"
+    android:layout_marginRight="8dp"
+    android:layout_marginBottom="8dp"
     android:backgroundTint="@color/white"
     app:cardCornerRadius="20dp"
-    app:cardElevation="6dp"
-    android:layout_marginBottom="8dp">
+    app:cardElevation="6dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -29,7 +31,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
-                android:id="@+id/tv_animal_name"
+                android:id="@+id/tv_animal_species"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/popping_bold"
@@ -123,16 +125,16 @@
             </TableRow>
         </TableLayout>
 
-        <TextView
-            android:id="@+id/tv_detail_instruction"
-            style="@style/TextSpec.Value.SmallDark"
-            android:layout_marginLeft="16dp"
-            android:text="@string/detail_instruction"
-            android:textColor="@color/text_color_light"
-            android:textStyle="italic"
-            app:layout_constraintBottom_toBottomOf="@+id/constraintLayout4"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/constraintLayout4" />
+<!--        <TextView-->
+<!--            android:id="@+id/tv_detail_instruction"-->
+<!--            style="@style/TextSpec.Value.SmallDark"-->
+<!--            android:layout_marginLeft="16dp"-->
+<!--            android:text="@string/detail_instruction"-->
+<!--            android:textColor="@color/text_color_light"-->
+<!--            android:textStyle="italic"-->
+<!--            app:layout_constraintBottom_toBottomOf="@+id/constraintLayout4"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="@+id/constraintLayout4" />-->
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout4"

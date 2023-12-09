@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
@@ -29,8 +28,8 @@ import com.bumptech.glide.Glide
 
 class DetailPanitiaAnimalActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDetailPanitiaAnimalBinding
-    private var shohibulQurbanAmount = 0 //jangan lupa diset jumlahnya
-    private var jointVentureAmount = 0 //jangan lupa diset jumlahnya
+    private var shohibulQurbanAmount = 0
+    private var jointVentureAmount = 0
     private var animal = Animal()
     private lateinit var userViewModel: UserViewModel
     private val userRepository = UserRepository()
@@ -106,7 +105,7 @@ class DetailPanitiaAnimalActivity : AppCompatActivity() {
                 if (idShohibulQurbaniList != null) {
                     setShohibulQurbaniData(idShohibulQurbaniList)
                 }
-                if (availability !=0 || status) {
+                if (availability != 0 || status) {
                     btnConfirmStatus.setBackgroundColor(resources.getColor(R.color.disabled_background))
                     btnConfirmStatus.setTextColor(resources.getColor(R.color.disabled_text))
                     btnConfirmStatus.isEnabled = false
@@ -116,7 +115,7 @@ class DetailPanitiaAnimalActivity : AppCompatActivity() {
                 }
             }
         }
-        animalViewModel.isLoading.observe(this){
+        animalViewModel.isLoading.observe(this) {
             showLoading(it)
         }
     }
@@ -134,7 +133,7 @@ class DetailPanitiaAnimalActivity : AppCompatActivity() {
             listJemaah.forEach { user ->
                 shohibulQurbaniList.add(user)
             }
-            binding.rvShohibulQurbanList.adapter = ShohibulQurbaniAdapter(shohibulQurbaniList)
+            binding.rvShohibulQurbanList.adapter = ShohibulQurbaniAdapter(shohibulQurbaniList, true)
         }
     }
 
@@ -213,14 +212,17 @@ class DetailPanitiaAnimalActivity : AppCompatActivity() {
     }
 
     override fun onDestroy() {
-        animalViewModel.animal.removeObservers(this)
-        animalViewModel.updateAnimalStatusResult.removeObservers(this)
-        animalViewModel.deleteAnimalResult.removeObservers(this)
-        animalViewModel.addAnimalResult.removeObservers(this)
-        animalViewModel.isLoading.removeObservers(this)
+        animalViewModel.apply {
+            animal.removeObservers(this@DetailPanitiaAnimalActivity)
+            updateAnimalStatusResult.removeObservers(this@DetailPanitiaAnimalActivity)
+            deleteAnimalResult.removeObservers(this@DetailPanitiaAnimalActivity)
+            addAnimalResult.removeObservers(this@DetailPanitiaAnimalActivity)
+            isLoading.removeObservers(this@DetailPanitiaAnimalActivity)
+        }
         userViewModel.listUser.removeObservers(this)
         super.onDestroy()
     }
+
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()
         return super.onSupportNavigateUp()

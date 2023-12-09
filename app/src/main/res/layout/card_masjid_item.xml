@@ -5,20 +5,22 @@
     android:id="@+id/card_mosque_item"
     android:layout_width="match_parent"
     android:layout_height="100dp"
+    android:layout_marginLeft="8dp"
+    android:layout_marginRight="8dp"
+    android:layout_marginBottom="4dp"
     android:elevation="4dp"
-    app:cardCornerRadius="10dp"
-    android:layout_marginBottom="4dp">
+    app:cardCornerRadius="10dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="8dp"
-        android:background="?android:selectableItemBackground">
+        android:background="?android:selectableItemBackground"
+        android:padding="8dp">
 
         <TextView
             android:id="@+id/tv_name"
             style="@style/TextSpec.Value.SmallBold"
-            android:text="@string/name_masjid"
+            android:text="@string/name_masjid_value"
             android:textSize="14sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
@@ -27,6 +29,7 @@
         <TextView
             android:id="@+id/tv_address"
             style="@style/TextSpec.Value"
+            android:maxLines="2"
             android:text="@string/complete_address"
             android:textColor="@color/text_color_light"
             app:layout_constraintBottom_toTopOf="@+id/tv_availability"

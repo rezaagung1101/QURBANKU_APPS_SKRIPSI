@@ -18,3 +18,9 @@ data class User @JvmOverloads constructor(
     val bankAccountNumber: String? = null,
     val bankAccountName: String? = null
 ): Parcelable
+
+@Parcelize
+data class MasjidUser @JvmOverloads constructor(
+    val user: User? = null,
+    val listAnimal: List<Animal>? = null,
+): Parcelable

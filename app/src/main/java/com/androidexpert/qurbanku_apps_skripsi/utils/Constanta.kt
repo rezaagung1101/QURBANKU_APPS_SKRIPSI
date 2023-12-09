@@ -36,6 +36,7 @@ object Constanta {
 
     //data
     const val USER_DATA = "USER_DATA"
-    const val ANIMAL_DATA = "USER_DATA"
+    const val ANIMAL_DATA = "ANIMAL_DATA"
+    const val TRANSACTION_DATA = "TRANSACTION_DATA"
 
 }

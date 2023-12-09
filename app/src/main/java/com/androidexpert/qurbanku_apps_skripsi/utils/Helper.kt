@@ -208,9 +208,17 @@ object Helper {
 //        val formattedDecimal = decimalFormat.format(value)
 //        println("Using DecimalFormat: $formattedDecimal")
     }
+    fun convertToInternationalFormat(phoneNumber: String): String {
+        var formattedNumber = phoneNumber.trim()
+
+        if (!formattedNumber.startsWith("+")) {
+            if (formattedNumber.startsWith("0")) {
+                formattedNumber = formattedNumber.substring(1)
+            }
+            formattedNumber = "+62$formattedNumber"
+        }
+        return formattedNumber
+    }
+
 }
 
-
-enum class ACTOR {
-    PANITIA, JEMAAH
-}

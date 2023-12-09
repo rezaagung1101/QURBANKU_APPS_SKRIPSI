@@ -4,7 +4,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.androidexpert.qurbanku_apps_skripsi.data.lib.Animal
-import com.androidexpert.qurbanku_apps_skripsi.data.lib.User
 import com.androidexpert.qurbanku_apps_skripsi.data.remote.AnimalRepository
 import com.androidexpert.qurbanku_apps_skripsi.utils.SingleLiveEvent
 import java.io.File

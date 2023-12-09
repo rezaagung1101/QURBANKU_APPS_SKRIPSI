@@ -13,6 +13,7 @@
     <color name="green_dark_label">#776451</color>
     <color name="danger">#DC3545</color>
     <color name="disabled_background">#EEEEEE</color>
+    <color name="transaction_uncorfirmed_border">#D8D7D7</color>
     <color name="disabled_text">#DD9E9E</color>
     <color name="purple_700">#132AFB</color>
     <color name="transparent">?android:attr/selectableItemBackground</color>

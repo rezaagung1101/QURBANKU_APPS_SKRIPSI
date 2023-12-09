@@ -8,390 +8,407 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <ImageView
-            android:id="@+id/iv_transaction"
-            android:layout_width="match_parent"
-            android:layout_height="250dp"
-            android:background="@drawable/rounded_corner"
-            android:scaleType="centerCrop"
-            android:src="@drawable/ic_launcher_background"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/tv_transaction_data_tittle"
-            style="@style/TextSpec.LabelWhite"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="-16dp"
-            android:background="@drawable/label_background"
-            android:text="@string/transaction_data"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/iv_transaction" />
-
-        <View
-            android:id="@+id/line1"
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:background="@color/text_color_light"
-            app:layout_constraintBottom_toBottomOf="@+id/tv_transaction_data_tittle"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/tv_transaction_data_tittle"
-            app:layout_constraintTop_toTopOf="@+id/tv_transaction_data_tittle" />
+        android:layout_height="wrap_content">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/constraintLayout_transactionData"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingLeft="16dp"
-            android:paddingTop="4dp"
-            android:paddingRight="16dp"
-            android:paddingBottom="4dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_transaction_data_tittle">
+            android:layout_height="match_parent">
 
-            <TableLayout
+            <ImageView
+                android:id="@+id/iv_transaction"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:stretchColumns="1"
+                android:layout_height="250dp"
+                android:background="@drawable/rounded_corner"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_launcher_background"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <TableRow>
-
-                    <TextView
-                        android:id="@+id/tv_id_transaction"
-                        android:layout_column="1"
-                        android:fontFamily="@font/semi_bold_poppins"
-                        android:text="@string/temp_id_transaction"
-                        android:textSize="14sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/tv_transaction_status"
-                        android:fontFamily="@font/semi_bold_poppins"
-                        android:gravity="right"
-                        android:text="@string/waiting_confirmation"
-                        android:textAllCaps="true"
-                        android:textColor="@color/text_color"
-                        android:textSize="14sp"
-                        android:textStyle="bold" />
-                </TableRow>
-
-                <TableRow>
-
-                    <TextView
-                        style="@style/TextSpec.Value"
-                        android:layout_column="1"
-                        android:text="@string/transaction_date" />
-
-                    <TextView
-                        android:id="@+id/tv_transaction_date"
-                        style="@style/TextSpec.LabelMedium"
-                        android:gravity="right"
-                        android:text="@string/temp_date" />
-                </TableRow>
-
-                <TableRow>
-
-                    <TextView
-                        style="@style/TextSpec.Value"
-                        android:layout_column="1"
-                        android:text="@string/category" />
-
-                    <TextView
-                        android:id="@+id/tv_category"
-                        style="@style/TextSpec.LabelMedium"
-                        android:gravity="right"
-                        android:text="@string/category" />
-                </TableRow>
-            </TableLayout>
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <TextView
-            android:id="@+id/tv_jemaah_data"
-            style="@style/TextSpec.LabelWhite"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/label_background"
-            android:text="@string/jemaah_data"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/constraintLayout_transactionData" />
-
-        <View
-            android:id="@+id/line2"
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:background="@color/text_color_light"
-            app:layout_constraintBottom_toBottomOf="@+id/tv_jemaah_data"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/tv_jemaah_data"
-            app:layout_constraintTop_toTopOf="@+id/tv_jemaah_data" />
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/constraintLayout_transaction_destination"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingLeft="16dp"
-            android:paddingTop="4dp"
-            android:paddingRight="16dp"
-            android:paddingBottom="4dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_jemaah_data">
-
-
-            <TableLayout
-                android:id="@+id/tableLayout2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:stretchColumns="1"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <TableRow>
-
-                    <TextView
-                        style="@style/TextSpec.Value"
-                        android:layout_column="1"
-                        android:text="@string/email" />
-
-                    <TextView
-                        android:id="@+id/tv_email"
-                        style="@style/TextSpec.LabelMedium"
-                        android:gravity="right"
-                        android:text="@string/email" />
-                </TableRow>
-
-                <TableRow>
-
-                    <TextView
-                        style="@style/TextSpec.Value"
-                        android:layout_column="1"
-                        android:text="@string/name" />
-
-                    <TextView
-                        android:id="@+id/tv_jemaah_name"
-                        style="@style/TextSpec.LabelMedium"
-                        android:gravity="right"
-                        android:text="@string/name" />
-                </TableRow>
-
-                <TableRow>
-
-                    <TextView
-                        style="@style/TextSpec.Value"
-                        android:layout_column="1"
-                        android:text="@string/phone_number" />
-
-                    <TextView
-                        android:id="@+id/tv_jemaah_phone_number"
-                        style="@style/TextSpec.LabelMedium"
-                        android:gravity="right"
-                        android:text="@string/phone_number" />
-                </TableRow>
-
-            </TableLayout>
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btn_jemaah_detail"
-                style="@style/TextSpec.Value"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:layout_marginTop="-8dp"
-                android:layout_marginRight="-16dp"
-                android:background="?android:attr/selectableItemBackground"
-                android:text="@string/see_next"
-                android:textAllCaps="false"
-                android:textColor="@color/green_dark_label"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tableLayout2" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <TextView
-            android:id="@+id/tv_animal_data"
-            style="@style/TextSpec.LabelWhite"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="-8dp"
-            android:background="@drawable/label_background"
-            android:text="@string/animal_data"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/constraintLayout_transaction_destination" />
-
-        <View
-            android:id="@+id/line3"
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:background="@color/text_color_light"
-            app:layout_constraintBottom_toBottomOf="@+id/tv_animal_data"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/tv_animal_data"
-            app:layout_constraintTop_toTopOf="@+id/tv_animal_data" />
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/constraintLayout_animal_data"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingLeft="16dp"
-            android:paddingTop="4dp"
-            android:paddingRight="16dp"
-            android:paddingBottom="4dp"
-            app:layout_constraintTop_toBottomOf="@+id/tv_animal_data">
-
-            <TextView
-                android:id="@+id/tv_animal_species"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_column="1"
-                android:fontFamily="@font/semi_bold_poppins"
-                android:text="@string/animal_name"
-                android:textSize="14sp"
-                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <TableLayout
-                android:id="@+id/tableLayout3"
+            <TextView
+                android:id="@+id/tv_transaction_data_tittle"
+                style="@style/TextSpec.LabelWhite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-16dp"
+                android:background="@drawable/label_background"
+                android:text="@string/transaction_data"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/iv_transaction" />
+
+            <View
+                android:id="@+id/line1"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:background="@color/text_color_light"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_transaction_data_tittle"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tv_transaction_data_tittle"
+                app:layout_constraintTop_toTopOf="@+id/tv_transaction_data_tittle" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout_transactionData"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:stretchColumns="1"
+                android:paddingLeft="16dp"
+                android:paddingTop="4dp"
+                android:paddingRight="16dp"
+                android:paddingBottom="4dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_animal_species">
+                app:layout_constraintTop_toBottomOf="@+id/tv_transaction_data_tittle">
 
-                <TableRow>
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:stretchColumns="1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
 
-                    <TextView
-                        style="@style/TextSpec.Value"
-                        android:layout_column="1"
-                        android:text="@string/variety" />
+                    <TableRow>
 
-                    <TextView
-                        android:id="@+id/tv_animal_variety"
-                        style="@style/TextSpec.LabelMedium"
-                        android:gravity="right"
-                        android:text="@string/variety" />
-                </TableRow>
+                        <TextView
+                            style="@style/TextSpec.Value"
+                            android:layout_column="1"
+                            android:text="@string/status" />
 
-                <TableRow>
+                        <TextView
+                            android:id="@+id/tv_transaction_status"
+                            android:fontFamily="@font/semi_bold_poppins"
+                            android:gravity="right"
+                            android:text="@string/waiting_confirmation"
+                            android:textAllCaps="true"
+                            android:textColor="@color/text_color"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+                    </TableRow>
 
-                    <TextView
-                        style="@style/TextSpec.Value"
-                        android:layout_column="1"
-                        android:text="@string/total_cost_required" />
+                    <TableRow>
 
-                    <TextView
-                        android:id="@+id/tv_weight"
-                        style="@style/TextSpec.LabelMedium"
-                        android:gravity="right"
-                        android:text="@string/price" />
-                </TableRow>
+                        <TextView
+                            style="@style/TextSpec.Value"
+                            android:layout_column="1"
+                            android:text="@string/transaction_date" />
 
-            </TableLayout>
+                        <TextView
+                            android:id="@+id/tv_transaction_date"
+                            style="@style/TextSpec.LabelMedium"
+                            android:gravity="right"
+                            android:text="@string/temp_date" />
+                    </TableRow>
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btn_animal_detail"
-                style="@style/TextSpec.Value"
+                    <TableRow>
+
+                        <TextView
+                            style="@style/TextSpec.Value"
+                            android:layout_column="1"
+                            android:text="@string/category" />
+
+                        <TextView
+                            android:id="@+id/tv_category"
+                            style="@style/TextSpec.LabelMedium"
+                            android:gravity="right"
+                            android:text="@string/category" />
+                    </TableRow>
+                </TableLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/tv_jemaah_data"
+                style="@style/TextSpec.LabelWhite"
                 android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:layout_marginTop="-8dp"
-                android:layout_marginRight="-16dp"
-                android:background="?android:attr/selectableItemBackground"
-                android:text="@string/see_next"
-                android:textAllCaps="false"
-                android:textColor="@color/green_dark_label"
+                android:layout_height="wrap_content"
+                android:background="@drawable/label_background"
+                android:text="@string/jemaah_data"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/constraintLayout_transactionData" />
+
+            <View
+                android:id="@+id/line2"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:background="@color/text_color_light"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_jemaah_data"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tableLayout3" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                app:layout_constraintStart_toEndOf="@+id/tv_jemaah_data"
+                app:layout_constraintTop_toTopOf="@+id/tv_jemaah_data" />
 
-        <TextView
-            android:id="@+id/tv_transaction_confirmation"
-            style="@style/TextSpec.LabelWhite"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="-8dp"
-            android:background="@drawable/label_background"
-            android:text="@string/transaction_confirmation"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/constraintLayout_animal_data" />
-
-        <View
-            android:id="@+id/line4"
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:background="@color/text_color_light"
-            app:layout_constraintBottom_toBottomOf="@+id/tv_transaction_confirmation"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/tv_transaction_confirmation"
-            app:layout_constraintTop_toTopOf="@+id/tv_transaction_confirmation" />
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/et_note_layout"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="4dp"
-            android:layout_marginRight="16dp"
-            android:hint="@string/add_note_here_quote"
-            app:boxCornerRadiusBottomEnd="10dp"
-            app:boxCornerRadiusBottomStart="10dp"
-            app:boxCornerRadiusTopEnd="10dp"
-            app:boxCornerRadiusTopStart="10dp"
-            app:boxStrokeColor="@color/green_dark_label"
-            app:boxStrokeWidth="1dp"
-            app:layout_constraintTop_toBottomOf="@+id/tv_transaction_confirmation">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/et_note"
-                style="@style/TextSpec.Value"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout_transaction_destination"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="top"
-                android:lines="4"
-                android:textColor="@color/text_color" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:paddingLeft="16dp"
+                android:paddingTop="4dp"
+                android:paddingRight="16dp"
+                android:paddingBottom="4dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_jemaah_data">
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_confirm_accept"
-            style="@style/TextSpec.Field.Button"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="4dp"
-            android:layout_marginRight="16dp"
-            android:drawableLeft="@drawable/baseline_check_circle_outline_24"
-            android:paddingRight="16dp"
-            android:text="@string/accept"
-            android:textAllCaps="true"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_note_layout"/>
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_confirm_reject"
-            style="@style/TextSpec.Field.Button"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginBottom="16dp"
-            android:drawableLeft="@drawable/baseline_cancel_24"
-            android:backgroundTint="@color/danger"
-            android:paddingRight="16dp"
-            android:text="@string/reject"
-            android:textAllCaps="true"
+                <TableLayout
+                    android:id="@+id/tableLayout2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:stretchColumns="1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TableRow>
+
+                        <TextView
+                            style="@style/TextSpec.Value"
+                            android:layout_column="1"
+                            android:text="@string/email" />
+
+                        <TextView
+                            android:id="@+id/tv_email"
+                            style="@style/TextSpec.LabelMedium"
+                            android:gravity="right"
+                            android:text="@string/email" />
+                    </TableRow>
+
+                    <TableRow>
+
+                        <TextView
+                            style="@style/TextSpec.Value"
+                            android:layout_column="1"
+                            android:text="@string/name" />
+
+                        <TextView
+                            android:id="@+id/tv_jemaah_name"
+                            style="@style/TextSpec.LabelMedium"
+                            android:gravity="right"
+                            android:text="@string/name" />
+                    </TableRow>
+
+                    <TableRow>
+
+                        <TextView
+                            style="@style/TextSpec.Value"
+                            android:layout_column="1"
+                            android:text="@string/phone_number" />
+
+                        <TextView
+                            android:id="@+id/tv_jemaah_phone_number"
+                            style="@style/TextSpec.LabelMedium"
+                            android:gravity="right"
+                            android:text="@string/phone_number" />
+                    </TableRow>
+
+                </TableLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_jemaah_detail"
+                    style="@style/TextSpec.Value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="-8dp"
+                    android:layout_marginRight="-16dp"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:text="@string/see_next"
+                    android:textAllCaps="false"
+                    android:textColor="@color/green_dark_label"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tableLayout2" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/tv_animal_data"
+                style="@style/TextSpec.LabelWhite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-8dp"
+                android:background="@drawable/label_background"
+                android:text="@string/animal_data"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/constraintLayout_transaction_destination" />
+
+            <View
+                android:id="@+id/line3"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:background="@color/text_color_light"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_animal_data"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tv_animal_data"
+                app:layout_constraintTop_toTopOf="@+id/tv_animal_data" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout_animal_data"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="16dp"
+                android:paddingTop="4dp"
+                android:paddingRight="16dp"
+                android:paddingBottom="4dp"
+                app:layout_constraintTop_toBottomOf="@+id/tv_animal_data">
+
+
+                <TableLayout
+                    android:id="@+id/tableLayout3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:stretchColumns="1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TableRow>
+
+                        <TextView
+                            style="@style/TextSpec.Value"
+                            android:layout_column="1"
+                            android:text="@string/animal_name" />
+
+                        <TextView
+                            android:id="@+id/tv_animal_species"
+                            style="@style/TextSpec.LabelMedium"
+                            android:gravity="right"
+                            android:text="@string/animal_name" />
+                    </TableRow>
+
+                    <TableRow>
+
+                        <TextView
+                            style="@style/TextSpec.Value"
+                            android:layout_column="1"
+                            android:text="@string/variety" />
+
+                        <TextView
+                            android:id="@+id/tv_animal_variety"
+                            style="@style/TextSpec.LabelMedium"
+                            android:gravity="right"
+                            android:text="@string/variety" />
+                    </TableRow>
+
+                    <TableRow>
+
+                        <TextView
+                            style="@style/TextSpec.Value"
+                            android:layout_column="1"
+                            android:text="@string/total_cost_required" />
+
+                        <TextView
+                            android:id="@+id/tv_cost_required"
+                            style="@style/TextSpec.LabelMedium"
+                            android:gravity="right"
+                            android:text="@string/price" />
+                    </TableRow>
+
+                </TableLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_animal_detail"
+                    style="@style/TextSpec.Value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="-8dp"
+                    android:layout_marginRight="-16dp"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:text="@string/see_next"
+                    android:textAllCaps="false"
+                    android:textColor="@color/green_dark_label"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tableLayout3" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/tv_transaction_confirmation"
+                style="@style/TextSpec.LabelWhite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-8dp"
+                android:background="@drawable/label_background"
+                android:text="@string/transaction_confirmation"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/constraintLayout_animal_data" />
+
+            <View
+                android:id="@+id/line4"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:background="@color/text_color_light"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_transaction_confirmation"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tv_transaction_confirmation"
+                app:layout_constraintTop_toTopOf="@+id/tv_transaction_confirmation" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/et_note_layout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginRight="16dp"
+                android:hint="@string/add_note_here_quote"
+                app:boxCornerRadiusBottomEnd="10dp"
+                app:boxCornerRadiusBottomStart="10dp"
+                app:boxCornerRadiusTopEnd="10dp"
+                app:boxCornerRadiusTopStart="10dp"
+                app:boxStrokeColor="@color/green_dark_label"
+                app:boxStrokeWidth="1dp"
+                app:layout_constraintTop_toBottomOf="@+id/tv_transaction_confirmation">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_note"
+                    style="@style/TextSpec.Value"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="top"
+                    android:lines="2"
+                    android:textColor="@color/text_color" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_confirm_accept"
+                style="@style/TextSpec.Field.Button"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginRight="16dp"
+                android:drawableLeft="@drawable/baseline_check_circle_outline_24"
+                android:paddingRight="16dp"
+                android:text="@string/accept"
+                android:textAllCaps="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/et_note_layout" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_confirm_reject"
+                style="@style/TextSpec.Field.Button"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="16dp"
+                android:backgroundTint="@color/danger"
+                android:drawableLeft="@drawable/baseline_cancel_24"
+                android:paddingRight="16dp"
+                android:text="@string/reject"
+                android:textAllCaps="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btn_confirm_accept" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminate="true"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_confirm_accept"/>
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="visible" />
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 </ScrollView>

@@ -3,6 +3,7 @@ package com.androidexpert.qurbanku_apps_skripsi.ui.maps
 import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.Paint
 import android.location.Location
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -12,14 +13,16 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import com.androidexpert.qurbanku_apps_skripsi.R
+import com.androidexpert.qurbanku_apps_skripsi.data.lib.MasjidUser
 import com.androidexpert.qurbanku_apps_skripsi.data.lib.User
 import com.androidexpert.qurbanku_apps_skripsi.data.remote.UserRepository
 import com.androidexpert.qurbanku_apps_skripsi.databinding.ActivityMapsListMasjidBinding
-import com.androidexpert.qurbanku_apps_skripsi.databinding.CardMosqueMapsViewBinding
+import com.androidexpert.qurbanku_apps_skripsi.databinding.CardMasjidMapsViewBinding
 import com.androidexpert.qurbanku_apps_skripsi.ui.ViewModelFactory
 import com.androidexpert.qurbanku_apps_skripsi.ui.profile.UserViewModel
 import com.androidexpert.qurbanku_apps_skripsi.ui.profile.jemaah.DetailProfileMasjidActivity
 import com.androidexpert.qurbanku_apps_skripsi.utils.Constanta
+import com.androidexpert.qurbanku_apps_skripsi.utils.Helper
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -29,7 +32,6 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
-import com.androidexpert.qurbanku_apps_skripsi.utils.Helper
 
 class MapsListMasjidActivity : AppCompatActivity(), OnMapReadyCallback,
     GoogleMap.InfoWindowAdapter {
@@ -75,18 +77,14 @@ class MapsListMasjidActivity : AppCompatActivity(), OnMapReadyCallback,
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
-        userViewModel.isLoading.observe(this, {
+        userViewModel.isLoading.observe(this) {
             showLoading(it)
-        })
+        }
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
-        userViewModel.getMasjidList()
-//        Add a marker in Indonesia and move the camera
-//        val indonesia = LatLng(-2.548926, 118.0148634)
-//        mMap.addMarker(MarkerOptions().position(indonesia).title("Marker di Indonesia"))
-//        mMap.moveCamera(CameraUpdateFactory.newLatLng(indonesia))
+        userViewModel.getMasjidListWithAnimals()
         userViewModel.coordinateLocation.observe(this, {
             CameraUpdateFactory.newLatLngZoom(it, 3f)
             mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(it, 3f))
@@ -95,32 +93,32 @@ class MapsListMasjidActivity : AppCompatActivity(), OnMapReadyCallback,
         mMap.uiSettings.isCompassEnabled = true
         mMap.uiSettings.isMapToolbarEnabled = true
         mMap.uiSettings.isTiltGesturesEnabled = true
-        userViewModel.listUser.observe(this, { masjidList ->
+        userViewModel.listMasjidUser.observe(this, { masjidList ->
             setAllMasjidLocation(masjidList)
         })
         mMap.setInfoWindowAdapter(this@MapsListMasjidActivity)
         mMap.setOnInfoWindowClickListener { marker ->
-            val masjid: User = marker.tag as User
+            val masjid: MasjidUser = marker.tag as MasjidUser
             routeToDetailMasjid(masjid)
         }
         getMyLastLocation()
 
     }
 
-    fun setAllMasjidLocation(masjidList: List<User>) {
+    fun setAllMasjidLocation(masjidList: List<MasjidUser>) {
         for (masjid in masjidList) {
             mMap.addMarker(
                 MarkerOptions().position(
                     LatLng(
-                        masjid.latitude ?: 0.0,
-                        masjid.longitude ?: 0.0
+                        masjid.user!!.latitude ?: 0.0,
+                        masjid.user!!.longitude ?: 0.0
                     )
                 )
             )?.tag = masjid
         }
     }
 
-    fun routeToDetailMasjid(masjidData: User) {
+    fun routeToDetailMasjid(masjidData: MasjidUser) {
         val intentToDetail = Intent(this, DetailProfileMasjidActivity::class.java)
         intentToDetail.putExtra(Constanta.USER_DATA, masjidData)
         intentToDetail.flags = Intent.FLAG_ACTIVITY_NEW_TASK
@@ -167,10 +165,20 @@ class MapsListMasjidActivity : AppCompatActivity(), OnMapReadyCallback,
     }
 
     override fun getInfoWindow(marker: Marker): View {
-        val cardView = CardMosqueMapsViewBinding.inflate(LayoutInflater.from(this))
-        val masjid: User = marker.tag as User
-        cardView.tvMasjidName.text = resources.getString(R.string.name_masjid_value, masjid.name)
+        val cardView = CardMasjidMapsViewBinding.inflate(LayoutInflater.from(this))
+        val masjidData: MasjidUser = marker.tag as MasjidUser
+        val masjid = masjidData.user
+        val animalList = masjidData.listAnimal
+        cardView.tvMasjidName.text = resources.getString(R.string.name_masjid_value, masjid!!.name)
         cardView.tvAddress.text = Helper.parseCompleteAddress(this, masjid.latitude!!, masjid.longitude!!)
+        if (!animalList.isNullOrEmpty()) {
+            var availableAnimal = 0
+            animalList.forEach { animal ->
+                if (animal.jointVentureAmount - (animal.idShohibulQurbaniList?.size ?: 0) > 0)
+                    availableAnimal += 1
+            }
+            cardView.tvAvailableAnimalAmount.text = availableAnimal.toString()
+        }
         return cardView.root
     }
     fun showLoading(state: Boolean) {

@@ -1,21 +1,15 @@
 package com.androidexpert.qurbanku_apps_skripsi.adapter.animal
 
 import android.content.Intent
-import android.graphics.Paint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.androidexpert.qurbanku_apps_skripsi.R
-import com.androidexpert.qurbanku_apps_skripsi.data.lib.Animal
 import com.androidexpert.qurbanku_apps_skripsi.data.lib.User
-import com.androidexpert.qurbanku_apps_skripsi.databinding.CardAnimalPanitiaItemBinding
 import com.androidexpert.qurbanku_apps_skripsi.databinding.CardShohibulQurbaniItemBinding
-import com.androidexpert.qurbanku_apps_skripsi.ui.animal.panitia.DetailPanitiaAnimalActivity
 import com.androidexpert.qurbanku_apps_skripsi.ui.profile.panitia.DetailProfileJemaahActivity
 import com.androidexpert.qurbanku_apps_skripsi.utils.Constanta
-import com.androidexpert.qurbanku_apps_skripsi.utils.Helper
 
-class ShohibulQurbaniAdapter(private val listData: ArrayList<User>) :
+class ShohibulQurbaniAdapter(private val listData: ArrayList<User>, private val isAdmin: Boolean) :
     RecyclerView.Adapter<ShohibulQurbaniAdapter.ViewHolder>() {
     class ViewHolder(var binding: CardShohibulQurbaniItemBinding) :
         RecyclerView.ViewHolder(binding.root)
@@ -36,9 +30,11 @@ class ShohibulQurbaniAdapter(private val listData: ArrayList<User>) :
                     tvShohibulQurbanName.text = data.name
                 }
                 this.setOnClickListener {
-                    val intent = Intent(context, DetailProfileJemaahActivity::class.java)
-                    intent.putExtra(Constanta.USER_DATA, data)
-                    context.startActivity(intent)
+                    if (isAdmin) {
+                        val intent = Intent(context, DetailProfileJemaahActivity::class.java)
+                        intent.putExtra(Constanta.USER_DATA, data)
+                        context.startActivity(intent)
+                    }
                 }
             }
 

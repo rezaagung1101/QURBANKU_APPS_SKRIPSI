@@ -5,7 +5,7 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class Animal @JvmOverloads constructor(
-    val id: String = "", // Include document ID
+    val id: String = "",
     val photoUrl: String = "",
     val qurbaniTimeMillisecond: Long = 0,
     val note: String? = null,
@@ -17,6 +17,6 @@ data class Animal @JvmOverloads constructor(
     val operationalCosts: Int = 0,
     val price: Int = 0,
     val jointVentureAmount: Int = 0,
-    val idMasjid: String = "",
+    val idMasjid: String = "", //user's ID
     val idShohibulQurbaniList: List<String>? = null
 ): Parcelable

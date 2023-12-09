@@ -5,19 +5,29 @@ import android.content.pm.PackageManager
 import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.ViewModelProvider
 import com.androidexpert.qurbanku_apps_skripsi.R
+import com.androidexpert.qurbanku_apps_skripsi.data.lib.Animal
+import com.androidexpert.qurbanku_apps_skripsi.data.lib.Transaction
+import com.androidexpert.qurbanku_apps_skripsi.data.lib.TransactionDetail
+import com.androidexpert.qurbanku_apps_skripsi.data.lib.User
+import com.androidexpert.qurbanku_apps_skripsi.data.remote.TransactionRepository
 import com.androidexpert.qurbanku_apps_skripsi.databinding.ActivityAddTransactionBinding
 import com.androidexpert.qurbanku_apps_skripsi.ui.CameraActivity
+import com.androidexpert.qurbanku_apps_skripsi.ui.ViewModelFactory
+import com.androidexpert.qurbanku_apps_skripsi.ui.transaction.TransactionViewModel
 import com.androidexpert.qurbanku_apps_skripsi.utils.Constanta
 import com.androidexpert.qurbanku_apps_skripsi.utils.DialogUtils
 import com.androidexpert.qurbanku_apps_skripsi.utils.Helper
+import com.androidexpert.qurbanku_apps_skripsi.utils.UserPreference
 import java.io.File
 
 class AddTransactionActivity : AppCompatActivity() {
@@ -25,7 +35,11 @@ class AddTransactionActivity : AppCompatActivity() {
      * Terima data dari Detail Hewan milik jemaah
      */
     private lateinit var binding: ActivityAddTransactionBinding
-    private var photoUrl: String = ""
+    private lateinit var transactionViewModel: TransactionViewModel
+    private val transactionRepository = TransactionRepository()
+    private lateinit var userPreference: UserPreference
+    private var animalData = Animal()
+    private var masjidData = User()
     private var getFile: File? = null
     private val launcherIntentCameraX = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
@@ -70,12 +84,19 @@ class AddTransactionActivity : AppCompatActivity() {
         setContentView(binding.root)
         supportActionBar?.title = resources.getString(R.string.transfer_requirements)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        animalData = intent.getParcelableExtra<Animal>(Constanta.ANIMAL_DATA) as Animal
+        masjidData = intent.getParcelableExtra<User>(Constanta.USER_DATA) as User
+        userPreference = UserPreference(this)
+        transactionViewModel = ViewModelProvider(this, ViewModelFactory.TransactionViewModelFactory(transactionRepository))[TransactionViewModel::class.java]
         setupInformation(false)
         binding.btnCamera.setOnClickListener {
             startCameraX()
         }
         binding.btnGallery.setOnClickListener {
             startGallery()
+        }
+        transactionViewModel.isLoading.observe(this){
+            showLoading(it)
         }
     }
 
@@ -150,9 +171,45 @@ class AddTransactionActivity : AppCompatActivity() {
         /**
          * kirim data ke intent
          */
-        val intent = Intent(this, DetailTransactionJemaahActivity::class.java)
-        startActivity(intent)
-        finish()
+        val transaction = Transaction(
+            id = "",
+            photoUrl ="",
+            createdTimeMillisecond = System.currentTimeMillis(),
+            status = null,
+            note = null,
+            idJemaah = userPreference.getUid()!!,
+            idMasjid = masjidData.uid,
+            idAnimal = animalData.id
+        )
+        transactionViewModel.addTransaction(transaction, Helper.reduceFileImage(getFile!!))
+        transactionViewModel.addTransactionResult.observe(this){ isSuccess ->
+            if(isSuccess){
+                transactionViewModel.transactionDetail.observe(this){ transaction ->
+                    showDialog(isSuccess, transaction)
+                }
+            } else {
+                showDialog(false, null)
+            }
+        }
+
+    }
+
+    fun showDialog(status: Boolean, transaction: TransactionDetail?){
+        val messageResId = if (status) R.string.add_transaction_success else R.string.add_transaction_failed
+        val title = resources.getString(R.string.announcement)
+        val message = resources.getString(messageResId)
+
+        DialogUtils.showNotificationDialog(this, title, message) {
+            if(status){
+                val intent = Intent(this, DetailTransactionJemaahActivity::class.java)
+                intent.putExtra(Constanta.TRANSACTION_DATA, transaction!!)
+                startActivity(intent)
+                finish()
+            }
+        }
+    }
+    fun showLoading(state: Boolean) {
+        binding.progressBar.visibility = if (state) View.VISIBLE else View.GONE
     }
 
     override fun onSupportNavigateUp(): Boolean {
