@@ -103,4 +103,77 @@ class UserRepository() {
                 setUserList(null)
             }
     }
+
+    fun updatePanitiaProfile(
+        uid: String,
+        name: String,
+        headName: String,
+        phoneNumber: String,
+        latitude: Double,
+        longitude: Double,
+        accountNumber: String,
+        bankName: String,
+        accountName: String,
+        onResult: (Boolean, User?) -> Unit
+    ){
+        val documentReference = firestore.collection("user").document(uid)
+        // Create a map with the fields to be updated
+        val updates = mapOf(
+            "name" to name,
+            "headName" to headName,
+            "phoneNumber" to phoneNumber,
+            "latitude" to latitude,
+            "longitude" to longitude,
+            "accountNumber" to accountNumber,
+            "bankName" to bankName,
+            "accountName" to accountName
+        )
+        // Update the document with the new data
+        documentReference
+            .update(updates)
+            .addOnSuccessListener {
+                // After successful update, retrieve the updated user data
+                getProfile(uid) { user ->
+                    onResult(true, user)
+                }
+            }
+            .addOnFailureListener {
+                onResult(false, null)
+            }
+
+    }
+
+    fun updateJemaahProfile(
+        uid: String,
+        phoneNumber: String,
+        name: String,
+        address: String,
+        headName: String,
+        onResult: (Boolean, User?) -> Unit)
+    {
+        val documentReference = firestore.collection("user").document(uid)
+        // Create a map with the fields to be updated
+        val updates = mapOf(
+            "phoneNumber" to phoneNumber,
+            "name" to name,
+            "address" to address,
+            "headName" to headName
+        )
+        // Update the document with the new data
+        documentReference
+            .update(updates)
+            .addOnSuccessListener {
+                // After successful update, retrieve the updated user data
+                getProfile(uid) { user ->
+                    onResult(true, user)
+                }
+            }
+            .addOnFailureListener {
+                onResult(false, null)
+            }
+
+    }
+
+
+
 }

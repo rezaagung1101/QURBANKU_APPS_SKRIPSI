@@ -6,11 +6,14 @@ import androidx.lifecycle.ViewModel
 import com.androidexpert.qurbanku_apps_skripsi.data.lib.MasjidUser
 import com.androidexpert.qurbanku_apps_skripsi.data.lib.User
 import com.androidexpert.qurbanku_apps_skripsi.data.remote.UserRepository
+import com.androidexpert.qurbanku_apps_skripsi.utils.SingleLiveEvent
 import com.google.android.gms.maps.model.LatLng
 
 class UserViewModel(private val userRepository: UserRepository) : ViewModel() {
     private var _user = MutableLiveData<User>()
     val user: LiveData<User> = _user
+    private var _updateResult = SingleLiveEvent<Boolean>()
+    val updateResult: LiveData<Boolean> = _updateResult
     private var _listUser = MutableLiveData<List<User>>()
     val listUser: LiveData<List<User>> = _listUser
     private var _listMasjidUser = MutableLiveData<List<MasjidUser>>()
@@ -28,15 +31,15 @@ class UserViewModel(private val userRepository: UserRepository) : ViewModel() {
 
     fun getProfile(uid: String) {
         _isLoading.value = true
-        userRepository.getProfile(uid){ user ->
+        userRepository.getProfile(uid) { user ->
             _user.value = user
             _isLoading.value = false
         }
     }
 
-    fun getMasjidList(){
+    fun getMasjidList() {
         _isLoading.value = true
-        userRepository.getMasjidList(){ listUser ->
+        userRepository.getMasjidList() { listUser ->
             _listUser.value = listUser
             _isLoading.value = false
         }
@@ -50,20 +53,46 @@ class UserViewModel(private val userRepository: UserRepository) : ViewModel() {
         }
     }
 
-    fun getJemaahList(idJemaahList: List<String>){
+    fun getJemaahList(idJemaahList: List<String>) {
         _isLoading.value = true
-        userRepository.getJemaahList(idJemaahList){ listUser ->
+        userRepository.getJemaahList(idJemaahList) { listUser ->
             _listUser.value = listUser
             _isLoading.value = false
         }
     }
 
-    fun updatePanitiaProfile(user: User){
-
+    fun updatePanitiaProfile(
+        uid: String,
+        name: String,
+        headName: String,
+        phoneNumber: String,
+        latitude: Double,
+        longitude: Double,
+        accountNumber: String,
+        bankName: String,
+        accountName: String,
+    ) {
+        _isLoading.value = true
+        userRepository.updatePanitiaProfile(uid, name, headName, phoneNumber, latitude, longitude, accountNumber, bankName, accountName){ isSuccess, userData ->
+            _isLoading.value = false
+            _updateResult.value = isSuccess
+            _user.value = userData
+        }
     }
 
-    fun updateJemaahProfile(user: User){
-
+    fun updateJemaahProfile(
+        uid: String,
+        phoneNumber: String,
+        name: String,
+        address: String,
+        headName: String,
+    ) {
+        _isLoading.value = true
+        userRepository.updateJemaahProfile(uid, phoneNumber, name, address, headName){ isSuccess, userData ->
+            _isLoading.value = false
+            _updateResult.value = isSuccess
+            _user.value = userData
+        }
     }
 
 }

@@ -10,6 +10,7 @@ import com.androidexpert.qurbanku_apps_skripsi.data.lib.MasjidUser
 import com.androidexpert.qurbanku_apps_skripsi.data.lib.TransactionDetail
 import com.androidexpert.qurbanku_apps_skripsi.data.remote.AnimalRepository
 import com.androidexpert.qurbanku_apps_skripsi.databinding.ActivityDetailTransactionJemaahBinding
+import com.androidexpert.qurbanku_apps_skripsi.ui.ImageDisplayActivity
 import com.androidexpert.qurbanku_apps_skripsi.ui.ViewModelFactory
 import com.androidexpert.qurbanku_apps_skripsi.ui.animal.AnimalViewModel
 import com.androidexpert.qurbanku_apps_skripsi.ui.animal.jemaah.DetailJemaahAnimalActivity
@@ -104,7 +105,11 @@ class DetailTransactionJemaahActivity : AppCompatActivity() {
                 intent.putExtra(Constanta.USER_DATA, masjid)
                 startActivity(intent)
             }
-
+            ivTransaction.setOnClickListener {
+                val intent = Intent(this@DetailTransactionJemaahActivity, ImageDisplayActivity::class.java)
+                intent.putExtra(Constanta.photoUrl, transaction!!.photoUrl)
+                startActivity(intent)
+            }
         }
     }
 

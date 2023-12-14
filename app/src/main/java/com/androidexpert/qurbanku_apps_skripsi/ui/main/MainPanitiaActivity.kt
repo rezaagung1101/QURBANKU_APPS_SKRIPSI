@@ -1,4 +1,4 @@
-package com.androidexpert.qurbanku_apps_skripsi.ui
+package com.androidexpert.qurbanku_apps_skripsi.ui.main
 
 import android.os.Bundle
 import android.util.Log

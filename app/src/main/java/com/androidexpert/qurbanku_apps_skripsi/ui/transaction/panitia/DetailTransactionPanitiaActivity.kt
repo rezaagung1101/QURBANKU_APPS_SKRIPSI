@@ -10,6 +10,7 @@ import com.androidexpert.qurbanku_apps_skripsi.R
 import com.androidexpert.qurbanku_apps_skripsi.data.lib.TransactionDetail
 import com.androidexpert.qurbanku_apps_skripsi.data.remote.TransactionRepository
 import com.androidexpert.qurbanku_apps_skripsi.databinding.ActivityDetailTransactionPanitiaBinding
+import com.androidexpert.qurbanku_apps_skripsi.ui.ImageDisplayActivity
 import com.androidexpert.qurbanku_apps_skripsi.ui.ViewModelFactory
 import com.androidexpert.qurbanku_apps_skripsi.ui.animal.panitia.DetailPanitiaAnimalActivity
 import com.androidexpert.qurbanku_apps_skripsi.ui.profile.panitia.DetailProfileJemaahActivity
@@ -150,6 +151,11 @@ class DetailTransactionPanitiaActivity : AppCompatActivity() {
                 btnAnimalDetail.setOnClickListener {
                     val intent = Intent(this@DetailTransactionPanitiaActivity, DetailPanitiaAnimalActivity::class.java)
                     intent.putExtra(Constanta.ANIMAL_DATA, animal)
+                    startActivity(intent)
+                }
+                ivTransaction.setOnClickListener {
+                    val intent = Intent(this@DetailTransactionPanitiaActivity, ImageDisplayActivity::class.java)
+                    intent.putExtra(Constanta.photoUrl, transaction.photoUrl)
                     startActivity(intent)
                 }
             }

@@ -6,8 +6,8 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import com.androidexpert.qurbanku_apps_skripsi.databinding.ActivitySplashScreenBinding
-import com.androidexpert.qurbanku_apps_skripsi.ui.MainJemaahActivity
-import com.androidexpert.qurbanku_apps_skripsi.ui.MainPanitiaActivity
+import com.androidexpert.qurbanku_apps_skripsi.ui.main.MainJemaahActivity
+import com.androidexpert.qurbanku_apps_skripsi.ui.main.MainPanitiaActivity
 import com.androidexpert.qurbanku_apps_skripsi.utils.UserPreference
 
 class SplashScreenActivity : AppCompatActivity() {

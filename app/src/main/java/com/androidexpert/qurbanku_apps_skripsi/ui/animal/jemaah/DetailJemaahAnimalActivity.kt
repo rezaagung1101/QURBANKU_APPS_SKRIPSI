@@ -11,6 +11,7 @@ import com.androidexpert.qurbanku_apps_skripsi.data.lib.Animal
 import com.androidexpert.qurbanku_apps_skripsi.data.lib.User
 import com.androidexpert.qurbanku_apps_skripsi.data.remote.UserRepository
 import com.androidexpert.qurbanku_apps_skripsi.databinding.ActivityDetailJemaahAnimalBinding
+import com.androidexpert.qurbanku_apps_skripsi.ui.ImageDisplayActivity
 import com.androidexpert.qurbanku_apps_skripsi.ui.ViewModelFactory
 import com.androidexpert.qurbanku_apps_skripsi.ui.profile.UserViewModel
 import com.androidexpert.qurbanku_apps_skripsi.ui.transaction.jemaah.AddTransactionActivity
@@ -84,6 +85,11 @@ class DetailJemaahAnimalActivity : AppCompatActivity() {
                 Glide.with(this@DetailJemaahAnimalActivity)
                     .load(animal.photoUrl)
                     .into(ivAnimal)
+                ivAnimal.setOnClickListener {
+                    val intent = Intent(this@DetailJemaahAnimalActivity, ImageDisplayActivity::class.java)
+                    intent.putExtra(Constanta.photoUrl, animal.photoUrl)
+                    startActivity(intent)
+                }
                 if (idShohibulQurbaniList != null) {
                     setShohibulQurbaniData(idShohibulQurbaniList)
                 }

@@ -3,6 +3,7 @@ package com.androidexpert.qurbanku_apps_skripsi.utils
 import android.Manifest
 
 object Constanta {
+    const val photoUrl = "PHOTO_URL"
     val DATE_DATA = "DATE"
 
     //login

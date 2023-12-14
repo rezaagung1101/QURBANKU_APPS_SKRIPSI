@@ -71,5 +71,9 @@ class ProfilePanitiaFragment : Fragment() {
             tvAccountNumberValue.text = user.bankAccountNumber
         }
     }
+    override fun onResume() {
+        setupInformation(userPreference.getPanitiaData())
+        super.onResume()
+    }
 
 }

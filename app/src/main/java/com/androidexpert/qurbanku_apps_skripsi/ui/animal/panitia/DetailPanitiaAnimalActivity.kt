@@ -16,9 +16,10 @@ import com.androidexpert.qurbanku_apps_skripsi.data.lib.User
 import com.androidexpert.qurbanku_apps_skripsi.data.remote.AnimalRepository
 import com.androidexpert.qurbanku_apps_skripsi.data.remote.UserRepository
 import com.androidexpert.qurbanku_apps_skripsi.databinding.ActivityDetailPanitiaAnimalBinding
-import com.androidexpert.qurbanku_apps_skripsi.ui.MainPanitiaActivity
+import com.androidexpert.qurbanku_apps_skripsi.ui.ImageDisplayActivity
 import com.androidexpert.qurbanku_apps_skripsi.ui.ViewModelFactory
 import com.androidexpert.qurbanku_apps_skripsi.ui.animal.AnimalViewModel
+import com.androidexpert.qurbanku_apps_skripsi.ui.main.MainPanitiaActivity
 import com.androidexpert.qurbanku_apps_skripsi.ui.profile.UserViewModel
 import com.androidexpert.qurbanku_apps_skripsi.utils.Constanta
 import com.androidexpert.qurbanku_apps_skripsi.utils.DialogUtils
@@ -102,6 +103,11 @@ class DetailPanitiaAnimalActivity : AppCompatActivity() {
                 Glide.with(this@DetailPanitiaAnimalActivity)
                     .load(animal.photoUrl)
                     .into(ivAnimal)
+                ivAnimal.setOnClickListener {
+                    val intent = Intent(this@DetailPanitiaAnimalActivity, ImageDisplayActivity::class.java)
+                    intent.putExtra(Constanta.photoUrl, animal.photoUrl)
+                    startActivity(intent)
+                }
                 if (idShohibulQurbaniList != null) {
                     setShohibulQurbaniData(idShohibulQurbaniList)
                 }

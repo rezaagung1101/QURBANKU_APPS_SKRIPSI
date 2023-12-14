@@ -51,12 +51,7 @@ class ProfileJemaahFragment : Fragment() {
         }
     }
 
-    fun getProfile() {
-
-    }
-
     fun logout() {
-        //hapus preference
         userViewModel.logout()
         userPreference.logout()
         val intent = Intent(requireContext(), LoginActivity::class.java)
@@ -73,5 +68,10 @@ class ProfileJemaahFragment : Fragment() {
             tvPhoneNumberValue.text = user.phoneNumber
             tvHeadValue.text = user.headName
         }
+    }
+
+    override fun onResume() {
+        setupInformation(userPreference.getJemaahData())
+        super.onResume()
     }
 }

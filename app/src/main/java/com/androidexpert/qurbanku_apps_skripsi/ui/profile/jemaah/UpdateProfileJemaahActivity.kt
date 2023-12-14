@@ -1,94 +1,125 @@
 package com.androidexpert.qurbanku_apps_skripsi.ui.profile.jemaah
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.text.set
+import androidx.lifecycle.ViewModelProvider
 import com.androidexpert.qurbanku_apps_skripsi.R
+import com.androidexpert.qurbanku_apps_skripsi.data.lib.User
+import com.androidexpert.qurbanku_apps_skripsi.data.remote.UserRepository
 import com.androidexpert.qurbanku_apps_skripsi.databinding.ActivityUpdateProfileJemaahBinding
+import com.androidexpert.qurbanku_apps_skripsi.ui.ViewModelFactory
+import com.androidexpert.qurbanku_apps_skripsi.ui.profile.UserViewModel
 import com.androidexpert.qurbanku_apps_skripsi.utils.DialogUtils
 import com.androidexpert.qurbanku_apps_skripsi.utils.Helper
+import com.androidexpert.qurbanku_apps_skripsi.utils.UserPreference
 
 class UpdateProfileJemaahActivity : AppCompatActivity() {
     private lateinit var binding: ActivityUpdateProfileJemaahBinding
+    private lateinit var userViewModel: UserViewModel
+    private val userRepository = UserRepository()
+    private lateinit var userPreference: UserPreference
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityUpdateProfileJemaahBinding.inflate(layoutInflater)
         setContentView(binding.root)
         supportActionBar?.title = getString(R.string.update_profile)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        this.setupInformation()
+        userViewModel =
+            ViewModelProvider(
+                this, ViewModelFactory.UserViewModelFactory(userRepository)
+            )[UserViewModel::class.java]
+        userViewModel.isLoading.observe(this@UpdateProfileJemaahActivity){
+            showLoading(it)
+        }
+        userPreference = UserPreference(this)
+        this.setupInformation(userPreference.getJemaahData())
         binding.btnSaveUpdate.setOnClickListener {
             binding.apply {
                 val title = resources.getString(R.string.update_profile)
                 val message = resources.getString(R.string.update_profile_message)
-                val email = etEmail.text.toString()
                 val name = etName.text.toString()
                 val headName = etHeadFamilyName.text.toString()
                 val phoneNumber = etPhoneNumber.text.toString()
-                val password = etPassword.text.toString()
                 val address = etAddress.text.toString()
-                if (validation(email, phoneNumber, name, address, headName, password))
+                if (validation(phoneNumber, name, address, headName))
                     DialogUtils.showConfirmationDialog(
                         this@UpdateProfileJemaahActivity,
                         title,
-                        message,
-                        {updateProfile(email, phoneNumber, name, address, headName, password)}
+                        message
                     )
+                    {
+                        updateProfile(
+                            userPreference.getUid()!!,
+                            phoneNumber,
+                            name,
+                            address,
+                            headName
+                        )
+                    }
             }
         }
     }
 
     fun updateProfile(
-        email: String,
+        uid: String,
         phoneNumber: String,
         name: String,
         address: String,
         headName: String,
-        password: String,
     ) {
-        val title = resources.getString(R.string.announcement)
-        val message = resources.getString(R.string.update_profile_success)
-        DialogUtils.showNotificationDialog(this, title, message, ::onBackPressed)
+        userViewModel.apply {
+            updateJemaahProfile(uid, phoneNumber, name, address, headName)
+            updateResult.observe(this@UpdateProfileJemaahActivity) { isSuccess ->
+                if (isSuccess) {
+                    user.observe(this@UpdateProfileJemaahActivity){ updateduser ->
+                        userPreference.saveJemaahPreference(updateduser)
+                    }
+                    val title = resources.getString(R.string.announcement)
+                    val message = resources.getString(R.string.update_profile_success)
+                    DialogUtils.showNotificationDialog(this@UpdateProfileJemaahActivity, title, message, ::onBackPressed)
+                } else{
+                    val title = resources.getString(R.string.announcement)
+                    val message = resources.getString(R.string.update_profile_failed)
+                    DialogUtils.showNotificationDialog(this@UpdateProfileJemaahActivity, title, message,{})
+                }
+            }
+        }
+
     }
 
     fun validation(
-        email: String,
         phoneNumber: String,
         name: String,
         address: String,
         headName: String,
-        password: String,
     ): Boolean {
         var isValid = false
         binding.apply {
-            val isEmailValid = email.isNotEmpty() && Helper.emailValidation(email)
             val isPhoneNumberValid = phoneNumber.isNotEmpty()
             val isNameValid = name.isNotEmpty()
             val isAddressValid = address.isNotEmpty()
             val isHeadNameValid = headName.isNotEmpty()
-            val isPasswordValid = password.isNotEmpty() && Helper.passwordValidation(password)
             val editTextPairs = listOf(
-                etEmail to etEmailLayout,
                 etPhoneNumber to etPhoneNumberLayout,
                 etName to etNameLayout,
                 etAddress to etAddressLayout,
                 etHeadFamilyName to etHeadFamilyNameLayout,
-                etPassword to etPasswordLayout,
             )
             editTextPairs.forEach { (editText, layout) ->
                 Helper.setupTextWatcher(editText, layout)
             }
 
-            if (isEmailValid && isPhoneNumberValid && isNameValid && isAddressValid && isHeadNameValid && isPasswordValid) {
+            if (isPhoneNumberValid && isNameValid && isAddressValid && isHeadNameValid) {
                 isValid = true
             }
 
             val validationList = listOf(
-                isEmailValid to resources.getString(R.string.email_invalid),
                 isPhoneNumberValid to null,
                 isNameValid to null,
                 isAddressValid to null,
                 isHeadNameValid to null,
-                isPasswordValid to resources.getString(R.string.password_minimum)
             )
 
             validationList.forEachIndexed { index, (isValid, errorMessage) ->
@@ -107,9 +138,19 @@ class UpdateProfileJemaahActivity : AppCompatActivity() {
         return isValid
     }
 
-    fun setupInformation() {
+    fun setupInformation(user: User) {
+        binding.apply{
+            etName.setText(user.name)
+            etPhoneNumber.setText(user.phoneNumber)
+            etAddress.setText(user.address)
+            etHeadFamilyName.setText(user.headName)
+        }
         val guide = resources.getStringArray(R.array.note_jemaah_signUp).joinToString("\n")
         binding.tvNoteValue.text = guide
+    }
+
+    fun showLoading(state: Boolean) {
+        binding.progressBar.visibility = if (state) View.VISIBLE else View.GONE
     }
 
     override fun onSupportNavigateUp(): Boolean {

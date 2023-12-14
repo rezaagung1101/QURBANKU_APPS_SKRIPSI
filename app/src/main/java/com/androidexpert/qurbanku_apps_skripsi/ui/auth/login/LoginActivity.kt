@@ -8,8 +8,8 @@ import androidx.lifecycle.ViewModelProvider
 import com.androidexpert.qurbanku_apps_skripsi.R
 import com.androidexpert.qurbanku_apps_skripsi.data.remote.AuthRepository
 import com.androidexpert.qurbanku_apps_skripsi.databinding.ActivityLoginBinding
-import com.androidexpert.qurbanku_apps_skripsi.ui.MainJemaahActivity
-import com.androidexpert.qurbanku_apps_skripsi.ui.MainPanitiaActivity
+import com.androidexpert.qurbanku_apps_skripsi.ui.main.MainJemaahActivity
+import com.androidexpert.qurbanku_apps_skripsi.ui.main.MainPanitiaActivity
 import com.androidexpert.qurbanku_apps_skripsi.ui.ViewModelFactory
 import com.androidexpert.qurbanku_apps_skripsi.ui.auth.AuthViewModel
 import com.androidexpert.qurbanku_apps_skripsi.ui.auth.signup.SignUpActivity

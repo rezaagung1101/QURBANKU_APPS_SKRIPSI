@@ -40,7 +40,8 @@ class HomePanitiaFragment : Fragment() {
         userPreference = UserPreference(requireContext())
         animalViewModel.getAnimalList(userPreference.getUid()!!)
         animalViewModel.listAnimal.observe(viewLifecycleOwner) { animalList ->
-            setupInformation(animalList)
+            if (animalList!=null) setupInformation(animalList)
+            else binding.tvNullAnimal.alpha = 1f
         }
         animalViewModel.isLoading.observe(viewLifecycleOwner) {
             showLoading(it)

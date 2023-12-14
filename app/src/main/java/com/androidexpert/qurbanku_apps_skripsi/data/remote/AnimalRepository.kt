@@ -87,12 +87,15 @@ class AnimalRepository() {
             .whereEqualTo("idMasjid", idMasjid!!)
             .get()
             .addOnSuccessListener { result ->
-                val animalList = mutableListOf<Animal>()
-                for (document in result) {
-                    val animal = document.toObject<Animal>()
-                    animalList.add(animal)
+                if (result.isEmpty) setAnimalList(null)
+                else {
+                    val animalList = mutableListOf<Animal>()
+                    for (document in result) {
+                        val animal = document.toObject<Animal>()
+                        animalList.add(animal)
+                    }
+                    setAnimalList(animalList)
                 }
-                setAnimalList(animalList)
             }
             .addOnFailureListener {
                 setAnimalList(null)
@@ -130,11 +133,11 @@ class AnimalRepository() {
         val documentReference = firestore.collection("animal").document(id)
         documentReference.update("status", true)
             .addOnCompleteListener { firestoreTask ->
-                if(firestoreTask.isSuccessful){
-                    getDetailAnimal(id){ updatedAnimalData ->
+                if (firestoreTask.isSuccessful) {
+                    getDetailAnimal(id) { updatedAnimalData ->
                         onResult(true, updatedAnimalData)
                     }
-                } else{
+                } else {
                     onResult(false, null)
                 }
             }

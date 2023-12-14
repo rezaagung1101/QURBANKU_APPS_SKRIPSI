@@ -56,6 +56,8 @@ class QurbaniHistoryFragment : Fragment() {
         transactionViewModel.listTransactionDetail.observe(viewLifecycleOwner){
             if(it!=null){
                 setupInformation(it)
+            }else{
+                binding.tvNullQurbani.alpha = 1f
             }
         }
 

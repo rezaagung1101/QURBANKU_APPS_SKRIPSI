@@ -58,46 +58,43 @@ class DetailProfileMasjidActivity : AppCompatActivity() {
 
     fun setupInformation(masjid: User?, animalList: List<Animal>?) {
         binding.apply {
-           if(masjid!=null){
-               with(masjid) {
-                   tvMasjidName.text = resources.getString(R.string.name_masjid_value, name)
-                   tvHeadValue.text = headName
-                   tvContactPersonValue.text = phoneNumber
-                   tvAccountNumberValue.text = bankAccountNumber
-                   tvBankValue.text = bankName
-                   tvAccountNameValue.text = bankAccountName
-                   tvAddressValue.text = Helper.parseCompleteAddress(
-                       this@DetailProfileMasjidActivity,
-                       latitude!!,
-                       longitude!!
-                   )
-                   tvAddressValue.paintFlags = tvAddressValue.paintFlags or Paint.UNDERLINE_TEXT_FLAG
-                   tvAddressValue.setOnClickListener {
-                       openGmapsByLocation(latitude, longitude)
-                   }
-               }
-           }
-            if (!animalList.isNullOrEmpty()){
-                setAnimalList(masjid!!, animalList)
-            }
-            /**
-             * ERROR TIDAK MEMILIKI HEWAN BLM ADA
-             */
-
-            swipeRefresh.setOnRefreshListener {
-                animalViewModel.getAnimalList(masjid!!.uid)
-                animalViewModel.listAnimal.observe(this@DetailProfileMasjidActivity) { animalList ->
-                    setAnimalList(masjid, animalList)
+            if (masjid != null) {
+                with(masjid) {
+                    tvMasjidName.text = resources.getString(R.string.name_masjid_value, name)
+                    tvHeadValue.text = headName
+                    tvContactPersonValue.text = phoneNumber
+                    tvAccountNumberValue.text = bankAccountNumber
+                    tvBankValue.text = bankName
+                    tvAccountNameValue.text = bankAccountName
+                    tvAddressValue.text = Helper.parseCompleteAddress(
+                        this@DetailProfileMasjidActivity,
+                        latitude!!,
+                        longitude!!
+                    )
+                    tvAddressValue.paintFlags =
+                        tvAddressValue.paintFlags or Paint.UNDERLINE_TEXT_FLAG
+                    tvAddressValue.setOnClickListener {
+                        openGmapsByLocation(latitude, longitude)
+                    }
                 }
-                binding.swipeRefresh.isRefreshing = true
-                // Use a Handler to post a delayed action
-                Handler().postDelayed({
-                    binding.swipeRefresh.isRefreshing = false
-                    binding.rvAnimalList.smoothScrollToPosition(0)
-                }, 1000)
             }
+            if (!animalList.isNullOrEmpty()) {
+                setAnimalList(masjid!!, animalList)
+                swipeRefresh.setOnRefreshListener {
+                    animalViewModel.getAnimalList(masjid!!.uid)
+                    animalViewModel.listAnimal.observe(this@DetailProfileMasjidActivity) { animalList ->
+                        if (animalList != null) setAnimalList(masjid, animalList)
+                        else binding.tvNullAnimal.alpha = 1f
+                    }
+                    binding.swipeRefresh.isRefreshing = true
+                    // Use a Handler to post a delayed action
+                    Handler().postDelayed({
+                        binding.swipeRefresh.isRefreshing = false
+                        binding.rvAnimalList.smoothScrollToPosition(0)
+                    }, 1000)
+                }
+            } else binding.tvNullAnimal.alpha = 1f
         }
-
     }
 
     fun sendWhatsAppMessage(phoneNumber: String){

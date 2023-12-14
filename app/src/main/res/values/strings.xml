@@ -258,5 +258,14 @@
     <string name="add_transaction_success">Berhasil menambahkan transaksi!</string>
     <string name="status">Status</string>
     <string name="masjid_name">Nama masjid</string>
+    <string name="fully_image_display">Gambar Ukuran Penuh</string>
+    <string name="choose_your_role">Pilih Peran Anda</string>
+    <string name="null_transaction_message">Anda belum melakukan transaksi</string>
+    <string name="null_qurbani_message">Anda belum pernah berkurban</string>
+    <string name="null_jemaah_transaction_message">Belum ada data transaksi jemaah</string>
+    <string name="null_animal_panitia_message">Anda belum memiliki data hewan kurban</string>
+    <string name="null_animal_jemaah_message">Masjid belum memiliki data hewan kurban</string>
+    <string name="update_profile_failed">Terdapat kesalahan, gagal mengubah data profil</string>
+    <string name="title_activity_maps_update_location">MapsUpdateLocationActivity</string>
 
 </resources>

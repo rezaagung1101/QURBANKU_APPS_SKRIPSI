@@ -6,299 +6,268 @@
     android:layout_height="match_parent"
     android:paddingTop="4dp"
     tools:context=".ui.profile.panitia.UpdateProfilePanitiaActivity">
-
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:id="@+id/tv_update_profile_heading"
-                style="@style/TextSpec.LabelWhite"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/label_background"
-                android:text="@string/enter_data_changes"
-                android:textSize="16sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <View
-                android:id="@+id/line1"
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:background="@color/text_color_light"
-                app:layout_constraintBottom_toBottomOf="@+id/tv_update_profile_heading"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/tv_update_profile_heading"
-                app:layout_constraintTop_toTopOf="@+id/tv_update_profile_heading" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp"
-            android:paddingBottom="16dp">
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/et_email_layout"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tv_update_profile_heading"
+                    style="@style/TextSpec.LabelWhite"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/label_background"
+                    android:text="@string/enter_data_changes"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <View
+                    android:id="@+id/line1"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:background="@color/text_color_light"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_update_profile_heading"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/tv_update_profile_heading"
+                    app:layout_constraintTop_toTopOf="@+id/tv_update_profile_heading" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:boxCornerRadiusBottomEnd="10dp"
-                app:boxCornerRadiusBottomStart="10dp"
-                app:boxCornerRadiusTopEnd="10dp"
-                app:boxCornerRadiusTopStart="10dp"
-                app:boxStrokeColor="@color/green_dark_label"
-                app:boxStrokeWidth="1dp">
+                android:orientation="vertical"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:paddingBottom="16dp">
 
-                <EditText
-                    android:id="@+id/et_email"
-                    style="@style/TextSpec.Value"
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/et_name_layout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:hint="@string/email_masjid"
-                    android:inputType="textEmailAddress"
-                    android:textColor="@color/text_color"
-                    tools:ignore="SpeakableTextPresentCheck" />
+                    android:layout_marginTop="4dp"
+                    app:boxCornerRadiusBottomEnd="10dp"
+                    app:boxCornerRadiusBottomStart="10dp"
+                    app:boxCornerRadiusTopEnd="10dp"
+                    app:boxCornerRadiusTopStart="10dp"
+                    app:boxStrokeColor="@color/green_dark_label"
+                    app:boxStrokeWidth="1dp">
 
-            </com.google.android.material.textfield.TextInputLayout>
+                    <EditText
+                        android:id="@+id/et_name"
+                        style="@style/TextSpec.Value"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:hint="@string/name_masjid"
+                        android:inputType="text"
+                        android:textColor="@color/text_color"
+                        tools:ignore="SpeakableTextPresentCheck" />
+                </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/et_name_layout"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                app:boxCornerRadiusBottomEnd="10dp"
-                app:boxCornerRadiusBottomStart="10dp"
-                app:boxCornerRadiusTopEnd="10dp"
-                app:boxCornerRadiusTopStart="10dp"
-                app:boxStrokeColor="@color/green_dark_label"
-                app:boxStrokeWidth="1dp">
-
-                <EditText
-                    android:id="@+id/et_name"
-                    style="@style/TextSpec.Value"
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/et_name_headTakmir_layout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:hint="@string/name_masjid"
-                    android:inputType="text"
-                    android:textColor="@color/text_color"
-                    tools:ignore="SpeakableTextPresentCheck" />
-            </com.google.android.material.textfield.TextInputLayout>
+                    android:layout_marginTop="4dp"
+                    app:boxCornerRadiusBottomEnd="10dp"
+                    app:boxCornerRadiusBottomStart="10dp"
+                    app:boxCornerRadiusTopEnd="10dp"
+                    app:boxCornerRadiusTopStart="10dp"
+                    app:boxStrokeColor="@color/green_dark_label"
+                    app:boxStrokeWidth="1dp">
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/et_name_headTakmir_layout"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                app:boxCornerRadiusBottomEnd="10dp"
-                app:boxCornerRadiusBottomStart="10dp"
-                app:boxCornerRadiusTopEnd="10dp"
-                app:boxCornerRadiusTopStart="10dp"
-                app:boxStrokeColor="@color/green_dark_label"
-                app:boxStrokeWidth="1dp">
+                    <EditText
+                        android:id="@+id/et_name_headTakmir"
+                        style="@style/TextSpec.Value"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:hint="@string/name_head_takmir"
+                        android:inputType="text"
+                        android:textColor="@color/text_color"
+                        tools:ignore="SpeakableTextPresentCheck" />
+                </com.google.android.material.textfield.TextInputLayout>
 
-                <EditText
-                    android:id="@+id/et_name_headTakmir"
-                    style="@style/TextSpec.Value"
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/et_contact_person_number_layout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:hint="@string/name_head_takmir"
-                    android:inputType="text"
+                    android:layout_marginTop="4dp"
+                    app:boxCornerRadiusBottomEnd="10dp"
+                    app:boxCornerRadiusBottomStart="10dp"
+                    app:boxCornerRadiusTopEnd="10dp"
+                    app:boxCornerRadiusTopStart="10dp"
+                    app:boxStrokeColor="@color/green_dark_label"
+                    app:boxStrokeWidth="1dp">
+
+                    <EditText
+                        android:id="@+id/et_contact_person_number"
+                        style="@style/TextSpec.Value"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:hint="@string/contact_person_number"
+                        android:inputType="number"
+                        android:textColor="@color/text_color"
+                        tools:ignore="SpeakableTextPresentCheck" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_add_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:layout_marginTop="4dp"
+                    android:backgroundTint="@color/white"
+                    android:drawableLeft="@drawable/baseline_add_location_alt_24"
+                    android:elevation="2dp"
+                    android:fontFamily="@font/regular_poppins"
+                    android:paddingLeft="8dp"
+                    android:text="@string/add_address"
+                    android:textAlignment="textStart"
+                    android:textAllCaps="false"
                     android:textColor="@color/text_color"
-                    tools:ignore="SpeakableTextPresentCheck" />
-            </com.google.android.material.textfield.TextInputLayout>
+                    app:cornerRadius="10dp"
+                    app:strokeColor="@color/green_dark_label"
+                    app:strokeWidth="2dp" />
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/et_contact_person_number_layout"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                app:boxCornerRadiusBottomEnd="10dp"
-                app:boxCornerRadiusBottomStart="10dp"
-                app:boxCornerRadiusTopEnd="10dp"
-                app:boxCornerRadiusTopStart="10dp"
-                app:boxStrokeColor="@color/green_dark_label"
-                app:boxStrokeWidth="1dp">
+                <TextView
+                    android:id="@+id/tv_bank_quote"
+                    style="@style/TextSpec.Field"
+                    android:layout_width="match_parent"
+                    android:layout_height="24dp"
+                    android:layout_marginTop="4dp"
+                    android:text="@string/signup_bank_quote" />
 
-                <EditText
-                    android:id="@+id/et_contact_person_number"
-                    style="@style/TextSpec.Value"
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/et_account_number_layout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:hint="@string/contact_person_number"
-                    android:inputType="number"
-                    android:textColor="@color/text_color"
-                    tools:ignore="SpeakableTextPresentCheck" />
-            </com.google.android.material.textfield.TextInputLayout>
+                    android:layout_marginTop="4dp"
+                    app:boxCornerRadiusBottomEnd="10dp"
+                    app:boxCornerRadiusBottomStart="10dp"
+                    app:boxCornerRadiusTopEnd="10dp"
+                    app:boxCornerRadiusTopStart="10dp"
+                    app:boxStrokeColor="@color/green_dark_label"
+                    app:boxStrokeWidth="1dp">
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/et_password_layout"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                app:boxCornerRadiusBottomEnd="10dp"
-                app:boxCornerRadiusBottomStart="10dp"
-                app:boxCornerRadiusTopEnd="10dp"
-                app:boxCornerRadiusTopStart="10dp"
-                app:boxStrokeColor="@color/green_dark_label"
-                app:boxStrokeWidth="1dp"
-                app:passwordToggleEnabled="true">
+                    <EditText
+                        android:id="@+id/et_account_number"
+                        style="@style/TextSpec.Value"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:hint="@string/account_number"
+                        android:inputType="number"
+                        android:textColor="@color/text_color"
+                        tools:ignore="SpeakableTextPresentCheck" />
+                </com.google.android.material.textfield.TextInputLayout>
 
-                <EditText
-                    android:id="@+id/et_password"
-                    style="@style/TextSpec.Value"
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/et_bank_name_layout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:hint="@string/password"
-                    android:inputType="textPassword"
-                    android:textColor="@color/text_color"
-                    tools:ignore="SpeakableTextPresentCheck" />
-            </com.google.android.material.textfield.TextInputLayout>
+                    android:layout_marginTop="4dp"
+                    app:boxCornerRadiusBottomEnd="10dp"
+                    app:boxCornerRadiusBottomStart="10dp"
+                    app:boxCornerRadiusTopEnd="10dp"
+                    app:boxCornerRadiusTopStart="10dp"
+                    app:boxStrokeColor="@color/green_dark_label"
+                    app:boxStrokeWidth="1dp">
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btn_add_address"
-                android:layout_width="match_parent"
-                android:layout_height="55dp"
-                android:layout_marginTop="4dp"
-                android:backgroundTint="@color/white"
-                android:drawableLeft="@drawable/baseline_add_location_alt_24"
-                android:elevation="2dp"
-                android:fontFamily="@font/regular_poppins"
-                android:paddingLeft="8dp"
-                android:text="@string/add_address"
-                android:textAlignment="textStart"
-                android:textAllCaps="false"
-                android:textColor="@color/text_color"
-                app:cornerRadius="10dp"
-                app:strokeColor="@color/green_dark_label"
-                app:strokeWidth="2dp" />
+                    <EditText
+                        android:id="@+id/et_bank_name"
+                        style="@style/TextSpec.Value"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:hint="@string/bank_name"
+                        android:inputType="text"
+                        android:textColor="@color/text_color"
+                        tools:ignore="SpeakableTextPresentCheck" />
+                </com.google.android.material.textfield.TextInputLayout>
 
-            <TextView
-                android:id="@+id/tv_bank_quote"
-                style="@style/TextSpec.Field"
-                android:layout_width="match_parent"
-                android:layout_height="24dp"
-                android:layout_marginTop="4dp"
-                android:text="@string/signup_bank_quote" />
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/et_account_number_layout"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                app:boxCornerRadiusBottomEnd="10dp"
-                app:boxCornerRadiusBottomStart="10dp"
-                app:boxCornerRadiusTopEnd="10dp"
-                app:boxCornerRadiusTopStart="10dp"
-                app:boxStrokeColor="@color/green_dark_label"
-                app:boxStrokeWidth="1dp">
-
-                <EditText
-                    android:id="@+id/et_account_number"
-                    style="@style/TextSpec.Value"
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/et_account_name_layout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:hint="@string/account_number"
-                    android:inputType="number"
-                    android:textColor="@color/text_color"
-                    tools:ignore="SpeakableTextPresentCheck" />
-            </com.google.android.material.textfield.TextInputLayout>
+                    android:layout_marginTop="4dp"
+                    app:boxCornerRadiusBottomEnd="10dp"
+                    app:boxCornerRadiusBottomStart="10dp"
+                    app:boxCornerRadiusTopEnd="10dp"
+                    app:boxCornerRadiusTopStart="10dp"
+                    app:boxStrokeColor="@color/green_dark_label"
+                    app:boxStrokeWidth="1dp">
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/et_bank_name_layout"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                app:boxCornerRadiusBottomEnd="10dp"
-                app:boxCornerRadiusBottomStart="10dp"
-                app:boxCornerRadiusTopEnd="10dp"
-                app:boxCornerRadiusTopStart="10dp"
-                app:boxStrokeColor="@color/green_dark_label"
-                app:boxStrokeWidth="1dp">
+                    <EditText
+                        android:id="@+id/et_account_name"
+                        style="@style/TextSpec.Value"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:hint="@string/account_name"
+                        android:inputType="text"
+                        android:textColor="@color/text_color"
+                        tools:ignore="SpeakableTextPresentCheck" />
+                </com.google.android.material.textfield.TextInputLayout>
 
-                <EditText
-                    android:id="@+id/et_bank_name"
+                <TextView
+                    android:id="@+id/tv_note_title"
                     style="@style/TextSpec.Value"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:hint="@string/bank_name"
-                    android:inputType="text"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/note"
                     android:textColor="@color/text_color"
-                    tools:ignore="SpeakableTextPresentCheck" />
-            </com.google.android.material.textfield.TextInputLayout>
+                    android:textStyle="bold" />
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/et_account_name_layout"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                app:boxCornerRadiusBottomEnd="10dp"
-                app:boxCornerRadiusBottomStart="10dp"
-                app:boxCornerRadiusTopEnd="10dp"
-                app:boxCornerRadiusTopStart="10dp"
-                app:boxStrokeColor="@color/green_dark_label"
-                app:boxStrokeWidth="1dp">
-
-                <EditText
-                    android:id="@+id/et_account_name"
+                <TextView
+                    android:id="@+id/tv_note_value"
                     style="@style/TextSpec.Value"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:hint="@string/account_name"
-                    android:inputType="text"
-                    android:textColor="@color/text_color"
-                    tools:ignore="SpeakableTextPresentCheck" />
-            </com.google.android.material.textfield.TextInputLayout>
+                    android:justificationMode="inter_word"
+                    android:text="@string/note"
+                    android:textColor="@color/text_color" />
 
-            <TextView
-                android:id="@+id/tv_note_title"
-                style="@style/TextSpec.Value"
-                android:layout_height="20dp"
-                android:layout_marginTop="16dp"
-                android:text="@string/note"
-                android:textColor="@color/text_color"
-                android:textStyle="bold" />
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_save_update"
+                    style="@style/TextSpec.Field.Button"
+                    android:layout_marginTop="16dp"
+                    android:backgroundTint="@color/green_main"
+                    android:text="@string/save"
+                    android:textAllCaps="false" />
 
-            <TextView
-                android:id="@+id/tv_note_value"
-                style="@style/TextSpec.Value"
-                android:justificationMode="inter_word"
-                android:text="@string/note"
-                android:textColor="@color/text_color" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btn_save_update"
-                style="@style/TextSpec.Field.Button"
-                android:layout_marginTop="16dp"
-                android:backgroundTint="@color/green_main"
-                android:text="@string/save"
-                android:textAllCaps="false" />
-
+            </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminate="true"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="visible" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

@@ -135,28 +135,31 @@ class TransactionRepository() {
         isAdmin: Boolean,
         setTransactionList: (List<TransactionDetail>?) -> Unit,
     ) {
-        val field =
-            if (isAdmin) "idMasjid"
-            else "idJemaah"
+        val field = if (isAdmin) "idMasjid" else "idJemaah"
+
         firestore.collection("transaction")
             .whereEqualTo(field, uid)
             .get()
             .addOnSuccessListener { result ->
                 val transactionList = mutableListOf<TransactionDetail>()
-                for (document in result) {
-                    val transaction = document.toObject<Transaction>()
-                    getDetailUser(transaction.idJemaah) { jemaah ->
-                        getDetailUser(transaction.idMasjid) { masjid ->
-                            getDetailAnimal(transaction.idAnimal) { animal ->
-                                val transactionDetail = TransactionDetail(
-                                    transaction = transaction,
-                                    jemaah = jemaah,
-                                    masjid = masjid,
-                                    animal = animal
-                                )
-                                transactionList.add(transactionDetail)
-                                if (transactionList.size == result.size()) {
-                                    setTransactionList(transactionList)
+                if (result.isEmpty) {
+                    setTransactionList(null)
+                } else {
+                    for (document in result) {
+                        val transaction = document.toObject<Transaction>()
+                        getDetailUser(transaction.idJemaah) { jemaah ->
+                            getDetailUser(transaction.idMasjid) { masjid ->
+                                getDetailAnimal(transaction.idAnimal) { animal ->
+                                    val transactionDetail = TransactionDetail(
+                                        transaction = transaction,
+                                        jemaah = jemaah,
+                                        masjid = masjid,
+                                        animal = animal
+                                    )
+                                    transactionList.add(transactionDetail)
+                                    if (transactionList.size == result.size()) {
+                                        setTransactionList(transactionList)
+                                    }
                                 }
                             }
                         }
@@ -168,6 +171,7 @@ class TransactionRepository() {
             }
     }
 
+
     fun getAcceptedTransaction(
         uid: String,
         setTransactionList: (List<TransactionDetail>?) -> Unit,
@@ -178,20 +182,24 @@ class TransactionRepository() {
             .get()
             .addOnSuccessListener { result ->
                 val transactionList = mutableListOf<TransactionDetail>()
-                for (document in result) {
-                    val transaction = document.toObject<Transaction>()
-                    getDetailUser(transaction.idJemaah) { jemaah ->
-                        getDetailUser(transaction.idMasjid) { masjid ->
-                            getDetailAnimal(transaction.idAnimal) { animal ->
-                                val transactionDetail = TransactionDetail(
-                                    transaction = transaction,
-                                    jemaah = jemaah,
-                                    masjid = masjid,
-                                    animal = animal
-                                )
-                                transactionList.add(transactionDetail)
-                                if (transactionList.size == result.size()) {
-                                    setTransactionList(transactionList)
+                if (result.isEmpty) {
+                    setTransactionList(null)
+                } else {
+                    for (document in result) {
+                        val transaction = document.toObject<Transaction>()
+                        getDetailUser(transaction.idJemaah) { jemaah ->
+                            getDetailUser(transaction.idMasjid) { masjid ->
+                                getDetailAnimal(transaction.idAnimal) { animal ->
+                                    val transactionDetail = TransactionDetail(
+                                        transaction = transaction,
+                                        jemaah = jemaah,
+                                        masjid = masjid,
+                                        animal = animal
+                                    )
+                                    transactionList.add(transactionDetail)
+                                    if (transactionList.size == result.size()) {
+                                        setTransactionList(transactionList)
+                                    }
                                 }
                             }
                         }
@@ -209,7 +217,7 @@ class TransactionRepository() {
         idTransaction: String,
         status: Boolean,
         note: String?,
-        onResult: (Boolean, TransactionDetail?) -> Unit
+        onResult: (Boolean, TransactionDetail?) -> Unit,
     ) {
         firestore.collection("transaction").document(idTransaction)
             .update(
