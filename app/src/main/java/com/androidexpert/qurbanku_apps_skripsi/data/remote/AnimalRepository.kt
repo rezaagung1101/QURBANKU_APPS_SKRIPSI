@@ -3,6 +3,7 @@ package com.androidexpert.qurbanku_apps_skripsi.data.remote
 import android.net.Uri
 import com.androidexpert.qurbanku_apps_skripsi.data.lib.Animal
 import com.androidexpert.qurbanku_apps_skripsi.data.lib.User
+import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.toObject
 import com.google.firebase.storage.FirebaseStorage
@@ -143,6 +144,48 @@ class AnimalRepository() {
             }
             .addOnFailureListener {
                 onResult(false, null)
+            }
+    }
+
+    fun addShohibulQurbani(user: User, idAnimal: String, onResult: (Boolean, Animal?) -> Unit) {
+        firestore.collection("user")
+            .add(user)
+            .addOnCompleteListener { firestoreTask ->
+                if (firestoreTask.isSuccessful) {
+                    val documentId = firestoreTask.result?.id
+                    if (documentId != null) {
+                        val updatedUser = user.copy(uid = documentId)
+                        firestore.collection("user")
+                            .document(documentId)
+                            .set(updatedUser)
+                            .addOnCompleteListener { updateTask ->
+                                if (updateTask.isSuccessful) {
+                                    updateAnimalShohibulQurbaniList(
+                                        documentId,
+                                        idAnimal
+                                    ) { isAnimalUpdateSuccessful, animalData ->
+                                        if (isAnimalUpdateSuccessful) onResult(true, animalData)
+                                        else onResult(false, null)
+                                    }
+                                } else onResult(false, null)
+                            }
+                    } else onResult(false, null)
+                } else onResult(false, null)
+            }
+    }
+
+    fun updateAnimalShohibulQurbaniList(idJemaah: String, idAnimal: String, onUpdateResult: (Boolean, Animal?) -> Unit) {
+        firestore.collection("animal").document(idAnimal)
+            .update(
+                "idShohibulQurbaniList", FieldValue.arrayUnion(idJemaah)
+            )
+            .addOnCompleteListener { animalUpdateTask ->
+                getDetailAnimal(idAnimal) { updatedAnimalData ->
+                    onUpdateResult(true, updatedAnimalData)
+                }
+            }
+            .addOnFailureListener {
+                onUpdateResult(false, null)
             }
     }
 

@@ -8,6 +8,12 @@ class UserPreference(context: Context) {
     private var sharedPreferences: SharedPreferences =
         context.getSharedPreferences("setting", Context.MODE_PRIVATE)
     private val preferences: SharedPreferences.Editor = sharedPreferences.edit()
+
+    fun saveAvailableAnimalAmount(availableAnimal: Int) {
+        preferences.putString(Constanta.available_animal, availableAnimal.toString())
+        preferences.apply()
+    }
+
     fun saveJemaahPreference(user: User) {
         preferences.putBoolean(Constanta.isLogin, true)
         preferences.putString(Constanta.uid, user.uid)
@@ -45,8 +51,12 @@ class UserPreference(context: Context) {
         return sharedPreferences.getString(Constanta.uid, null)
     }
 
+    fun getAvailableAnimal(): String?{
+        return sharedPreferences.getString(Constanta.available_animal, null)
+    }
+
     fun isLogin(): Boolean {
-        return sharedPreferences.getBoolean("LOGIN", false)
+        return sharedPreferences.getBoolean(Constanta.isLogin, false)
     }
 
     fun isAdmin(): Boolean {
@@ -89,5 +99,6 @@ class UserPreference(context: Context) {
             bankAccountName = sharedPreferences.getString(Constanta.bankAccountName, null)!!
         )
     }
+
 
 }

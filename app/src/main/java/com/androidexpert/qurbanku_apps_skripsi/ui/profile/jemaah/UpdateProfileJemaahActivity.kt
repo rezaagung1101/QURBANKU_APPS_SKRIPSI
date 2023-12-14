@@ -3,7 +3,6 @@ package com.androidexpert.qurbanku_apps_skripsi.ui.profile.jemaah
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.text.set
 import androidx.lifecycle.ViewModelProvider
 import com.androidexpert.qurbanku_apps_skripsi.R
 import com.androidexpert.qurbanku_apps_skripsi.data.lib.User

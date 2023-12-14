@@ -171,7 +171,6 @@ class TransactionRepository() {
             }
     }
 
-
     fun getAcceptedTransaction(
         uid: String,
         setTransactionList: (List<TransactionDetail>?) -> Unit,
@@ -226,7 +225,7 @@ class TransactionRepository() {
             )
             .addOnCompleteListener { updateTask ->
                 if (updateTask.isSuccessful) {
-                    updateAnimalEntity(idJemaah, idAnimal) { isAnimalUpdateSuccessful ->
+                    updateAnimalShohibulQurbaniList(idJemaah, idAnimal) { isAnimalUpdateSuccessful ->
                         if (isAnimalUpdateSuccessful) {
                             getDetailTransaction(idTransaction) { transactionData ->
                                 onResult(true, transactionData)
@@ -244,7 +243,7 @@ class TransactionRepository() {
             }
     }
 
-    fun updateAnimalEntity(idJemaah: String, idAnimal: String, onUpdateResult: (Boolean) -> Unit) {
+    fun updateAnimalShohibulQurbaniList(idJemaah: String, idAnimal: String, onUpdateResult: (Boolean) -> Unit) {
         firestore.collection("animal").document(idAnimal)
             .update(
                 "idShohibulQurbaniList", FieldValue.arrayUnion(idJemaah)

@@ -38,6 +38,7 @@ class HomePanitiaFragment : Fragment() {
             ViewModelFactory.AnimalViewModelFactory(animalRepository)
         )[AnimalViewModel::class.java]
         userPreference = UserPreference(requireContext())
+        userPreference.saveAvailableAnimalAmount(2)
         animalViewModel.getAnimalList(userPreference.getUid()!!)
         animalViewModel.listAnimal.observe(viewLifecycleOwner) { animalList ->
             if (animalList!=null) setupInformation(animalList)
@@ -52,7 +53,6 @@ class HomePanitiaFragment : Fragment() {
         val layoutManager =
             LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
         binding.rvAnimalList.layoutManager = layoutManager
-
         var arrayAnimalList = arrayListOf<Animal>()
         if (animalList != null) {
             animalList.forEach { animal ->
@@ -69,7 +69,6 @@ class HomePanitiaFragment : Fragment() {
                 }, 1000)
             }
         }
-
     }
 
     fun showLoading(state: Boolean) {

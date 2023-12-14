@@ -18,6 +18,8 @@ class UserViewModel(private val userRepository: UserRepository) : ViewModel() {
     val listUser: LiveData<List<User>> = _listUser
     private var _listMasjidUser = MutableLiveData<List<MasjidUser>>()
     val listMasjidUser: LiveData<List<MasjidUser>> = _listMasjidUser
+    private var _qurbaniAmount = MutableLiveData<Int>()
+    val qurbaniAmount: LiveData<Int> = _qurbaniAmount
     private var _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = _isLoading
     val coordinateLocation = MutableLiveData(LatLng(-2.548926, 118.0148634))
@@ -39,15 +41,7 @@ class UserViewModel(private val userRepository: UserRepository) : ViewModel() {
 
     fun getMasjidList() {
         _isLoading.value = true
-        userRepository.getMasjidList() { listUser ->
-            _listUser.value = listUser
-            _isLoading.value = false
-        }
-    }
-
-    fun getMasjidListWithAnimals() {
-        _isLoading.value = true
-        userRepository.getMasjidListWithAnimals { masjidUserList ->
+        userRepository.getMasjidList { masjidUserList ->
             _listMasjidUser.value = masjidUserList
             _isLoading.value = false
         }
@@ -92,6 +86,14 @@ class UserViewModel(private val userRepository: UserRepository) : ViewModel() {
             _isLoading.value = false
             _updateResult.value = isSuccess
             _user.value = userData
+        }
+    }
+
+    fun getQurbaniAmount(uid: String){
+        _isLoading.value = true
+        userRepository.getQurbaniAmount(uid){ qurbaniAmount ->
+            _qurbaniAmount.value = qurbaniAmount
+            _isLoading.value = false
         }
     }
 

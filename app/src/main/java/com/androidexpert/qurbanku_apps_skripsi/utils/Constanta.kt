@@ -3,6 +3,7 @@ package com.androidexpert.qurbanku_apps_skripsi.utils
 import android.Manifest
 
 object Constanta {
+
     const val photoUrl = "PHOTO_URL"
     val DATE_DATA = "DATE"
 
@@ -34,6 +35,7 @@ object Constanta {
     const val bankName = "BANK_NAME"
     const val bankAccountNumber = "BANK_ACCOUNT_NUMBER"
     const val bankAccountName = "BANK_ACCOUNT_NAME"
+    const val available_animal = "AVAILABLE_ANIMAL"
 
     //data
     const val USER_DATA = "USER_DATA"

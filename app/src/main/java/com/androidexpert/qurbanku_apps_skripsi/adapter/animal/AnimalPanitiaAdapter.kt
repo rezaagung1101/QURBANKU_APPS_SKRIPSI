@@ -11,6 +11,7 @@ import com.androidexpert.qurbanku_apps_skripsi.databinding.CardAnimalPanitiaItem
 import com.androidexpert.qurbanku_apps_skripsi.ui.animal.panitia.DetailPanitiaAnimalActivity
 import com.androidexpert.qurbanku_apps_skripsi.utils.Constanta
 import com.androidexpert.qurbanku_apps_skripsi.utils.Helper
+import com.androidexpert.qurbanku_apps_skripsi.utils.UserPreference
 
 
 class AnimalPanitiaAdapter(private val listData: ArrayList<Animal>) :
@@ -78,7 +79,8 @@ class AnimalPanitiaAdapter(private val listData: ArrayList<Animal>) :
         val falseAvailableList = listData.filter { !it.status && (it.jointVentureAmount - (it.idShohibulQurbaniList?.size ?: 0) > 0) }
         val falseList = listData.filter { !it.status && (it.jointVentureAmount - (it.idShohibulQurbaniList?.size ?: 0) == 0)}
         val trueList = listData.filter { it.status == true}
-
+        val userPreference = UserPreference(holder.itemView.context)
+        userPreference.saveAvailableAnimalAmount(falseAvailableList.size)
         val sortedList = ArrayList<Animal>().apply {
             addAll(falseAvailableList)
             addAll(falseList)

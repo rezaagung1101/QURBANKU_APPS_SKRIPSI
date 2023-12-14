@@ -21,6 +21,7 @@ import com.androidexpert.qurbanku_apps_skripsi.ui.ViewModelFactory
 import com.androidexpert.qurbanku_apps_skripsi.ui.animal.AnimalViewModel
 import com.androidexpert.qurbanku_apps_skripsi.ui.main.MainPanitiaActivity
 import com.androidexpert.qurbanku_apps_skripsi.ui.profile.UserViewModel
+import com.androidexpert.qurbanku_apps_skripsi.ui.profile.panitia.AddShohibulQurbaniActivity
 import com.androidexpert.qurbanku_apps_skripsi.utils.Constanta
 import com.androidexpert.qurbanku_apps_skripsi.utils.DialogUtils
 import com.androidexpert.qurbanku_apps_skripsi.utils.Helper
@@ -58,6 +59,12 @@ class DetailPanitiaAnimalActivity : AppCompatActivity() {
             val title = resources.getString(R.string.animal_confirm_status)
             val message = resources.getString(R.string.animal_confirm_status_message)
             DialogUtils.showConfirmationDialog(this, title, message, ::updateAnimalStatus)
+        }
+        binding.btnAddShohibulQurban.setOnClickListener {
+            val intent = Intent(this, AddShohibulQurbaniActivity::class.java)
+            intent.putExtra(Constanta.ANIMAL_DATA, animal)
+            startActivity(intent)
+            finish()
         }
     }
 
@@ -227,6 +234,10 @@ class DetailPanitiaAnimalActivity : AppCompatActivity() {
         }
         userViewModel.listUser.removeObservers(this)
         super.onDestroy()
+    }
+
+    override fun onResume() {
+        super.onResume()
     }
 
     override fun onSupportNavigateUp(): Boolean {

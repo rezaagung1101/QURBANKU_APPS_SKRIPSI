@@ -43,7 +43,7 @@ class HomeJemaahFragment : Fragment() {
         userViewModel.isLoading.observe(viewLifecycleOwner){
             showLoading(it)
         }
-        userViewModel.getMasjidListWithAnimals()
+        userViewModel.getMasjidList()
         userViewModel.listMasjidUser.observe(viewLifecycleOwner){ masjidList ->
             setupInformation(masjidList)
         }
@@ -60,7 +60,7 @@ class HomeJemaahFragment : Fragment() {
         binding.rvMasjidList.adapter = adapter
 
         binding.swipeRefresh.setOnRefreshListener {
-            userViewModel.getMasjidListWithAnimals()
+            userViewModel.getMasjidList()
             binding.swipeRefresh.isRefreshing = true
             // Use a Handler to post a delayed action
             Handler().postDelayed({
@@ -71,7 +71,7 @@ class HomeJemaahFragment : Fragment() {
     }
 
     override fun onResume() {
-        userViewModel.getMasjidListWithAnimals()
+        userViewModel.getMasjidList()
         super.onResume()
     }
 

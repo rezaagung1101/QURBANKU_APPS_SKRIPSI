@@ -61,12 +61,16 @@ class ProfileJemaahFragment : Fragment() {
     }
 
     fun setupInformation(user: User) {
+        userViewModel.getQurbaniAmount(user.uid)
         binding.apply {
             tvName.text = user.name
             tvEmailValue.text = user.email
             tvAddressValue.text = user.address
             tvPhoneNumberValue.text = user.phoneNumber
             tvHeadValue.text = user.headName
+            userViewModel.qurbaniAmount.observe(viewLifecycleOwner){
+                tvQurbaniHistoryValue.text = it.toString()
+            }
         }
     }
 

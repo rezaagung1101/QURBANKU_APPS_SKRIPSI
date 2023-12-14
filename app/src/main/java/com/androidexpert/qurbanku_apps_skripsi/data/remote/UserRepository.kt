@@ -2,6 +2,8 @@ package com.androidexpert.qurbanku_apps_skripsi.data.remote
 
 import com.androidexpert.qurbanku_apps_skripsi.data.lib.Animal
 import com.androidexpert.qurbanku_apps_skripsi.data.lib.MasjidUser
+import com.androidexpert.qurbanku_apps_skripsi.data.lib.Transaction
+import com.androidexpert.qurbanku_apps_skripsi.data.lib.TransactionDetail
 import com.androidexpert.qurbanku_apps_skripsi.data.lib.User
 import com.google.android.gms.tasks.Task
 import com.google.android.gms.tasks.Tasks
@@ -30,24 +32,7 @@ class UserRepository() {
             }
     }
 
-    fun getMasjidList(setUserList: (List<User>?) -> Unit) {
-        firestore.collection("user")
-            .whereEqualTo("admin", true)
-            .get()
-            .addOnSuccessListener { result ->
-                val userList = mutableListOf<User>()
-                for (document in result) {
-                    val user = document.toObject<User>()
-                    userList.add(user)
-                }
-                setUserList(userList)
-            }
-            .addOnFailureListener {
-                setUserList(null)
-            }
-    }
-
-    fun getMasjidListWithAnimals(setMasjidUserList: (List<MasjidUser>?) -> Unit) {
+    fun getMasjidList(setMasjidUserList: (List<MasjidUser>?) -> Unit) {
         firestore.collection("user")
             .whereEqualTo("admin", true)
             .get()
@@ -114,8 +99,8 @@ class UserRepository() {
         accountNumber: String,
         bankName: String,
         accountName: String,
-        onResult: (Boolean, User?) -> Unit
-    ){
+        onResult: (Boolean, User?) -> Unit,
+    ) {
         val documentReference = firestore.collection("user").document(uid)
         // Create a map with the fields to be updated
         val updates = mapOf(
@@ -149,8 +134,8 @@ class UserRepository() {
         name: String,
         address: String,
         headName: String,
-        onResult: (Boolean, User?) -> Unit)
-    {
+        onResult: (Boolean, User?) -> Unit,
+    ) {
         val documentReference = firestore.collection("user").document(uid)
         // Create a map with the fields to be updated
         val updates = mapOf(
@@ -174,6 +159,25 @@ class UserRepository() {
 
     }
 
+    fun getQurbaniAmount(
+        uid: String,
+        setTransactionAmount: (Int) -> Unit,
+    ) {
+        firestore.collection("transaction")
+            .whereEqualTo("idJemaah", uid)
+            .whereEqualTo("status", true)
+            .get()
+            .addOnSuccessListener { result ->
+                if (result.isEmpty) {
+                    setTransactionAmount(0)
+                } else {
+                    setTransactionAmount(result.size())
+                }
+            }
+            .addOnFailureListener {
+                setTransactionAmount(0)
+            }
+    }
 
 
 }

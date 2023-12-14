@@ -84,7 +84,7 @@ class MapsListMasjidActivity : AppCompatActivity(), OnMapReadyCallback,
 
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
-        userViewModel.getMasjidListWithAnimals()
+        userViewModel.getMasjidList()
         userViewModel.coordinateLocation.observe(this, {
             CameraUpdateFactory.newLatLngZoom(it, 3f)
             mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(it, 3f))

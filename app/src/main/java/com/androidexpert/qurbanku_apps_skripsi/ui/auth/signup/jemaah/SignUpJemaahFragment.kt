@@ -75,11 +75,7 @@ class SignUpJemaahFragment : Fragment() {
     }
 
     fun signUp(user: User, password: String) {
-
-        //call viewModels
         authViewModel.signUpUser(user, password)
-
-        // Observe the registration result in the ViewModel and handle UI accordingly
         authViewModel.registrationResult.observe(viewLifecycleOwner, { isSuccess ->
             var title = ""
             var message = ""

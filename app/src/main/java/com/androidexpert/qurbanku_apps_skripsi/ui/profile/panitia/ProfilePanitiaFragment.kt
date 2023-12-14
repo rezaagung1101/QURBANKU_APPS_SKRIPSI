@@ -69,6 +69,7 @@ class ProfilePanitiaFragment : Fragment() {
             tvBankValue.text = user.bankName
             tvAccountNameValue.text = user.bankAccountName
             tvAccountNumberValue.text = user.bankAccountNumber
+            tvAnimalAvailabilityValue.text = userPreference.getAvailableAnimal().toString()
         }
     }
     override fun onResume() {
