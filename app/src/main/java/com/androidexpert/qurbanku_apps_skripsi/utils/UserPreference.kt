@@ -10,7 +10,7 @@ class UserPreference(context: Context) {
     private val preferences: SharedPreferences.Editor = sharedPreferences.edit()
 
     fun saveAvailableAnimalAmount(availableAnimal: Int) {
-        preferences.putString(Constanta.available_animal, availableAnimal.toString())
+        preferences.putInt(Constanta.available_animal, availableAnimal)
         preferences.apply()
     }
 
@@ -51,8 +51,8 @@ class UserPreference(context: Context) {
         return sharedPreferences.getString(Constanta.uid, null)
     }
 
-    fun getAvailableAnimal(): String?{
-        return sharedPreferences.getString(Constanta.available_animal, null)
+    fun getAvailableAnimal(): Int{
+        return sharedPreferences.getInt(Constanta.available_animal, 0)
     }
 
     fun isLogin(): Boolean {

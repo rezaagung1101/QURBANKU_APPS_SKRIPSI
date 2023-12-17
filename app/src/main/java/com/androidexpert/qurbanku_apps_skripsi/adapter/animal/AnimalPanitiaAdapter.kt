@@ -75,11 +75,10 @@ class AnimalPanitiaAdapter(private val listData: ArrayList<Animal>) :
             }
 
         }
-
+        val userPreference = UserPreference(holder.itemView.context)
         val falseAvailableList = listData.filter { !it.status && (it.jointVentureAmount - (it.idShohibulQurbaniList?.size ?: 0) > 0) }
         val falseList = listData.filter { !it.status && (it.jointVentureAmount - (it.idShohibulQurbaniList?.size ?: 0) == 0)}
         val trueList = listData.filter { it.status == true}
-        val userPreference = UserPreference(holder.itemView.context)
         userPreference.saveAvailableAnimalAmount(falseAvailableList.size)
         val sortedList = ArrayList<Animal>().apply {
             addAll(falseAvailableList)

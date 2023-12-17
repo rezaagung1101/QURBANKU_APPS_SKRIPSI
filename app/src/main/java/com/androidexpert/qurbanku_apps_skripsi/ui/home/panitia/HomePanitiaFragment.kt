@@ -22,6 +22,7 @@ class HomePanitiaFragment : Fragment() {
     private lateinit var animalViewModel: AnimalViewModel
     private val animalRepository = AnimalRepository()
     private lateinit var userPreference: UserPreference
+    var availableAnimal = 0
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
@@ -43,6 +44,7 @@ class HomePanitiaFragment : Fragment() {
         animalViewModel.listAnimal.observe(viewLifecycleOwner) { animalList ->
             if (animalList!=null) setupInformation(animalList)
             else binding.tvNullAnimal.alpha = 1f
+            userPreference.saveAvailableAnimalAmount(availableAnimal)
         }
         animalViewModel.isLoading.observe(viewLifecycleOwner) {
             showLoading(it)
@@ -57,6 +59,9 @@ class HomePanitiaFragment : Fragment() {
         if (animalList != null) {
             animalList.forEach { animal ->
                 arrayAnimalList.add(animal)
+                if (!animal.status && (animal.jointVentureAmount - (animal.idShohibulQurbaniList?.size ?: 0) > 0)) {
+                    availableAnimal += 1
+                }
             }
             binding.rvAnimalList.adapter = AnimalPanitiaAdapter(arrayAnimalList)
             binding.swipeRefresh.setOnRefreshListener {

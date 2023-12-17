@@ -1,4 +1,4 @@
-package com.androidexpert.qurbanku_apps_skripsi.ui.profile.panitia
+package com.androidexpert.qurbanku_apps_skripsi.ui.animal.panitia
 
 import android.content.Intent
 import android.os.Bundle
@@ -12,7 +12,6 @@ import com.androidexpert.qurbanku_apps_skripsi.data.remote.AnimalRepository
 import com.androidexpert.qurbanku_apps_skripsi.databinding.ActivityAddShohibulQurbaniBinding
 import com.androidexpert.qurbanku_apps_skripsi.ui.ViewModelFactory
 import com.androidexpert.qurbanku_apps_skripsi.ui.animal.AnimalViewModel
-import com.androidexpert.qurbanku_apps_skripsi.ui.animal.panitia.DetailPanitiaAnimalActivity
 import com.androidexpert.qurbanku_apps_skripsi.utils.Constanta
 import com.androidexpert.qurbanku_apps_skripsi.utils.DialogUtils
 import com.androidexpert.qurbanku_apps_skripsi.utils.Helper

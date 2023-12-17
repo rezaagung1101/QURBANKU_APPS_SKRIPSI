@@ -21,7 +21,6 @@ import com.androidexpert.qurbanku_apps_skripsi.ui.ViewModelFactory
 import com.androidexpert.qurbanku_apps_skripsi.ui.animal.AnimalViewModel
 import com.androidexpert.qurbanku_apps_skripsi.ui.main.MainPanitiaActivity
 import com.androidexpert.qurbanku_apps_skripsi.ui.profile.UserViewModel
-import com.androidexpert.qurbanku_apps_skripsi.ui.profile.panitia.AddShohibulQurbaniActivity
 import com.androidexpert.qurbanku_apps_skripsi.utils.Constanta
 import com.androidexpert.qurbanku_apps_skripsi.utils.DialogUtils
 import com.androidexpert.qurbanku_apps_skripsi.utils.Helper

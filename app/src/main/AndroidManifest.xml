@@ -41,7 +41,7 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyD3WpXHNnWRNK1BWtlaXAQIy7f5Qi9Oqdo" />
         <activity
-            android:name=".ui.profile.panitia.AddShohibulQurbaniActivity"
+            android:name=".ui.animal.panitia.AddShohibulQurbaniActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.MaterialComponents.DayNight.Title" />

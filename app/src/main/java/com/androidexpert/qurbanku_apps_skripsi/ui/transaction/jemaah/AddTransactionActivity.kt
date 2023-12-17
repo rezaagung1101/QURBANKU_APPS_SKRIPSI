@@ -87,7 +87,10 @@ class AddTransactionActivity : AppCompatActivity() {
         animalData = intent.getParcelableExtra<Animal>(Constanta.ANIMAL_DATA) as Animal
         masjidData = intent.getParcelableExtra<User>(Constanta.USER_DATA) as User
         userPreference = UserPreference(this)
-        transactionViewModel = ViewModelProvider(this, ViewModelFactory.TransactionViewModelFactory(transactionRepository))[TransactionViewModel::class.java]
+        transactionViewModel = ViewModelProvider(
+            this,
+            ViewModelFactory.TransactionViewModelFactory(transactionRepository)
+        )[TransactionViewModel::class.java]
         setupInformation(false)
         binding.btnCamera.setOnClickListener {
             startCameraX()
@@ -95,41 +98,52 @@ class AddTransactionActivity : AppCompatActivity() {
         binding.btnGallery.setOnClickListener {
             startGallery()
         }
-        transactionViewModel.isLoading.observe(this){
+        transactionViewModel.isLoading.observe(this) {
             showLoading(it)
         }
     }
 
     fun setupInformation(isPhotoSelected: Boolean) {
-        if (!allPermissionsGranted()) {
-            ActivityCompat.requestPermissions(
-                this,
-                Constanta.REQUIRED_PERMISSIONS,
-                Constanta.REQUEST_CODE_PERMISSIONS
+        binding.apply {
+            if (!allPermissionsGranted()) {
+                ActivityCompat.requestPermissions(
+                    this@AddTransactionActivity,
+                    Constanta.REQUIRED_PERMISSIONS,
+                    Constanta.REQUEST_CODE_PERMISSIONS
+                )
+            }
+            if (isPhotoSelected == true) {
+                btnSend.setBackgroundColor(resources.getColor(R.color.green_main))
+                btnSend.setTextColor(resources.getColor(R.color.white))
+                btnSend.setOnClickListener {
+                    val title = resources.getString(R.string.send_transaction_proof)
+                    val message = resources.getString(R.string.send_transaction_message)
+                    DialogUtils.showConfirmationDialog(this@AddTransactionActivity, title, message, ::addTransaction)
+                }
+            } else {
+                btnSend.setOnClickListener {
+                    Toast.makeText(
+                        this@AddTransactionActivity,
+                        resources.getString(R.string.photo_not_selected),
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+                btnSend.setBackgroundColor(resources.getColor(R.color.disabled_background))
+                btnSend.setTextColor(resources.getColor(R.color.disabled_text))
+            }
+            val stringArray = resources.getStringArray(R.array.transaction_photo_requirement_value)
+            val text = stringArray.joinToString("\n")
+            val totalPrice = animalData.price + animalData.operationalCosts
+            val costRequired = totalPrice / animalData.jointVentureAmount
+            tvPhotoRequirementValue.text = text
+            tvBankName.text = masjidData.bankName
+            tvAccountName.text = masjidData.bankAccountName
+            tvAccountNumber.text = masjidData.bankAccountNumber
+            tvTransferNominal.text = resources.getString(
+                R.string.price_2,
+                Helper.parseNumberFormat(costRequired)
             )
         }
-        if (isPhotoSelected == true) {
-            binding.btnSend.setBackgroundColor(resources.getColor(R.color.green_main))
-            binding.btnSend.setTextColor(resources.getColor(R.color.white))
-            binding.btnSend.setOnClickListener {
-                val title = resources.getString(R.string.send_transaction_proof)
-                val message = resources.getString(R.string.send_transaction_message)
-                DialogUtils.showConfirmationDialog(this, title, message, ::addTransaction)
-            }
-        } else {
-            binding.btnSend.setOnClickListener {
-                Toast.makeText(
-                    this,
-                    resources.getString(R.string.photo_not_selected),
-                    Toast.LENGTH_SHORT
-                ).show()
-            }
-            binding.btnSend.setBackgroundColor(resources.getColor(R.color.disabled_background))
-            binding.btnSend.setTextColor(resources.getColor(R.color.disabled_text))
-        }
-        val stringArray = resources.getStringArray(R.array.transaction_photo_requirement_value)
-        val text = stringArray.joinToString("\n")
-        binding.tvPhotoRequirementValue.text = text
     }
 
     private fun startCameraX() {
@@ -173,7 +187,7 @@ class AddTransactionActivity : AppCompatActivity() {
          */
         val transaction = Transaction(
             id = "",
-            photoUrl ="",
+            photoUrl = "",
             createdTimeMillisecond = System.currentTimeMillis(),
             status = null,
             note = null,
@@ -182,9 +196,9 @@ class AddTransactionActivity : AppCompatActivity() {
             idAnimal = animalData.id
         )
         transactionViewModel.addTransaction(transaction, Helper.reduceFileImage(getFile!!))
-        transactionViewModel.addTransactionResult.observe(this){ isSuccess ->
-            if(isSuccess){
-                transactionViewModel.transactionDetail.observe(this){ transaction ->
+        transactionViewModel.addTransactionResult.observe(this) { isSuccess ->
+            if (isSuccess) {
+                transactionViewModel.transactionDetail.observe(this) { transaction ->
                     showDialog(isSuccess, transaction)
                 }
             } else {
@@ -194,13 +208,14 @@ class AddTransactionActivity : AppCompatActivity() {
 
     }
 
-    fun showDialog(status: Boolean, transaction: TransactionDetail?){
-        val messageResId = if (status) R.string.add_transaction_success else R.string.add_transaction_failed
+    fun showDialog(status: Boolean, transaction: TransactionDetail?) {
+        val messageResId =
+            if (status) R.string.add_transaction_success else R.string.add_transaction_failed
         val title = resources.getString(R.string.announcement)
         val message = resources.getString(messageResId)
 
         DialogUtils.showNotificationDialog(this, title, message) {
-            if(status){
+            if (status) {
                 val intent = Intent(this, DetailTransactionJemaahActivity::class.java)
                 intent.putExtra(Constanta.TRANSACTION_DATA, transaction!!)
                 startActivity(intent)
@@ -208,6 +223,7 @@ class AddTransactionActivity : AppCompatActivity() {
             }
         }
     }
+
     fun showLoading(state: Boolean) {
         binding.progressBar.visibility = if (state) View.VISIBLE else View.GONE
     }

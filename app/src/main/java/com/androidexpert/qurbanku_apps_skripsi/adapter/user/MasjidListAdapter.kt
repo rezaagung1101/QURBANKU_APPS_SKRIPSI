@@ -45,11 +45,9 @@ class MasjidListAdapter(private val listData: ArrayList<MasjidUser>) :
                                 if (animal.jointVentureAmount - (animal.idShohibulQurbaniList?.size ?: 0) > 0)
                                     availableAnimal += 1
                             }
-                            tvAvailability.text =
-                                resources.getString(R.string.animal_availability, availableAnimal)
+                            tvAvailability.text = availableAnimal.toString()
                         } else{
-                            tvAvailability.text =
-                                resources.getString(R.string.animal_availability, 0)
+                            tvAvailability.text = "0"
                         }
                         tvAvailability.paintFlags = tvAvailability.paintFlags or Paint.UNDERLINE_TEXT_FLAG
                     }
