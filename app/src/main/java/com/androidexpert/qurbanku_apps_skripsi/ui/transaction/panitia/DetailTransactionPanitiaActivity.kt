@@ -51,10 +51,6 @@ class DetailTransactionPanitiaActivity : AppCompatActivity() {
         }
     }
 
-    fun getDetailTransaction() {
-
-    }
-
     fun confirmTransaction(idJemaah: String, idAnimal: String, status: Boolean) {
         val idTransaction = transaction.transaction!!.id
         val note = binding.etNote.text.toString()

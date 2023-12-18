@@ -19,9 +19,6 @@ import com.androidexpert.qurbanku_apps_skripsi.utils.DialogUtils
 import com.androidexpert.qurbanku_apps_skripsi.utils.Helper
 import com.androidexpert.qurbanku_apps_skripsi.utils.UserPreference
 
-/**
- * Kayanya perlu bikin satu activity update maps deh
- */
 class UpdateProfilePanitiaActivity : AppCompatActivity() {
     private lateinit var binding: ActivityUpdateProfilePanitiaBinding
     private lateinit var userPreference: UserPreference
@@ -37,11 +34,9 @@ class UpdateProfilePanitiaActivity : AppCompatActivity() {
             it.data?.let { result ->
                 usingLocation = result.getBooleanExtra(Constanta.usingLocation, false)
                 userViewModel.apply {
-                    isUsingLocation.postValue(usingLocation)
                     val tempLatitude = result.getDoubleExtra(Constanta.latitude, 0.0)
                     val tempLongitude = result.getDoubleExtra(Constanta.longitude, 0.0)
-                    latitude.postValue(tempLatitude)
-                    longitude.postValue(tempLongitude)
+                    setLocation(usingLocation!!, tempLatitude, tempLongitude)
                     setAddress(tempLatitude, tempLongitude)
                 }
             }

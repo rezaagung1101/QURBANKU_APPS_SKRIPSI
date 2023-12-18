@@ -6,7 +6,7 @@ import com.androidexpert.qurbanku_apps_skripsi.data.lib.User
 
 class UserPreference(context: Context) {
     private var sharedPreferences: SharedPreferences =
-        context.getSharedPreferences("setting", Context.MODE_PRIVATE)
+        context.getSharedPreferences(Constanta.setting, Context.MODE_PRIVATE)
     private val preferences: SharedPreferences.Editor = sharedPreferences.edit()
 
     fun saveAvailableAnimalAmount(availableAnimal: Int) {

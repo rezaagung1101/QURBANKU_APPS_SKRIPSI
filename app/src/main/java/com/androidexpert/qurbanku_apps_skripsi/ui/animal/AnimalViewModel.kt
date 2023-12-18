@@ -13,8 +13,8 @@ class AnimalViewModel(private val animalRepository: AnimalRepository) : ViewMode
 
     private var _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = _isLoading
-    private var _addAnimalResult = SingleLiveEvent<Boolean>()
-    val addAnimalResult: LiveData<Boolean> = _addAnimalResult
+    private var _addAnimalStatusResult = SingleLiveEvent<Boolean>()
+    val addAnimalStatusResult: LiveData<Boolean> = _addAnimalStatusResult
     private var _deleteAnimalResult = SingleLiveEvent<Boolean>()
     val deleteAnimalResult: LiveData<Boolean> = _deleteAnimalResult
     private var _updateAnimalStatusResult = SingleLiveEvent<Boolean>()
@@ -26,11 +26,11 @@ class AnimalViewModel(private val animalRepository: AnimalRepository) : ViewMode
     private var _listAnimal = MutableLiveData<List<Animal>>()
     val listAnimal: LiveData<List<Animal>> = _listAnimal
 
-    fun addAnimal(animal: Animal, photoFile: File) {
+    fun addAnimal(animal: Animal, photo: File) {
         _isLoading.value = true
-        animalRepository.addAnimal(animal, photoFile){ isSuccess, animalData ->
+        animalRepository.addAnimal(animal, photo){ isSuccess, animalData ->
             _isLoading.value = false
-            _addAnimalResult.value = isSuccess
+            _addAnimalStatusResult.value = isSuccess
             _animal.value = animalData
         }
     }

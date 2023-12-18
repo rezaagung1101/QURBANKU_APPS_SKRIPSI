@@ -228,7 +228,7 @@ class DetailPanitiaAnimalActivity : AppCompatActivity() {
             animal.removeObservers(this@DetailPanitiaAnimalActivity)
             updateAnimalStatusResult.removeObservers(this@DetailPanitiaAnimalActivity)
             deleteAnimalResult.removeObservers(this@DetailPanitiaAnimalActivity)
-            addAnimalResult.removeObservers(this@DetailPanitiaAnimalActivity)
+            addAnimalStatusResult.removeObservers(this@DetailPanitiaAnimalActivity)
             isLoading.removeObservers(this@DetailPanitiaAnimalActivity)
         }
         userViewModel.listUser.removeObservers(this)

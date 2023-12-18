@@ -18,7 +18,6 @@ class AddAnimalFragment : Fragment(), DatePickerFragment.DialogDateListener,
     DatePickerFragment.FragmentDateListener {
     private lateinit var binding: FragmentAddAnimalBinding
 
-    //    private val animalViewModel: AnimalViewModel by viewModels()
     private var dueDateMillis: Long = System.currentTimeMillis()
     private val defaultStatus: Boolean = false
     override fun onCreateView(
@@ -38,7 +37,7 @@ class AddAnimalFragment : Fragment(), DatePickerFragment.DialogDateListener,
         super.onViewCreated(view, savedInstanceState)
     }
 
-    private fun showDatePicker() { //parameter view: View dihapus
+    fun showDatePicker() {
         val dialogFragment = DatePickerFragment()
         dialogFragment.setListener(this)
         dialogFragment.setFragmentListener(this)
@@ -57,8 +56,6 @@ class AddAnimalFragment : Fragment(), DatePickerFragment.DialogDateListener,
                 btnAddDetailAnimal.setTextColor(resources.getColor(R.color.disabled_text))
             } else {
                 btnAddDetailAnimal.setOnClickListener {
-                    //move to detail
-                    //send dueDateMillis
                     val intent = Intent(requireContext(), AddAnimalDataActivity::class.java)
                     intent.putExtra(Constanta.DATE_DATA, dueDateMillis)
                     startActivity(intent)

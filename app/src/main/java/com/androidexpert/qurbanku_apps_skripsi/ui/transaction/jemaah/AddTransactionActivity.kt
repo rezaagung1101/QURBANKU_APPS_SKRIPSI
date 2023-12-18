@@ -31,9 +31,6 @@ import com.androidexpert.qurbanku_apps_skripsi.utils.UserPreference
 import java.io.File
 
 class AddTransactionActivity : AppCompatActivity() {
-    /**
-     * Terima data dari Detail Hewan milik jemaah
-     */
     private lateinit var binding: ActivityAddTransactionBinding
     private lateinit var transactionViewModel: TransactionViewModel
     private val transactionRepository = TransactionRepository()
@@ -118,7 +115,9 @@ class AddTransactionActivity : AppCompatActivity() {
                 btnSend.setOnClickListener {
                     val title = resources.getString(R.string.send_transaction_proof)
                     val message = resources.getString(R.string.send_transaction_message)
-                    DialogUtils.showConfirmationDialog(this@AddTransactionActivity, title, message, ::addTransaction)
+                    DialogUtils.showConfirmationDialog(this@AddTransactionActivity, title, message){
+                        addTransaction(Helper.reduceFileImage(getFile!!))
+                    }
                 }
             } else {
                 btnSend.setOnClickListener {
@@ -181,10 +180,7 @@ class AddTransactionActivity : AppCompatActivity() {
         }
     }
 
-    fun addTransaction() {
-        /**
-         * kirim data ke intent
-         */
+    fun addTransaction(photo: File) {
         val transaction = Transaction(
             id = "",
             photoUrl = "",
@@ -195,7 +191,7 @@ class AddTransactionActivity : AppCompatActivity() {
             idMasjid = masjidData.uid,
             idAnimal = animalData.id
         )
-        transactionViewModel.addTransaction(transaction, Helper.reduceFileImage(getFile!!))
+        transactionViewModel.addTransaction(transaction, photo)
         transactionViewModel.addTransactionResult.observe(this) { isSuccess ->
             if (isSuccess) {
                 transactionViewModel.transactionDetail.observe(this) { transaction ->

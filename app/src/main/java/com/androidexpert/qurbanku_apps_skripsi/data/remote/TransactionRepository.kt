@@ -34,7 +34,7 @@ class TransactionRepository() {
 
     fun addTransaction(
         transaction: Transaction,
-        file: File, onResult: (Boolean, TransactionDetail?) -> Unit,
+        file: File, onResult: (Boolean, TransactionDetail?) -> Unit
     ) {
         uploadPhoto(file) { photoUrl ->
             if (photoUrl != null) {
@@ -133,7 +133,7 @@ class TransactionRepository() {
     fun getTransactionList(
         uid: String,
         isAdmin: Boolean,
-        setTransactionList: (List<TransactionDetail>?) -> Unit,
+        setTransactionList: (List<TransactionDetail>?) -> Unit
     ) {
         val field = if (isAdmin) "idMasjid" else "idJemaah"
 

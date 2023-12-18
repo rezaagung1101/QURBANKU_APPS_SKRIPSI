@@ -102,7 +102,6 @@ class MapsListMasjidActivity : AppCompatActivity(), OnMapReadyCallback,
             routeToDetailMasjid(masjid)
         }
         getMyLastLocation()
-
     }
 
     fun setAllMasjidLocation(masjidList: List<MasjidUser>) {

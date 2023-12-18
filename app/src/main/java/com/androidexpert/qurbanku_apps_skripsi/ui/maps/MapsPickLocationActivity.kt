@@ -108,10 +108,8 @@ class MapsPickLocationActivity : AppCompatActivity(), OnMapReadyCallback,
         getMyLastLocation()
     }
 
-    private fun setLocation(latitude: Double, longitude: Double) {
-        authViewModel.isUsingLocation.postValue(true)
-        authViewModel.latitude.postValue(latitude)
-        authViewModel.longitude.postValue(longitude)
+    fun setLocation(latitude: Double, longitude: Double) {
+        authViewModel.setLocation(true, latitude, longitude)
     }
 
     private val requestPermissionLauncher =
@@ -142,7 +140,7 @@ class MapsPickLocationActivity : AppCompatActivity(), OnMapReadyCallback,
         ) == PackageManager.PERMISSION_GRANTED
     }
 
-    private fun showStartMarker(location: Location) {
+    fun showStartMarker(location: Location) {
         val startLocation = LatLng(location.latitude, location.longitude)
         mMap.addMarker(
             MarkerOptions()
@@ -152,7 +150,7 @@ class MapsPickLocationActivity : AppCompatActivity(), OnMapReadyCallback,
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(startLocation, 17f))
     }
 
-    private fun getMyLastLocation() {
+    fun getMyLastLocation() {
         if (checkPermission(Manifest.permission.ACCESS_FINE_LOCATION) &&
             checkPermission(Manifest.permission.ACCESS_COARSE_LOCATION)
         ) {

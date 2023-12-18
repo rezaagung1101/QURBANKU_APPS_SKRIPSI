@@ -39,7 +39,7 @@
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyD3WpXHNnWRNK1BWtlaXAQIy7f5Qi9Oqdo" />
+            android:value= "@string/API_KEY" />
         <activity
             android:name=".ui.animal.panitia.AddShohibulQurbaniActivity"
             android:exported="false"

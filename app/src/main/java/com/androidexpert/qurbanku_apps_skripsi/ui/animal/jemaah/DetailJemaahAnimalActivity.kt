@@ -21,8 +21,6 @@ import com.bumptech.glide.Glide
 
 class DetailJemaahAnimalActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDetailJemaahAnimalBinding
-    private var shohibulQurbanAmount: Int = 0
-    private var jointVentureAmount: Int = 0
     private var animalData = Animal()
     private var masjidData = User()
     private lateinit var userViewModel: UserViewModel

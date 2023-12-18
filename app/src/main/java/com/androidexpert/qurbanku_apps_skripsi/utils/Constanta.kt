@@ -36,6 +36,7 @@ object Constanta {
     const val bankAccountNumber = "BANK_ACCOUNT_NUMBER"
     const val bankAccountName = "BANK_ACCOUNT_NAME"
     const val available_animal = "AVAILABLE_ANIMAL"
+    const val setting = "setting"
 
     //data
     const val USER_DATA = "USER_DATA"

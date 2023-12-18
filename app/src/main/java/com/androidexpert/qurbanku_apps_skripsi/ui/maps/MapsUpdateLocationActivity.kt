@@ -118,10 +118,8 @@ class MapsUpdateLocationActivity : AppCompatActivity(), OnMapReadyCallback,
         getMyLastLocation()
     }
 
-    private fun setLocation(latitude: Double, longitude: Double) {
-        userViewModel.isUsingLocation.postValue(true)
-        userViewModel.latitude.postValue(latitude)
-        userViewModel.longitude.postValue(longitude)
+    fun setLocation(latitude: Double, longitude: Double) {
+        userViewModel.setLocation(true, latitude, longitude)
     }
 
     private val requestPermissionLauncher =
@@ -145,7 +143,7 @@ class MapsUpdateLocationActivity : AppCompatActivity(), OnMapReadyCallback,
             }
         }
 
-    private fun checkPermission(permission: String): Boolean {
+    fun checkPermission(permission: String): Boolean {
         return ContextCompat.checkSelfPermission(
             this,
             permission
@@ -153,7 +151,7 @@ class MapsUpdateLocationActivity : AppCompatActivity(), OnMapReadyCallback,
     }
 
 
-    private fun getMyLastLocation() {
+    fun getMyLastLocation() {
         if (checkPermission(Manifest.permission.ACCESS_FINE_LOCATION) &&
             checkPermission(Manifest.permission.ACCESS_COARSE_LOCATION)
         ) {

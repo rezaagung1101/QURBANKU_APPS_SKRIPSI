@@ -213,11 +213,10 @@ class AddAnimalDataActivity : AppCompatActivity() {
         return isValid
     }
 
-    fun addAnimal(animal: Animal, photoFile: File) {
+    fun addAnimal(animal: Animal, photo: File) {
         //set the algorithm for viewmodel
-        val reducedPhotoQuality = Helper.reduceFileImage(photoFile)
-        animalViewModel.addAnimal(animal, reducedPhotoQuality)
-        animalViewModel.addAnimalResult.observe(this, { isSuccess ->
+        animalViewModel.addAnimal(animal, Helper.reduceFileImage(photo))
+        animalViewModel.addAnimalStatusResult.observe(this, { isSuccess ->
             if (isSuccess) {
                 animalViewModel.animal.observe(this, { animal ->
                     showDialog(isSuccess, animal)

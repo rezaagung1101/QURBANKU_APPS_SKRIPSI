@@ -17,6 +17,6 @@ data class Animal @JvmOverloads constructor(
     val operationalCosts: Int = 0,
     val price: Int = 0,
     val jointVentureAmount: Int = 0,
-    val idMasjid: String = "", //user's ID
+    val idMasjid: String = "",
     val idShohibulQurbaniList: List<String>? = null
 ): Parcelable

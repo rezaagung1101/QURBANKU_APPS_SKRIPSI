@@ -35,11 +35,12 @@ class SignUpPanitiaFragment : Fragment() {
             it.data?.let { result ->
                 usingLocation = result.getBooleanExtra(Constanta.usingLocation, false)
                 authViewModel.apply {
-                    isUsingLocation.postValue(usingLocation)
+//                    isUsingLocation.postValue(usingLocation)
                     val tempLatitude = result.getDoubleExtra(Constanta.latitude, 0.0)
                     val tempLongitude = result.getDoubleExtra(Constanta.longitude, 0.0)
-                    latitude.postValue(tempLatitude)
-                    longitude.postValue(tempLongitude)
+//                    latitude.postValue(tempLatitude)
+//                    longitude.postValue(tempLongitude)
+                    setLocation(usingLocation!!, tempLatitude, tempLongitude)
                     setupInfromation(tempLatitude, tempLongitude)
                 }
             }

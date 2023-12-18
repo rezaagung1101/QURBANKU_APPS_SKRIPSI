@@ -2,8 +2,6 @@ package com.androidexpert.qurbanku_apps_skripsi.data.remote
 
 import com.androidexpert.qurbanku_apps_skripsi.data.lib.Animal
 import com.androidexpert.qurbanku_apps_skripsi.data.lib.MasjidUser
-import com.androidexpert.qurbanku_apps_skripsi.data.lib.Transaction
-import com.androidexpert.qurbanku_apps_skripsi.data.lib.TransactionDetail
 import com.androidexpert.qurbanku_apps_skripsi.data.lib.User
 import com.google.android.gms.tasks.Task
 import com.google.android.gms.tasks.Tasks
@@ -16,9 +14,6 @@ class UserRepository() {
     private val firestore = FirebaseFirestore.getInstance()
     private val firebaseAuth = FirebaseAuth.getInstance()
 
-    fun logout() {
-        firebaseAuth.signOut()
-    }
 
     fun getProfile(uid: String, setUser: (User?) -> Unit) {
         firestore.collection("user").document(uid)
@@ -177,6 +172,10 @@ class UserRepository() {
             .addOnFailureListener {
                 setTransactionAmount(0)
             }
+    }
+
+    fun logout() {
+        firebaseAuth.signOut()
     }
 
 

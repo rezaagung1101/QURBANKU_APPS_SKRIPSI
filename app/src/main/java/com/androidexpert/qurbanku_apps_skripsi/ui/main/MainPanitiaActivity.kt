@@ -9,9 +9,9 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.androidexpert.qurbanku_apps_skripsi.R
 import com.androidexpert.qurbanku_apps_skripsi.databinding.ActivityMainPanitiaBinding
-import com.androidexpert.qurbanku_apps_skripsi.ui.animal.panitia.AddAnimalFragment
 import com.androidexpert.qurbanku_apps_skripsi.utils.DatePickerFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
+
 
 class MainPanitiaActivity : AppCompatActivity(), DatePickerFragment.DialogDateListener {
     private lateinit var binding: ActivityMainPanitiaBinding

@@ -3,8 +3,6 @@
     <string name="welcome_quote">Permudah Manajemen Pembelian dan Patungan Kurban Anda dengan fitur di aplikasi QurbanKu</string>
     <string name="welcome_quote_question">Apa peran Anda dalam ibadah kurban kali ini?</string>
     <string name="next">Berikutnya</string>
-    <string name="panitia">Panitia</string>
-    <string name="jemaah">Jemaah</string>
     <string name="panitia_allcaps">PANITIA</string>
     <string name="jemaah_allcaps">JEMAAH</string>
     <!--    Login & SignUp-->
@@ -30,11 +28,9 @@
     <string name="signUp_question_panitia">Masjid Anda belum memiliki akun?</string>
     <string name="signUp_question_jemaah">Anda belum memiliki akun?</string>
     <string name="column_isEmpty_message">Kolom tidak boleh kosong!</string>
-    <string name="name_minimum">Minimum 2 karakter</string>
     <string name="email">Email</string>
     <string name="email_masjid">Email masjid</string>
     <string name="email_invalid">Email tidak valid</string>
-    <string name="email_password_invalid">Email atau password tidak valid</string>
     <string name="name_masjid">Nama masjid</string>
     <string name="name_masjid_value">Masjid %s</string>
     <string name="name_masjid_with_location">Masjid %s, %s</string>
@@ -44,7 +40,6 @@
     <string name="password">Password</string>
     <string name="password_minimum">Password minimal 6 karakter</string>
     <string name="add_address">Tambah alamat</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="signup_bank_quote">Masukkan data Rekening</string>
     <string name="account_number">No. Rekening</string>
     <string name="bank_name">Nama bank</string>
@@ -59,14 +54,6 @@
         <item>⦾ Pastikan data sudah benar sebelum menyimpan</item>
     </string-array>
     <!--    Spinner-->
-    <string-array name="spinner_true_false">
-        <item>Ya</item>
-        <item>Tidak</item>
-    </string-array>
-    <string-array name="spinner_actor">
-        <item>Panitia</item>
-        <item>Jemaah</item>
-    </string-array>
     <string-array name="spinner_qurban_animal">
         <item>Sapi</item>
         <item>Kambing</item>
@@ -86,7 +73,6 @@
     <string-array name="spinner_joint_venture_disabled">
         <item>1</item>
     </string-array>
-    <string name="underlined_nextButton"><u>Lihat Selengkapnya</u></string>
     <string name="species">Kambing</string>
     <string name="variety">Jenis</string>
     <string name="variety_animal">Jenis Hewan</string>
@@ -98,10 +84,6 @@
     <string name="price">Rp %d</string>
     <string name="price_2">Rp %s</string>
     <string name="availability_number"><u>Tersedia %d orang</u></string>
-    <string name="animal_availability"><u><b>%d</b> Hewan Kurban Tersedia</u></string>
-    <string name="years_value">2023</string>
-    <string name="chairman_event">Ketua Panitia</string>
-    <string name="total_animal">Jumlah hewan</string>
     <string name="temp_id_transaction">id: %s</string>
     <string name="name">Nama</string>
     <string name="phone_number">No. HP</string>
@@ -130,7 +112,6 @@
     <string name="pick_eid_alAdha_date">Pilih Tanggal Hari Raya Idul Adha</string>
     <string name="guide">Petunjuk</string>
     <string name="add_detail_animal">Lengkapi Data Hewan Kurban</string>
-    <string name="add_date_advice">Anda belum memilih tanggal hari raya</string>
     <string name="take_picture">Ambil Gambar</string>
     <string name="choose_from_gallery">Pilih dari Galeri</string>
     <string name="add_animal_photo">Tambah Foto Hewan</string>
@@ -206,7 +187,6 @@
     <string name="photo_requirements">Ketentuan Foto</string>
     <string name="send">Kirim</string>
     <string name="transaction_photo_requirement_title">Pastikan gambar memperlihatkan bukti struk/kwitansi hasil transfer dengan jelas, dengan mencakup informasi minimal sebagai berikut :</string>
-    <string name="add_transaction_dialog_title">Kirim Bukti Transaksi</string>
     <string name="send_transaction_proof">Kirim Bukti Transaksi</string>
     <string name="send_transaction_message">Anda yakin ingin mengirimkan foto bukti transfer?</string>
     <string name="photo_not_selected">Anda belum memilih foto bukti transfer!</string>
@@ -253,7 +233,6 @@
     <string name="animal_status_not_executed">Belum disembelih</string>
     <string name="null_note"><i>Tidak ada catatan</i></string>
     <string name="delete_animal_failed">Terdapat kesalahan, data hewan gagal dihapus</string>
-    <string name="sold">Terjual</string>
     <string name="add_transaction_failed">Terdapat kesalahan, transaksi gagal dibuat</string>
     <string name="add_transaction_success">Berhasil menambahkan transaksi!</string>
     <string name="status">Status</string>

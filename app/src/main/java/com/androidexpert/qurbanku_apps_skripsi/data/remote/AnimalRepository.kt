@@ -32,8 +32,8 @@ class AnimalRepository() {
     }
 
 
-    fun addAnimal(animal: Animal, file: File, onResult: (Boolean, Animal?) -> Unit) {
-        uploadPhoto(file) { photoUrl ->
+    fun addAnimal(animal: Animal, photo: File, onResult: (Boolean, Animal?) -> Unit) {
+        uploadPhoto(photo) { photoUrl ->
             if (photoUrl != null) {
                 val newAnimal = animal.copy(photoUrl = photoUrl)
                 firestore.collection("animal")

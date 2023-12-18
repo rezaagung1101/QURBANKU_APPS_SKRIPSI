@@ -19,9 +19,12 @@ class AuthViewModel(
     val user: LiveData<User> = _user
     private var _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = _isLoading
-    val isUsingLocation = MutableLiveData(false)
-    val latitude = MutableLiveData(0.0)
-    val longitude = MutableLiveData(0.0)
+    private val _isUsingLocation = MutableLiveData(false)
+    val isUsingLocation:LiveData<Boolean> = _isUsingLocation
+    private val _latitude = MutableLiveData<Double>()
+    val latitude: LiveData<Double> = _latitude
+    private val _longitude = MutableLiveData<Double>()
+    val longitude: LiveData<Double> = _longitude
 
     fun signUpUser(user: User, password: String) {
         _isLoading.value = true
@@ -39,6 +42,12 @@ class AuthViewModel(
             _isLoading.value = false
             _loginResult.callHandled()
         }
+    }
+
+    fun setLocation(isUsingLocation: Boolean, latitude: Double, longitude: Double){
+        _isUsingLocation.value = isUsingLocation
+        _latitude.value = latitude
+        _longitude.value = longitude
     }
 
 

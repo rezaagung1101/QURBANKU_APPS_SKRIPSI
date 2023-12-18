@@ -1,4 +1,5 @@
 package com.androidexpert.qurbanku_apps_skripsi.adapter.transaction
+
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -6,7 +7,6 @@ import com.androidexpert.qurbanku_apps_skripsi.R
 import com.androidexpert.qurbanku_apps_skripsi.data.lib.TransactionDetail
 import com.androidexpert.qurbanku_apps_skripsi.databinding.CardQurbaniHistoryItemBinding
 import com.androidexpert.qurbanku_apps_skripsi.utils.Helper
-
 
 class QurbaniHistoryAdapter(private val listData: ArrayList<TransactionDetail>) :
     RecyclerView.Adapter<QurbaniHistoryAdapter.ViewHolder>() {

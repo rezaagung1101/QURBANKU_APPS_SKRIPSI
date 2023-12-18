@@ -23,9 +23,12 @@ class UserViewModel(private val userRepository: UserRepository) : ViewModel() {
     private var _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = _isLoading
     val coordinateLocation = MutableLiveData(LatLng(-2.548926, 118.0148634))
-    val isUsingLocation = MutableLiveData(false)
-    val latitude = MutableLiveData(0.0)
-    val longitude = MutableLiveData(0.0)
+    private val _isUsingLocation = MutableLiveData(false)
+    val isUsingLocation:LiveData<Boolean> = _isUsingLocation
+    private val _latitude = MutableLiveData<Double>()
+    val latitude: LiveData<Double> = _latitude
+    private val _longitude = MutableLiveData<Double>()
+    val longitude: LiveData<Double> = _longitude
 
     fun logout() {
         userRepository.logout()
@@ -95,6 +98,12 @@ class UserViewModel(private val userRepository: UserRepository) : ViewModel() {
             _qurbaniAmount.value = qurbaniAmount
             _isLoading.value = false
         }
+    }
+
+    fun setLocation(isUsingLocation: Boolean, latitude: Double, longitude: Double){
+        _isUsingLocation.value = isUsingLocation
+        _latitude.value = latitude
+        _longitude.value = longitude
     }
 
 }

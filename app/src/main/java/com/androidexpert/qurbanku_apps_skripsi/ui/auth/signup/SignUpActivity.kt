@@ -8,7 +8,6 @@ import com.androidexpert.qurbanku_apps_skripsi.databinding.ActivitySignUpBinding
 import com.androidexpert.qurbanku_apps_skripsi.ui.auth.login.LoginActivity
 import com.androidexpert.qurbanku_apps_skripsi.ui.auth.signup.jemaah.SignUpJemaahFragment
 import com.androidexpert.qurbanku_apps_skripsi.ui.auth.signup.panitia.SignUpPanitiaFragment
-import com.androidexpert.qurbanku_apps_skripsi.ui.welcome.WelcomeActivity
 import com.androidexpert.qurbanku_apps_skripsi.utils.Constanta
 
 class SignUpActivity : AppCompatActivity() {
