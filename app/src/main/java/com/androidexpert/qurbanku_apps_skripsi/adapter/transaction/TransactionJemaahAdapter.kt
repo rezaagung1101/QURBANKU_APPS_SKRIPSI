@@ -71,8 +71,13 @@ class TransactionJemaahAdapter(private val listData: ArrayList<TransactionDetail
             }
 
         }
-        val reversedList = listData.reversed()
-        bind(reversedList[position])
+        val unconfirmedTransaction = listData.filter { it.transaction!!.status == null }
+        val confirmedTransaction = listData.filter { it.transaction!!.status != null }
+        val sortedList = ArrayList<TransactionDetail>().apply{
+            addAll(unconfirmedTransaction.sortedWith(compareByDescending{ it.transaction!!.createdTimeMillisecond }))
+            addAll(confirmedTransaction.sortedWith(compareByDescending{ it.transaction!!.createdTimeMillisecond }))
+        }
+        bind(sortedList[position])
     }
 
 

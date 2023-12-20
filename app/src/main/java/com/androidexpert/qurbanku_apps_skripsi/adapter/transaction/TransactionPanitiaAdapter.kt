@@ -63,8 +63,13 @@ class TransactionPanitiaAdapter(private val listData: ArrayList<TransactionDetai
             }
 
         }
-        val reversedList = listData.reversed()
-        bind(reversedList[position])
+        val unconfirmedTransaction = listData.filter { it.transaction!!.status == null }
+        val confirmedTransaction = listData.filter { it.transaction!!.status != null }
+        val sortedList = ArrayList<TransactionDetail>().apply{
+            addAll(unconfirmedTransaction.sortedBy {it.transaction!!.createdTimeMillisecond})
+            addAll(confirmedTransaction.sortedWith(compareByDescending{ it.transaction!!.createdTimeMillisecond }))
+        }
+        bind(sortedList[position])
     }
 
 
