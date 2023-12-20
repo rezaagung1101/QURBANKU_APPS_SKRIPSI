@@ -30,6 +30,7 @@ class DetailTransactionPanitiaActivity : AppCompatActivity() {
         binding = ActivityDetailTransactionPanitiaBinding.inflate(layoutInflater)
         setContentView(binding.root)
         transactionViewModel = ViewModelProvider(this, ViewModelFactory.TransactionViewModelFactory(transactionRepository))[TransactionViewModel::class.java]
+        setSupportActionBar(binding.toolbar)
         supportActionBar?.title = getString(R.string.detail_transaction)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         transaction =

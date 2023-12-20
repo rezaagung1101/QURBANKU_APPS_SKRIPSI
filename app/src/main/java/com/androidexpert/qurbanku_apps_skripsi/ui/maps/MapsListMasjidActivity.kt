@@ -71,6 +71,7 @@ class MapsListMasjidActivity : AppCompatActivity(), OnMapReadyCallback,
             ViewModelProvider(
                 this, ViewModelFactory.UserViewModelFactory(userRepository)
             )[UserViewModel::class.java]
+        setSupportActionBar(binding.toolbar)
         supportActionBar?.title = resources.getString(R.string.choose_masjid_by_location)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         val mapFragment = supportFragmentManager

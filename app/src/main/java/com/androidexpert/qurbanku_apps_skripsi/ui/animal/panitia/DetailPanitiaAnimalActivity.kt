@@ -40,6 +40,7 @@ class DetailPanitiaAnimalActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailPanitiaAnimalBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        setSupportActionBar(binding.toolbar)
         supportActionBar?.title = getString(R.string.detail_animal)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         animal = intent.getParcelableExtra<Animal>(Constanta.ANIMAL_DATA) as Animal

@@ -18,14 +18,12 @@ import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import com.androidexpert.qurbanku_apps_skripsi.R
 import com.androidexpert.qurbanku_apps_skripsi.data.lib.Animal
-import com.androidexpert.qurbanku_apps_skripsi.data.lib.User
 import com.androidexpert.qurbanku_apps_skripsi.data.remote.AnimalRepository
 import com.androidexpert.qurbanku_apps_skripsi.databinding.ActivityAddAnimalDataBinding
 import com.androidexpert.qurbanku_apps_skripsi.ui.CameraActivity
 import com.androidexpert.qurbanku_apps_skripsi.ui.ViewModelFactory
 import com.androidexpert.qurbanku_apps_skripsi.ui.animal.AnimalViewModel
 import com.androidexpert.qurbanku_apps_skripsi.utils.Constanta
-import com.androidexpert.qurbanku_apps_skripsi.utils.Constanta.isAdmin
 import com.androidexpert.qurbanku_apps_skripsi.utils.DialogUtils
 import com.androidexpert.qurbanku_apps_skripsi.utils.Helper
 import com.androidexpert.qurbanku_apps_skripsi.utils.UserPreference
@@ -52,10 +50,10 @@ class AddAnimalDataActivity : AppCompatActivity() {
                 it.data?.getSerializableExtra(Constanta.picture)
             } as? File
 
-            val isBackCamera = it.data?.getBooleanExtra(Constanta.isBackCamera, true) as Boolean
+            //val isBackCamera = it.data?.getBooleanExtra(Constanta.isBackCamera, true) as Boolean
 
             myFile?.let { file ->
-                Helper.rotateFile(file, isBackCamera)
+                //Helper.rotateFile(file, isBackCamera)
                 getFile = file
                 binding.ivAnimal.setImageBitmap(BitmapFactory.decodeFile(file.path))
                 binding.ivAnimal.scaleType = ScaleType.CENTER_CROP

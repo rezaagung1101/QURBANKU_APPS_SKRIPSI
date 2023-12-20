@@ -102,9 +102,9 @@ class UserRepository() {
             "phoneNumber" to phoneNumber,
             "latitude" to latitude,
             "longitude" to longitude,
-            "accountNumber" to accountNumber,
+            "bankAccountNumber" to accountNumber,
             "bankName" to bankName,
-            "accountName" to accountName
+            "bankAccountName" to accountName
         )
         // Update the document with the new data
         documentReference

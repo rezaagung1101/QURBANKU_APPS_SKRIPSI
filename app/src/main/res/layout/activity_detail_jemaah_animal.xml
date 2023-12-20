@@ -10,6 +10,18 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/white"
+            android:elevation="4dp"
+            android:theme="@style/Theme.MaterialComponents.DayNight.Title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            app:titleTextAppearance="@style/TextSpec.Field.ActionBar" />
 
         <ImageView
             android:id="@+id/iv_animal"
@@ -20,14 +32,14 @@
             android:src="@drawable/ic_launcher_background"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
         <TextView
             android:id="@+id/tv_description_animal_name"
-            android:layout_marginTop="-16dp"
             style="@style/TextSpec.LabelWhite"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="-16dp"
             android:background="@drawable/label_background"
             android:text="@string/description_animal_name"
             app:layout_constraintStart_toStartOf="parent"
@@ -170,17 +182,17 @@
                 <TextView
                     android:layout_column="1"
                     android:fontFamily="@font/popping_bold"
-                    android:textColor="@color/text_color"
                     android:text="@string/total_cost_required"
+                    android:textColor="@color/text_color"
                     android:textSize="14sp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tv_total_cost_required"
                     android:fontFamily="@font/popping_bold"
-                    android:textColor="@color/text_color"
                     android:gravity="right"
                     android:text="@string/price"
+                    android:textColor="@color/text_color"
                     android:textSize="14sp" />
             </TableRow>
         </TableLayout>
@@ -209,11 +221,11 @@
         <TextView
             android:id="@+id/tv_holiday_date_title"
             style="@style/TextSpec.Field"
-            android:textSize="14sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
             android:text="@string/holiday_date"
+            android:textSize="14sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_qurbani_information" />
@@ -230,13 +242,13 @@
             app:layout_constraintTop_toBottomOf="@+id/tv_holiday_date_title" />
 
         <TextView
-            android:textSize="14sp"
             android:id="@+id/tv_note_title"
             style="@style/TextSpec.Field"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
             android:text="@string/note"
+            android:textSize="14sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_holiday_date_value" />

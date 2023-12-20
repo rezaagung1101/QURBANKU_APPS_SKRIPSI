@@ -13,6 +13,7 @@ class ImageDisplayActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityImageDisplayBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        setSupportActionBar(binding.toolbar)
         supportActionBar?.title = resources.getString(R.string.fully_image_display)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         val imageUrl = intent.getStringExtra(Constanta.photoUrl)

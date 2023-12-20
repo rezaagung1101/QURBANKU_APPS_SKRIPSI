@@ -24,6 +24,7 @@ class AddShohibulQurbaniActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityAddShohibulQurbaniBinding.inflate(layoutInflater)
+        setSupportActionBar(binding.toolbar)
         supportActionBar?.title = getString(R.string.add_shohibul_qurbani)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         setContentView(binding.root)

@@ -43,6 +43,7 @@ class MapsUpdateLocationActivity : AppCompatActivity(), OnMapReadyCallback,
         super.onCreate(savedInstanceState)
         binding = ActivityMapsUpdateLocationBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        setSupportActionBar(binding.toolbar)
         supportActionBar?.title = resources.getString(R.string.choose_masjid_location)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         latitude = intent.getDoubleExtra(Constanta.latitude, 0.0)

@@ -54,6 +54,7 @@ class UpdateProfilePanitiaActivity : AppCompatActivity() {
         userViewModel.isLoading.observe(this@UpdateProfilePanitiaActivity) {
             showLoading(it)
         }
+        setSupportActionBar(binding.toolbar)
         supportActionBar?.title = getString(R.string.update_profile)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         userPreference = UserPreference(this)

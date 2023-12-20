@@ -49,10 +49,10 @@ class AddTransactionActivity : AppCompatActivity() {
                 it.data?.getSerializableExtra(Constanta.picture)
             } as? File
 
-            val isBackCamera = it.data?.getBooleanExtra(Constanta.isBackCamera, true) as Boolean
+            //val isBackCamera = it.data?.getBooleanExtra(Constanta.isBackCamera, true) as Boolean
 
             myFile?.let { file ->
-                Helper.rotateFile(file, isBackCamera)
+                //Helper.rotateFile(file, isBackCamera)
                 getFile = file
                 binding.ivTransactionPhoto.setImageBitmap(BitmapFactory.decodeFile(file.path))
                 binding.ivTransactionPhoto.scaleType = ImageView.ScaleType.CENTER_CROP
@@ -79,6 +79,7 @@ class AddTransactionActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityAddTransactionBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        setSupportActionBar(binding.toolbar)
         supportActionBar?.title = resources.getString(R.string.transfer_requirements)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         animalData = intent.getParcelableExtra<Animal>(Constanta.ANIMAL_DATA) as Animal

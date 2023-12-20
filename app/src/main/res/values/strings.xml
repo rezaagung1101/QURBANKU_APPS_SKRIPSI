@@ -251,5 +251,6 @@
     <string name="add_shohibul_qurbani_success">Berhasil menambahkan data shohibul qurban</string>
     <string name="add_shohibul_qurbani_failed">Terdapat kesalahan, gagal menambahkan data shohibul qurban</string>
     <string name="add_shohibul_qurbani_message">Anda yakin ingin menambahkan data shohibul qurban?</string>
+    <string name="price_not_valid">Jumlah tidak sesuai ketentuan</string>
 
 </resources>

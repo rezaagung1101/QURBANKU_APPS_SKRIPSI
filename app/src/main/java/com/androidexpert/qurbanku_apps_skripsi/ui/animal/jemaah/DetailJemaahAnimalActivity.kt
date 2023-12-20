@@ -31,6 +31,7 @@ class DetailJemaahAnimalActivity : AppCompatActivity() {
         setContentView(binding.root)
         animalData = intent.getParcelableExtra<Animal>(Constanta.ANIMAL_DATA) as Animal
         masjidData = intent.getParcelableExtra<User>(Constanta.USER_DATA) as User
+        setSupportActionBar(binding.toolbar)
         supportActionBar?.title = getString(R.string.detail_animal)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         userViewModel = ViewModelProvider(

@@ -43,40 +43,33 @@
         <activity
             android:name=".ui.animal.panitia.AddShohibulQurbaniActivity"
             android:exported="false"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.MaterialComponents.DayNight.Title" />
+            android:screenOrientation="portrait" />
 
         <activity
             android:name=".ui.maps.MapsUpdateLocationActivity"
             android:exported="false"
             android:label="@string/title_activity_maps_update_location"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.MaterialComponents.DayNight.Title" />
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.ImageDisplayActivity"
             android:exported="false"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.MaterialComponents.DayNight.Title" />
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.maps.MapsListMasjidActivity"
             android:exported="false"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.MaterialComponents.DayNight.Title" />
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".ui.transaction.jemaah.AddTransactionActivity"
             android:exported="false"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.MaterialComponents.DayNight.Title" />
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.animal.jemaah.DetailJemaahAnimalActivity"
             android:exported="false"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.MaterialComponents.DayNight.Title" />
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".ui.profile.jemaah.UpdateProfileJemaahActivity"
             android:exported="false"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.MaterialComponents.DayNight.Title" />
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.main.MainJemaahActivity"
             android:exported="false"
@@ -92,33 +85,27 @@
         <activity
             android:name=".ui.profile.panitia.UpdateProfilePanitiaActivity"
             android:exported="false"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.MaterialComponents.DayNight.Title" />
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".ui.transaction.jemaah.DetailTransactionJemaahActivity"
             android:exported="false"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.MaterialComponents.DayNight.Title" />
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.transaction.panitia.DetailTransactionPanitiaActivity"
             android:exported="false"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.MaterialComponents.DayNight.Title" />
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".ui.profile.panitia.DetailProfileJemaahActivity"
             android:exported="false"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.MaterialComponents.DayNight.Title" />
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.profile.jemaah.DetailProfileMasjidActivity"
             android:exported="false"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.MaterialComponents.DayNight.Title" />
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".ui.animal.panitia.DetailPanitiaAnimalActivity"
             android:exported="false"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.MaterialComponents.DayNight.Title" />
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.animal.panitia.AddAnimalDataActivity"
             android:exported="false"

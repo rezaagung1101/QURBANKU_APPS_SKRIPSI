@@ -28,6 +28,7 @@ class DetailTransactionJemaahActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailTransactionJemaahBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        setSupportActionBar(binding.toolbar)
         supportActionBar?.title = getString(R.string.detail_transaction)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         animalViewModel = ViewModelProvider(

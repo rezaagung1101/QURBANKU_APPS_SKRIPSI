@@ -35,6 +35,7 @@ class DetailProfileMasjidActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailProfileMasjidBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        setSupportActionBar(binding.toolbar)
         supportActionBar?.title = resources.getString(R.string.profile_masjid)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         animalViewModel = ViewModelProvider(

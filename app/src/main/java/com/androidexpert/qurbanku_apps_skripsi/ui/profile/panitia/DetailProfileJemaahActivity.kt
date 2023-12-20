@@ -20,6 +20,7 @@ class DetailProfileJemaahActivity : AppCompatActivity() {
         binding = ActivityDetailProfileJemaahBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+        setSupportActionBar(binding.toolbar)
         supportActionBar?.title = getString(R.string.detail_jemaah_profile)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         userViewModel = ViewModelProvider(

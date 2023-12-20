@@ -45,6 +45,7 @@ class MapsPickLocationActivity : AppCompatActivity(), OnMapReadyCallback,
         super.onCreate(savedInstanceState)
         binding = ActivityMapsPickLocationBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        setSupportActionBar(binding.toolbar)
         supportActionBar?.title = resources.getString(R.string.choose_masjid_location)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         val mapFragment = supportFragmentManager
