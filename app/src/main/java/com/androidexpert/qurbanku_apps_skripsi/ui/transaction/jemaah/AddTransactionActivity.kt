@@ -201,7 +201,6 @@ class AddTransactionActivity : AppCompatActivity() {
                 showDialog(false, null)
             }
         }
-
     }
 
     fun showDialog(status: Boolean, transaction: TransactionDetail?) {

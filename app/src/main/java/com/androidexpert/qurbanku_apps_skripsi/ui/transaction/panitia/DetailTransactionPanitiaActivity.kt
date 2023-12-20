@@ -56,27 +56,26 @@ class DetailTransactionPanitiaActivity : AppCompatActivity() {
         val note = binding.etNote.text.toString()
         transactionViewModel.confirmTransaction(idJemaah, idAnimal, idTransaction, status, note)
         transactionViewModel.confirmTransactionResult.observe(this){ isSuccess ->
-            if (isSuccess){
+            if (isSuccess==true){
                 transactionViewModel.transactionDetail.observe(this){ transaction ->
-                    showDialog(isSuccess, status, transaction)
+                    showDialog(isSuccess, transaction.transaction!!.status, transaction)
                 }
             } else {
                 showDialog(false, null, null)
             }
         }
-
     }
 
     fun showDialog(isSuccess: Boolean, status: Boolean?, transactionDetail: TransactionDetail?){
         val messageResId =
             if (status!! && isSuccess) R.string.transaction_accepted
-            else if (status && !isSuccess) R.string.transaction_rejected
+            else if (!status && isSuccess) R.string.transaction_rejected
             else R.string.confirmation_transaction_error_message
         val title = resources.getString(R.string.announcement)
         val message = resources.getString(messageResId)
 
         DialogUtils.showNotificationDialog(this, title, message) {
-            if(status){
+            if(isSuccess){
                 val intent = getIntent()
                 intent.putExtra(Constanta.TRANSACTION_DATA, transactionDetail)
                 overridePendingTransition(0, 0)

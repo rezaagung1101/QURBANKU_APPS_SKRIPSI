@@ -214,7 +214,6 @@ class AddAnimalDataActivity : AppCompatActivity() {
     }
 
     fun addAnimal(animal: Animal, photo: File) {
-        //set the algorithm for viewmodel
         animalViewModel.addAnimal(animal, Helper.reduceFileImage(photo))
         animalViewModel.addAnimalStatusResult.observe(this, { isSuccess ->
             if (isSuccess) {
@@ -225,7 +224,6 @@ class AddAnimalDataActivity : AppCompatActivity() {
                 showDialog(false, null)
             }
         })
-
     }
 
     fun showDialog(status: Boolean, animal: Animal?){

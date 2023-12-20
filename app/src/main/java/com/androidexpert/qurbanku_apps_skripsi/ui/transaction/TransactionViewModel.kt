@@ -49,20 +49,10 @@ class TransactionViewModel(private val transactionRepository: TransactionReposit
         }
     }
 
-    fun confirmTransaction(
-        idJemaah: String,
-        idAnimal: String,
-        idTransaction: String,
-        status: Boolean,
-        note: String?,
-    ) {
+    fun confirmTransaction(idJemaah: String, idAnimal: String, idTransaction: String, status: Boolean,note: String?) {
         _isLoading.value = true
         transactionRepository.confirmTransaction(
-            idJemaah,
-            idAnimal,
-            idTransaction,
-            status,
-            note
+            idJemaah, idAnimal, idTransaction, status, note
         ) { isSuccess, updatedTransaction ->
             _confirmTransactionResult.value = isSuccess
             _transactionDetail.value = updatedTransaction

@@ -35,11 +35,9 @@ class UserRepository() {
                 val masjidUserList = mutableListOf<MasjidUser>()
                 for (document in result) {
                     val user = document.toObject<User>()
-                    // Ambil data hewan untuk setiap masjid
                     getAnimalList(user.uid) { animalList ->
                         val masjidUser = MasjidUser(user, animalList)
                         masjidUserList.add(masjidUser)
-                        // Kembalikan data jika sudah mendapatkan semua data
                         if (masjidUserList.size == result.size()) {
                             setMasjidUserList(masjidUserList)
                         }

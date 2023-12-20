@@ -34,15 +34,10 @@ class SignUpPanitiaFragment : Fragment() {
         if (it.resultCode == Activity.RESULT_OK) {
             it.data?.let { result ->
                 usingLocation = result.getBooleanExtra(Constanta.usingLocation, false)
-                authViewModel.apply {
-//                    isUsingLocation.postValue(usingLocation)
-                    val tempLatitude = result.getDoubleExtra(Constanta.latitude, 0.0)
-                    val tempLongitude = result.getDoubleExtra(Constanta.longitude, 0.0)
-//                    latitude.postValue(tempLatitude)
-//                    longitude.postValue(tempLongitude)
-                    setLocation(usingLocation!!, tempLatitude, tempLongitude)
-                    setupInfromation(tempLatitude, tempLongitude)
-                }
+                val tempLatitude = result.getDoubleExtra(Constanta.latitude, 0.0)
+                val tempLongitude = result.getDoubleExtra(Constanta.longitude, 0.0)
+                authViewModel.setLocation(usingLocation!!, tempLatitude, tempLongitude)
+                setupInfromation(tempLatitude, tempLongitude)
             }
         }
     }
@@ -94,7 +89,7 @@ class SignUpPanitiaFragment : Fragment() {
                     bankAccountNumber = accountNumber
                 )
                 //if success
-                if (validation(user,password,usingLocation ?: false)
+                if (validation(user, password, usingLocation ?: false)
                 ) {
                     val title = resources.getString(R.string.signup)
                     val message = resources.getString(R.string.signup_message)
@@ -112,19 +107,18 @@ class SignUpPanitiaFragment : Fragment() {
 
     fun signUp(user: User, password: String) {
         authViewModel.signUpUser(user, password)
-
         // Observe the registration result in the ViewModel and handle UI accordingly
         authViewModel.registrationResult.observe(viewLifecycleOwner, { isSuccess ->
             var title = ""
             var message = ""
-            if (isSuccess==true) {
+            if (isSuccess == true) {
                 title = resources.getString(R.string.signup_success_title)
                 message = resources.getString(R.string.signup_success_message)
                 DialogUtils.showNotificationDialog(requireContext(), title, message, ::login)
             } else {
                 title = resources.getString(R.string.signup_failed_title)
                 message = resources.getString(R.string.signup_failed_message)
-                DialogUtils.showNotificationDialog(requireContext(), title, message,{})
+                DialogUtils.showNotificationDialog(requireContext(), title, message, {})
             }
         })
     }
@@ -213,6 +207,7 @@ class SignUpPanitiaFragment : Fragment() {
             })
         }
     }
+
     private fun showLoading(state: Boolean) {
         binding.progressBar.visibility = if (state) View.VISIBLE else View.GONE
     }
