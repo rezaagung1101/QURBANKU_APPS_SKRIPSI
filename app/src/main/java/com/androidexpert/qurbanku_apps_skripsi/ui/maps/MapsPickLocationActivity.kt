@@ -158,8 +158,10 @@ class MapsPickLocationActivity : AppCompatActivity(), OnMapReadyCallback,
             mMap.isMyLocationEnabled = true
             fusedLocationClient.lastLocation.addOnSuccessListener { location: Location? ->
                 if (location != null) {
-                    showStartMarker(location)
-                    setLocation(location.latitude, location.longitude)
+//                    showStartMarker(location)
+                    val currentLocation = LatLng(location.latitude, location.longitude)
+                    mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(currentLocation, 17f))
+//                    setLocation(location.latitude, location.longitude)
                 } else {
                     Toast.makeText(
                         this,

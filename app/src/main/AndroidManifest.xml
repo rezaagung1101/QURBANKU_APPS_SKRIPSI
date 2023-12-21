@@ -113,8 +113,7 @@
         <activity
             android:name=".ui.maps.MapsPickLocationActivity"
             android:exported="false"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.MaterialComponents.DayNight.Title" />
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.auth.signup.SignUpActivity"
             android:exported="false"

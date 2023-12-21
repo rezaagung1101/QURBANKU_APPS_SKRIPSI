@@ -68,8 +68,8 @@ class SignUpPanitiaFragment : Fragment() {
                 val name = etName.text.toString()
                 val headName = etNameHeadTakmir.text.toString()
                 val phoneNumber = etContactPersonNumber.text.toString()
-                val latitude = authViewModel.latitude.value!!.toDouble()
-                val longitude = authViewModel.longitude.value!!.toDouble()
+                val latitude = authViewModel.latitude.value?.toDouble() ?: 0.0
+                val longitude = authViewModel.longitude.value?.toDouble() ?: 0.0
                 val password = etPassword.text.toString()
                 val accountNumber = etAccountNumber.text.toString()
                 val bankName = etBankName.text.toString()
