@@ -218,5 +218,6 @@ class SignUpPanitiaFragment : Fragment() {
         super.onDestroyView()
     }
 
+
 }
 

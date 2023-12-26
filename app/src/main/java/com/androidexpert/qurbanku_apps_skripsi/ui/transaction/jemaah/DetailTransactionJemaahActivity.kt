@@ -64,7 +64,8 @@ class DetailTransactionJemaahActivity : AppCompatActivity() {
                 else tvNote.text = resources.getString(R.string.null_note)
             }
             with(masjid){
-                tvMasjidName.text = resources.getString(R.string.name_masjid_value, this!!.name)
+                val location = Helper.parseAddressCity(this@DetailTransactionJemaahActivity, this!!.latitude!!, longitude!!)
+                tvMasjidName.text = resources.getString(R.string.name_masjid_with_location, masjid.name, location)
                 tvBankName.text = bankName
                 tvAccountNumber.text = bankAccountNumber
                 tvAccountName.text = bankAccountName

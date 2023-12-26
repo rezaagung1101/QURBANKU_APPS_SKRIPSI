@@ -141,15 +141,15 @@ class MapsPickLocationActivity : AppCompatActivity(), OnMapReadyCallback,
         ) == PackageManager.PERMISSION_GRANTED
     }
 
-    fun showStartMarker(location: Location) {
-        val startLocation = LatLng(location.latitude, location.longitude)
-        mMap.addMarker(
-            MarkerOptions()
-                .position(startLocation)
-                .title(resources.getString(R.string.current_location))
-        )
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(startLocation, 17f))
-    }
+//    fun showStartMarker(location: Location) {
+//        val startLocation = LatLng(location.latitude, location.longitude)
+//        mMap.addMarker(
+//            MarkerOptions()
+//                .position(startLocation)
+//                .title(resources.getString(R.string.current_location))
+//        )
+//        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(startLocation, 17f))
+//    }
 
     fun getMyLastLocation() {
         if (checkPermission(Manifest.permission.ACCESS_FINE_LOCATION) &&

@@ -23,6 +23,22 @@
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
             app:titleTextAppearance="@style/TextSpec.Field.ActionBar" />
 
+        <TextView
+            style="@style/TextSpec.Value.Light"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="8dp"
+            android:elevation="4dp"
+            android:shadowColor="@color/white"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:shadowRadius="2"
+            android:text="@string/click_for_full_image"
+            android:textSize="12sp"
+            android:textStyle="italic"
+            app:layout_constraintBottom_toTopOf="@+id/line1"
+            app:layout_constraintEnd_toEndOf="@+id/iv_transaction" />
+
         <ImageView
             android:id="@+id/iv_transaction"
             android:layout_width="match_parent"

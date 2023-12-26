@@ -22,7 +22,7 @@
     <string name="signup_panitia_quote">Masukkan data masjid Anda</string>
     <string name="signup_jemaah_quote">Masukkan data diri Anda untuk mendaftar akun</string>
     <string name="signup_success_message">Akun anda berhasil dibuat, silahkan login!</string>
-    <string name="signup_failed_message">Email Anda telah terdaftar dalam sistem!</string>
+    <string name="signup_failed_message">Terdapat kesalahan, sign up gagal!</string>
     <string name="signup_success_title">BERHASIL MENDAFTAR</string>
     <string name="signup_failed_title">GAGAL MENDAFTAR</string>
     <string name="signUp_question_panitia">Masjid Anda belum memiliki akun?</string>
@@ -214,14 +214,14 @@
     <string name="detail_jemaah_profile">Detail Profil Jemaah</string>
     <string name="update_profile">Ubah Data Profil</string>
     <string name="logout">Keluar</string>
-    <string name="logout_message">Anda yakin ingin keluar aplikasi?</string>
+    <string name="logout_message">Anda yakin ingin keluar dari aplikasi?</string>
     <string name="enter_data_changes">Masukkan Perubahan Data</string>
     <string name="update_profile_message">Anda yakin ingin menyimpan perubahan?</string>
     <string name="use_location">Gunakan Lokasi</string>
     <string name="current_location">Lokasi Anda sekarang</string>
     <string name="click_address_instruction">Klik untuk menggunakan lokasi</string>
     <string name="choose_masjid_location">Pilih Lokasi Masjid</string>
-    <string name="masjid_location_not_selected">Anda belum memilih lokasi masjid</string>
+    <string name="masjid_location_not_selected">Anda belum memilih lokasi masjid!</string>
     <string name="profile_masjid">Profil Masjid</string>
     <string name="your_qurbani_list_title">Riwayat Kurban Anda</string>
     <string name="history">Riwayat</string>
@@ -252,5 +252,8 @@
     <string name="add_shohibul_qurbani_failed">Terdapat kesalahan, gagal menambahkan data shohibul qurban</string>
     <string name="add_shohibul_qurbani_message">Anda yakin ingin menambahkan data shohibul qurban?</string>
     <string name="price_not_valid">Jumlah tidak sesuai ketentuan</string>
+    <string name="click_for_location">Klik pada peta untuk menggunakan lokasi.</string>
+    <string name="click_for_information">Klik pada penanda untuk melihat informasi.</string>
+    <string name="click_for_full_image">Klik untuk ukuran penuh!</string>
 
 </resources>
