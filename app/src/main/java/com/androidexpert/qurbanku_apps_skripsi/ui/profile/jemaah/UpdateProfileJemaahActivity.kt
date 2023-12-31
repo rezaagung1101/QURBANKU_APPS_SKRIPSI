@@ -67,7 +67,7 @@ class UpdateProfileJemaahActivity : AppCompatActivity() {
         phoneNumber: String,
         name: String,
         address: String,
-        headName: String,
+        headName: String
     ) {
         userViewModel.apply {
             updateJemaahProfile(uid, phoneNumber, name, address, headName)

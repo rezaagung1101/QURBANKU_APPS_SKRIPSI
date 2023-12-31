@@ -39,13 +39,7 @@ class HomePanitiaFragment : Fragment() {
             ViewModelFactory.AnimalViewModelFactory(animalRepository)
         )[AnimalViewModel::class.java]
         userPreference = UserPreference(requireContext())
-        userPreference.saveAvailableAnimalAmount(2)
-        animalViewModel.getAnimalList(userPreference.getUid()!!)
-        animalViewModel.listAnimal.observe(viewLifecycleOwner) { animalList ->
-            if (animalList!=null) setupInformation(animalList)
-            else binding.tvNullAnimal.alpha = 1f
-            userPreference.saveAvailableAnimalAmount(availableAnimal)
-        }
+        this.setupData()
         animalViewModel.isLoading.observe(viewLifecycleOwner) {
             showLoading(it)
         }
@@ -80,8 +74,22 @@ class HomePanitiaFragment : Fragment() {
         binding.progressBar.visibility = if (state) View.VISIBLE else View.GONE
     }
 
+    fun setupData(){
+        animalViewModel.apply{
+            getAnimalList(userPreference.getUid()!!)
+            listAnimal.observe(viewLifecycleOwner) { animalList ->
+                if (animalList!=null) {
+                    setupInformation(animalList)
+                    binding.tvNullAnimal.alpha = 0f
+                }
+                else binding.tvNullAnimal.alpha = 1f
+                userPreference.saveAvailableAnimalAmount(availableAnimal)
+            }
+        }
+    }
+
     override fun onResume() {
-        animalViewModel.getAnimalList(userPreference.getUid()!!)
+        setupData()
         super.onResume()
     }
 

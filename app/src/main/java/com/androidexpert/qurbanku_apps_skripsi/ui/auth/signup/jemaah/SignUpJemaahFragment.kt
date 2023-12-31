@@ -94,7 +94,7 @@ class SignUpJemaahFragment : Fragment() {
 
     fun validation(
         user: User,
-        password: String,
+        password: String
     ): Boolean {
         var isValid = false
         binding.apply {

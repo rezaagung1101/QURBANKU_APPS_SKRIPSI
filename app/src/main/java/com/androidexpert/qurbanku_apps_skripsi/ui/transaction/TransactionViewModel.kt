@@ -23,7 +23,7 @@ class TransactionViewModel(private val transactionRepository: TransactionReposit
 
     fun addTransaction(
         transaction: Transaction,
-        photoFile: File,
+        photoFile: File
     ) {
         _isLoading.value = true
         transactionRepository.addTransaction(transaction, photoFile) { isSuccess, transactionData ->

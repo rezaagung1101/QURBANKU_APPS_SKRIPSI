@@ -58,6 +58,7 @@ class TransactionListPanitiaFragment : Fragment() {
         transactionViewModel.listTransactionDetail.observe(viewLifecycleOwner){
             if(it!=null){
                 setupInformation(it)
+                binding.tvNullTransaction.alpha = 0f
             }else{
                 binding.tvNullTransaction.alpha = 1f
             }

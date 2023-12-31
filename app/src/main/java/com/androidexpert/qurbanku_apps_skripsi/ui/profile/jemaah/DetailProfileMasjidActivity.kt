@@ -84,7 +84,10 @@ class DetailProfileMasjidActivity : AppCompatActivity() {
                 swipeRefresh.setOnRefreshListener {
                     animalViewModel.getAnimalList(masjid!!.uid)
                     animalViewModel.listAnimal.observe(this@DetailProfileMasjidActivity) { animalList ->
-                        if (animalList != null) setAnimalList(masjid, animalList)
+                        if (animalList != null) {
+                            setAnimalList(masjid, animalList)
+                            binding.tvNullAnimal.alpha = 0f
+                        }
                         else binding.tvNullAnimal.alpha = 1f
                     }
                     binding.swipeRefresh.isRefreshing = true

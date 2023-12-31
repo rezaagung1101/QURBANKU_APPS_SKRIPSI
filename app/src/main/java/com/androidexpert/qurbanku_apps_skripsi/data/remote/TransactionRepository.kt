@@ -15,9 +15,9 @@ class TransactionRepository() {
     private val storageRef = FirebaseStorage.getInstance().reference
     private val firestore = FirebaseFirestore.getInstance()
 
-    fun uploadPhoto(file: File, onResult: (String?) -> Unit) {
-        val photoRef = storageRef.child("transaction_photos/${file.name}")
-        photoRef.putFile(Uri.fromFile(file))
+    fun uploadPhoto(photoFile: File, onResult: (String?) -> Unit) {
+        val photoRef = storageRef.child("transaction_photos/${photoFile.name}")
+        photoRef.putFile(Uri.fromFile(photoFile))
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     // Get the download URL
@@ -34,9 +34,9 @@ class TransactionRepository() {
 
     fun addTransaction(
         transaction: Transaction,
-        file: File, onResult: (Boolean, TransactionDetail?) -> Unit
+        photoFile: File, onResult: (Boolean, TransactionDetail?) -> Unit
     ) {
-        uploadPhoto(file) { photoUrl ->
+        uploadPhoto(photoFile) { photoUrl ->
             if (photoUrl != null) {
                 val newTransaction = transaction.copy(photoUrl = photoUrl)
                 firestore.collection("transaction")
@@ -243,16 +243,43 @@ class TransactionRepository() {
             }
     }
 
+//    fun updateAnimalShohibulQurbaniList(idJemaah: String, idAnimal: String, onUpdateResult: (Boolean) -> Unit) {
+//        firestore.collection("animal").document(idAnimal)
+//            .update(
+//                "idShohibulQurbaniList", FieldValue.arrayUnion(idJemaah)
+//            )
+//            .addOnCompleteListener { animalUpdateTask ->
+//                onUpdateResult(animalUpdateTask.isSuccessful)
+//            }
+//            .addOnFailureListener {
+//                onUpdateResult(false)
+//            }
+//    }
+
     fun updateAnimalShohibulQurbaniList(idJemaah: String, idAnimal: String, onUpdateResult: (Boolean) -> Unit) {
+        // Fetch the current document to get the existing idShohibulQurbaniList
         firestore.collection("animal").document(idAnimal)
-            .update(
-                "idShohibulQurbaniList", FieldValue.arrayUnion(idJemaah)
-            )
-            .addOnCompleteListener { animalUpdateTask ->
-                onUpdateResult(animalUpdateTask.isSuccessful)
+            .get()
+            .addOnSuccessListener { documentSnapshot ->
+                val currentList = documentSnapshot.get("idShohibulQurbaniList") as? List<String> ?: emptyList()
+
+                // Update the local list with the new idJemaah
+                val updatedList = currentList.toMutableList()
+                updatedList.add(idJemaah)
+
+                // Update the document with the new array
+                firestore.collection("animal").document(idAnimal)
+                    .update("idShohibulQurbaniList", updatedList)
+                    .addOnCompleteListener { animalUpdateTask ->
+                        onUpdateResult(animalUpdateTask.isSuccessful)
+                    }
+                    .addOnFailureListener {
+                        onUpdateResult(false)
+                    }
             }
             .addOnFailureListener {
                 onUpdateResult(false)
             }
     }
+
 }

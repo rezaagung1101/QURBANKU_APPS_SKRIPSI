@@ -3,7 +3,6 @@ package com.androidexpert.qurbanku_apps_skripsi.ui.maps
 import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.graphics.Paint
 import android.location.Location
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -14,7 +13,6 @@ import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import com.androidexpert.qurbanku_apps_skripsi.R
 import com.androidexpert.qurbanku_apps_skripsi.data.lib.MasjidUser
-import com.androidexpert.qurbanku_apps_skripsi.data.lib.User
 import com.androidexpert.qurbanku_apps_skripsi.data.remote.UserRepository
 import com.androidexpert.qurbanku_apps_skripsi.databinding.ActivityMapsListMasjidBinding
 import com.androidexpert.qurbanku_apps_skripsi.databinding.CardMasjidMapsViewBinding

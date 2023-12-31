@@ -34,14 +34,6 @@ class UserViewModel(private val userRepository: UserRepository) : ViewModel() {
         userRepository.logout()
     }
 
-    fun getProfile(uid: String) {
-        _isLoading.value = true
-        userRepository.getProfile(uid) { user ->
-            _user.value = user
-            _isLoading.value = false
-        }
-    }
-
     fun getMasjidList() {
         _isLoading.value = true
         userRepository.getMasjidList { masjidUserList ->

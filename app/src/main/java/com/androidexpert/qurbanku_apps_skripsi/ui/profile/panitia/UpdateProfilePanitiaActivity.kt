@@ -115,7 +115,7 @@ class UpdateProfilePanitiaActivity : AppCompatActivity() {
         longitude: Double,
         accountNumber: String,
         bankName: String,
-        accountName: String,
+        accountName: String
     ) {
         //call viewModel
         userViewModel.apply {
