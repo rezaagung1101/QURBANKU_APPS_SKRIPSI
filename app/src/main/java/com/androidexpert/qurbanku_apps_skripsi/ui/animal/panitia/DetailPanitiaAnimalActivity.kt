@@ -58,7 +58,14 @@ class DetailPanitiaAnimalActivity : AppCompatActivity() {
         binding.btnConfirmStatus.setOnClickListener {
             val title = resources.getString(R.string.animal_confirm_status)
             val message = resources.getString(R.string.animal_confirm_status_message)
-            DialogUtils.showConfirmationDialog(this, title, message, ::updateAnimalStatus)
+            DialogUtils.showConfirmationDialog(this, title, message){
+                if (Helper.isInternetAvailable(this)) updateAnimalStatus()
+                else {
+                    val title = resources.getString(R.string.announcement)
+                    val message = resources.getString(R.string.animal_confirm_status_failed)
+                    DialogUtils.showNotificationDialog(this, title, message ,{})
+                }
+            }
         }
         binding.btnAddShohibulQurban.setOnClickListener {
             val intent = Intent(this, AddShohibulQurbaniActivity::class.java)
@@ -206,12 +213,16 @@ class DetailPanitiaAnimalActivity : AppCompatActivity() {
             R.id.action_delete_animal -> {
                 val title = resources.getString(R.string.delete_animal_data)
                 val message = resources.getString(R.string.animal_delete_message)
-                if (shohibulQurbanAmount == 0) DialogUtils.showConfirmationDialog(
-                    this,
-                    title,
-                    message,
-                    ::deleteAnimal
-                )
+                if (shohibulQurbanAmount == 0){
+                    DialogUtils.showConfirmationDialog(this, title, message){
+                        if(Helper.isInternetAvailable(this)) this.deleteAnimal()
+                        else {
+                            val title = resources.getString(R.string.announcement)
+                            val message = resources.getString(R.string.delete_animal_failed)
+                            DialogUtils.showNotificationDialog(this, title, message ,{})
+                        }
+                    }
+                }
                 else Toast.makeText(
                     this,
                     resources.getString(R.string.animal_delete_failed),

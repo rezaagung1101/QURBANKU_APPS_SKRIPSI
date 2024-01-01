@@ -137,7 +137,9 @@ class AddAnimalDataActivity : AppCompatActivity() {
                 )
                 if (validation(animal, isPhotoSelected)) {
                     DialogUtils.showConfirmationDialog(this@AddAnimalDataActivity, title, message) {
-                        addAnimal(animal, getFile!!)
+                        if(Helper.isInternetAvailable(this@AddAnimalDataActivity))
+                            addAnimal(animal, getFile!!)
+                        else showDialog(false, null)
                     }
                 }
             }

@@ -41,8 +41,8 @@ class ProfilePanitiaFragment : Fragment() {
         userPreference = UserPreference(requireContext())
         setupInformation(userPreference.getPanitiaData())
         binding.btnLogout.setOnClickListener {
-            val title= resources.getString(R.string.logout)
-            val message= resources.getString(R.string.logout_message)
+            val title = resources.getString(R.string.logout)
+            val message = resources.getString(R.string.logout_message)
             DialogUtils.showConfirmationDialog(requireContext(), title, message, ::logout)
         }
         binding.btnUpdateProfile.setOnClickListener {
@@ -50,8 +50,8 @@ class ProfilePanitiaFragment : Fragment() {
         }
 
     }
-    fun logout(){
-        //hapus preference
+
+        fun logout(){
         userViewModel.logout()
         userPreference.logout()
         val intent = Intent(requireContext(), LoginActivity::class.java)
@@ -59,11 +59,13 @@ class ProfilePanitiaFragment : Fragment() {
         startActivity(intent)
         requireActivity().finish()
     }
-    fun setupInformation(user: User){
+
+    fun setupInformation(user: User) {
         binding.apply {
             tvMasjidName.text = resources.getString(R.string.name_masjid_value, user.name)
             tvEmailValue.text = user.email
-            tvAddressValue.text = Helper.parseCompleteAddress(requireContext(), user.latitude!!, user.longitude!!)
+            tvAddressValue.text =
+                Helper.parseCompleteAddress(requireContext(), user.latitude!!, user.longitude!!)
             tvContactPersonValue.text = user.phoneNumber
             tvHeadValue.text = user.headName
             tvBankValue.text = user.bankName
@@ -72,6 +74,7 @@ class ProfilePanitiaFragment : Fragment() {
             tvAnimalAvailabilityValue.text = userPreference.getAvailableAnimal().toString()
         }
     }
+
     override fun onResume() {
         setupInformation(userPreference.getPanitiaData())
         super.onResume()

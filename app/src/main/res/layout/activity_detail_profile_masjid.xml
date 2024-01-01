@@ -215,11 +215,12 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="16dp"
             android:layout_marginBottom="16dp"
-            android:backgroundTint="@color/white"
+            android:backgroundTint="@color/green_main"
             android:foregroundGravity="center_horizontal"
             android:src="@drawable/icons8_whatsapp_100"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:tint="@android:color/white" />
 
         <TextView
             android:id="@+id/tv_null_animal"

@@ -9,6 +9,7 @@ import android.graphics.BitmapFactory
 import android.graphics.Matrix
 import android.location.Address
 import android.location.Geocoder
+import android.net.ConnectivityManager
 import android.net.Uri
 import android.os.Environment
 import android.text.Editable
@@ -32,6 +33,13 @@ object Helper {
     private const val FILENAME_FORMAT = "dd-MMMM-yyyy"
     private const val simpleDateFormat = "dd MMM yyyy HH.mm"
     private const val timestampFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+
+    fun isInternetAvailable(context: Context): Boolean {
+        val connectivityManager =
+            context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val networkInfo = connectivityManager.activeNetworkInfo
+        return networkInfo != null && networkInfo.isConnected
+    }
 
     //login
     fun emailValidation(input: String): Boolean {

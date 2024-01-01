@@ -117,7 +117,9 @@ class AddTransactionActivity : AppCompatActivity() {
                     val title = resources.getString(R.string.send_transaction_proof)
                     val message = resources.getString(R.string.send_transaction_message)
                     DialogUtils.showConfirmationDialog(this@AddTransactionActivity, title, message){
-                        addTransaction(Helper.reduceFileImage(getFile!!))
+                        if (Helper.isInternetAvailable(this@AddTransactionActivity))
+                            addTransaction(Helper.reduceFileImage(getFile!!))
+                        else showDialog(false, null)
                     }
                 }
             } else {

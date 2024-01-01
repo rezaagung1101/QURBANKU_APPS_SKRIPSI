@@ -7,7 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.NavHostFragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.androidexpert.qurbanku_apps_skripsi.R
 import com.androidexpert.qurbanku_apps_skripsi.adapter.animal.AnimalPanitiaAdapter
 import com.androidexpert.qurbanku_apps_skripsi.data.lib.Animal
 import com.androidexpert.qurbanku_apps_skripsi.data.remote.AnimalRepository
@@ -42,6 +44,13 @@ class HomePanitiaFragment : Fragment() {
         this.setupData()
         animalViewModel.isLoading.observe(viewLifecycleOwner) {
             showLoading(it)
+        }
+        binding.fabAddAnimal.setOnClickListener{
+            val navController = NavHostFragment.findNavController(this)
+            navController.navigate(R.id.navigation_add_animal)
+            val navGraph = navController.navInflater.inflate(R.navigation.main_panitia_navigation)
+            navGraph.setStartDestination(R.id.navigation_add_animal)
+            navController.graph = navGraph
         }
     }
 

@@ -341,6 +341,7 @@
         <ImageButton
             android:id="@+id/btn_add_shohibul_qurban"
             android:layout_width="40dp"
+            android:backgroundTint="@color/white"
             android:layout_height="40dp"
             android:layout_marginRight="16dp"
             android:src="@drawable/baseline_add_box_24"

@@ -39,13 +39,24 @@ class DetailTransactionPanitiaActivity : AppCompatActivity() {
         val title = resources.getString(R.string.transaction_confirmation)
         val idJemaah = transaction.jemaah!!.uid
         val idAnimal = transaction.animal!!.id
+
         binding.btnConfirmAccept.setOnClickListener {
             val message = resources.getString(R.string.transaction_confirmation_accept_message)
-            DialogUtils.showConfirmationDialog(this, title, message, { confirmTransaction(idJemaah, idAnimal,true) })
+            DialogUtils.showConfirmationDialog(this, title, message){
+                if(Helper.isInternetAvailable(this))
+                    confirmTransaction(idJemaah, idAnimal,true)
+                else
+                    showDialog(false, null, null)
+            }
         }
         binding.btnConfirmReject.setOnClickListener {
             val message = resources.getString(R.string.transaction_confirmation_reject_message)
-            DialogUtils.showConfirmationDialog(this, title, message, { confirmTransaction(idJemaah, idAnimal,false) })
+            DialogUtils.showConfirmationDialog(this, title, message){
+                if(Helper.isInternetAvailable(this))
+                    confirmTransaction(idJemaah, idAnimal,false)
+                else
+                    showDialog(false, null, null)
+            }
         }
         transactionViewModel.isLoading.observe(this){
             showLoading(it)
@@ -69,8 +80,8 @@ class DetailTransactionPanitiaActivity : AppCompatActivity() {
 
     fun showDialog(isSuccess: Boolean, status: Boolean?, transactionDetail: TransactionDetail?){
         val messageResId =
-            if (status!! && isSuccess) R.string.transaction_accepted
-            else if (!status && isSuccess) R.string.transaction_rejected
+            if (isSuccess && status!!) R.string.transaction_accepted
+            else if (isSuccess && !status!!) R.string.transaction_rejected
             else R.string.confirmation_transaction_error_message
         val title = resources.getString(R.string.announcement)
         val message = resources.getString(messageResId)
