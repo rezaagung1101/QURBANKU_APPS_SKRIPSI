@@ -56,8 +56,8 @@ class AnimalPanitiaAdapter(private val listData: ArrayList<Animal>) :
                             tvAvailability.text = resources.getString(R.string.animal_status_executed)
                             cardContainer.setBackgroundColor(resources.getColor(R.color.disabled_background))
                         }else if(availability==0 && !status){
-                            tvAvailability.text =
-                                resources.getString(R.string.animal_status_sold)
+                            tvAvailability.text = resources.getString(R.string.animal_status_sold)
+                            tvDetailInstruction.text = resources.getString(R.string.do_confirmation_animal_status)
                             cardContainer.setBackgroundColor(resources.getColor(R.color.green_sold_status))
                         } else{
                             tvAvailability.text =

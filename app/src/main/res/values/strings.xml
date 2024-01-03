@@ -50,8 +50,9 @@
         <item>⦾ Pastikan data yang Anda masukkan sudah benar</item>
     </string-array>
     <string-array name="note_panitia_signUp">
-        <item>⦾ Pilih alamat dengan melakukan konfigurasi pada peta</item>
-        <item>⦾ Pastikan data sudah benar sebelum menyimpan</item>
+        <item>⦾ Pilih alamat masjid dengan melakukan konfigurasi lokasi pada peta.</item>
+        <item>⦾ Pastikan data sudah benar sebelum menyimpan.</item>
+        <item>⦾ Usahakan No. HP narahubung terhubung dengan aplikasi WhatsApp.</item>
     </string-array>
     <!--    Spinner-->
     <string-array name="spinner_qurban_animal">
@@ -132,7 +133,7 @@
     <string name="holiday_date">Tanggal Hari Raya</string>
     <string name="shohibul_qurban">Shohibul Qurban</string>
     <string name="animal_confirm_status">Konfirmasi Status Penyembelihan</string>
-    <string name="animal_confirm_status_message">Anda akan merubah status hewan menjadi telah disembelih. Lanjutkan?</string>
+    <string name="animal_confirm_status_message">Anda akan merubah status hewan menjadi disembelih. Lanjutkan?</string>
     <string name="detail_animal">Detail Hewan</string>
     <string name="delete_animal">Hapus hewan</string>
     <string name="delete_animal_data">Hapus Data Hewan</string>
@@ -255,5 +256,6 @@
     <string name="click_for_location">Klik pada peta untuk menggunakan lokasi.</string>
     <string name="click_for_information">Klik pada penanda untuk melihat informasi.</string>
     <string name="click_for_full_image">Klik untuk ukuran penuh!</string>
+    <string name="do_confirmation_animal_status">Lakukan konfirmasi penyembelihan!</string>
 
 </resources>
