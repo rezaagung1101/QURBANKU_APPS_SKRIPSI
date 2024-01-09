@@ -82,11 +82,11 @@ class SignUpPanitiaFragment : Fragment() {
                     phoneNumber = phoneNumber,
                     admin = true,
                     address = null,
-                    bankAccountName = accountName,
                     latitude = latitude,
                     longitude = longitude,
-                    bankName = bankName,
-                    bankAccountNumber = accountNumber
+                    bankName = bankName.uppercase(),
+                    bankAccountNumber = accountNumber,
+                    bankAccountName = accountName.uppercase()
                 )
                 //if success
                 if (validation(user, password, usingLocation ?: false)

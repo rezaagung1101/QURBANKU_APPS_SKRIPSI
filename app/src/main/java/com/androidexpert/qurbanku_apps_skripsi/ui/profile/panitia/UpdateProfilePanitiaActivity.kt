@@ -97,8 +97,8 @@ class UpdateProfilePanitiaActivity : AppCompatActivity() {
                                 latitude,
                                 longitude,
                                 accountNumber,
-                                bankName,
-                                accountName
+                                bankName.uppercase(),
+                                accountName.uppercase()
                             )
                         })
                 }

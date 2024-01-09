@@ -21,15 +21,12 @@ class TransactionViewModel(private val transactionRepository: TransactionReposit
     private var _confirmTransactionResult = SingleLiveEvent<Boolean>()
     val confirmTransactionResult: LiveData<Boolean> = _confirmTransactionResult
 
-    fun addTransaction(
-        transaction: Transaction,
-        photoFile: File
-    ) {
+    fun addTransaction(transaction: Transaction, photoFile: File) {
         _isLoading.value = true
         transactionRepository.addTransaction(transaction, photoFile) { isSuccess, transactionData ->
+            _isLoading.value = false
             _addTransactionResult.value = isSuccess
             _transactionDetail.value = transactionData
-            _isLoading.value = false
         }
     }
 

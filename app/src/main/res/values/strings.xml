@@ -133,7 +133,7 @@
     <string name="holiday_date">Tanggal Hari Raya</string>
     <string name="shohibul_qurban">Shohibul Qurban</string>
     <string name="animal_confirm_status">Konfirmasi Status Penyembelihan</string>
-    <string name="animal_confirm_status_message">Anda akan merubah status hewan menjadi disembelih. Lanjutkan?</string>
+    <string name="animal_confirm_status_message">Anda akan mengubah status hewan menjadi disembelih. Lanjutkan?</string>
     <string name="detail_animal">Detail Hewan</string>
     <string name="delete_animal">Hapus hewan</string>
     <string name="delete_animal_data">Hapus Data Hewan</string>
