@@ -225,13 +225,19 @@ class TransactionRepository() {
             )
             .addOnCompleteListener { updateTask ->
                 if (updateTask.isSuccessful) {
-                    updateAnimalShohibulQurbaniList(idJemaah, idAnimal) { isAnimalUpdateSuccessful ->
-                        if (isAnimalUpdateSuccessful) {
-                            getDetailTransaction(idTransaction) { transactionData ->
-                                onResult(true, transactionData)
+                    if (status) {
+                        updateAnimalShohibulQurbaniList(idJemaah, idAnimal) { isAnimalUpdateSuccessful ->
+                            if (isAnimalUpdateSuccessful) {
+                                getDetailTransaction(idTransaction) { transactionData ->
+                                    onResult(true, transactionData)
+                                }
+                            } else {
+                                onResult(false, null)
                             }
-                        } else {
-                            onResult(false, null)
+                        }
+                    } else {
+                        getDetailTransaction(idTransaction) { transactionData ->
+                            onResult(true, transactionData)
                         }
                     }
                 } else {
@@ -242,6 +248,39 @@ class TransactionRepository() {
                 onResult(false, null)
             }
     }
+
+//    fun confirmTransaction(
+//        idJemaah: String,
+//        idAnimal: String,
+//        idTransaction: String,
+//        status: Boolean,
+//        note: String?,
+//        onResult: (Boolean, TransactionDetail?) -> Unit,
+//    ) {
+//        firestore.collection("transaction").document(idTransaction)
+//            .update(
+//                "status", status,
+//                "note", note
+//            )
+//            .addOnCompleteListener { updateTask ->
+//                if (updateTask.isSuccessful) {
+//                    updateAnimalShohibulQurbaniList(idJemaah, idAnimal) { isAnimalUpdateSuccessful ->
+//                        if (isAnimalUpdateSuccessful) {
+//                            getDetailTransaction(idTransaction) { transactionData ->
+//                                onResult(true, transactionData)
+//                            }
+//                        } else {
+//                            onResult(false, null)
+//                        }
+//                    }
+//                } else {
+//                    onResult(false, null)
+//                }
+//            }
+//            .addOnFailureListener {
+//                onResult(false, null)
+//            }
+//    }
 
 //    fun updateAnimalShohibulQurbaniList(idJemaah: String, idAnimal: String, onUpdateResult: (Boolean) -> Unit) {
 //        firestore.collection("animal").document(idAnimal)

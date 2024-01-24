@@ -216,6 +216,17 @@ object Helper {
 //        val formattedDecimal = decimalFormat.format(value)
 //        println("Using DecimalFormat: $formattedDecimal")
     }
+
+    fun parseNumberFormatEditText(value: Double): String{
+        // Using NumberFormat
+        val numberFormat = NumberFormat.getNumberInstance(Locale.getDefault())
+        val formattedNumber = numberFormat.format(value)
+        return formattedNumber
+        // Using DecimalFormat
+//        val decimalFormat = DecimalFormat("#,###")
+//        val formattedDecimal = decimalFormat.format(value)
+//        println("Using DecimalFormat: $formattedDecimal")
+    }
     fun convertToInternationalFormat(phoneNumber: String): String {
         var formattedNumber = phoneNumber.trim()
 

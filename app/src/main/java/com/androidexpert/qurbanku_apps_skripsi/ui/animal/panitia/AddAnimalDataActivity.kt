@@ -26,6 +26,7 @@ import com.androidexpert.qurbanku_apps_skripsi.ui.animal.AnimalViewModel
 import com.androidexpert.qurbanku_apps_skripsi.utils.Constanta
 import com.androidexpert.qurbanku_apps_skripsi.utils.DialogUtils
 import com.androidexpert.qurbanku_apps_skripsi.utils.Helper
+import com.androidexpert.qurbanku_apps_skripsi.utils.MoneyTextWatcher
 import com.androidexpert.qurbanku_apps_skripsi.utils.UserPreference
 import java.io.File
 
@@ -92,7 +93,7 @@ class AddAnimalDataActivity : AppCompatActivity() {
         setupSpinnerJointVenture(resources.getStringArray(R.array.spinner_joint_venture))
     }
 
-    private fun setupInformation() {
+    fun setupInformation() {
         animalViewModel.isLoading.observe(this, {
             showLoading(it)
         })
@@ -103,8 +104,8 @@ class AddAnimalDataActivity : AppCompatActivity() {
                 Constanta.REQUEST_CODE_PERMISSIONS
             )
         }
-        binding.btnSave.setOnClickListener {
-            binding.apply {
+        binding.apply {
+            btnSave.setOnClickListener {
                 val title = resources.getString(R.string.save_data_animal)
                 val message = resources.getString(R.string.save_data_animal_message)
                 val variety = etVariety.text.toString()
@@ -129,27 +130,34 @@ class AddAnimalDataActivity : AppCompatActivity() {
                     weight = weight.toDouble(),
                     color = color,
                     status = false,
-                    operationalCosts = operationalCosts.toInt(),
-                    price = price.toInt(),
+                    operationalCosts = parseCurrencyValue(operationalCosts).toInt(),
+                    price = parseCurrencyValue(price).toInt(),
                     jointVentureAmount = jointVentureValue,
                     idMasjid = userPreference.getUid()!!,
                     idShohibulQurbaniList = null
                 )
                 if (validation(animal, isPhotoSelected)) {
                     DialogUtils.showConfirmationDialog(this@AddAnimalDataActivity, title, message) {
-                        if(Helper.isInternetAvailable(this@AddAnimalDataActivity))
+                        if (Helper.isInternetAvailable(this@AddAnimalDataActivity))
                             addAnimal(animal, getFile!!)
                         else showDialog(false, null)
                     }
                 }
+
             }
+            btnCamera.setOnClickListener {
+                startCameraX()
+            }
+            btnGallery.setOnClickListener {
+                startGallery()
+            }
+            etOperationalCost.addTextChangedListener(MoneyTextWatcher(etOperationalCost))
+            etPrice.addTextChangedListener(MoneyTextWatcher(etPrice))
         }
-        binding.btnCamera.setOnClickListener {
-            startCameraX()
-        }
-        binding.btnGallery.setOnClickListener {
-            startGallery()
-        }
+    }
+    fun parseCurrencyValue(value: String): String {
+        // Remove non-numeric characters, including dots
+        return value.replace("[^\\d]".toRegex(), "")
     }
 
     fun startCameraX() {
@@ -226,13 +234,13 @@ class AddAnimalDataActivity : AppCompatActivity() {
         })
     }
 
-    fun showDialog(status: Boolean, animal: Animal?){
+    fun showDialog(status: Boolean, animal: Animal?) {
         val messageResId = if (status) R.string.add_animal_success else R.string.add_animal_failed
         val title = resources.getString(R.string.announcement)
         val message = resources.getString(messageResId)
 
         DialogUtils.showNotificationDialog(this, title, message) {
-            if(status){
+            if (status) {
                 val intent = Intent(this, DetailPanitiaAnimalActivity::class.java)
                 intent.putExtra(Constanta.ANIMAL_DATA, animal!!)
                 startActivity(intent)
