@@ -5,7 +5,6 @@ import com.androidexpert.qurbanku_apps_skripsi.data.lib.Animal
 import com.androidexpert.qurbanku_apps_skripsi.data.lib.Transaction
 import com.androidexpert.qurbanku_apps_skripsi.data.lib.TransactionDetail
 import com.androidexpert.qurbanku_apps_skripsi.data.lib.User
-import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.toObject
 import com.google.firebase.storage.FirebaseStorage
@@ -248,39 +247,6 @@ class TransactionRepository() {
                 onResult(false, null)
             }
     }
-
-//    fun confirmTransaction(
-//        idJemaah: String,
-//        idAnimal: String,
-//        idTransaction: String,
-//        status: Boolean,
-//        note: String?,
-//        onResult: (Boolean, TransactionDetail?) -> Unit,
-//    ) {
-//        firestore.collection("transaction").document(idTransaction)
-//            .update(
-//                "status", status,
-//                "note", note
-//            )
-//            .addOnCompleteListener { updateTask ->
-//                if (updateTask.isSuccessful) {
-//                    updateAnimalShohibulQurbaniList(idJemaah, idAnimal) { isAnimalUpdateSuccessful ->
-//                        if (isAnimalUpdateSuccessful) {
-//                            getDetailTransaction(idTransaction) { transactionData ->
-//                                onResult(true, transactionData)
-//                            }
-//                        } else {
-//                            onResult(false, null)
-//                        }
-//                    }
-//                } else {
-//                    onResult(false, null)
-//                }
-//            }
-//            .addOnFailureListener {
-//                onResult(false, null)
-//            }
-//    }
 
 //    fun updateAnimalShohibulQurbaniList(idJemaah: String, idAnimal: String, onUpdateResult: (Boolean) -> Unit) {
 //        firestore.collection("animal").document(idAnimal)
