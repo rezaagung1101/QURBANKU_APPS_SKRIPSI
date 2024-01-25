@@ -32,37 +32,52 @@
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/Theme.QURBANKU_APPS_SKRIPSI"
         tools:targetApi="31">
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyD3WpXHNnWRNK1BWtlaXAQIy7f5Qi9Oqdo" />
+            android:value= "@string/API_KEY" />
+        <activity
+            android:name=".ui.animal.panitia.AddShohibulQurbaniActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
 
+        <activity
+            android:name=".ui.maps.MapsUpdateLocationActivity"
+            android:exported="false"
+            android:label="@string/title_activity_maps_update_location"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.ImageDisplayActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.maps.MapsListMasjidActivity"
             android:exported="false"
-            android:theme="@style/Theme.MaterialComponents.DayNight.Title" />
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".ui.transaction.jemaah.AddTransactionActivity"
             android:exported="false"
-            android:theme="@style/Theme.MaterialComponents.DayNight.Title" />
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.animal.jemaah.DetailJemaahAnimalActivity"
             android:exported="false"
-            android:theme="@style/Theme.MaterialComponents.DayNight.Title" />
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".ui.profile.jemaah.UpdateProfileJemaahActivity"
             android:exported="false"
-            android:theme="@style/Theme.MaterialComponents.DayNight.Title" />
+            android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.MainJemaahActivity"
-            android:exported="false" />
+            android:name=".ui.main.MainJemaahActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.CameraActivity"
-            android:exported="false">
+            android:exported="false"
+            android:screenOrientation="portrait">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -70,54 +85,59 @@
         <activity
             android:name=".ui.profile.panitia.UpdateProfilePanitiaActivity"
             android:exported="false"
-            android:theme="@style/Theme.MaterialComponents.DayNight.Title" />
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".ui.transaction.jemaah.DetailTransactionJemaahActivity"
             android:exported="false"
-            android:theme="@style/Theme.MaterialComponents.DayNight.Title" />
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.transaction.panitia.DetailTransactionPanitiaActivity"
             android:exported="false"
-            android:theme="@style/Theme.MaterialComponents.DayNight.Title" />
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".ui.profile.panitia.DetailProfileJemaahActivity"
             android:exported="false"
-            android:theme="@style/Theme.MaterialComponents.DayNight.Title" />
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.profile.jemaah.DetailProfileMasjidActivity"
             android:exported="false"
-            android:theme="@style/Theme.MaterialComponents.DayNight.Title" />
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".ui.animal.panitia.DetailPanitiaAnimalActivity"
             android:exported="false"
-            android:theme="@style/Theme.MaterialComponents.DayNight.Title" />
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.animal.panitia.AddAnimalDataActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.maps.MapsPickLocationActivity"
             android:exported="false"
-            android:parentActivityName=".ui.auth.signup.SignUpActivity"
-            android:theme="@style/Theme.MaterialComponents.DayNight.Title" />
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.auth.signup.SignUpActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.auth.login.LoginActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.welcome.WelcomeActivity"
-            android:exported="false">
+            android:exported="false"
+            android:screenOrientation="portrait">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".ui.MainPanitiaActivity"
-            android:exported="false" />
+            android:name=".ui.main.MainPanitiaActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.welcome.SplashScreenActivity"
-            android:exported="true">
+            android:exported="true"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

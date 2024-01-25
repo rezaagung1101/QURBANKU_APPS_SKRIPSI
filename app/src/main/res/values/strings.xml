@@ -3,45 +3,43 @@
     <string name="welcome_quote">Permudah Manajemen Pembelian dan Patungan Kurban Anda dengan fitur di aplikasi QurbanKu</string>
     <string name="welcome_quote_question">Apa peran Anda dalam ibadah kurban kali ini?</string>
     <string name="next">Berikutnya</string>
-    <string name="panitia">Panitia</string>
-    <string name="jemaah">Jemaah</string>
     <string name="panitia_allcaps">PANITIA</string>
     <string name="jemaah_allcaps">JEMAAH</string>
     <!--    Login & SignUp-->
-    <string name="notification">Pemberitahuan</string>
+    <string name="announcement">Pemberitahuan</string>
     <string name="login">Masuk</string>
     <string name="login_panitia_quote">Anda akan masuk sebagai Panitia Kurban</string>
     <string name="login_jemaah_quote">Anda akan masuk sebagai Jemaah</string>
-    <string name="login_success_title">Halo %s</string>
-    <string name="login_failed_title">Login gagal</string>
+    <string name="login_success_jemaah_title">Halo %s</string>
+    <string name="login_success_panitia_title">Halo Panitia Masjid %s</string>
+    <string name="login_failed_title">GAGAL MASUK</string>
     <string name="login_success_panitia_message">Ayo kelola manajemen kurban masjid Anda!</string>
     <string name="login_success_jemaah_message">Ayo permudah pembelian dan patungan hewan kurban di masjid terdekat!</string>
-    <string name="login_failed_message">Email atau password tidak valid!</string>
+    <string name="login_failed_message">Email atau password Anda tidak valid!</string>
     <string name="login_question">Sudah memiliki akun?</string>
     <string name="signup">Daftar</string>
+    <string name="signup_message">Anda yakin ingin mendaftar akun?</string>
     <string name="signup_panitia_quote">Masukkan data masjid Anda</string>
     <string name="signup_jemaah_quote">Masukkan data diri Anda untuk mendaftar akun</string>
     <string name="signup_success_message">Akun anda berhasil dibuat, silahkan login!</string>
-    <string name="signup_failed_message">Email telah terdaftar!</string>
-    <string name="signup_success_title">Sign up berhasil</string>
-    <string name="signup_failed_title">Sign up gagal</string>
+    <string name="signup_failed_message">Terdapat kesalahan, sign up gagal!</string>
+    <string name="signup_success_title">BERHASIL MENDAFTAR</string>
+    <string name="signup_failed_title">GAGAL MENDAFTAR</string>
     <string name="signUp_question_panitia">Masjid Anda belum memiliki akun?</string>
     <string name="signUp_question_jemaah">Anda belum memiliki akun?</string>
     <string name="column_isEmpty_message">Kolom tidak boleh kosong!</string>
-    <string name="name_minimum">Minimum 2 karakter</string>
     <string name="email">Email</string>
     <string name="email_masjid">Email masjid</string>
     <string name="email_invalid">Email tidak valid</string>
-    <string name="email_password_invalid">Email atau password tidak valid</string>
     <string name="name_masjid">Nama masjid</string>
     <string name="name_masjid_value">Masjid %s</string>
+    <string name="name_masjid_with_location">Masjid %s, %s</string>
     <string name="contact_person_number">No. HP narahubung</string>
     <string name="head_takmir">Ketua takmir</string>
     <string name="name_head_takmir">Nama ketua takmir</string>
     <string name="password">Password</string>
-    <string name="password_minimum">Password minimal 8 karakter</string>
+    <string name="password_minimum">Password minimal 6 karakter</string>
     <string name="add_address">Tambah alamat</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="signup_bank_quote">Masukkan data Rekening</string>
     <string name="account_number">No. Rekening</string>
     <string name="bank_name">Nama bank</string>
@@ -52,18 +50,11 @@
         <item>⦾ Pastikan data yang Anda masukkan sudah benar</item>
     </string-array>
     <string-array name="note_panitia_signUp">
-        <item>⦾ Pilih alamat dengan melakukan konfigurasi pada peta</item>
-        <item>⦾ Pastikan data sudah benar sebelum menyimpan</item>
+        <item>⦾ Pilih alamat masjid dengan melakukan konfigurasi lokasi pada peta.</item>
+        <item>⦾ Pastikan data sudah benar sebelum menyimpan.</item>
+        <item>⦾ Usahakan No. HP narahubung terhubung dengan aplikasi WhatsApp.</item>
     </string-array>
     <!--    Spinner-->
-    <string-array name="spinner_true_false">
-        <item>Ya</item>
-        <item>Tidak</item>
-    </string-array>
-    <string-array name="spinner_actor">
-        <item>Panitia</item>
-        <item>Jemaah</item>
-    </string-array>
     <string-array name="spinner_qurban_animal">
         <item>Sapi</item>
         <item>Kambing</item>
@@ -83,21 +74,18 @@
     <string-array name="spinner_joint_venture_disabled">
         <item>1</item>
     </string-array>
-    <string name="underlined_nextButton"><u>Lihat Selengkapnya</u></string>
     <string name="species">Kambing</string>
     <string name="variety">Jenis</string>
     <string name="variety_animal">Jenis Hewan</string>
     <string name="weight">Berat</string>
     <string name="weight_et_hint">Berat (kg)</string>
-    <string name="weight_value">%d kg</string>
+    <string name="weight_value">%s</string>
     <string name="joint_venture">Patungan</string>
+    <string name="purchase_category">Pembelian</string>
     <string name="price">Rp %d</string>
+    <string name="price_2">Rp %s</string>
     <string name="availability_number"><u>Tersedia %d orang</u></string>
-    <string name="animal_availability"><u>%d Hewan Kurban</u></string>
-    <string name="years_value">2023</string>
-    <string name="chairman_event">Ketua Panitia</string>
-    <string name="total_animal">Jumlah hewan</string>
-    <string name="temp_id_transaction">idTransaksi1234567</string>
+    <string name="temp_id_transaction">id: %s</string>
     <string name="name">Nama</string>
     <string name="phone_number">No. HP</string>
     <string name="complete_address">Alamat lengkap</string>
@@ -125,7 +113,6 @@
     <string name="pick_eid_alAdha_date">Pilih Tanggal Hari Raya Idul Adha</string>
     <string name="guide">Petunjuk</string>
     <string name="add_detail_animal">Lengkapi Data Hewan Kurban</string>
-    <string name="add_date_advice">Anda belum memilih tanggal hari raya</string>
     <string name="take_picture">Ambil Gambar</string>
     <string name="choose_from_gallery">Pilih dari Galeri</string>
     <string name="add_animal_photo">Tambah Foto Hewan</string>
@@ -146,7 +133,7 @@
     <string name="holiday_date">Tanggal Hari Raya</string>
     <string name="shohibul_qurban">Shohibul Qurban</string>
     <string name="animal_confirm_status">Konfirmasi Status Penyembelihan</string>
-    <string name="animal_confirm_status_message">Anda akan merubah status hewan menjadi telah disembelih. Lanjutkan?</string>
+    <string name="animal_confirm_status_message">Anda akan mengubah status hewan menjadi disembelih. Lanjutkan?</string>
     <string name="detail_animal">Detail Hewan</string>
     <string name="delete_animal">Hapus hewan</string>
     <string name="delete_animal_data">Hapus Data Hewan</string>
@@ -154,9 +141,9 @@
     <string name="next2"><b>LANJUT</b></string>
     <string name="cancel"><b>BATAL</b></string>
     <string name="animal_delete_message">Anda yakin ingin menghapus data hewan?</string>
-    <string name="animal_confirm_status_success">Status hewan telah disembelih</string>
+    <string name="animal_confirm_status_success">Status hewan berhasil diubah menjadi disembelih</string>
     <string name="animal_delete_failed">Tidak dapat dihapus karena hewan telah dibeli</string>
-    <string name="animal_confirm_status_failed">Status tidak dapat dirubah karena kuota tersisa %d</string>
+    <string name="animal_confirm_status_failed">Terdapat kesalahan, status hewan gagal diubah</string>
     <string name="save_data_animal">Simpan data hewan</string>
     <string name="save_data_animal_message">Anda yakin ingin menyimpan data?</string>
     <string name="transaction">Transaksi</string>
@@ -201,13 +188,16 @@
     <string name="photo_requirements">Ketentuan Foto</string>
     <string name="send">Kirim</string>
     <string name="transaction_photo_requirement_title">Pastikan gambar memperlihatkan bukti struk/kwitansi hasil transfer dengan jelas, dengan mencakup informasi minimal sebagai berikut :</string>
-    <string name="add_transaction_dialog_title">Kirim Bukti Transaksi</string>
     <string name="send_transaction_proof">Kirim Bukti Transaksi</string>
     <string name="send_transaction_message">Anda yakin ingin mengirimkan foto bukti transfer?</string>
     <string name="photo_not_selected">Anda belum memilih foto bukti transfer!</string>
+    <string name="animal_photo_not_selected">Anda belum memilih foto hewan!</string>
     <string name="choose_masjid_by_location">Pilih Masjid Berdasarkan Lokasi</string>
-    <string name="qurbani_animal">Hewan Kurban</string>
+    <string name="availability_qurbani_animal">Hewan Kurban Tersedia</string>
     <string name="detail_information_instruction">Klik untuk melihat detail informasi lainnya!</string>
+    <string name="transaction_accepted">Transaksi jemaah telah diterima</string>
+    <string name="transaction_rejected">Transaksi jemaah telah ditolak</string>
+    <string name="confirmation_transaction_error_message">Terdapat kesalahan, konfirmasi transaksi gagal</string>
 
     <string-array name="transaction_photo_requirement_value">
         <item>1. Rekening Tujuan</item>
@@ -225,21 +215,47 @@
     <string name="detail_jemaah_profile">Detail Profil Jemaah</string>
     <string name="update_profile">Ubah Data Profil</string>
     <string name="logout">Keluar</string>
-    <string name="logout_message">Anda yakin ingin keluar aplikasi?</string>
+    <string name="logout_message">Anda yakin ingin keluar dari aplikasi?</string>
     <string name="enter_data_changes">Masukkan Perubahan Data</string>
     <string name="update_profile_message">Anda yakin ingin menyimpan perubahan?</string>
-    <string name="add_location">Tambahkan Lokasi</string>
+    <string name="use_location">Gunakan Lokasi</string>
     <string name="current_location">Lokasi Anda sekarang</string>
     <string name="click_address_instruction">Klik untuk menggunakan lokasi</string>
     <string name="choose_masjid_location">Pilih Lokasi Masjid</string>
-    <string name="masjid_location_not_selected">Anda belum memilih lokasi</string>
+    <string name="masjid_location_not_selected">Anda belum memilih lokasi masjid!</string>
     <string name="profile_masjid">Profil Masjid</string>
     <string name="your_qurbani_list_title">Riwayat Kurban Anda</string>
     <string name="history">Riwayat</string>
-    <string name="signup_message">Anda yakin ingin mendaftar akun?</string>
-    <string name="transaction_accepted">Transaksi jemaah telah diterima</string>
-    <string name="transaction_rejected">Transaksi jemaah telah ditolak</string>
-    <string name="confirmation_transaction_error_message">Terdapat kesalahan, konfirmasi transaksi gagal</string>
-
+    <string name="update_profile_success">Berhasil memperbarui data profil</string>
+    <string name="add_animal_success">Anda berhasil menambahkan data hewan</string>
+    <string name="add_animal_failed">Terdapat kesalahan, data hewan gagal ditambahkan</string>
+    <string name="animal_status_executed">Telah Disembelih</string>
+    <string name="animal_status_sold">Telah Terjual</string>
+    <string name="animal_status_not_executed">Belum disembelih</string>
+    <string name="null_note"><i>Tidak ada catatan</i></string>
+    <string name="delete_animal_failed">Terdapat kesalahan, data hewan gagal dihapus</string>
+    <string name="add_transaction_failed">Terdapat kesalahan, transaksi gagal dibuat</string>
+    <string name="add_transaction_success">Berhasil menambahkan transaksi!</string>
+    <string name="status">Status</string>
+    <string name="masjid_name">Nama masjid</string>
+    <string name="fully_image_display">Gambar Ukuran Penuh</string>
+    <string name="choose_your_role">Pilih Peran Anda</string>
+    <string name="null_transaction_message">Anda belum melakukan transaksi</string>
+    <string name="null_qurbani_message">Anda belum pernah berkurban</string>
+    <string name="null_jemaah_transaction_message">Belum ada data transaksi jemaah</string>
+    <string name="null_animal_panitia_message">Anda belum memiliki data hewan kurban</string>
+    <string name="null_animal_jemaah_message">Masjid belum memiliki data hewan kurban</string>
+    <string name="update_profile_failed">Terdapat kesalahan, gagal mengubah data profil</string>
+    <string name="title_activity_maps_update_location">MapsUpdateLocationActivity</string>
+    <string name="add_shohibul_qurbani">Tambah Shohibul Qurban</string>
+    <string name="add_shohibul_qurbani_note">Masukkan data diri shohibul qurban</string>
+    <string name="add_shohibul_qurbani_success">Berhasil menambahkan data shohibul qurban</string>
+    <string name="add_shohibul_qurbani_failed">Terdapat kesalahan, gagal menambahkan data shohibul qurban</string>
+    <string name="add_shohibul_qurbani_message">Anda yakin ingin menambahkan data shohibul qurban?</string>
+    <string name="price_not_valid">Jumlah tidak sesuai ketentuan</string>
+    <string name="click_for_location">Klik pada peta untuk menggunakan lokasi.</string>
+    <string name="click_for_information">Klik pada penanda untuk melihat informasi.</string>
+    <string name="click_for_full_image">Klik untuk ukuran penuh!</string>
+    <string name="do_confirmation_animal_status">Lakukan konfirmasi penyembelihan!</string>
 
 </resources>

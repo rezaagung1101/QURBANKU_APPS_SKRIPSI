@@ -5,27 +5,38 @@ import android.content.pm.PackageManager
 import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.ViewModelProvider
 import com.androidexpert.qurbanku_apps_skripsi.R
+import com.androidexpert.qurbanku_apps_skripsi.data.lib.Animal
+import com.androidexpert.qurbanku_apps_skripsi.data.lib.Transaction
+import com.androidexpert.qurbanku_apps_skripsi.data.lib.TransactionDetail
+import com.androidexpert.qurbanku_apps_skripsi.data.lib.User
+import com.androidexpert.qurbanku_apps_skripsi.data.remote.TransactionRepository
 import com.androidexpert.qurbanku_apps_skripsi.databinding.ActivityAddTransactionBinding
 import com.androidexpert.qurbanku_apps_skripsi.ui.CameraActivity
+import com.androidexpert.qurbanku_apps_skripsi.ui.ViewModelFactory
+import com.androidexpert.qurbanku_apps_skripsi.ui.transaction.TransactionViewModel
 import com.androidexpert.qurbanku_apps_skripsi.utils.Constanta
 import com.androidexpert.qurbanku_apps_skripsi.utils.DialogUtils
 import com.androidexpert.qurbanku_apps_skripsi.utils.Helper
+import com.androidexpert.qurbanku_apps_skripsi.utils.UserPreference
 import java.io.File
 
 class AddTransactionActivity : AppCompatActivity() {
-    /**
-     * Terima data dari Detail Hewan milik jemaah
-     */
     private lateinit var binding: ActivityAddTransactionBinding
-    private var photoUrl: String = ""
+    private lateinit var transactionViewModel: TransactionViewModel
+    private val transactionRepository = TransactionRepository()
+    private lateinit var userPreference: UserPreference
+    private var animalData = Animal()
+    private var masjidData = User()
     private var getFile: File? = null
     private val launcherIntentCameraX = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
@@ -38,10 +49,10 @@ class AddTransactionActivity : AppCompatActivity() {
                 it.data?.getSerializableExtra(Constanta.picture)
             } as? File
 
-            val isBackCamera = it.data?.getBooleanExtra(Constanta.isBackCamera, true) as Boolean
+            //val isBackCamera = it.data?.getBooleanExtra(Constanta.isBackCamera, true) as Boolean
 
             myFile?.let { file ->
-                Helper.rotateFile(file, isBackCamera)
+                //Helper.rotateFile(file, isBackCamera)
                 getFile = file
                 binding.ivTransactionPhoto.setImageBitmap(BitmapFactory.decodeFile(file.path))
                 binding.ivTransactionPhoto.scaleType = ImageView.ScaleType.CENTER_CROP
@@ -68,8 +79,16 @@ class AddTransactionActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityAddTransactionBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        setSupportActionBar(binding.toolbar)
         supportActionBar?.title = resources.getString(R.string.transfer_requirements)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        animalData = intent.getParcelableExtra<Animal>(Constanta.ANIMAL_DATA) as Animal
+        masjidData = intent.getParcelableExtra<User>(Constanta.USER_DATA) as User
+        userPreference = UserPreference(this)
+        transactionViewModel = ViewModelProvider(
+            this,
+            ViewModelFactory.TransactionViewModelFactory(transactionRepository)
+        )[TransactionViewModel::class.java]
         setupInformation(false)
         binding.btnCamera.setOnClickListener {
             startCameraX()
@@ -77,38 +96,56 @@ class AddTransactionActivity : AppCompatActivity() {
         binding.btnGallery.setOnClickListener {
             startGallery()
         }
+        transactionViewModel.isLoading.observe(this) {
+            showLoading(it)
+        }
     }
 
     fun setupInformation(isPhotoSelected: Boolean) {
-        if (!allPermissionsGranted()) {
-            ActivityCompat.requestPermissions(
-                this,
-                Constanta.REQUIRED_PERMISSIONS,
-                Constanta.REQUEST_CODE_PERMISSIONS
+        binding.apply {
+            if (!allPermissionsGranted()) {
+                ActivityCompat.requestPermissions(
+                    this@AddTransactionActivity,
+                    Constanta.REQUIRED_PERMISSIONS,
+                    Constanta.REQUEST_CODE_PERMISSIONS
+                )
+            }
+            if (isPhotoSelected == true) {
+                btnSend.setBackgroundColor(resources.getColor(R.color.green_main))
+                btnSend.setTextColor(resources.getColor(R.color.white))
+                btnSend.setOnClickListener {
+                    val title = resources.getString(R.string.send_transaction_proof)
+                    val message = resources.getString(R.string.send_transaction_message)
+                    DialogUtils.showConfirmationDialog(this@AddTransactionActivity, title, message){
+                        if (Helper.isInternetAvailable(this@AddTransactionActivity))
+                            addTransaction(Helper.reduceFileImage(getFile!!))
+                        else showDialog(false, null)
+                    }
+                }
+            } else {
+                btnSend.setOnClickListener {
+                    Toast.makeText(
+                        this@AddTransactionActivity,
+                        resources.getString(R.string.photo_not_selected),
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+                btnSend.setBackgroundColor(resources.getColor(R.color.disabled_background))
+                btnSend.setTextColor(resources.getColor(R.color.disabled_text))
+            }
+            val stringArray = resources.getStringArray(R.array.transaction_photo_requirement_value)
+            val text = stringArray.joinToString("\n")
+            val totalPrice = animalData.price + animalData.operationalCosts
+            val costRequired = totalPrice / animalData.jointVentureAmount
+            tvPhotoRequirementValue.text = text
+            tvBankName.text = masjidData.bankName
+            tvAccountName.text = masjidData.bankAccountName
+            tvAccountNumber.text = masjidData.bankAccountNumber
+            tvTransferNominal.text = resources.getString(
+                R.string.price_2,
+                Helper.parseNumberFormat(costRequired)
             )
         }
-        if (isPhotoSelected == true) {
-            binding.btnSend.setBackgroundColor(resources.getColor(R.color.green_main))
-            binding.btnSend.setTextColor(resources.getColor(R.color.white))
-            binding.btnSend.setOnClickListener {
-                val title = resources.getString(R.string.send_transaction_proof)
-                val message = resources.getString(R.string.send_transaction_message)
-                DialogUtils.showConfirmationDialog(this, title, message, ::addTransaction)
-            }
-        } else {
-            binding.btnSend.setOnClickListener {
-                Toast.makeText(
-                    this,
-                    resources.getString(R.string.photo_not_selected),
-                    Toast.LENGTH_SHORT
-                ).show()
-            }
-            binding.btnSend.setBackgroundColor(resources.getColor(R.color.disabled_background))
-            binding.btnSend.setTextColor(resources.getColor(R.color.disabled_text))
-        }
-        val stringArray = resources.getStringArray(R.array.transaction_photo_requirement_value)
-        val text = stringArray.joinToString("\n")
-        binding.tvPhotoRequirementValue.text = text
     }
 
     private fun startCameraX() {
@@ -146,13 +183,47 @@ class AddTransactionActivity : AppCompatActivity() {
         }
     }
 
-    fun addTransaction() {
-        /**
-         * kirim data ke intent
-         */
-        val intent = Intent(this, DetailTransactionJemaahActivity::class.java)
-        startActivity(intent)
-        finish()
+    fun addTransaction(photo: File) {
+        val transaction = Transaction(
+            id = "",
+            photoUrl = "",
+            createdTimeMillisecond = System.currentTimeMillis(),
+            status = null,
+            note = null,
+            idJemaah = userPreference.getUid()!!,
+            idMasjid = masjidData.uid,
+            idAnimal = animalData.id
+        )
+        transactionViewModel.addTransaction(transaction, photo)
+        transactionViewModel.addTransactionResult.observe(this) { isSuccess ->
+            if (isSuccess) {
+                transactionViewModel.transactionDetail.observe(this) { transaction ->
+                    showDialog(isSuccess, transaction)
+                }
+            } else {
+                showDialog(false, null)
+            }
+        }
+    }
+
+    fun showDialog(status: Boolean, transaction: TransactionDetail?) {
+        val messageResId =
+            if (status) R.string.add_transaction_success else R.string.add_transaction_failed
+        val title = resources.getString(R.string.announcement)
+        val message = resources.getString(messageResId)
+
+        DialogUtils.showNotificationDialog(this, title, message) {
+            if (status) {
+                val intent = Intent(this, DetailTransactionJemaahActivity::class.java)
+                intent.putExtra(Constanta.TRANSACTION_DATA, transaction!!)
+                startActivity(intent)
+                finish()
+            }
+        }
+    }
+
+    fun showLoading(state: Boolean) {
+        binding.progressBar.visibility = if (state) View.VISIBLE else View.GONE
     }
 
     override fun onSupportNavigateUp(): Boolean {

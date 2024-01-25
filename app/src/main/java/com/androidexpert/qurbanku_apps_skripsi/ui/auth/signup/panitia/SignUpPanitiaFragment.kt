@@ -6,40 +6,38 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
 import com.androidexpert.qurbanku_apps_skripsi.R
+import com.androidexpert.qurbanku_apps_skripsi.data.lib.User
+import com.androidexpert.qurbanku_apps_skripsi.data.remote.AuthRepository
 import com.androidexpert.qurbanku_apps_skripsi.databinding.FragmentSignUpPanitiaBinding
+import com.androidexpert.qurbanku_apps_skripsi.ui.ViewModelFactory
 import com.androidexpert.qurbanku_apps_skripsi.ui.auth.AuthViewModel
 import com.androidexpert.qurbanku_apps_skripsi.ui.auth.login.LoginActivity
 import com.androidexpert.qurbanku_apps_skripsi.ui.maps.MapsPickLocationActivity
 import com.androidexpert.qurbanku_apps_skripsi.utils.Constanta
 import com.androidexpert.qurbanku_apps_skripsi.utils.DialogUtils
 import com.androidexpert.qurbanku_apps_skripsi.utils.Helper
+import com.androidexpert.qurbanku_apps_skripsi.utils.Helper.setupTextWatcher
 
 class SignUpPanitiaFragment : Fragment() {
     private lateinit var binding: FragmentSignUpPanitiaBinding
-    private val authViewModel: AuthViewModel by viewModels()
-    private var latitude: Double = 0.0
-    private var longitude: Double = 0.0
+    private lateinit var authViewModel: AuthViewModel
+    private val authRepository = AuthRepository()
     private var usingLocation: Boolean? = false
     private val launcerIntentLocation = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
     ) {
         if (it.resultCode == Activity.RESULT_OK) {
             it.data?.let { result ->
-                usingLocation = result.getBooleanExtra("USINGLOCATION", false)
-//                latitude = result.getDoubleExtra(latitude_code, 0.0)
-//                longitude = result.getDoubleExtra(longitude_code, 0.0)
-                authViewModel.apply {
-                    isUsingLocation.postValue(usingLocation)
-                    val tempLatitude = result.getDoubleExtra(Constanta.latitude, 0.0)
-                    val tempLongitude = result.getDoubleExtra(Constanta.longitude, 0.0)
-                    latitude.postValue(tempLatitude)
-                    longitude.postValue(tempLongitude)
-                    setupInfromation(tempLatitude, tempLongitude)
-                }
+                usingLocation = result.getBooleanExtra(Constanta.usingLocation, false)
+                val tempLatitude = result.getDoubleExtra(Constanta.latitude, 0.0)
+                val tempLongitude = result.getDoubleExtra(Constanta.longitude, 0.0)
+                authViewModel.setLocation(usingLocation!!, tempLatitude, tempLongitude)
+                setupInfromation(tempLatitude, tempLongitude)
             }
         }
     }
@@ -55,15 +53,51 @@ class SignUpPanitiaFragment : Fragment() {
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        setupInfromation(null, null)
+        authViewModel = ViewModelProvider(
+            this,
+            ViewModelFactory.AuthViewModelFactory(authRepository)
+        )[AuthViewModel::class.java]
+        this.setupInfromation(null, null)
         super.onViewCreated(view, savedInstanceState)
         binding.btnAddAddress.setOnClickListener {
             pickLocation()
         }
         binding.btnSignUp.setOnClickListener {
-            val title = resources.getString(R.string.signup)
-            val message = resources.getString(R.string.signup_message)
-            DialogUtils.showConfirmationDialog(requireContext(), title, message, ::signUp)
+            binding.apply {
+                val email = etEmail.text.toString()
+                val name = etName.text.toString()
+                val headName = etNameHeadTakmir.text.toString()
+                val phoneNumber = etContactPersonNumber.text.toString()
+                val latitude = authViewModel.latitude.value?.toDouble() ?: 0.0
+                val longitude = authViewModel.longitude.value?.toDouble() ?: 0.0
+                val password = etPassword.text.toString()
+                val accountNumber = etAccountNumber.text.toString()
+                val bankName = etBankName.text.toString()
+                val accountName = etAccountName.text.toString()
+                val user = User(
+                    uid = "",
+                    email = email,
+                    headName = headName,
+                    name = name,
+                    phoneNumber = phoneNumber,
+                    admin = true,
+                    address = null,
+                    latitude = latitude,
+                    longitude = longitude,
+                    bankName = bankName.uppercase(),
+                    bankAccountNumber = accountNumber,
+                    bankAccountName = accountName.uppercase()
+                )
+                //if success
+                if (validation(user, password, usingLocation ?: false)
+                ) {
+                    val title = resources.getString(R.string.signup)
+                    val message = resources.getString(R.string.signup_message)
+                    DialogUtils.showConfirmationDialog(requireContext(), title, message, {
+                        signUp(user, password)
+                    })
+                }
+            }
         }
         binding.btnLogin.setOnClickListener {
             login()
@@ -71,13 +105,26 @@ class SignUpPanitiaFragment : Fragment() {
 
     }
 
-    fun signUp(){
-        //if success
-        val title = resources.getString(R.string.signup_success_title)
-        val message = resources.getString(R.string.signup_success_message)
-        DialogUtils.showNotificationDialog(requireContext(), title, message, ::login)
+    fun signUp(user: User, password: String) {
+        authViewModel.signUpUser(user, password)
+        // Observe the registration result in the ViewModel and handle UI accordingly
+        authViewModel.registrationResult.observe(viewLifecycleOwner, { isSuccess ->
+            var title = ""
+            var message = ""
+            if (isSuccess == true) {
+                title = resources.getString(R.string.signup_success_title)
+                message = resources.getString(R.string.signup_success_message)
+                DialogUtils.showNotificationDialog(requireContext(), title, message, ::login)
+            } else {
+                title = resources.getString(R.string.signup_failed_title)
+                message = resources.getString(R.string.signup_failed_message)
+                DialogUtils.showNotificationDialog(requireContext(), title, message, {})
+            }
+        })
     }
-    fun login(){
+
+
+    fun login() {
         val intent = Intent(requireContext(), LoginActivity::class.java)
         intent.putExtra(Constanta.isPanitia, true)
         startActivity(intent)
@@ -89,16 +136,88 @@ class SignUpPanitiaFragment : Fragment() {
         launcerIntentLocation.launch(intent)
     }
 
+    fun validation(user: User, password: String, usingLocation: Boolean): Boolean {
+        var isValid = false
+        binding.apply {
+            val isEmailValid = user.email.isNotEmpty() && Helper.emailValidation(user.email)
+            val isPasswordValid = password.isNotEmpty() && Helper.passwordValidation(password)
+            val isNameValid = user.name.isNotEmpty()
+            val isHeadNameValid = user.headName.isNotEmpty()
+            val isPhoneNumberValid = user.phoneNumber.isNotEmpty()
+            val isUsingLocation = usingLocation
+            val isAccountNumberValid = user.bankAccountNumber?.isNotEmpty()
+            val isBankNameValid = user.bankName?.isNotEmpty()
+            val isAccountNameValid = user.bankAccountName?.isNotEmpty()
+            val editTextPairs = listOf(
+                etEmail to etEmailLayout,
+                etPassword to etPasswordLayout,
+                etName to etNameLayout,
+                etNameHeadTakmir to etNameHeadTakmirLayout,
+                etContactPersonNumber to etContactPersonNumberLayout,
+                etAccountNumber to etAccountNumberLayout,
+                etBankName to etBankNameLayout,
+                etAccountName to etAccountNameLayout
+            )
+            editTextPairs.forEach { (editText, layout) ->
+                setupTextWatcher(editText, layout)
+            }
+
+            if (isEmailValid && isNameValid && isHeadNameValid && isPhoneNumberValid && isUsingLocation && isAccountNumberValid!! && isBankNameValid!! && isAccountNameValid!! && isPasswordValid) {
+                isValid = true
+            }
+
+            val validationList = listOf(
+                isEmailValid to resources.getString(R.string.email_invalid),
+                isPasswordValid to resources.getString(R.string.password_minimum),
+                isNameValid to null,
+                isHeadNameValid to null,
+                isPhoneNumberValid to null,
+                isAccountNumberValid to null,
+                isBankNameValid to null,
+                isAccountNameValid to null
+            )
+
+            validationList.forEachIndexed { index, (isValid, errorMessage) ->
+                if (!isValid!!) {
+                    editTextPairs.getOrNull(index)?.let { (editText, layout) ->
+                        Helper.setError(requireContext(), editText, layout, errorMessage)
+                    }
+                }
+            }
+
+            if (!isUsingLocation) Toast.makeText(
+                requireContext(),
+                resources.getString(R.string.masjid_location_not_selected),
+                Toast.LENGTH_SHORT
+            ).show()
+        }
+        return isValid
+    }
+
     fun setupInfromation(latitude: Double?, longitude: Double?) {
+        authViewModel.isLoading.observe(viewLifecycleOwner, {
+            showLoading(it)
+        })
         val guide = resources.getStringArray(R.array.note_panitia_signUp).joinToString("\n")
         binding.tvNoteValue.text = guide
         if (latitude != null && longitude != null) {
             authViewModel.isUsingLocation.observe(viewLifecycleOwner, { usingLocation ->
-                if (usingLocation==true) binding.btnAddAddress.text = Helper.parseAddress(requireContext(), latitude, longitude)
+                if (usingLocation == true) binding.btnAddAddress.text =
+                    Helper.parseAddress(requireContext(), latitude, longitude)
             })
         }
     }
 
+    private fun showLoading(state: Boolean) {
+        binding.progressBar.visibility = if (state) View.VISIBLE else View.GONE
+    }
+
+    override fun onDestroyView() {
+        authViewModel.registrationResult.removeObservers(viewLifecycleOwner)
+        authViewModel.isLoading.removeObservers(viewLifecycleOwner)
+        super.onDestroyView()
+    }
 
 
 }
+

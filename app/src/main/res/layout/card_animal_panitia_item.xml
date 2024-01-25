@@ -8,9 +8,12 @@
     android:backgroundTint="@color/white"
     app:cardCornerRadius="20dp"
     app:cardElevation="4dp"
+    android:layout_marginLeft="16dp"
+    android:layout_marginRight="16dp"
     android:layout_marginBottom="8dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/card_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="?android:selectableItemBackground">
@@ -22,9 +25,9 @@
             android:background="@drawable/card_shape"
             android:backgroundTint="@color/green_navbar"
             android:paddingLeft="8dp"
-            android:paddingTop="4dp"
+            android:paddingTop="2dp"
             android:paddingRight="8dp"
-            android:paddingBottom="4dp"
+            android:paddingBottom="2dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
@@ -32,11 +35,13 @@
                 android:id="@+id/tv_animal_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:minWidth="80dp"
                 android:fontFamily="@font/popping_bold"
+                android:textAlignment="center"
                 android:text="@string/species"
                 android:textAllCaps="true"
                 android:textColor="@color/text_color_light"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -126,20 +131,20 @@
             android:background="@drawable/card_shape"
             android:backgroundTint="@color/green_navbar"
             android:paddingLeft="8dp"
-            android:paddingTop="4dp"
+            android:paddingTop="2dp"
             android:paddingRight="16dp"
-            android:paddingBottom="4dp"
+            android:paddingBottom="2dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tableLayout">
 
             <TextView
                 android:id="@+id/tv_price"
-                style="@style/TextSpec.Field.Button"
+                android:fontFamily="@font/semi_bold_poppins"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/price"
                 android:textColor="@color/text_color_light"
-                android:textSize="16sp"
+                android:textSize="14sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

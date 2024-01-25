@@ -1,6 +1,5 @@
 package com.androidexpert.qurbanku_apps_skripsi.utils
 
-import android.Manifest
 import android.annotation.SuppressLint
 import android.app.Application
 import android.content.ContentResolver
@@ -10,16 +9,21 @@ import android.graphics.BitmapFactory
 import android.graphics.Matrix
 import android.location.Address
 import android.location.Geocoder
+import android.net.ConnectivityManager
 import android.net.Uri
 import android.os.Environment
-import androidx.appcompat.app.AlertDialog
-import androidx.core.content.ContextCompat
+import android.text.Editable
+import android.text.TextWatcher
+import android.widget.EditText
 import com.androidexpert.qurbanku_apps_skripsi.R
+import com.google.android.material.textfield.TextInputLayout
 import java.io.ByteArrayOutputStream
 import java.io.File
 import java.io.FileOutputStream
 import java.io.InputStream
 import java.io.OutputStream
+import java.text.DecimalFormat
+import java.text.NumberFormat
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Date
@@ -29,6 +33,42 @@ object Helper {
     private const val FILENAME_FORMAT = "dd-MMMM-yyyy"
     private const val simpleDateFormat = "dd MMM yyyy HH.mm"
     private const val timestampFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+
+    fun isInternetAvailable(context: Context): Boolean {
+        val connectivityManager =
+            context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val networkInfo = connectivityManager.activeNetworkInfo
+        return networkInfo != null && networkInfo.isConnected
+    }
+
+    //login
+    fun emailValidation(input: String): Boolean {
+        return android.util.Patterns.EMAIL_ADDRESS.matcher(input).matches()
+    }
+    fun passwordValidation(input: String): Boolean {
+        return input.length >= Constanta.passwordMinimum
+    }
+
+    fun setupTextWatcher(editText: EditText, textInputLayout: TextInputLayout) {
+        editText.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                textInputLayout.isErrorEnabled = false
+            }
+
+            override fun afterTextChanged(s: Editable?) {}
+        })
+    }
+
+    fun setError(context: Context, editText: EditText, errorLayout: TextInputLayout, errorMessage: String?) {
+        errorLayout.errorIconDrawable = null
+        if (editText.text.toString().isEmpty()) {
+            errorLayout.error = context.resources.getString(R.string.column_isEmpty_message)
+        } else {
+            if (errorMessage!=null) errorLayout.error = errorMessage
+        }
+    }
 
     //for camera
     val timeStamp: String = SimpleDateFormat(
@@ -70,6 +110,19 @@ object Helper {
             // Extract the address details you need, e.g.
 //            fetchedAddress.getAddressLine(0)
             "${fetchedAddress.subLocality}, ${fetchedAddress.locality}"
+        } else {
+            "Address not found"
+        }
+        return address
+    }
+    fun parseCompleteAddress(context: Context, latitude: Double, longitude: Double): String {
+        val geocoder = Geocoder(context, Locale.getDefault())
+        val addresses = geocoder.getFromLocation(latitude, longitude, 1)
+        val address: String = if (addresses?.isNotEmpty() == true) {
+            val fetchedAddress: Address = addresses[0]
+            // Extract the address details you need, e.g.
+            fetchedAddress.getAddressLine(0)
+//            "${fetchedAddress.subLocality}, ${fetchedAddress.locality}"
         } else {
             "Address not found"
         }
@@ -152,69 +205,39 @@ object Helper {
 
         return myFile
     }
-}
 
-object DialogUtils {
-    fun showConfirmationDialog(
-        context: Context,
-        title: String,
-        message: String,
-        positiveButtonListener: () -> Unit,
-    ) {
-        val builder = AlertDialog.Builder(context)
-        builder.setTitle(title)
-        builder.setMessage(message)
-        builder.setPositiveButton(context.getString(R.string.next2)) { _, _ ->
-            positiveButtonListener.invoke()
-        }
-        builder.setNegativeButton(context.getString(R.string.cancel)) { _, _ ->
-            // Handle cancel if needed
-        }
-        val dialog = builder.create()
-        dialog.show()
-        dialog.getButton(AlertDialog.BUTTON_NEGATIVE)
-            .setTextColor(ContextCompat.getColor(context, R.color.danger))
-        dialog.getButton(AlertDialog.BUTTON_POSITIVE)
-            .setTextColor(ContextCompat.getColor(context, R.color.green_main))
-        dialog.window?.setBackgroundDrawableResource(R.drawable.rounded_dialog)
+    fun parseNumberFormat(value: Int): String{
+        // Using NumberFormat
+        val numberFormat = NumberFormat.getNumberInstance(Locale.getDefault())
+        val formattedNumber = numberFormat.format(value)
+        return formattedNumber
+        // Using DecimalFormat
+//        val decimalFormat = DecimalFormat("#,###")
+//        val formattedDecimal = decimalFormat.format(value)
+//        println("Using DecimalFormat: $formattedDecimal")
     }
-    fun showNotificationDialog(
-        context: Context,
-        title: String,
-        message: String,
-        positiveButtonListener: () -> Unit,
-    ) {
-        val builder = AlertDialog.Builder(context)
-        builder.setTitle(title)
-        builder.setMessage(message)
-        builder.setPositiveButton(context.getString(R.string.next2)) { _, _ ->
-            positiveButtonListener.invoke()
-        }
-        val dialog = builder.create()
-        dialog.show()
-        dialog.getButton(AlertDialog.BUTTON_POSITIVE)
-            .setTextColor(ContextCompat.getColor(context, R.color.green_main))
-        dialog.window?.setBackgroundDrawableResource(R.drawable.rounded_dialog)
+
+    fun parseNumberFormatEditText(value: Double): String{
+        // Using NumberFormat
+        val numberFormat = NumberFormat.getNumberInstance(Locale.getDefault())
+        val formattedNumber = numberFormat.format(value)
+        return formattedNumber
+        // Using DecimalFormat
+//        val decimalFormat = DecimalFormat("#,###")
+//        val formattedDecimal = decimalFormat.format(value)
+//        println("Using DecimalFormat: $formattedDecimal")
     }
+    fun convertToInternationalFormat(phoneNumber: String): String {
+        var formattedNumber = phoneNumber.trim()
+
+        if (!formattedNumber.startsWith("+")) {
+            if (formattedNumber.startsWith("0")) {
+                formattedNumber = formattedNumber.substring(1)
+            }
+            formattedNumber = "+62$formattedNumber"
+        }
+        return formattedNumber
+    }
+
 }
 
-object Constanta {
-    val DATE_DATA = "DATE"
-    const val isPanitia= "IS_PANITIA"
-
-    //maps
-    const val latitude = "LATITUDE"
-    const val longitude = "LONGITUDE"
-    const val usingLocation = "USINGLOCATION"
-
-    //camera
-    const val CAMERA_X_RESULT = 200
-    const val picture = "PICTURE"
-    const val isBackCamera = "IS_BACK_CAMERA"
-    val REQUIRED_PERMISSIONS = arrayOf(Manifest.permission.CAMERA)
-    const val REQUEST_CODE_PERMISSIONS = 10
-}
-
-enum class ACTOR {
-    PANITIA, JEMAAH
-}

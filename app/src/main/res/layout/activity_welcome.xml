@@ -19,13 +19,122 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/app_bar">
 
+        <TextView
+            android:id="@+id/tv_choose_role"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:alpha="0"
+            android:fontFamily="@font/semi_bold_poppins"
+            android:text="@string/choose_your_role"
+            android:textAlignment="center"
+            android:textColor="@color/green_dark_label"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@+id/card_container"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="16dp" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/card_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:alpha="0"
+            android:elevation="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/iv_banner">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_panitia"
+                android:layout_width="150dp"
+                android:layout_height="200dp"
+                android:layout_margin="16dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="6dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="?android:selectableItemBackground">
+
+                    <ImageView
+                        android:id="@+id/iv_panitia"
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:src="@drawable/banner_panitia_only"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tv_actor_panitia"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/popping_bold"
+                        android:text="@string/panitia_allcaps"
+                        android:textAlignment="center"
+                        android:textAllCaps="true"
+                        android:textColor="@color/green_main"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/iv_panitia" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_jemaah"
+                android:layout_width="150dp"
+                android:layout_height="200dp"
+                android:layout_margin="16dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="6dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="?android:selectableItemBackground">
+
+                    <ImageView
+                        android:id="@+id/iv_jemaah"
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:src="@drawable/banner_jemaah_only"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tv_actor_jemaah"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/popping_bold"
+                        android:text="@string/jemaah_allcaps"
+                        android:textAlignment="center"
+                        android:textAllCaps="true"
+                        android:textColor="@color/green_main"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/iv_jemaah" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
         <ImageView
             android:id="@+id/iv_banner"
             android:layout_width="0dp"
             android:layout_height="300dp"
-            android:layout_marginTop="100dp"
             android:layout_marginLeft="-16dp"
+            android:layout_marginTop="100dp"
             android:layout_marginRight="-16dp"
+            android:alpha="1"
             android:src="@drawable/banner_panitia"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -56,51 +165,17 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/iv_banner" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/layout_spinner"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:alpha="0"
-            android:background="@drawable/rounded_corner"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/menu1">
-
-            <Spinner
-                android:id="@+id/btn_spinner"
-                style="@style/TextSpec.Field.Button"
-                android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:textAlignment="center"
-                android:textAllCaps="false"
-                android:textColor="@color/green_dark_label"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <View
-            android:id="@+id/line"
-            android:layout_width="370dp"
-            android:layout_height="1dp"
-            android:layout_marginTop="24dp"
-            android:background="@color/text_color_light"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/layout_spinner" />
 
         <Button
             android:id="@+id/btn_next"
             style="@style/TextSpec.Field.Button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="32dp"
             android:text="@string/next"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/line" />
+            app:layout_constraintTop_toBottomOf="@+id/menu2" />
 
         <androidx.constraintlayout.utils.widget.ImageFilterView
             android:id="@+id/menu1"

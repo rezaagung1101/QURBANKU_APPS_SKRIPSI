@@ -4,16 +4,15 @@
     <color name="white">#FFFFFFFF</color>
     <color name="text_color">#514141</color>
     <color name="text_color_light">#776A6A</color>
-    <color name="text_value">#FF000000</color>
     <color name="green_navbar">#98EECC</color>
     <color name="green_light_1">#FBFFDC</color>
-    <color name="green_light_2">#D0F5BE</color>
+    <color name="green_sold_status">#AEFFDF</color>
     <color name="green_main">#A4907C</color>
     <color name="green_dark_label">#776451</color>
     <color name="danger">#DC3545</color>
     <color name="disabled_background">#EEEEEE</color>
+    <color name="transaction_uncorfirmed_border">#D8D7D7</color>
     <color name="disabled_text">#DD9E9E</color>
     <color name="purple_700">#132AFB</color>
-    <color name="transparent">?android:attr/selectableItemBackground</color>
 
 </resources>
