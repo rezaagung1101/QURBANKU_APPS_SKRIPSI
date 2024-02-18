@@ -248,19 +248,6 @@ class TransactionRepository() {
             }
     }
 
-//    fun updateAnimalShohibulQurbaniList(idJemaah: String, idAnimal: String, onUpdateResult: (Boolean) -> Unit) {
-//        firestore.collection("animal").document(idAnimal)
-//            .update(
-//                "idShohibulQurbaniList", FieldValue.arrayUnion(idJemaah)
-//            )
-//            .addOnCompleteListener { animalUpdateTask ->
-//                onUpdateResult(animalUpdateTask.isSuccessful)
-//            }
-//            .addOnFailureListener {
-//                onUpdateResult(false)
-//            }
-//    }
-
     fun updateAnimalShohibulQurbaniList(idJemaah: String, idAnimal: String, onUpdateResult: (Boolean) -> Unit) {
         // Fetch the current document to get the existing idShohibulQurbaniList
         firestore.collection("animal").document(idAnimal)
