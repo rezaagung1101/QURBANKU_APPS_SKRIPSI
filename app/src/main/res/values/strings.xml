@@ -131,7 +131,7 @@
     <string name="qurbani_information">Informasi Kurban</string>
     <string name="animal_status">Status hewan</string>
     <string name="holiday_date">Tanggal Hari Raya</string>
-    <string name="shohibul_qurban">Shohibul Qurban</string>
+    <string name="shohibul_qurban">Daftar Pembeli</string>
     <string name="animal_confirm_status">Konfirmasi Status Penyembelihan</string>
     <string name="animal_confirm_status_message">Anda akan mengubah status hewan menjadi disembelih. Lanjutkan?</string>
     <string name="detail_animal">Detail Hewan</string>
@@ -247,11 +247,11 @@
     <string name="null_animal_jemaah_message">Masjid belum memiliki data hewan kurban</string>
     <string name="update_profile_failed">Terdapat kesalahan, gagal mengubah data profil</string>
     <string name="title_activity_maps_update_location">MapsUpdateLocationActivity</string>
-    <string name="add_shohibul_qurbani">Tambah Shohibul Qurban</string>
-    <string name="add_shohibul_qurbani_note">Masukkan data diri shohibul qurban</string>
-    <string name="add_shohibul_qurbani_success">Berhasil menambahkan data shohibul qurban</string>
-    <string name="add_shohibul_qurbani_failed">Terdapat kesalahan, gagal menambahkan data shohibul qurban</string>
-    <string name="add_shohibul_qurbani_message">Anda yakin ingin menambahkan data shohibul qurban?</string>
+    <string name="add_shohibul_qurbani">Tambah Data Pembeli</string>
+    <string name="add_shohibul_qurbani_note">Masukkan data diri pembeli</string>
+    <string name="add_shohibul_qurbani_success">Berhasil menambahkan data pembeli</string>
+    <string name="add_shohibul_qurbani_failed">Terdapat kesalahan, gagal menambahkan data pembeli</string>
+    <string name="add_shohibul_qurbani_message">Anda yakin ingin menambahkan data pembeli?</string>
     <string name="price_not_valid">Jumlah tidak sesuai ketentuan</string>
     <string name="click_for_location">Klik pada peta untuk menggunakan lokasi.</string>
     <string name="click_for_information">Klik pada penanda untuk melihat informasi.</string>

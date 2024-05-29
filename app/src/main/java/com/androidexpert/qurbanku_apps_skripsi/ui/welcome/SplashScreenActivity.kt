@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import androidx.appcompat.app.AppCompatDelegate
 import com.androidexpert.qurbanku_apps_skripsi.databinding.ActivitySplashScreenBinding
 import com.androidexpert.qurbanku_apps_skripsi.ui.main.MainJemaahActivity
 import com.androidexpert.qurbanku_apps_skripsi.ui.main.MainPanitiaActivity
@@ -17,6 +18,7 @@ class SplashScreenActivity : AppCompatActivity() {
         userPreference = UserPreference(this)
         super.onCreate(savedInstanceState)
         binding = ActivitySplashScreenBinding.inflate(layoutInflater)
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         setContentView(binding.root)
         val delay: Long = 1500
         Handler(Looper.getMainLooper()).postDelayed({
