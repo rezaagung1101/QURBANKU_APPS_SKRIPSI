@@ -9,8 +9,9 @@
     app:cardCornerRadius="20dp"
     app:cardElevation="4dp"
     android:layout_marginLeft="16dp"
+    android:layout_marginTop="4dp"
     android:layout_marginRight="16dp"
-    android:layout_marginBottom="8dp">
+    android:layout_marginBottom="4dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/card_container"
@@ -102,7 +103,7 @@
                 <TextView
                     style="@style/TextSpec.Value"
                     android:layout_column="1"
-                    android:text="@string/joint_venture" />
+                    android:text="@string/joint_venture_amount" />
 
                 <TextView
                     android:id="@+id/tv_joint_venture"
@@ -127,7 +128,7 @@
             android:id="@+id/constraintLayout4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="2dp"
             android:background="@drawable/card_shape"
             android:backgroundTint="@color/green_navbar"
             android:paddingLeft="8dp"

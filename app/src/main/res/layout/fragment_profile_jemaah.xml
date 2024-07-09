@@ -68,7 +68,7 @@
                     android:layout_marginTop="8dp"
                     android:text="@string/email"
                     android:textColor="@color/text_color"
-                    android:textSize="16sp"
+                    android:textSize="14sp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -76,7 +76,7 @@
                     style="@style/TextSpec.Value"
                     android:text="@string/email"
                     android:textColor="@color/text_color_light"
-                    android:textSize="16sp" />
+                    android:textSize="14sp" />
 
                 <TextView
                     android:id="@+id/tv_head_title"
@@ -84,7 +84,7 @@
                     android:layout_height="20dp"
                     android:text="@string/head_of_family"
                     android:textColor="@color/text_color"
-                    android:textSize="16sp"
+                    android:textSize="14sp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -92,7 +92,7 @@
                     style="@style/TextSpec.Value"
                     android:text="@string/name"
                     android:textColor="@color/text_color_light"
-                    android:textSize="16sp" />
+                    android:textSize="14sp" />
 
                 <TextView
                     android:id="@+id/tv_phone_number_title"
@@ -100,7 +100,7 @@
                     android:layout_height="20dp"
                     android:text="@string/phone_number"
                     android:textColor="@color/text_color"
-                    android:textSize="16sp"
+                    android:textSize="14sp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -108,7 +108,7 @@
                     style="@style/TextSpec.Value"
                     android:text="@string/phone_number"
                     android:textColor="@color/text_color_light"
-                    android:textSize="16sp" />
+                    android:textSize="14sp" />
 
 
                 <TextView
@@ -117,7 +117,7 @@
                     android:layout_height="20dp"
                     android:text="@string/address"
                     android:textColor="@color/text_color"
-                    android:textSize="16sp"
+                    android:textSize="14sp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -125,7 +125,7 @@
                     style="@style/TextSpec.Value"
                     android:text="@string/address"
                     android:textColor="@color/text_color_light"
-                    android:textSize="16sp" />
+                    android:textSize="14sp" />
 
                 <TextView
                     android:id="@+id/tv_qurbani_history_title"
@@ -133,7 +133,7 @@
                     android:layout_height="20dp"
                     android:text="@string/history_qurbani_amount"
                     android:textColor="@color/text_color"
-                    android:textSize="16sp"
+                    android:textSize="14sp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -141,7 +141,7 @@
                     style="@style/TextSpec.Value"
                     android:text="1"
                     android:textColor="@color/text_color_light"
-                    android:textSize="16sp" />
+                    android:textSize="14sp" />
 
                 <View
                     android:id="@+id/line"
@@ -165,7 +165,7 @@
                     android:paddingBottom="5dp"
                     android:text="@string/update_profile"
                     android:textAllCaps="false"
-                    android:textSize="16sp" />
+                    android:textSize="14sp" />
 
                 <Button
                     android:id="@+id/btn_logout"
@@ -182,7 +182,7 @@
                     android:paddingBottom="5dp"
                     android:text="@string/logout"
                     android:textAllCaps="false"
-                    android:textSize="16sp" />
+                    android:textSize="14sp" />
             </LinearLayout>
 
 

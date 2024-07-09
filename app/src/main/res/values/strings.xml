@@ -1,7 +1,8 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Qurbanku</string>
+    <string name="copyright">© q u r b a n k u</string>
     <string name="welcome_quote">Permudah Manajemen Pembelian dan Patungan Kurban Anda dengan fitur di aplikasi QurbanKu</string>
-    <string name="welcome_quote_question">Apa peran Anda dalam ibadah kurban kali ini?</string>
+    <string name="welcome_quote_question">Apa peran Anda dalam ibadah kurban?</string>
     <string name="next">Berikutnya</string>
     <string name="panitia_allcaps">PANITIA</string>
     <string name="jemaah_allcaps">JEMAAH</string>
@@ -81,6 +82,7 @@
     <string name="weight_et_hint">Berat (kg)</string>
     <string name="weight_value">%s</string>
     <string name="joint_venture">Patungan</string>
+<!--    <string name="joint_venture_amount">Jumlah Patungan</string>-->
     <string name="purchase_category">Pembelian</string>
     <string name="price">Rp %d</string>
     <string name="price_2">Rp %s</string>
