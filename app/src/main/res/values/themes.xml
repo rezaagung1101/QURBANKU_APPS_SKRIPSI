@@ -29,9 +29,9 @@
     </style>
 
     <style name="BottomNavigationView" parent="Widget.MaterialComponents.BottomNavigationView">
-        <item name="android:layout_height">75dp</item>
+        <item name="android:layout_height">65dp</item>
         <item name="android:background">@color/green_navbar</item>
-        <item name="itemIconSize">35dp</item>
+        <item name="itemIconSize">30dp</item>
         <item name="itemIconTint">@drawable/bottom_nav_selector</item>
     </style>
 
@@ -39,7 +39,7 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_weight">4</item>
-        <item name="android:textSize">16sp</item>
+        <item name="android:textSize">14sp</item>
         <item name="fontFamily">@font/semi_bold_poppins</item>
         <item name="android:textColor">@color/white</item>
     </style>
@@ -48,7 +48,7 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_weight">4</item>
-        <item name="android:textSize">16sp</item>
+        <item name="android:textSize">14sp</item>
         <item name="fontFamily">@font/semi_bold_poppins</item>
         <item name="android:textColor">@color/green_dark_label</item>
     </style>
@@ -62,7 +62,7 @@
     <style name="TextSpec.Field">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:textSize">16sp</item>
+        <item name="android:textSize">14sp</item>
         <item name="fontFamily">@font/regular_poppins</item>
         <item name="textAllCaps">false</item>
         <item name="android:textColor">@color/text_color</item>
@@ -83,14 +83,14 @@
         <item name="android:textSize">14sp</item>
         <item name="fontFamily">@font/semi_bold_poppins</item>
         <item name="android:textColor">@color/white</item>
-        <item name="android:backgroundTint">@color/green_main</item>
+        <item name="android:backgroundTint">@color/green_main</item>zz
         <item name="cornerRadius">10dp</item>
     </style>
 
     <style name="TextSpec.Value">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:textSize">14sp</item>
+        <item name="android:textSize">13sp</item>
         <item name="fontFamily">@font/regular_poppins</item>
         <item name="android:textColor">@color/text_color</item>
     </style>
@@ -141,7 +141,7 @@
     <style name="TextSpec.LabelMedium">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:textSize">14sp</item>
+        <item name="android:textSize">13sp</item>
         <item name="fontFamily">@font/semi_bold_poppins</item>
         <item name="android:textColor">@color/text_color</item>
     </style>
