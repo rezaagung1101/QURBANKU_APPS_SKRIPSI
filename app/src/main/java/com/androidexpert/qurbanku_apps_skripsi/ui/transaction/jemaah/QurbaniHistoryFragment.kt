@@ -2,6 +2,7 @@ package com.androidexpert.qurbanku_apps_skripsi.ui.transaction.jemaah
 
 import android.os.Bundle
 import android.os.Handler
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
